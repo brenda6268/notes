@@ -1,0 +1,1 @@
+https://www.robertcooper.me/get-started-with-typescript-in-2019
