@@ -1,0 +1,1 @@
+使用 `left + (right - left) / 2` 而不要使用 `(left + right) / 2`, 避免溢出。
