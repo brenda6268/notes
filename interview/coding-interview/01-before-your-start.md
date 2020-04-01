@@ -16,15 +16,19 @@ Date: 2020-01-05
 
 ## 时间复杂度
 
-```
-O(1) = O(yeah)
-O(log n) = O(nice)
-O(nlogn) = O(k-ish)
-O(n) = O(ok)
-O(n²) = O(my)
-O(2ⁿ) = O(no)
-O(n^n) = O(fuck)
-O(n!) = O(mg!)
-```
+- O(1) 极少
+- O(logn) 几乎都是二分法
+- O(√n) 几乎是分解质因数
+- O(n) 高频
+- O(nlogn) 一般都可能要排序
+- O(n2) 数组，枚举，动态规划
+- O(n3) 数组，枚举，动态规划
+- O(2^n) 与组合有关的搜索 combination
+- O(n!) 与排列有关的搜索 permutation
 
-via:Pranay Pathole
+有时候也可以从时间复杂度倒推出应该用什么算法。
+
+
+## 参考资料
+
+1. https://stomachache007.wordpress.com/2017/03/11/%e4%b9%9d%e7%ab%a0%e7%ae%97%e6%b3%95%e7%ac%94%e8%ae%b0-2-binary-search/

@@ -1,103 +1,53 @@
-# 树的问题的特性
+# 树
 
-1. 对于任何树的问题，还是优先考虑递归，因为树本身就是一个递归性质的数据结构。
-2. 树还是天然 Devide and Conquer 的，也就是说可以分层左右两个树分别处理，然后合并得到答案。
-
-## 改变函数签名与参数传递
-
-如果在递归过程中，需要传递的参数比给定的函数包含的参数更多一些，那么定义一个额外的函数来实现这种 API 上的转换是可以的。
-
-这里其实是更广义的 result in parameter 还是 result in return value 的问题。最好给用户用的函数是 result in return value 的，自己的内部实现可以是 result in parameter 的。另外也可以用闭包实现 result in parameter 的效果，也就是说不传递参数，直接从 closure 中读取。其实也可以用一个全局变量来做，都是类似的效果。
-
-可以传递一个变量或者常量，或者传递一个指针用于保存结果。固定传递的参数也包括了向下传递还是向上返回。具体来说有以下几种：
-
-1. 向下传递额外参数，如边界等
-2. 向上返回额外参数，如后序遍历的额外返回结果
-3. 在参数中返回值，也就是传递指针用于保存结果
-4. 操作全局变量，或者 closure 中的值
-
-# 迭代解 vs 递归解
-
-写迭代性解首先考虑栈。函数调用过程本来就会用到栈使用栈可以模拟递归调用。
-
-使用栈还可以把需要反转的操作自动反转。比如在 zigzag 层序遍历的时候。
-
-# 思维
+## 思维
 
 树的最大问题在于要**从底层叶节点开始思考**，而不是自上而下看图。递归是从基础 case 开始向上递归的。一定要画出访问的顺序图。
 
 ![访问顺序图](https://tva1.sinaimg.cn/large/00831rSTly1gd199vou2dj309j0jrgmn.jpg)
 
-## 递归的出口是选NULL还是叶子节点?
+## 树的问题的特性
+
+1. 对于任何树的问题，还是优先考虑递归，因为树本身就是一个递归性质的数据结构。
+2. 树还是天然 Devide and Conquer 的，也就是说可以分层左右两个树分别处理，然后合并得到答案。
+
+解树的问题就只有两种方法：
+
+1. 分治：后序遍历，并通过左右子树和根节点一起解决问题。
+
+    ![](https://tva1.sinaimg.cn/large/00831rSTly1gde9lv8bebj30fq0godh9.jpg)
+
+2. 遍历：在遍历过程中解决问题，比如记录最大值等。
+
+    ![](https://tva1.sinaimg.cn/large/00831rSTly1gd19anooewj308c04stad.jpg)
+
+
+## 迭代解 vs 递归解
+
+最好写递归解，比较简单。
+
+写迭代性解首先考虑栈。函数调用过程本来就会用到栈使用栈可以模拟递归调用。使用栈还可以把需要反转的操作自动反转。比如在 zigzag 层序遍历的时候。
+
+## 递归的出口是选 NULL 还是叶子节点?
+
+最好选择 null
 
 1. 有一个corner case是直接就传一个null的节点进来, 所以要选null
 2. 叶子节点比较复杂, 只要判断null的return之后结果ok, 就null
 
-# 树的问题总结
-
-## 遍历
-
-三种深度遍历，广度优先遍历
-
-![](https://tva1.sinaimg.cn/large/00831rSTly1gd19anooewj308c04stad.jpg)
-
-```java
-//Version 1: Traverse 
-public class Solution { 
-    public ArrayList<Integer> preorderTraversa1(TreeNode root) { 
-        ArrayList<Integer> result = new ArrayList<Integer>(); 
-        traverse(root, result); 
-        return result; 
-    }
-    // 把 root 为根的 preorder 加入到 result 里面
-    private void traverse(TreeNode root, ArrayList<Integer> result) { 
-        if (root == null) { 
-            return; 
-        }
-        result.add(root.val); 
-        traverse(root.left, result); 
-        traverse(root.right, result); 
-    }
-}
-```
-## 二叉搜索树
 
 
-参考资料
+## 改变函数签名与参数传递
 
-1. https://stomachache007.wordpress.com/2017/03/12/%E4%B9%9D%E7%AB%A0%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-3-binary-tree-divide-conquer/
+参考回溯文档中的讲解
 
-# 时间复杂度
+## 常见问题总结
 
-![](https://tva1.sinaimg.cn/large/00831rSTly1gd19dz03f1j308c062ac6.jpg)
+### 遍历
 
-通过O(n)的时间,把n的问题,变为了两个n/2的问题,复杂度是多少?
+参考这里：https://github.com/yifeikong/interview/blob/master/tree.md
 
-```
-T(n) = 2Tn/2) + O(n)
-= 2 * 2T(n/4) + O(n) + O(n)
-=n + nlogn
-```
 
-通过O(1)的时间,把n的问题,变成了两个n/2的问题,复杂度是多少?
-
-```
-T(n) = 2T(n/2) + O(1)
-= 2 * 2T(n/4) + O(1) + O(1)
-=n + (1 + 2 + 4 +…+ n)
-≈n + 2n
-≈O(n)
-```
-
-二叉树的时间复杂度呢?
-
-也是T(n) = 2T(n/2) + O(1)
-即使是不平衡的二叉树, T(n) = T(x) + T(n-x-1) + O(1), 最后也是拆成n个O(1)相加
-比如:
-
-![](https://tva1.sinaimg.cn/large/00831rSTly1gd19e973rdj308c06p413.jpg)
-
-所以, 二叉树基本都是O(n)的复杂度**
 
 # 红黑树
 
@@ -148,3 +98,7 @@ def increment_depth(node_depth_tuple):
     node, depth = node_depth_tuple    
     return (node, depth + 1)
 ```
+
+## 参考资料
+
+1. https://stomachache007.wordpress.com/2017/03/12/%E4%B9%9D%E7%AB%A0%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-3-binary-tree-divide-conquer/
