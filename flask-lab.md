@@ -3,4 +3,3 @@
 - actions
 - filter
 - list_filter
-- validator

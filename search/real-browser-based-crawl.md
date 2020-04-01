@@ -8,5 +8,3 @@ metavars: {}# 要提交的变量
 steps: # 要循环运行的步骤
   - click: //*[id="next"]
 ```
-
-
