@@ -2,7 +2,7 @@
 
 ## 变量名规范
 
-统一使用：`ans`, `lo`, `hi`
+统一使用：`ans`, `lo`, `hi`, `mi` 这些变量，这样在记相似的题的时候能够减少不少噪音，更容易按规律记下来。
 
 ## 如果有一个数为0，返回另一个
 
@@ -11,11 +11,17 @@ if n * m == 0:
     return n + m
 ```
 
-##  生成数组
+## 生成数组
 
 ```py
 dp = [False for _ in range n]
 dp = [False] * n
+
+# 二维数组, 生成 m*n 的空矩阵
+
+dp = [[0] * n for _ in range(m)]
+# 注意千万不能够写
+# dp = [[0] * n] * m 这样会有浅拷贝的问题
 ```
 
 ## deque
@@ -28,15 +34,6 @@ deque.clear()
 deque.insert(i, x)
 deque.pop()
 deque.popleft()
-```
-
-
-## 生成 m*n 的空矩阵
-
-常用在二维 DP 中
-
-```py
-d = [ [0] * m for _ in range(n)]
 ```
 
 ## 最大值，最小值

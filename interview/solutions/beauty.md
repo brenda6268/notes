@@ -21,7 +21,7 @@ for (i.a = 1; i.a <= 9; i.a++)
 
 ```C
 Grid* preClick = NULL, * curClick = NULL;
-while(true) {
+while (true) {
     // listen user event
     if (点击格子 xy 非空) {
         preClick = curClick;
