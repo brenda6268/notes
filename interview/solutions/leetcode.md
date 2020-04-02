@@ -7756,8 +7756,6 @@ public:
 };
 ```
 
-285 ~ 286 Locked
-------
 
 287 一个 n 的数组包含了 1...n-1 中的这些数字，证明一定存在重复，并找出这个重复
 ------
@@ -7786,15 +7784,12 @@ int findDuplicate(int* nums, int n) {
 }
 ```
 
-288 Locked
-------
-
-289 Conway's Game of Life
+289 生命游戏
 ------
 
 哈哈，机智，使用没有使用的第二个位存储下一代
 
-```C
+```C++
 int max(int a, int b) {return a > b ? a :b;}
 int min(int a, int b) {return a < b ? a :b;}
 void gameOfLife(int** board, int row, int col) {
