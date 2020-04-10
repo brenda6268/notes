@@ -2408,6 +2408,22 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
 
 显然不能直接阶乘过去，分治法
 
+``Python
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        if n < 0:
+            return 1 / self.myPow(x, -n)
+        if n == 0:
+            return 1
+        if n == 1:
+            return x
+        y = self.myPow(x, n //2)
+        if n % 2 == 0:
+            return y * y
+        else:
+            return y * y * x
+```
+
 递归做法
 ```C
 // recursive
@@ -2599,14 +2615,28 @@ int* spiralOrder(int** matrix, int row, int col) {
 55 给定一个数组，每个数字表示在当前步可以移动的距离，返回是不是能够到达终点
 ------
 
-使用动态规划求解，如果当前距离大于最远距离，更新最远距离，如果已经超过了最远距离，跳出
+就是模拟，感觉不算动态规划。
+
+```Python
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        reach = 0
+        for i, n in enumerate(nums):
+            reach = max(reach, i + n)
+            print(reach, i, n)
+            if reach >= len(nums) - 1:
+                return True
+            if reach <= i:
+                return False
+        return False
+```
 
 ```C
 bool canJump(int* nums, int numsSize) {
     int i;
     int reach = 0;
     for (i = 0; i < numsSize && i <= reach; i++)
-            reach = max(reach, nums[i] + i);
+        reach = max(reach, nums[i] + i);
     return i == numsSize;
 }
 ```
@@ -7316,7 +7346,28 @@ bool searchMatrix(int** matrix, int row, int col, int target) {
 241 添加括号得到不同的结果
 ------
 
-对每一个符号，在他的两边添加括号的好的不同结果再计算。
+典型的分治题目。对每一个符号，在他的两边添加括号的好的不同结果再计算。
+
+```Python
+class Solution:
+    def diffWaysToCompute(self, s: str) -> List[int]:
+        if s.isdigit():
+            return [int(s)]
+        ans = []
+        for i in range(len(s)):
+            if s[i] in ("+", "-", "*"):
+                left = self.diffWaysToCompute(s[:i])
+                right = self.diffWaysToCompute(s[i+1:])
+                for l in left:
+                    for r in right:
+                        if s[i] == "+":
+                            ans.append(l+r)
+                        elif s[i] == "-":
+                            ans.append(l-r)
+                        else:
+                            ans.append(l*r)
+        return ans
+```
 
 ```C++
 vector<int> diffWaysToCompute(string input) {
@@ -7326,7 +7377,7 @@ vector<int> diffWaysToCompute(string input) {
         if (!isdigit(token)) // not digit
             for (int a : diffWaysToCompute(input.substr(0, i))) // 左半部分
                 for (int b : diffWaysToCompute(input.substr(i+1))) // 右半部分
-                    output.push_back(token == '+' ? a + b : token == '-'? a - b: a *b); // 两半部分之和
+                    output.push_back(token == '+' ? a + b : token == '-'? a - b: a * b); // 两半部分之和
     }
 
     if (output.empty())
@@ -8136,6 +8187,26 @@ class Solution:
                 ans[i] = stack[-1] - i
             stack.append(i)
         return ans
+```
+
+779 第K个语法符号
+------
+
+这道题的坑爹之处在于索引是 1. 这是一个普通的递归题目，N 在里面没用。。
+
+```Python
+class Solution:
+    def kthGrammar(self, N: int, K: int) -> int:
+        if K == 1:
+            return 0
+        if K == 2:
+            return 1
+        m = self.kthGrammar(N-1, (K+1) // 2)
+        if K % 2 == 0:
+            K = 1 ^ m
+        else:
+            K = m
+        return K
 ```
 
 864 矩形重叠

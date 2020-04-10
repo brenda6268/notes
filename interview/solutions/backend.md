@@ -1,31 +1,31 @@
 # 设计模式
 
-## Q: 为什么全局和静态变量是邪恶的？你能给出一个代码例子吗？
+## 为什么全局和静态变量是邪恶的？你能给出一个代码例子吗？
 
 1. 对于 C 语言来说，占据了静态存储区，使程序变大
 2. 破坏封装，函数不是幂等的
 3. 代码可读性下降
 4. 多线程程序会造成竞态条件
 
-## Q: 给我讲讲 Inversion of Control，以及他是如何提升代码的设计水平的
+## 给我讲讲 Inversion of Control，以及他是如何提升代码的设计水平的
 
 其实很简单，就是把一段代码中需要依赖的另一个类从这段代码中移出来，然后把生成的结果传递到这段代码中，这就是 Inversion of Control 了
 
 https://stackoverflow.com/questions/3058/what-is-inversion-of-control
 
-## Q: Demeter 定律（最小知识原则）说一个单元应该对其他单元了解的知识越少越好，而且应该只能和他的直接相关单元通信（或者说“不要和陌生人说话”）。你会写违反这个原则的代码吗？展示下为什么这个是不好的设计然后修复他。
+## Demeter 定律（最小知识原则）说一个单元应该对其他单元了解的知识越少越好，而且应该只能和他的直接相关单元通信（或者说“不要和陌生人说话”）。你会写违反这个原则的代码吗？展示下为什么这个是不好的设计然后修复他。
 
 比如说一个类不应该访问另一个类的数据成员，而应该通过 getter 方法来访问。当然这样做可能会使运行效率低下。但是比如说另一个类的实现改变的时候，我们不需要改动代码，因为没有依赖。
 
-## Q: Active Record 模式提倡对象中包含增删改查等方法，并且每个属性都对应到数据库的表中字段，介绍一下这种模式的限制和坑
+## Active Record 模式提倡对象中包含增删改查等方法，并且每个属性都对应到数据库的表中字段，介绍一下这种模式的限制和坑
 
-但是缺少灵活性，实际中当你每次处理一张表时使用这个模式是可以的， 但是当你要处理很多关联表，类继承关系较为复杂的时候就会有很多问题，这种情况你可以使用 Data Mapper 模式
+但是缺少灵活性，实际中当你每次处理一张表时使用这个模式是可以的，但是当你要处理很多关联表，类继承关系较为复杂的时候就会有很多问题，这种情况你可以使用 Data Mapper 模式
 
 像是 Django，RoR 都是采用的 Active Record 模式
 
 ref: http://www.jacopobeschi.com/post/active-record-design-pattern
 
-## Q: Data Mapper 模式提倡使用一层 mapper 来在对象和数据库之间传递数据，但是保持了它们两者之间的独立。相反 Active Record 模式直接持久化到数据库中。关于两者你有什么看法？为什么使用其中一个而不是用其中另一个呢？
+## Data Mapper 模式提倡使用一层 mapper 来在对象和数据库之间传递数据，但是保持了它们两者之间的独立。相反 Active Record 模式直接持久化到数据库中。关于两者你有什么看法？为什么使用其中一个而不是用其中另一个呢？
 
 我们看到它在存数据的时候，没有用 $user->save() 去存，而是用了另一个类 EntityManager 去存。也就是说，它的模型 $user 没有继承一个数据库操作类，$user 和数据库完全是分离开的。
 它这样做有什么好处呢？$user 没有继承一个庞大的基类，变得轻便多了。就好像蜗牛甩掉了重重的壳，变成了蛞蝓。
@@ -34,7 +34,7 @@ ref: http://www.jacopobeschi.com/post/active-record-design-pattern
 
 ref: http://larabase.com/post/156
 
-## Q: 为什么经常说 null 的引入是一个“价值百万美元的错误”？能不能谈一下避免 Null 值的一些设计模式，比如 Null Object 模式 和 Option Types？
+## 为什么经常说 null 的引入是一个“价值百万美元的错误”？能不能谈一下避免 Null 值的一些设计模式，比如 Null Object 模式 和 Option Types？
 
 A: null 是一个没有值的值，这就是错误。实际上，比如在 Python 中，我就经常遇到 None object has no method xxx 的问题。
 
@@ -48,49 +48,51 @@ ref:
 2. http://www.cnblogs.com/gaochundong/p/design_pattern_null_object.html
 3. https://en.wikipedia.org/wiki/Option_type
 
-## Q: 好多人说在 OOP 中，组合比继承更好，你的观点呢？
+## 好多人说在 OOP 中，组合比继承更好，你的观点呢？
 
 A: 首先，类型系统看起来很好，太复杂了，问题就很多。其次，继承表达了 is-a 的关系，如果遇到要实现两个接口就很复杂。组合的话更加模块化一点。
 
 ref: https://www.zhihu.com/question/49008835
 
-## Q: 什么是 Anti-Corruption Layer？
+## 什么是 Anti-Corruption Layer？
 
-通过在旧系统和新式系统之间放置防损层，将它们隔离。 此层转换两个系统之间的通信，在旧系统保持不变的情况下，新式应用程序可以避免破坏其设计和技术方法。
+通过在旧系统和新式系统之间放置防损层，将它们隔离。此层转换两个系统之间的通信，在旧系统保持不变的情况下，新式应用程序可以避免破坏其设计和技术方法。
 
-新式应用程序和防损层之间的通信始终使用应用程序的数据模型和体系结构。 从防损层到旧系统的调用符合该系统的数据模型或方法。 防损层包含在两个系统之间转换所必需的所有逻辑。 该层可作为应用程序内的组件或作为独立服务实现。
+新式应用程序和防损层之间的通信始终使用应用程序的数据模型和体系结构。从防损层到旧系统的调用符合该系统的数据模型或方法。防损层包含在两个系统之间转换所必需的所有逻辑。该层可作为应用程序内的组件或作为独立服务实现。
 
 ref: https://docs.microsoft.com/zh-cn/azure/architecture/patterns/anti-corruption-layer
 
-## Q: 写一个线程安全的单例模式
+## 写一个线程安全的单例模式
 
-A: 这个也是经典问题了，但是实际上感觉并没有卵用，但是大家就是喜欢问
+这个也是经典问题了，但是实际上感觉并没有卵用，但是大家就是喜欢问
 
-    import threading
+```py
+import threading
 
-    class SingletonMixin:
+class SingletonMixin:
 
-        _singleton_lock = threading.Lock()
-        _singleton_instance = None
+    _singleton_lock = threading.Lock()
+    _singleton_instance = None
 
-        @classmethod
-        def get_instance(cls):
-            if not cls._singleton_instance:
-                # 其他语言中使用 lock 和 unlock，而 Python 的 with 语句就很方便了
-                with cls._singleton_lock:
-                    if not cls._singleton_instance:
-                        cls._singleton_instance = cls()
-            return cls._singleton_instance
+    @classmethod
+    def get_instance(cls):
+        if not cls._singleton_instance:
+            # 其他语言中使用 lock 和 unlock，而 Python 的 with 语句就很方便了
+            with cls._singleton_lock:
+                if not cls._singleton_instance:
+                    cls._singleton_instance = cls()
+        return cls._singleton_instance
+```
 
 也可以使用装饰器实现
 
-## Q: 能够改变具体实现而不用更改使用方代码叫做数据抽象。给出一个违反这个原则的例子，然后修复他
+## 能够改变具体实现而不用更改使用方代码叫做数据抽象。给出一个违反这个原则的例子，然后修复他
 
-A: 尽量使用 getter 和 setter，而不要直接访问数据成员。当然在 Python 中有更好的方法 (properties)
+尽量使用 getter 和 setter，而不要直接访问数据成员。当然在 Python 中有更好的方法 (properties)
 
-## Q: 写一段违反 DRY 原则的代码，然后修复他
+## 写一段违反 DRY 原则的代码，然后修复他
 
-A: 这也太简单了。正常人哪儿有写重复代码的，基本都是过度封装居多。
+这也太简单了。正常人哪儿有写重复代码的，基本都是过度封装居多。
 
 ## 如何处理 Dependency Hell（依赖地狱）
 
@@ -98,19 +100,20 @@ A: 这也太简单了。正常人哪儿有写重复代码的，基本都是过�
 2. 多使用 virtual env 等虚拟环境工具
 3. 使用 docker 打包镜像
 
-## Q: goto 语句是有害的吗？关于使用 goto 语句你有什么看法呢？
+## goto 语句是有害的吗？关于使用 goto 语句你有什么看法呢？
 
 肯定最好别用。
 
-## Q: 保持软件健壮的一个核心原则是，对你的输出要严格，但是对你的输入要保持宽容，能不能讨论一下这个原则？
+## 保持软件健壮的一个核心原则是，对你的输出要严格，但是对你的输入要保持宽容，能不能讨论一下这个原则？
 
 比如说对于一个函数来说，可以接受不同类型的值，但是，输出得时候要注意保证自己的输出是有效的。
 
-
-    def add(a, b):
-        a = int(a)
-        b = int(b)
-        return a + b
+```py
+def add(a, b):
+    a = int(a)
+    b = int(b)
+    return a + b
+```
 
 ## Command-Query Separation (CQS)  – 命令 - 查询分离原则
 
@@ -121,7 +124,7 @@ A: 这也太简单了。正常人哪儿有写重复代码的，基本都是过�
 
 在系统设计中，很多系统也是以这样原则设计的，查询的功能和命令功能的系统分离，这样有则于系统性能，也有利于系统的安全性。
 
-## Q: 责任分离原则用来把计算机程序分解到不同的领域，有不同的方法来实现这个原则（比如 对象、函数、模块、设计模式）等等，能不能讨论下这个话题？
+## 责任分离原则用来把计算机程序分解到不同的领域，有不同的方法来实现这个原则（比如 对象、函数、模块、设计模式）等等，能不能讨论下这个话题？
 
 一旦一个函数被抽像出来并实现了，那么使用函数的人就不用关心这个函数是如何实现的，同样的，一旦一个类被抽像并实现了，类的使用者也不用再关注于这个类的内部是如何实现的。
 
@@ -173,7 +176,6 @@ ref: http://www.jamesshore.com/Blog/How-Does-TDD-Affect-Design.html
 * 面向测试编程可以让你保持专注
 
 ## C++ 支持多重继承，而在 Java 中允许一个类去实现多个 interface。使用这些方法对于代码的正交性有什么影响吗？使用多重继承和实现多个 interface 有什么区别吗？使用委托和使用继承有什么区别吗？
-
 
 多重继承的不好就不用多说了吧，尽量避免继承。
 
@@ -238,7 +240,6 @@ ref: https://stackoverflow.com/questions/36636/what-is-a-closure
             count += 1
             return count
         return counter
-
 
 ## 写一个循环，然后把它变成一个递归，不要使用变量
 
@@ -450,7 +451,6 @@ ref:
 
 蓝绿部署：https://www.v2ex.com/t/344341
 
-
 # 关于 NoSQL 的问题
 
 ## 什么是 Eventual Consistency？
@@ -624,8 +624,6 @@ pubsub 支持多个消费者
 
 ## 如果你使用的系统不支持原子性，你怎么实现它？
 
-
-
 # 关于软件生命周期和团队管理的问题
 
 ## 什么是敏捷？
@@ -706,7 +704,6 @@ PubSub 本质上是一个多生产者多消费者的队列。当消息量大的�
 ## 什么时候你会觉得微服务太“微”了
 ## 微服务架构的优缺点
 
-
 # 关于安全的问题
 
 ## 如何写出安全的代码？
@@ -760,7 +757,6 @@ ref:
 1. http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html
 
 ## https 是如何工作的？
-
 
 ## 什么是中间人攻击？为什么 https 可以避免中间人攻击？
 
@@ -855,7 +851,6 @@ TCP 有编号确认机制，还可以重发。
 
 ## Imagine you want to remove the possibility to have null references in your preferred language: how would you achieve this goal? What consequences could this have?
 
-
 # 开放问题
 
 ## 为什么人们抵制变化？
@@ -885,7 +880,6 @@ TCP 有编号确认机制，还可以重发。
 
 ## Why are corporations slower than startups in innovating?
 ## What have you achieved recently that you are proud of?
-
 
 # 关于代码片段的问答
 
@@ -975,7 +969,6 @@ public class Formatter {
             return null;
         }
     }
-    }
 ```
 
 重构：
@@ -1014,7 +1007,6 @@ public class TheService {
         }
 
         return knownFoo.DoThat(file);
-    }
     }
 ```
 
@@ -1059,7 +1051,6 @@ function()
 ```
 
 这是典型的箭头形函数，可以参见酷壳的这篇文章：https://coolshell.cn/articles/17757.html
-
 
 # Bill Gates 式的问题
 

@@ -154,3 +154,4 @@ def prim(g)
 3. https://gist.github.com/Ceasar/2474603
 4. https://wiki.jikexueyuan.com/project/easy-learn-algorithm/dijkstra.html
 5. https://www.cnblogs.com/aiyelinglong/archive/2012/03/26/2418707.html
+6. https://stomachache007.wordpress.com/2017/03/20/nc4-md/

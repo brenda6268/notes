@@ -1,4 +1,32 @@
-# 排序和相关题目
+# 排序和二分搜索
+
+## 二分查找
+
+经典的二分查找也分为了三个问题：
+
+1. 在没有重复元素的数组中找到对应元素
+2. 在有重复元素的数组中找到上界
+3. 在有重复元素的数组中找到上界
+
+## 二分查找例题
+
+### LeetCode33 搜索旋转排序数组  
+
+### LeetCode34 在排序数组中查找元素的第一个和最后一个位置
+
+### Rotated Sorted Array
+
+### Mountain Sequence
+
+### OOXX 问题
+
+### Search Sorted Matrix
+
+### 值得注意的细节
+
+使用 `left + (right - left) / 2` 而不要使用 `(left + right) / 2`, 避免溢出。
+
+## 排序
 
 适合链表的排序算法：选择排序
 
@@ -86,3 +114,4 @@ def heap_sort(h):
 ## 参考资料
 
 1. https://leetcode.com/problems/sort-an-array/discuss/357592/O(n-log-n)-time-O(1)-space-HeapSort
+2. [LibUV 中的最小二叉堆](https://blog.5udou.cn/#/blog/detail/Cong-libuvYuan-Ma-Zhong-Xue-Xi-Zui-Xiao-Er-Cha-Dui-24)

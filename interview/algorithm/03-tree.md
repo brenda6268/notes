@@ -1,12 +1,12 @@
 # 树
 
-## 思维
+二叉树外部节点总是等于内部节点加 1
+
+## 解决树问题的思路
 
 树的最大问题在于要**从底层叶节点开始思考**，而不是自上而下看图。递归是从基础 case 开始向上递归的。一定要画出访问的顺序图。
 
 ![访问顺序图](https://tva1.sinaimg.cn/large/00831rSTly1gd199vou2dj309j0jrgmn.jpg)
-
-## 树的问题的特性
 
 1. 对于任何树的问题，还是优先考虑递归，因为树本身就是一个递归性质的数据结构。
 2. 树还是天然 Devide and Conquer 的，也就是说可以分层左右两个树分别处理，然后合并得到答案。
@@ -21,21 +21,16 @@
 
     ![](https://tva1.sinaimg.cn/large/00831rSTly1gd19anooewj308c04stad.jpg)
 
+对于树的题目，到底是迭代解还是递归解呢？
 
-## 迭代解 vs 递归解
+最好写递归解，比较简单。写迭代性解首先考虑栈。函数调用过程本来就会用到栈使用栈可以模拟递归调用。使用栈还可以把需要反转的操作自动反转。比如在 zigzag 层序遍历的时候。
 
-最好写递归解，比较简单。
+递归的出口是选 NULL 还是叶子节点？
 
-写迭代性解首先考虑栈。函数调用过程本来就会用到栈使用栈可以模拟递归调用。使用栈还可以把需要反转的操作自动反转。比如在 zigzag 层序遍历的时候。
+最好选择 null，具体来说：
 
-## 递归的出口是选 NULL 还是叶子节点?
-
-最好选择 null
-
-1. 有一个corner case是直接就传一个null的节点进来, 所以要选null
-2. 叶子节点比较复杂, 只要判断null的return之后结果ok, 就null
-
-
+1. 有一个 corner case 是直接就传一个 null 的节点进来，所以要选 null
+2. 叶子节点比较复杂，只要判断 null 的 return 之后结果 ok, 就 null
 
 ## 改变函数签名与参数传递
 
@@ -45,60 +40,58 @@
 
 ### 遍历
 
-参考这里：https://github.com/yifeikong/interview/blob/master/tree.md
+参考 [这里](../solutions/tree.md)
 
+## 其他常见的树
 
+### 2-3-4 树
 
-# 红黑树
+234 树的意思是每个节点的子节点可能有 2、3、4 个，所有的叶节点都在同一深度。
 
-https://blog.csdn.net/yang_yulei/article/details/26066409
+![](images/2-3-4-tree.png)
 
-# 更多的树
+#### 插入
 
-https://blog.csdn.net/yang_yulei/column/info/easydatastruct
+对于 2-节点和 3-节点，显然是比较简单的，我们只要直接插入就行了。对于 4-节点来说，我们不能插入。不过解决方法也很简单，我们把 4-节点分裂，然后把中间节点提到上一级，然后就有两个 2-节点了，这时候就可以插入了。
 
-二叉树外部节点总是等于内部节点加1
+![](images/4-node-insertion.png)
 
-# how to formulaically solve tree problems
+在自上而下插入的过程中，我们还会把遇到的每一个 4-节点都分裂，这样保证了我们
 
-https://www.dailycodingproblem.com/blog/how-to-formulaically-solve-tree-interview-questions/
-Tree questions are very common at top tech company interviews. I had two tree questions in my Google onsite interviews and one during my Facebook onsite interviews. An awesome thing about them is that they can be formulaically solved every single time. It doesn’t involve any genius insight. Let me show you how.
-Instead of being too abstract, let’s just dive right into an easy binary tree question. Then I’ll walk through how to solve it and we can go into a harder problem after:
-Given the root to a binary tree, count the total number of nodes there are.
-Before we move on further, feel free take a moment to think about the answer!
-Solving any binary tree question involves just two steps.
-First is solving the base case. This usually means solving the leaf node case (a leaf node has no left or right children) or the null case. For the above problem, we can see that a null should represent 0 nodes while a leaf node should represent 1 node.
-Second is the recursive step. Assuming you knew the solution to the left subtree and the right subtree, how could you combine the two results to give you the final solution? It’s important to not get caught up on how this works and just have faith that it works. If you start tracing the recursion, you’re going to needlessly use up time and energy during the interview. Intuitively though, it works for similar reasons as why regular induction works. P(0) or the base case works which causes P(1) or the leaf node to work which causes P(2) to work and so on. For this problem, it’s easy to combine the results of the left and right subtrees. Just add the two numbers and then another 1 for the root. Here’s the code:
+### 红黑树
 
-```py
-def count(node):
-    return count(node.left) + count(node.right) + 1 if node else 0
-```
-You certainly won’t get a question this easy but the process is the same for trickier problems. Here’s another problem:
-Given the root to a binary tree, return the deepest node.
-Base case for this question actually can’t be null, because it’s not a real result that can be combined (null is not a node). Here we should use the leaf node as the base case and return itself.
-The recursive step for this problem is a little bit different because we can’t actually use the results of the left and right subtrees directly. So we need to ask, what other information do we need to solve this question? It turns out if we tagged with each subresult node their depths, we could get the final solution by picking the higher depth leaf and then incrementing it:
+红黑树是为了解决二叉查找树不平衡的问题发明的。
 
-这里需要注意的是基础情况是叶节点，而不是 nil.
+![](images/red-black-tree.jpg)
 
-```py
-def deepest(node):    
-    if node and not node.left and not node.right:
-        return (node, 1) # Leaf and its depth    
-    if not node.left: # Then the deepest node is on the right subtree        
-        return increment_depth(deepest(node.right))    
-    elif not node.right: # Then the deepest node is on the left subtree        
-        return increment_depth(deepest(node.left))    
+1. 每个节点要么是红色，要么是黑色。
+2. 根节点永远是黑色的。
+3. 所有的叶子节点都是空节点（即 null），并且是黑色的。
+4. 每个红色节点的两个子节点都是黑色。（从每个叶子到根的路径上不会有两个连续的红色节点。）
+5. 从任一节点到其子树中每个叶子节点的路径都包含相同数量的黑色节点。
 
-    return increment_depth(
-        max(deepest(node.left), deepest(node.right),
-        key=lambda x: x[1])) # Pick higher depth tuple and then increment its depth
+Null 也算节点，从头到尾都是黑色节点，红色节点只能是内部节点。每条路径都包含相同的黑色节点。
 
-def increment_depth(node_depth_tuple):
-    node, depth = node_depth_tuple    
-    return (node, depth + 1)
-```
+红黑树保证的是没有一个节点长度是其他路径的 2 倍，而不是每一个路径之间的差在常数倍，比如说下面这个树。
+
+![](images/red-black-tree-2.webp)
+
+为了保证平衡，也就是第 5 个条件，插入的新节点必须是红的，如果恰好插入到了一个黑色节点下面，那就结束了，如果插入到了一个红色节点下面，需要调整。
+
+### 跳表
+
+跳表显然不是一颗普通意义上的树，但是因为他的时间复杂度和红黑树类似，并且实现起来简单，不容易出 bug，所以很多时候，都把跳表作为红黑树的一个替代来使用，比如在 Redis 中。
+
+### B 树
+
+B 树用于基于硬盘的数据库的索引。为什么不直接用二叉树呢？B树本质上来说就是 2-3-4-n 树，因为硬盘读取相对于内存访问来说实在太慢了，所以减少树的层级有利于提升速度。
+
+### 更多的树
 
 ## 参考资料
 
 1. https://stomachache007.wordpress.com/2017/03/12/%E4%B9%9D%E7%AB%A0%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-3-binary-tree-divide-conquer/
+2. https://blog.csdn.net/yang_yulei/column/info/easydatastruct
+3. https://web.archive.org/web/20200112020131/https://merunas.io/tree-data-structures/
+4. 《数据结构与算法分析：C 语言描述》
+5. https://stackoverflow.com/questions/8765558/why-dont-we-use-2-3-or-2-3-4-5-trees
