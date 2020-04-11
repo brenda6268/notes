@@ -11,7 +11,7 @@ Redis 在 5.0 版本带来了全新的 stream 数据结构，基本上是按照 
 
 使用方式：
 
-0. 每个 consumer group 必须手动创建;
+0. 每个 consumer group 必须手动创建；
 1. 每一个 consumer 可以有一个 name，最好就是自己的 IP；
 2. 每个 worker 消费时首先检查自己的 backlog，如果有的话，先消费 backlog；
 3. 还有一个独立的线程，使用 xpending 检查是否有 worker 彻底挂掉的，并且 claim 过来。线程检查 claim 的时间要随机化，尽量避免争抢。

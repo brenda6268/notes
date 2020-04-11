@@ -1,0 +1,14 @@
+Date: 2019-09-07
+
+k3s 是 rancher 出品的一个 kubernetes 的衍生版，特点是单二进制文件，非常小巧，可以在树莓派上部署。虽然他对好多组件做了替换，比如把 etcd 替换成了 sqlite3，但是他依然是一个通过了官方认证的 Kubernetes 发行版。
+
+除了 k3s 以外，还有一些其他的精简的 k8s 发行版，比如 microk8s, kind, minikube 等等，但是都远远没有 k3s 轻量。详细资料可以看参考资料.
+
+
+
+
+## 参考资料
+
+1. k3s 官方文档。https://rancher.com/docs/k3s/latest/en/quick-start/
+2. https://www.reddit.com/r/kubernetes/comments/be0415/k3s_minikube_or_microk8s/
+3. https://brennerm.github.io/posts/minikube-vs-kind-vs-k3s.html
