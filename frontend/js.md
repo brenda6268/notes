@@ -1,3 +1,4 @@
+Date: 2019-09-07
 # 安装
 
 本文以 Node.js **12** 为准，所以首先要安装或者升级 Node：
@@ -39,6 +40,8 @@ console.log("hello, %s", "world"); // -> hello, world
 </small>
 
 之所以说 JS 是弱类型的语言，是因为 `1 == '1'` 或者 `'3'*'7'` 这种神奇的语法，不过实际项目中**绝对不要使用 `==`，而应该使用 `===`**。三个等号会比较类型，而不会自动转换类型。
+
+注释和 C++ 和 Java 类似，采用 // 或者 /**/。
 
 ```javascript
 // 声明并赋值一个变量
@@ -495,8 +498,6 @@ if (x < 0) { // is x less than zero?
 
 ## 数组和循环
 
-
-
 要遍历一个数组可以使用两种风格，C 系和 Python 系风格：
 
 ```javascript
@@ -521,7 +522,6 @@ for (const [index, element] of ['a', 'b'].entries()) {
 <small>JavaScript 中曾经有 for..in 循环，但是因为比较坑爹，所以换成了 for..of 循环</small>
 
 ### for-of 和字符串
-
 
 JavaScript 中最常用作字典的对象就叫做 Object，完全可以和 Python 中的字典一样使用，语法也基本一致。不过之所以不叫做字典，而是叫做对象，是因为他确实是一个对象，而不只是字典。可以直接定义函数属性，并且调用。在方法中，this 指向的就是对象本身。
 
@@ -573,6 +573,19 @@ for (const el of list) {
 array.entries 相当于 enumerate
 
 # 函数
+
+函数也是一种对象，也可以直接赋值给变量。
+
+```js
+function add1(a, b) {
+  return a + b;
+}
+
+const add2 = (a, b) => { return a + b };
+
+const add3 = (a, b) => a + b;
+```
+
 
 # 包
 
