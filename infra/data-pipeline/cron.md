@@ -91,7 +91,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 scheduler = BackgroundScheduler()
 # scheduler.add_executor('processpool')  # 使用进程池，默认是线程池
-# scheduler.add_job_store("redis")  # 使用 redis 作为 job store, 默认是内存
+# scheduler.add_jobstore("redis")  # 使用 redis 作为 job store, 默认是内存
 
 scheduler.add_job(
     myfunc,  # 要执行的函数
