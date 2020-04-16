@@ -53,5 +53,5 @@ min_num = float("-inf")
 内置 queue，内置 Counter
 
 - 没有 TreeMap，也就是内置的二叉查找树
-- 没有 Linkedlist
+- 没有 LinkedList
 - 对于字符串来说，实际上 Python 是由 internization 的，所以可能不需要 hash 函数。                   

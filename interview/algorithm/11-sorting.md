@@ -110,7 +110,6 @@ def heap_sort(h):
 
 可以使用低位优先排序和高位优先排序两种方法。低位优先排序就直接排就好了，高位优先排序很自然是一种递归算法，首先排序高位，然后排序`s[1:]`。
 
-
 ## 参考资料
 
 1. https://leetcode.com/problems/sort-an-array/discuss/357592/O(n-log-n)-time-O(1)-space-HeapSort

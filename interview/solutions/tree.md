@@ -25,8 +25,7 @@ class Solution:
         if not root:
             return []
         ans = []
-        stack = []
-        stack.append(root)
+        stack = [root]
         while stack:
             node = stack.pop()
             ans.append(node.val)

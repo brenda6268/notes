@@ -409,7 +409,7 @@ ref: http://www.jamesshore.com/Blog/How-Does-TDD-Affect-Design.html
 
     这样我们实际对数据库做了 N+1 次查询：选择所有 Customer 一次得到 N 个 Customer，对于 N 个 Customer 分别选择其对应的 Order 一共 N 次。 所以，一共执行了 N+1 次查询，这就是 N+1 问题
 
-    N+1 问题的一般解决方法:使用 Left Join 一次性取出所有数据：`SELECT * FROM Customers LEFT JOIN Orders on Customers.id = Orders.customer_id`。 这样虽然取出的数据相对多一些，但是只需要一次执行
+    N+1 问题的一般解决方法：使用 Left Join 一次性取出所有数据：`SELECT * FROM Customers LEFT JOIN Orders on Customers.id = Orders.customer_id`。 这样虽然取出的数据相对多一些，但是只需要一次执行
 
     PS：感觉数据库所谓的几个范式优点纸上谈兵，如果完全按照这些范式设计的话，性能就成渣了，互联网公司实际上极少用 join。不过产品使用 hive 查询数据倒是经常用 join。
 
@@ -538,7 +538,7 @@ ref: http://www.jamesshore.com/Blog/How-Does-TDD-Affect-Design.html
     * 发布分支
     * Hotfix 分支
 
-    功能分支从 dev 分支上分叉出来，并且最终要合并会 dev 分支，名字可以随便起. 发布分支可以从 dev 分支，开发完成后合并到 dev 或者 master 分支（不太理解为什么要有这种分支），名字 `release-*`, Hotfix 分支用于修复 bug，可以从 master 中分叉出去，但是注意要同时合并回 dev 和 master，名字 `hotfix-*`
+    功能分支从 dev 分支上分叉出来，并且最终要合并会 dev 分支，名字可以随便起。发布分支可以从 dev 分支，开发完成后合并到 dev 或者 master 分支（不太理解为什么要有这种分支），名字 `release-*`, Hotfix 分支用于修复 bug，可以从 master 中分叉出去，但是注意要同时合并回 dev 和 master，名字 `hotfix-*`
 
     https://nvie.com/posts/a-successful-git-branching-model/
 
@@ -608,12 +608,12 @@ ref: http://www.jamesshore.com/Blog/How-Does-TDD-Affect-Design.html
 
     比较慢？
 
-    - 假设你要构建一个可扩展和健壮的分布式系统。如果你需要在一个封闭安全的系统的系统中构建和在一个地理上隔离的公开环境，有什么区别呢？
-    - How to manage Fault Tolerance in a Web application? And in a Desktop one?
-    - 如何处理分布式系统中的错误
-    - Let's talk about the several approaches to Reconciliation after network partitions
-    - What are the Fallacies of Distributed Computing?
-    - 什么时候使用 request/reply，什么时候使用 pubsub？
+- 假设你要构建一个可扩展和健壮的分布式系统。如果你需要在一个封闭安全的系统的系统中构建和在一个地理上隔离的公开环境，有什么区别呢？
+- How to manage Fault Tolerance in a Web application? And in a Desktop one?
+- 如何处理分布式系统中的错误
+- Let's talk about the several approaches to Reconciliation after network partitions
+- What are the Fallacies of Distributed Computing?
+- 什么时候使用 request/reply，什么时候使用 pubsub？
 
     pubsub 支持多个消费者
 
@@ -727,8 +727,7 @@ ref: http://www.jamesshore.com/Blog/How-Does-TDD-Affect-Design.html
 
 - 什么是 XSS，如何阻止？
 
-    如果完全信任用户的输入，用户可能输入 `<script>` 的标签的形式注入自己的脚本。更严
-    重的是，如果 cookies 没有设置成 http only 的，那么用户的 cookies 很可能也被偷取。
+    如果完全信任用户的输入，用户可能输入 `<script>` 的标签的形式注入自己的脚本。更严重的是，如果 cookies 没有设置成 http only 的，那么用户的 cookies 很可能也被偷取。
 
     ref:
 
@@ -738,7 +737,7 @@ ref: http://www.jamesshore.com/Blog/How-Does-TDD-Affect-Design.html
 
     CSRF 攻击是源于 WEB 的隐式身份验证机制！WEB 的身份验证机制虽然可以保证一个请求是来自于某个用户的浏览器，但却无法保证该请求是用户批准发送的！
 
-    浏览器在请求每个域名的时候会带上对应的 cookies，可以通过 img 标签的 src 等伪造GET 请求，或者通过 js 来伪造表单提交的 POST 请求，这样就相当于代替用户请求了服务
+    浏览器在请求每个域名的时候会带上对应的 cookies，可以通过 img 标签的 src 等伪造 GET 请求，或者通过 js 来伪造表单提交的 POST 请求，这样就相当于代替用户请求了服务
     器。
 
     可以通过在页面上增加一个隐藏的 crsf_token 来，然后每次请求都校验这个 token 是不是合法。
@@ -751,9 +750,7 @@ ref: http://www.jamesshore.com/Blog/How-Does-TDD-Affect-Design.html
 
 - 什么是中间人攻击？为什么 https 可以避免中间人攻击？
 
-    在 http 等明文协议中，中间人（代理服务器、路由器）等等可以偷听、篡改数据包，而通信双方都无法察觉。
-
-https 通过密钥通信，而密钥只有通信双方知道，也就无法查看或者篡改数据包。
+    在 http 等明文协议中，中间人（代理服务器、路由器）等等可以偷听、篡改数据包，而通信双方都无法察觉。https 通过密钥通信，而密钥只有通信双方知道，也就无法查看或者篡改数据包。
 
 - 如何避免用户的 session 被窃取？
 
@@ -789,13 +786,9 @@ https 通过密钥通信，而密钥只有通信双方知道，也就无法查�
 
 - 不可变的值为什么有助于代码的安全性？
 
-    不可变对象在并发应用种特别有用。因为他们不能改变状态，它们不能被线程干扰所中断或者被其他线程观察到内部不一致的状态。
+    不可变对象在并发应用种特别有用。因为他们不能改变状态，它们不能被线程干扰所中断或者被其他线程观察到内部不一致的状态。不可变对象没有副作用、更容易缓存、也不会产生 null 引用。
 
-    不可变对象没有副作用、更容易缓存、也不会产生 null 引用。
-
-    ref:
-
-    1. http://www.importnew.com/14027.html
+    ref: http://www.importnew.com/14027.html
 
 - 使用可变和不可变值都有什么利弊？
 
@@ -808,14 +801,11 @@ https 通过密钥通信，而密钥只有通信双方知道，也就无法查�
     1. book
     2. author
 
-    每个人可能有很多本书，每本书也可能有好几个作者，所以数据库中就需要建三个表，
-    `book`, `author`, `book_author_ref`, 而一些 ORM 则帮助做了这些映射。
+    每个人可能有很多本书，每本书也可能有好几个作者，所以数据库中就需要建三个表，`book`, `author`, `book_author_ref`, 而一些 ORM 则帮助做了这些映射。
 
 - 如何确定缓存的大小？
 
-    创建一个连续内存块，进行连贯、大量、随机的有意义内存访问。这几点缺一不可，否则不能保证整块内存被
-    尽可能的放入 Cache。在这种情况下，当内存块能够被整块放入 Cache 时，平均访问速度会显著的快。观察随
-    着内存大小提高，平均访问时间的跃升点，即可估计 Cache 大小。
+    创建一个连续内存块，进行连贯、大量、随机的有意义内存访问。这几点缺一不可，否则不能保证整块内存被。尽可能的放入 Cache。在这种情况下，当内存块能够被整块放入 Cache 时，平均访问速度会显著的快。观察随着内存大小提高，平均访问时间的跃升点，即可估计 Cache 大小。
 
     ref: https://www.zhihu.com/question/30563694
 
@@ -852,7 +842,7 @@ https 通过密钥通信，而密钥只有通信双方知道，也就无法查�
 - Would you prefer working on Green Field or Brown Field projects? Why?
 - What happens when you type google.com into your browser and press enter?
 - What does an Operating System do when it has got no custom code to run, and therefore it looks idle? I would like to start a discussions about interrupts, daemons, background services, polling, event handling and so on.
-- 向一个五岁的孩子解释 Unicode 和数据库事物。
+- 向一个五岁的孩子解释 Unicode 和数据库事务。
 - Defend the monolithic architecture.
 - What does it mean to be a "Professional Developer"?
 - Is developing software an art, a craftsmanship or an engineering endeavour? Your opinion.
@@ -874,7 +864,6 @@ https 通过密钥通信，而密钥只有通信双方知道，也就无法查�
         .addEventListener("click", function() {
             alert(i);
         });
-    }
     }
     ```
 

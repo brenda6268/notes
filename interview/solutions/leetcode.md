@@ -1363,9 +1363,7 @@ void gen(vector<string>& result, string s, int left, int right) {
 ```Python
 ```
 
-
-把列表看做一个队列，每次拿出两个列表，合并他们后放回到列表中，每次遍历列表的一半，这样每次遍历完一遍，
-列表的长度都会减半，直到列表的长度为 1,  合并函数使用 21 题中的合并两个列表的函数
+把列表看做一个队列，每次拿出两个列表，合并他们后放回到列表中，每次遍历列表的一半，这样每次遍历完一遍，列表的长度都会减半，直到列表的长度为 1,  合并函数使用 21 题中的合并两个列表的函数
 
 ```C
 struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
@@ -4594,7 +4592,40 @@ bool isPalindrome(char* s) {
 127 单词梯子
 ------
 
-给定梯子，和开始单词和结束单词，最少需要多少个中间单词，才能变化过去，每次只能变化一个字母
+广度优先搜索
+
+```py
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        begin = set()
+        end = set()
+        begin.add(beginWord)
+        end.add(endWord)
+        dist = 2
+        words = set(wordList)
+        while begin and end:
+            if len(begin) < len(end):
+                set1, set2 = begin, end
+            else:
+                set1, set2 = end, begin
+            temp = set()
+            for word in set1:
+                words.remove(word)
+                for c in word:
+                    for i in "abcdefghijklmnopqrstuvwxyz":
+                        old_letter = c
+                        letter = i
+                        if word in set2:
+                            return dist
+                        if word in words:
+                            temp.add(word)
+                            words.remove(word)
+                        letter = old_letter
+            dist += 1
+            set1, temp = temp, set1
+        return 0
+                        
+```
 
 ```C++
 int ladderLength(string beginWord, string endWord, unordered_set<string>& wordList) {
@@ -4923,8 +4954,10 @@ int singleNumber(int* nums, int numsSize) {
 }
 ```
 
-138 复制复杂结构链表
+138 复制带随机指针的链表
 ------
+
+整个解法堪比有丝分裂
 
 ```C
 /**
@@ -4936,6 +4969,7 @@ int singleNumber(int* nums, int numsSize) {
  * };
  */
 struct RandomListNode *copyRandomList(struct RandomListNode *head) {
+    // 首先在每个节点后面插入一个节点
     struct RandomListNode* p;
     p = head;
     while (p) {
@@ -4947,6 +4981,7 @@ struct RandomListNode *copyRandomList(struct RandomListNode *head) {
         p = node->next;
     }
 
+    // 复制 random 指针
     p = head;
     while (p) {
         if (p->random)
@@ -4954,6 +4989,7 @@ struct RandomListNode *copyRandomList(struct RandomListNode *head) {
         p = p->next->next;
     }
 
+    // 从原链上脱下来
     struct RandomListNode dummy, *q = &dummy;
     dummy.next = dummy.random = NULL;
     p = head;
@@ -4990,6 +5026,8 @@ bool wordBreak(string s, unordered_set<string>& wordDict) {
     return dp[s.size()];
 }
 ```
+
+140 
 
 141 列表是否有环
 ------
@@ -5654,7 +5692,7 @@ int trailingZeroes(int n) {
 173 二叉树中序遍历迭代器
 ------
 
-```C
+```C++
 class BSTIterator {
 public:
     BSTIterator(TreeNode *root) {
@@ -6497,9 +6535,7 @@ public:
         find(r, board, visited, word, i, j-1);
         find(r, board, visited, word, i, j+1);
         visited[i][j] = false;
-
     }
-
 };
 ```
 
@@ -7406,7 +7442,10 @@ bool isAnagram(char* s, char* t) {
 }
 ```
 
-243-256 Locked
+253 会议室 II
+------
+
+
 
 257 二叉树左右路径
 ------

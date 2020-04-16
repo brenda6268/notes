@@ -66,10 +66,6 @@ def sum_distance(H):
         stack.append(h)
     return ans
 ```
-        
-    
-
-## 使用栈迭代遍历树
 
 ## 参考资料
 

@@ -1,11 +1,11 @@
 But they do expect you to have some insight into aspects of such a design. The good news is that these questions usually focus on web backends, so you can make a lot of progress by reading about this area. An incomplete list of things to understand is:
 
-	1. HTTP (at the protocol level)
-	2. Databases (indexes, query planning)
-	3. CDNs
-	4. Caching (LRU cache, memcached, redis)
-	5. Load balancers
-	6. Distributed worker systems
+1. HTTP (at the protocol level)
+2. Databases (indexes, query planning)
+3. CDNs
+4. Caching (LRU cache, memcached, redis)
+5. Load balancers
+6. Distributed worker systems
 
 阅读 High Scalability 博客
 

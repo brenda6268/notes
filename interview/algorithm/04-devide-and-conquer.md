@@ -4,21 +4,34 @@
 
 ## 分治的时间复杂度
 
-![](https://tva1.sinaimg.cn/large/00831rSTly1gd19dz03f1j308c062ac6.jpg)
+主定理 
+
+    T(n) = a T(n/b) + f(n), if f(n) ∈ O(n^d), d >=0
+    T(n)∈ { 
+        O(n^d), a < b^d;
+        O(n^d logn), a = b^d;
+        O(n^(logba), a > b^d;
+    }
 
 通过 O(n) 的时间，把 n 的问题，变为了两个 n/2 的问题，复杂度是多少？
 
     T(n) = 2T(n/2) + O(n)
         = 2 * 2T(n/4) + O(n) + O(n)
         = n + nlogn
+        ≈ O(NlogN)
 
 通过 O(1) 的时间，把 n 的问题，变成了两个 n/2 的问题，复杂度是多少？
 
     T(n) = 2T(n/2) + O(1)
-    = 2 * 2T(n/4) + O(1) + O(1)
-    = n + (1 + 2 + 4 +…+ n)
-    ≈ n + 2n
-    ≈ O(n)
+        = 2 * 2T(n/4) + O(1) + O(1)
+        = n + (1 + 2 + 4 +…+ n)
+        ≈ n + 2n
+        ≈ O(n)
+
+
+对于 O(nlogn) 的算法 T(n) = 2T(n/2) + O(n)
+
+证明一般采用数学归纳法，反证法
 
 ## 改变函数签名与参数传递
 

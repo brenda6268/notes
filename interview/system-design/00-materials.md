@@ -1,6 +1,6 @@
 DDIA
 
-grokking system design
+grokking the system design interview
 
 对应公司的技术博客
 
