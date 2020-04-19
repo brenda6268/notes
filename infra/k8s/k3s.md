@@ -4,8 +4,11 @@ k3s 是 rancher 出品的一个 kubernetes 的衍生版，特点是单二进制�
 
 除了 k3s 以外，还有一些其他的精简的 k8s 发行版，比如 microk8s, kind, minikube 等等，但是都远远没有 k3s 轻量。详细资料可以看参考资料.
 
+安装完成之后要设置：export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 
+## 存储
 
+可以使用 rancher 家的 longhorn，安装非常简单
 
 ## 参考资料
 

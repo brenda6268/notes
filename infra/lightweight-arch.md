@@ -14,11 +14,11 @@ monorepo 是 Google 和 Facebook 都在采用的开发模型，也叫 Thunked Ba
 
 Git 托管工具可以选的包括：
 
-GitHub, 速度太慢了
-GitLab，资源占用太大，功能太多太复杂
-BitBucket，付费，而且不支持 issue 功能
-gogs，听起来不如 gitea 好听
-Gitea，小巧轻便，就它了
+- GitHub, 速度太慢了
+- GitLab，资源占用太大，功能太多太复杂
+- BitBucket，付费，而且不支持 issue 功能
+- gogs，听起来不如 gitea 好听
+- Gitea，小巧轻便，就它了
 
 ### 参考文献
 
@@ -56,9 +56,13 @@ volumes:
 
 1. https://devops.stackexchange.com/questions/8539/jenkinsfile-for-monorepo-monobranch
 
-## 底层架构
+## 底层架构(Kubernetes)
 
-毫无疑问，应该采用面向服务的架构。在现在的环境下，不管你喜不喜欢，kubernetes 都是唯一的选择。当然，kubernetes 实在太大了，而且占用的基础资源也很多，这里我们采用 k3s
+毫无疑问，应该采用面向服务的架构。在现在的环境下，不管你喜不喜欢，kubernetes 都是唯一的选择。当然，kubernetes 实在太大了，而且占用的基础资源也很多，这里我们采用 k3s.
+
+我们使用 helm 来安装 kubernetes 上的大多数组件，虽然 helm 也不是很理想，但是还是让我们的工作简单了很大一部分。 
+
+我们使用 longhorn 作为 storage class，尽管 longhorn 才仅仅是一个 beta 版的软件，但是毕竟是 rancher 出品，和 K3S 的兼容性肯定没有问题。
 
 ## 私有镜像仓库
 
@@ -68,9 +72,11 @@ volumes:
 
 对象存储直接使用腾讯云了，毕竟内网不算流量。
 
-## 定时任务
+## 定时任务(CRON)
 
-使用 ndscheduler 还是 k8s 原生呢？
+定时任务其实就是一个分布式的 Cron 的作用，使用第三方的工具还是 k8s 原生呢？经过调研，发现 k8s 的 cron 还是有诸多不足的，还是直接使用 apscheduler 自研一个吧。 
+
+实际上 ndscheduler 也不错，但是他使用 twisted 写得，后期维护起来可能不太好弄，正好联系一下 react。
 
 ## 工作流管理
 
@@ -79,3 +85,15 @@ volumes:
 ## RPC
 
 所有的接口都不应该暴露实现细节，但是应该给出调用的费用（也就是时间复杂度），每个接入方都应该有一定的限额。
+
+## 数据库
+
+我们使用 MySQL，虽然我一直也在听说 Postgres 有多么好，但是限于精力有限，暂时还是采用 MySQL 了。
+
+## 监控报警
+
+监控我们采用 Prometheus，直接通过 Helm 安装在 K8S 集群上。使用 Grafana 作为面板。
+
+## 日志
+
+日志我们采用 Loki，同样直接安装在 K8S 集群上。

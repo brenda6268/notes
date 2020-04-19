@@ -9,15 +9,20 @@ Prometheus 是使用 Go 语言开发的一个监控工具和时序数据库，�
 ## Instrumention
 
 For monitoring purposes, services can generally be broken down into three types: online-serving, offline-processing, and batch jobs.
+
 ### Online-serving
+
     The key metrics in such a system are the number of performed queries, errors, and latency. The number of in-progress requests can also be useful.
 
     Online-serving systems should be monitored on both the client and server side. If the two sides see different behaviors, that is very useful information for debugging. If a service has many clients, it is also not practical for the service to track them individually, so they have to rely on their own stats.
 
     Be consistent in whether you count queries when they start or when they end. When they end is suggested, as it will line up with the error and latency stats, and tends to be easier to code.
+
 ### offline systems
-For each stage, track the items coming in, how many are in progress, the last time you processed something, and how many items were sent out. If batching, you should also track batches going in and out.
-A better approach is to send a heartbeat through the system: some dummy item that gets passed all the way through and includes the timestamp when it was inserted. Each stage can export the most recent heartbeat timestamp it has seen, letting you know how long items are taking to propagate through the system.
+
+    For each stage, track the items coming in, how many are in progress, the last time you processed something, and how many items were sent out. If batching, you should also track batches going in and out.
+
+    A better approach is to send a heartbeat through the system: some dummy item that gets passed all the way through and includes the timestamp when it was inserted. Each stage can export the most recent heartbeat timestamp it has seen, letting you know how long items are taking to propagate through the system.
 
 ### batch jobs
     The key metric of a batch job is the last time it succeeded.
@@ -37,19 +42,23 @@ For example, rather than http_responses_500_total and http_responses_403_tota
 Do not over use labels
 As a general guideline, try to keep the cardinality of your metrics below 10, and for metrics that exceed that, aim to limit them to a handful across your whole system. The vast majority of your metrics should have no labels.
 If you are unsure, start with no labels and add more labels over time as concrete use cases arise.
-Types
+
+
+## Types
 
 Gauges can be set, go up, and go down. They are useful for snapshots of state, such as in-progress requests, free/total memory, or temperature. You should never take a rate() of a gauge.
 Histograms and summaries both sample observations, typically request durations or response sizes. They track the number of observations and the sum of the observed values, allowing you to calculate the average of the observed values. Note that the number of observations (showing up in Prometheus as a time series with a _count suffix) is inherently a counter (as described above, it only goes up). The sum of observations (showing up as a time series with a _sum suffix) behaves like a counter, too, as long as there are no negative observations. Obviously, request durations or response sizes are never negative.
+
 To calculate the average request duration during the last 5 minutes from a histogram or summary called http_request_duration_seconds, use the following expression:
   rate(http_request_duration_seconds_sum[5m])
 /
   rate(http_request_duration_seconds_count[5m])
 Histogram is calculated on the server, summary is calculated on the client and can not be recalculated.
 We have found the following guidelines very effective:
-	• Have no more than 5 graphs on a console.
-	• Have no more than 5 plots (lines) on each graph. You can get away with more if it is a stacked/area graph.
-	• When using the provided console template examples, avoid more than 20-30 entries in the right-hand-side table.
+
+- Have no more than 5 graphs on a console.
+- Have no more than 5 plots (lines) on each graph. You can get away with more if it is a stacked/area graph.
+- When using the provided console template examples, avoid more than 20-30 entries in the right-hand-side table.
 
 This should generally be at least enough time for 2 full runs of the batch job. For a job that runs every 4 hours and takes an hour, 10 hours would be a reasonable threshold. If you cannot withstand a single run failing, run the job more frequently, as a single failure should not require human intervention.
 
