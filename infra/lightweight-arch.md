@@ -1,3 +1,5 @@
+Date: 2019-09-14
+ 
 # 从零开始的轻量级架构（持续更新中）
 
 ## 前言
@@ -88,7 +90,13 @@ volumes:
 
 ## 数据库
 
+### 关系型数据库
+
 我们使用 MySQL，虽然我一直也在听说 Postgres 有多么好，但是限于精力有限，暂时还是采用 MySQL 了。
+
+### 对象存储
+
+S3 不解释。
 
 ## 监控报警
 
@@ -97,3 +105,10 @@ volumes:
 ## 日志
 
 日志我们采用 Loki，同样直接安装在 K8S 集群上。
+
+## 后端的前端
+
+对于 Python 来说，自然主要是 Django 和 Flask 两种框架了，Django 的问题在于 ORM 不好用，无法在 django 外部使用，而且有链接丢失的问题。
+
+Django or: `User.objects.filter(Q(gender="M") | Q(age__gt=18))`
+peewee or: `User.select().where((User.gender == "M") | (User.age > 18))`

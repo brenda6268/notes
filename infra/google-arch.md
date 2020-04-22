@@ -1,3 +1,5 @@
+Date: 2019-09-28
+
 from: https://weibo.com/1921727853/Hqb1fypdD
 
 一篇 PhD 论文中绘制的 Google 核心组件技术栈的示意图，这些内容是从各个论文和公开资料中整理的，因此不一定完整和最新，但是能让我们一窥 Google 的基础设施技术。
@@ -32,4 +34,14 @@ Google 在大数据处理方面还是要领先业务不少的，但大家也都�
 对于其他公司来说，没有必要完全复制 Google 的技术栈。架构是演进出来的，公司不同发展阶段应该采用不同的技术架构，另外不同公司遇到的问题和 Google 也会不同，选择适合自己的架构才是正确的路。
 
 ![](images/google-arch.jpg)
+
+1. If Google's internal archtechture is Red Hat Enterprise Linux, we would like our architechture to be Centos, an open source version.
+2. The problem lies in multi-paradiam. One working paradiam is better than two good paradiam. One paradiam to rule them all.
+3. 必须从一开始就考虑多机房异地如何部署。
+
+1. Vitess, MySQL clustering. https://vitess.io/docs/get-started/kubernetes/
+2. Doorman: Global Distributed Client Side Rate Limiting. https://github.com/youtube/doorman
+3. memcached, not redis. https://github.com/memcached/memcached/wiki/Commands
+    a. redis is complicated, it lures you to store unnecessary data structure in memory
+redis is single threaded.
 
