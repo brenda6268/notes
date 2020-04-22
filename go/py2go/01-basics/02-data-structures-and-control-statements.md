@@ -1,9 +1,8 @@
-Date: 2019-11-25
-
 # 数据结构与控制语句
 
-## 概念
+Date: 2019-11-25
 
+## 概念
 
 ## 数组
  
@@ -150,7 +149,6 @@ ints := []int{7, 2, 4}
     sort.Ints(ints)
     fmt.Println("Ints:   ", ints)
 
-
 NewPerson constructs a new person struct with the given name
 You can safely return a pointer to local variable as a local variable will survive the scope of the function.
 
@@ -162,7 +160,6 @@ func NewPerson(name string) *person {
 }
 ```
 
-structs 勉强可以对应python里的dataclass，也是用大括号初始化。从这点上可以看到 golang还是相当统一的。
-
+structs 勉强可以对应 python 里的 dataclass，也是用大括号初始化。从这点上可以看到 golang 还是相当统一的。
 
 https://blog.golang.org/go-slices-usage-and-internals
