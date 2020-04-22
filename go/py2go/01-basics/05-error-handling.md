@@ -6,4 +6,8 @@ Go 语言中没有异常，只有错误，而且也没有 try...except 这个机
 
 panic 有点类似抛出异常，但是也不是。而 defer 有点类似于 finally。
 
+defer 实际上就相当于 C++ 中的 RAII，和 Python 中的 with 语句。
+
+defer 实在函数结束时执行，而不是在块退出时实行，这块有点诡异。
+
 https://blog.golang.org/error-handling-and-go

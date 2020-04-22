@@ -5,3 +5,7 @@
 timer 适用于一次性的定时，类似于 at 命令
 
 ticker 适用于多次定时，类似于 cron 的功能呢？
+
+## Timers and tickers
+
+Timers 定义在你在未来的某个时间想要去做一次某件事。而 Tickers 则是定期执行某一个动作。这两个有点像是 js 里面的 setTimeout 和 setInterval 两个函数。
