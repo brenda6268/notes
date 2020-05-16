@@ -108,7 +108,7 @@ make install-config
 
 ```bash
 $ cat> ~/.proxychains/proxychians.conf <<EOF strict_chain
-proxy_dns·
+proxy_dns
 remote_dns_subnet
 224 tcp_read_time_out
 15000 tcp_connect_time_out
@@ -131,7 +131,7 @@ EOF
 遗憾的是，即使有了 proxychains，一些应用依然不能使用代理，这时候可以使用 polipo 再利用 socks 代理建立以 http 代理。
 
 ```bash
-apt-get install polipo
+apt-get -y install polipo
 echo "socksParentProxy=localhost:1080" >> /etc/polipo.conf
 systemctl restart polipo
 ```
@@ -139,7 +139,7 @@ systemctl restart polipo
 如上命令将会建立一个本地的 http 代理，默认端口号是 8123，这样我们就可以通过设置$http_proxy 变量来使得一些应用可以翻墙了。 建议添加
 
 ```bash
-proxy  () {
+proxy() {
 
 if [ $1 == on ];
 then

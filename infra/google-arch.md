@@ -12,7 +12,6 @@ from: https://weibo.com/1921727853/Hqb1fypdD
 - MapReduce：作为三驾马车之一，MapReduce 是一个计算框架，通过编程中的 divide-and-conquer 思想，把计算分解成 Map 和 Reduce 两个过程，使用分布式存储 GFS 作为中间衔接，让海量数据的快速计算编程可能。开源界对标的就是 Hadoop MapReduce 框架
 - BigTable：A Bigtable is a sparse, distributed, persistent multi-dimensional sorted map，简单来说就是一个分布式的数据库，当然它最初的设计没有延续关系数据库模型，而是使用稀疏的多维哈希来表示，可以非常灵活地存储海量数据。如果说 GFS 让我们知道分布式数据库应该是什么样子的话，BigTable 则是分布式数据库最初的模样，HBase 就是 BigTable 的开源实现
 - Spanner：虽然已经有了分布式数据库，但是 BigTable 有两个问题：一个是不支持跨行事务，这对于很多高可靠性的业务来说编程会非常困难；另外就是接口模型不是我们熟悉的 SQL，很多应用无法直接使用，因此后面诞生了 Spanner 这个系统，Spanner 可以看成 MySQL 的分布式版本，可以无限水平扩展，能够自动 sharding，并且支持事务，这些特性让传统的应用可以把 Spanner 当做一个无限大的 MySQL 来用。Spanner 是 NewSQL 的旗杆，CockroachDB 和 TiDB 都是模仿 Spanner 而出现的
-- CPI：CPI 应该是 Cycles Per Instruction，只是一个衡量应用的运行情况的指标，在 Borg 的论文中提到使用这个参数对应用进行调优
 - Dapper：Dapper 是一个分布式系统链路追踪组件，Google 2010 年的一篇论文介绍了它的设计。提出来的 Trace 和 Span 概念已经深入人心，目前开源的 Zipkin 和 Jaeger 都受到了它的影响。从技术深度和含量上来说，Dapper 并不复杂，但是对于越来越复杂的分布式系统的调试来说却非常有用
 - Dremel：Dremel 和 Pregel、Caffeine 并称为新时代三驾马车，Dremel 负责实时的交互式查询分析，用户可以使用 SQL 查询 PB 级别的数据，结果能够在秒级别返回。Google 提供的 BigQuery 就是基于 Dremel 的。根据公开数据，Dremel 能够在 10s 级别扫描 350 亿行的数据，性能非常快。Dremel 采用列式存储，以及树形的结构。 Dremel 的缺点是不支持更新操作，因为列式存储会让更新效率非常低。开源社区对标的产品是 Presto
 - PowerDrill：和 Dremel 定位类似，也是交互式的查询分析，但是主要定位是分析少量的大数据集，提供更好的分析性能。PowerDrill 数据保存在内存，并且对数据做了分区，因此检索时可以快速跳过不需要的区间。Dremel 和 PowerDrill 对应的开源产品是 Apache Druid
@@ -45,3 +44,33 @@ Google 在大数据处理方面还是要领先业务不少的，但大家也都�
     a. redis is complicated, it lures you to store unnecessary data structure in memory
 redis is single threaded.
 
+
+## Other tools that don't exist outside of Google
+
+- a tee loadbalancer for gRPC, forwarding the same requests to both A and B backend pools, but only returning results from A. I don't think Envoy has this, but it should.
+- load balancing dashboards showing traffic between frontends and backends
+- load balancer support for dynamic sharding
+- gnubbyd under ChromeOS: https://groups.google.com/a/chromium.org/forum/m/#!msg/chrom... (I think most of this is doable these days, but the initial setup requires a Linux system)
+- Kubernetes: server-specific custom hyperlinks on dashboards (e.g. links to POD_IP:PORT/stats, /debug, etc. for each individual pod you are looking at)
+- Kubernetes: multiple Docker images in the same container or pod. E.g. the first container could be your code, while the second one might be data or the JVM runtime, etc., without having to bundle them together or doing costly copies in init containers.
+- Kubernetes: canaries and automatic rollbacks
+
+## Monarch
+
+The replacement (Monarch) is similar to borgmon except:
+* All metrics have an associated type. Eg. Response time (milliseconds). That's great because units for derived metrics can be dynamically computed. Eg. Bytes/second.
+* The query language can fairly efficiently compute metrics at query time rather than needing everything precomputed (eg. 95 percent latency across 1000 tasks can be calculated in real-time).
+* The config system is a mess and nobody likes it. Borgmon uses a DSL which is obscure, but almost identical to Prometheus. Monarch has various different config frontends (mostly around the idea of running code to produce an expanded protobuffer config) which all suck. Luckily because there isn't a strong requirement for rules to aggregate data, you don't need much config for most services - just say "scrape everything and keep it for a year".
+* There are "levels" of storage at different speeds. In memory, on disk, etc. You have to configure where to put what data. You can also downsample (eg. Change scrape interval to 5 mins after a week).
+* Metric names follow a directory-like heirachy. Since tasks can easily have 10k exported metrics, that's pretty important. No need to scrape the ones that aren't relevant.
+* It has a shinier UI.
+* It has support for exemplars. So to answer the question "Give me an example of a request which saw this high request latency". With not much added code to the monitored service, a small number of exemplars are captured and aggregated in a way that median and outlier exemplars are available. They're super useful for finding out the cause of random slow performance.
+* It is run as a service. Rather than code that every team has to run, the new thing is a single instance for all teams in Google. That in turn means it can be more complex, have more dependencies, etc, without being a burden on the user.
+
+ref: https://news.ycombinator.com/item?id=19619987
+
+Importantly, Monarch is push-based and centralized. Previously, product teams would have to run their own borgmen, and those in turn would get scraped by the upstream borgmen of their orga for aggregation, archiving etc. Monarch is more of an As A Service offering.
+
+
+Google needs are extremely common. Take a look at any Fortune 500 and and it could usually benefit greatly from a lot of the infrastructure that powers google.
+Most of them do run their own datacenters, sometimes in numerous locations, they have massive and extremely complex IT systems in place.

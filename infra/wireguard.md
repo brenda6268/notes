@@ -78,7 +78,7 @@ peer: xxxxx
 [Interface]
 PrivateKey = < 这里填写 Client 上 privatekey 的内容 >
 Address = 10.100.0.2/32
-DNS = 8.8.8.8
+DNS = 8.8.8.8  # 连接 VPN 后使用的 DNS
 
 [Peer]
 PublicKey = < 这里填写 Server 上 publickey 的内容 >
@@ -95,6 +95,39 @@ PersistentKeepalive = 25
 
 ![](images/wireguard2.png)
 
+## 添加新的客户端
+
+还是执行 `wg genkey | tee client_privatekey | wg pubkey > client_publickey` 生成新的客户端私钥和公钥。
+
+然后在 /etc/wireguard/wg0.conf 中添加新的 `[Peer]`
+
+```ini
+[Peer]
+PublicKey = < 这里填写 Client 上 publickey 的内容 >
+AllowedIPs = 10.100.0.3/32  # 这个 Peer 只能是 10.100.0.3
+```
+
+注意这里我们使用了新的 IP 地址。然后更新一下服务端：
+
+```
+sudo wg-quick strip wg0 > temp.conf
+wg syncconf wg0 temp.conf
+```
+
+这里我们使用了 `wg-quick strip` 命令，wg0.conf 中的一些指令是 wg-quick 才能使用的，而不是 wg 原生的配置。
+
+然后生成新的客户端：
+
+```ini
+[Interface]
+PrivateKey = < 新的 private key>
+Address = 10.100.0.3/32
+
+# 其他的和原来保持不变
+```
+
+注意其中，我们只更新了 PrivateKey 和 Address 部分
+
 ## 创建服务
 
 在服务器上，我们可以使用 systemd 开启 WireGuard 服务，重启后就不用再配置了。
@@ -109,3 +142,8 @@ sudo systemctl enable wg-quick@wg0.service
 2. https://github.com/pirate/wireguard-docs
 3. https://www.stavros.io/posts/how-to-configure-wireguard/
 4. https://lists.zx2c4.com/pipermail/wireguard/2017-May/001392.html
+5. https://www.reddit.com/r/WireGuard/comments/g97zkf/wgquick_and_hot_reloadsync/
+6. https://www.reddit.com/r/WireGuard/comments/9yhog4/wireguard_configuration_parsing_error_bug/
+7. https://nova.moe/deploy-wireguard-on-ubuntu-bionic/mggjbnn
+8. https://www.reddit.com/r/WireGuard/comments/dzy6az/allowedips_configuration/
+9. https://www.ckn.io/blog/2017/11/14/wireguard-vpn-typical-setup/
