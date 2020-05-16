@@ -5145,7 +5145,7 @@ typedef unordered_map<int, pair<int, list<int>::iterator>> cache_t; // k: v, ite
 
     }
 
-int get(int key) {
+    int get(int key) {
         auto it = m_cache.find(key);
         if (it == m_cache.end())
              return -1;
@@ -6341,10 +6341,10 @@ int minSubArrayLen(int s, vector<int>& nums) {
 }
 ```
 
-210 Course Schedule II
+210 课程表 II
 ------
 
-BFS
+教科书级别的拓扑排序
 
 ```C++
 class Solution {
@@ -6355,18 +6355,18 @@ public:
         queue<int> zeros;
         for (int i = 0; i < numCourses; i++)
             if (!degrees[i]) zeros.push(i);
-        vector<int> toposort;
+        vector<int> ans;
         for (int i = 0; i < numCourses; i++) {
             if (zeros.empty()) return {};
             int zero = zeros.front();
             zeros.pop();
-            toposort.push_back(zero);
+            ans.push_back(zero);
             for (int neigh : graph[zero]) {
                 if (!--degrees[neigh])
                     zeros.push(neigh);
             }
         }
-        return toposort;
+        return ans;
     }
 private:
     vector<unordered_set<int>> make_graph(int numCourses, vector<pair<int, int>>& prerequisites) {
@@ -6378,8 +6378,8 @@ private:
     vector<int> compute_indegree(vector<unordered_set<int>>& graph) {
         vector<int> degrees(graph.size(), 0);
         for (auto neighbors : graph)
-            for (int neigh : neighbors)
-                degrees[neigh]++;
+            for (auto neighbor : neighbors)
+                degrees[neighbor]++;
         return degrees;
     }
 };
