@@ -89,6 +89,10 @@ fmt.Printf("%x\n", r)
 
 Go 语言中的字符串函数并没有作为 string 类型的方法，而是单独放在了 `strings` 包中，比如 `strings.Split`，`strings.Join` 函数。因为 `[]byte` 类型和 string 类型也比较类似，因此 `strings` 包中提供的方法，在 `bytes` 包中也可以找到类似的。
 
+## 指针
+
+
+
 ## 参考
 
 1. https://medium.com/golangspec/scopes-in-go-a6042bb4298c

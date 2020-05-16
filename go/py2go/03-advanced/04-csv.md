@@ -1,3 +1,5 @@
+Date: 2018-07-15
+
 在 Go 语言中可以使用 `encoding/csv` 包来处理 csv 文件。
 
 csv 包中主要有两个 struct，Reader 和 Writer。Reader 从一个 io.Reader

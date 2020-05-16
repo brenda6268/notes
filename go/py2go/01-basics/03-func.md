@@ -1,3 +1,5 @@
+Date: 2019-11-25
+
 # 函数
 
 ```go
@@ -16,9 +18,15 @@ func vals() (int, int) {
 a, b := vals()
 ```
 
+在 Golang 中，函数也是一等公民，也不需要 lambda 这个关键字，统一直接用 `func`
+
 interface{}
 
 函数应该接受 interface 作为参数，并使用 struct 作为返回值。
+
+## 变长参数
+
+
 
 ## 参考
 

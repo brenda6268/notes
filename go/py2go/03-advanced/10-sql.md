@@ -1,3 +1,6 @@
+Date: 2018-04-04
+
+
 在学习 Go 的过程中重新思考了数据库相关的一些知识，之前认为数据库的驱动就是应该有一个 conn 对象表示连接， 然后再有一个 cursor 对象来具体操作。但是 Go 完全没有这么来，而是直接生成一个 db 对象来操作，开始觉得不适应，然而后来我也实在想不起来为什么需要用两个对象了。
 
 另外，为什么要用 ORM 呢？之前用 Django 的 ORM 比较多，因为生成后台非常方便，而且自己对 SQL 也不是很熟悉，对数据库的操作基本上都在使用这个 ORM。然而，现在感觉到如果想要自己的代码性能比较高的话，自己手工写 SQL 几乎是不可避免的，而且 SQL 其实也没有那么吓人。
@@ -8,7 +11,7 @@ Go 语言中的 `database/sql` 包提供了一个数据库的访问接口，但�
 
 ## 连接数据库
 
-```
+```go
 db, err := sql.Open(driver, dataSourceName)
 ```
 
@@ -17,7 +20,7 @@ db, err := sql.Open(driver, dataSourceName)
 1. Go 语言中不像其他语言一样，除了 connection 对象之外还有 cursor 对象，golang 里面很简单，直接用 db 对象操作就好了。
 2. Open 函数并不会去真的链接数据库，直到第一条语句才会去链接，如果想检测是否连接成功，可以使用：
 
-```
+```go
 if err := db.Ping(); err != nil {
   log.Fatal(err)
 }
@@ -27,7 +30,7 @@ if err := db.Ping(); err != nil {
 
 使用 `db.Exec` 方法
 
-```
+```go
 result, err := db.Exec(
 	"INSERT INTO users (name, age) VALUES ($1, $2)",
 	"gopher",
@@ -37,7 +40,7 @@ result, err := db.Exec(
 
 result 类型定义如下：
 
-```
+```go
 type Result Interface {
     LastInsertId()
     RowAffcted()
@@ -46,7 +49,7 @@ type Result Interface {
 
 # 查询
 
-```
+```go
 rows, err := db.Query(
     "SELECT NAME FROM  users WHERE age = $1",
     age
@@ -73,7 +76,7 @@ Row 有一个方法 Scan，而 Rows 中常用的两个方法是 Next 和 Err
 
 如果查询结果只有一列的话，使用 QueryRow 方法。
 
-```
+```go
 var age int64
 row := db.QueryRow("SELECT age FROM users WHERE name = $1", name)
 err := row.Scan(&age)
@@ -81,7 +84,7 @@ err := row.Scan(&age)
 
 当然像其他所有的语言一样，可以预编译语句然后执行。
 
-```
+```go
 age := 27
 stme, err := db.Prepare("SELECT name FROM users WHERE age = $1")
 if err != nil {
@@ -91,23 +94,23 @@ rows, err := stmt.Query(age)
 defer stmt.Close()
 ```
 
-# 事务（Transaction）
+## 事务（Transaction）
 
-```
+```go
 tx, err := db.Begin()
 if err != nil {
     log.Fatal(err)
 }
-...
+// ...
 tx.Commit() 
 // or tx.Rollback()
 ```
 
-# 处理 null
+## 处理 null
 
 如果一列可能为 null 的话，那么传递个 Scan 的参数就不应该是对应的基础类型，而应该是对应的包含 null 的复合类型
 
-```
+```go
 var name NullString
 err := db.QueryRow("SELECT name FROM names WHERE id = $1", &name)
 if name.Valid {
@@ -119,13 +122,13 @@ if name.Valid {
 
 除此之外还包含了其他几种 Null 复合值，NullBool、NullFloat64、NullInt64。可以使用对应的参数访问
 
-# 使用 sqlite3
+## 使用 sqlite3
 
-```
+```sh
 % go get github.com/mattn/go-sqlite3
 ```
 
-```
+```go
 import (
     "database/sql"
     _ "github.com/mattn/go-sqlite3"
