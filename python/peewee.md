@@ -1,4 +1,4 @@
-# Python 微型ORM Peewee 教程
+# Python 微型 ORM Peewee 教程
 
 Date: 2019-08-17
 
@@ -261,3 +261,6 @@ python -m pwiz -e postgresql charles_blog > blog_models.py
 # 参考
 
 1. https://stackoverflow.com/questions/45345549/peewee-mysql-server-has-gone-away-error/57797698#57797698
+2. https://charlesleifer.com/blog/shortcomings-in-the-django-orm-and-a-look-at-peewee-a-lightweight-alternative/
+3. https://charlesleifer.com/blog/django-orm-operations-compared-with-peewee/
+4. https://flask-restless.readthedocs.io/en/stable/quickstart.html
