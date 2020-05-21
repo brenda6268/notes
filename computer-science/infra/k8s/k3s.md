@@ -6,6 +6,15 @@ k3s 是 rancher 出品的一个 kubernetes 的衍生版，特点是单二进制�
 
 安装完成之后要设置：export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 
+## 加入 Worker 节点
+
+其中 K3S_TOKEN 在服务器的 `/var/lib/rancher/k3s/server/node-token` 路径中
+
+```sh
+curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh -
+```
+
+
 ## 存储
 
 k3s 默认带了自己的 local-path provider，所以直接就能使用。

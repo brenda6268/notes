@@ -7,9 +7,9 @@
 
 ## 缩略版
 
-墙是无处不在的，有时候只用一种方法总会撞墙，总结一下各种情况下的翻墙手法，围绕 ss 来说：
+墙是无处不在的，有时候只用一种方法总会撞墙，总结一下各种情况下的上网手法，围绕 ss 来说：
 
-1. 在国外的服务器搭建 shadowsocks server，其实这样配合 shadowsocks client 已经能用了
+1. 在国外的服务器搭建 ss server，其实这样配合 ss client 已经能用了
 2. 然后使用阿里云的服务器中继，这样在国内复杂的网络环境下可以保证可用性
 3. Chrome 使用 swithyomega 插件，可以订阅 GFWList，避免所有网站都从国外走一遍
 4. 命令行可以使用 proxychains4，多数命令行应用可以借此翻墙
@@ -24,7 +24,7 @@
 
 ```
 # 直接安装的话，会报错，需要使用 github 上的最新版本。
-$ apt install shadowsocks
+$ apt install -y shadowsocks
 $ cat> shadowsocks.json <<EOF
 {
     "server_port": 10086,
@@ -39,35 +39,23 @@ $ ssserver -c shadowsocks.json
 
 ### 添加国内中继（可选）
 
+#### 方法一、使用 iptables（不推荐）
+
 这一步是可选的，之所以用阿里云做中继是因为国内网络太复杂了，同样的一台国外服务器，在不同的网络速度完全不一样，而阿里云连接国外的网络还是比较稳定的，同时在国内的网络下表现也比较好，适合做中继。 在阿里云的服务器上执行下面的脚本 
 
 ```bash
 #!/bin/bash
- REMOTE_IP=`host your.server.domain | cut -f 4 -d`
+REMOTE_IP=`host your.server.domain | cut -f 4 -d`
 
-# 或者直接是 IP REMOTE_PORT=10086
-# 上面配置的端口 LOCAL_IP=8.8.8.8
-# 阿里云的 IP
 echo 1> /proc/sys/net/ipv4/ip_forward
-iptables -t nat -A PREROUTING -p tcp --dport
-$REMOTE_PORT -j DNAT --to-destination
-$REMOTE_IP :
-$REMOTE_PORT iptables -t nat -A POSTROUTING -p tcp -d
-$REMOTE_IP --dport
-$REMOTE_PORT -j SNAT --to-source
-$LOCAL_IP iptables -t nat -A PREROUTING -p udp --dport
-$REMOTE_PORT -j DNAT --to-destination
-$REMOTE_IP :
-$REMOTE_PORT iptables -t nat -A POSTROUTING -p udp -d
-$REMOTE_IP --dport
-$REMOTE_PORT -j SNAT --to-source
-$LOCAL_IP
-echo relay to
-$REMOTE_IP :
-$REMOTE_PORT via
-$LOCAL_IP is enabled
-'
+
+iptables -t nat -A PREROUTING -p tcp --dport $REMOTE_PORT -j DNAT --to-destination $REMOTE_IP:$REMOTE_PORT
+iptables -t nat -A POSTROUTING -p tcp -d $REMOTE_IP --dport $REMOTE_PORT -j SNAT --to-source $LOCAL_IP
+
+echo relay to $REMOTE_IP:$REMOTE_PORT via $LOCAL_IP is enabled
 ```
+
+#### 方法二、使用 haproxy（推荐）
 
 ### 本地普通使用
 
@@ -120,7 +108,6 @@ remote_dns_subnet
 # shadowsocks
 socks5
 127.0.0.1 1080 # shadowsocks 默认打开的是 1080 端口
-
 EOF
 ```
 

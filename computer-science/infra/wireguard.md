@@ -9,14 +9,14 @@ WireGuard 是新一代的 VPN 协议，特点是简单安全，总共只有几�
 ```sh
 sudo add-apt-repository ppa:wireguard/wireguard
 sudo apt-get update
-sudo apt-get install wireguard
+sudo apt-get install wireguard resolveconf
 ```
 
 ## 网络规划
 
 我们使用 `10.100.0.0/16` 作为 VPN 的子网网段。服务器所在的内网网段为：`172.17.0.11/20`。服务器的公网 IP 为 `1.1.1.1`。
 
-WireGuard 的原理是生成一个虚拟网卡，一般来说是 `wg0`，然后通过这个虚拟网卡通信。
+WireGuard 的原理是生成一个虚拟网卡，一般来说我们叫他 `wg0`，然后通过这个虚拟网卡通信。
 
 WireGuard 的配置文件是 ini 风格的，每个配置文件都有 `[Interface]` 和 `[Peer]` 两个部分。
 
@@ -35,7 +35,7 @@ wg genkey | tee client_privatekey | wg pubkey > client_publickey
 
 这时候就得到了 privatekey 和 publickey 这四个文件。
 
-wireguard 的配置都在 `/etc/wireguard` 目录下，在服务器上编辑 `/etc/wireguard/wg0.conf` 并输入一下内容。
+wireguard 的配置都在 `/etc/wireguard` 目录下，在服务器上编辑 `/etc/wireguard/wg0.conf` 并输入以下内容。
 
 ```ini
 [Interface]
@@ -78,7 +78,7 @@ peer: xxxxx
 [Interface]
 PrivateKey = < 这里填写 Client 上 privatekey 的内容 >
 Address = 10.100.0.2/32
-DNS = 8.8.8.8  # 连接 VPN 后使用的 DNS
+DNS = 8.8.8.8  # 连接 VPN 后使用的 DNS, 如果要防止 DNS 泄露，建议使用内网的 DNS 服务器
 
 [Peer]
 PublicKey = < 这里填写 Server 上 publickey 的内容 >
