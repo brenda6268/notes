@@ -1,0 +1,46 @@
+# 美剧数据库 TheTVdb API 介绍
+
+
+ID: 621
+Status: draft
+Date: 2018-08-05 15:50:00
+Modified: 2020-05-16 11:22:52
+
+
+首先上官方网址：https://api.thetvdb.com/swagger。所有的 API 的终点都是：https://api.thetvdb.com/，下文不再重复
+
+# 登录
+
+TheTVdb 的所有 API 都需要登录授权，可能是为了防止过量访问吧。首先需要注册一个账户，然后到 [API Access](https://www.thetvdb.com/member/api) 页面查看自己的授权码。
+
+需要注意的是，TheTVdb 的 API 是仅对非盈利项目免费的，如果是商业项目，可以每个月向他们捐款五美元
+
+> We have an API that is free for non-commercial and educational projects. If you plan on using our data in a commercial project (regardless of how it makes money), we kindly request that you make a $5 (or more) monthly donation to help support our project, and to keep our API free for non-commercial and educational purposes.  To set up that donation, please click the Donate button below.
+
+填写项目名称，得到如图所示的 API KEY
+
+![](https://ws3.sinaimg.cn/large/006tKfTcly1ftznkoerkzj318i0lstbd.jpg)
+
+1. 使用上一步获取的 API KEY，POST 到 /login 获取 token，curl 请求如下：
+
+```
+curl -X POST \
+--header &#039;Content-Type: application/json&#039; \
+--header &#039;Accept: application/json&#039; \
+-d &#039;{&quot;apikey&quot;: &quot;xxxxxxx&quot;}&#039; \
+&#039;https://api.thetvdb.com/login&#039;
+```
+
+返回如下：
+
+```
+{
+  &quot;token&quot;: &quot;xxx&quot;
+}
+```
+
+2. 之后所有的访问，都需要加上如下的 header
+
+```
+Authorization: Bearer &lt;上一步得到的token&gt;
+```

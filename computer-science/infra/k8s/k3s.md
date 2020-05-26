@@ -29,6 +29,7 @@ k3s 自带了 1.7 版本的 traefik，而现在 traefik 已经 2.2 版本了。
 
 k3s 好像无论如何弄都在监听 0.0.0.0，只好用安全组禁用掉端口了
 
+
 ## 参考资料
 
 1. k3s 官方文档。https://rancher.com/docs/k3s/latest/en/quick-start/

@@ -16,7 +16,7 @@ NodePort 方式在每个 host 上都开一个端口来对外提供服务，适�
 
 ## Ingress
 
-Ingress 并不是 K8S 的一种服务类型，实际上他本身是一个 Service，然后路由到不同的服务。
+Ingress 并不是 K8S 的一种服务类型，实际上他本身是一个 Service，然后路由到不同的服务。实际上 Ingress 就是反向代理。
 
 但是要暴露出去 Ingress 服务本身，可能还是要使用 NodePort 或者 LoadBalancer。
 
@@ -28,7 +28,15 @@ Internet -> NodePort -> Ingress Controller -> Ingress Rules -> K8s-Services -> R
 
 ### Traefik
 
-traefik 在 2.0 中放弃了 K8S 默认的 ingress，而是自己定义了一种 IngressRoute 类型的 CRD。
+traefik 在 2.0 中不止支持了 K8S 默认的 ingress，还自己定义了一种 IngressRoute 类型的 CRD。千万不要用这个 IngressRoute，他还不支持证书，简直就是废物。
+
+尽量不要使用 Traefik，bug 太多了。。
+
+### nginx
+
+nginx 毕竟是官方支持的 ingress，比较稳定，而且性能也比较好。            
+
+
 
 ## 参考
 

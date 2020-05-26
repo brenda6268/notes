@@ -57,6 +57,8 @@ echo relay to $REMOTE_IP:$REMOTE_PORT via $LOCAL_IP is enabled
 
 #### 方法二、使用 haproxy（推荐）
 
+https://gist.github.com/cmer/e58e90dbf820a850ff4f136f85697be0
+
 ### 本地普通使用
 
 服务器搭好之后就可以用了，在本地安装 shadowsocks X 或者安装命令行版的客户端。shadowsocks 的客户端，实际上是在本地 localhost:1080 打开了一个 socks5 服务器，客户端配置填上面的服务器，之后启用全局代理的话，打开 Safari 或者 Chrome 应该就可以直接用了，不过建议使用 Chrome 安装 SwitchyOmega，更方便的切换代理。

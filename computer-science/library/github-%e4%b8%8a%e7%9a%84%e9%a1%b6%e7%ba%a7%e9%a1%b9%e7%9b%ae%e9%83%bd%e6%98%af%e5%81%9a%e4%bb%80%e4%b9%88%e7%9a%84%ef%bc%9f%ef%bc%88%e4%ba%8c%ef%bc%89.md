@@ -1,0 +1,250 @@
+# GitHub 上的顶级项目都是做什么的？（二）
+
+
+ID: 624
+Status: publish
+Date: 2019-03-09 21:04:00
+Modified: 2020-02-15 11:24:54
+
+
+GitHub 上面的顶级项目都是做什么的? 下面是第二周的学习记录：
+
+起因:
+
+> 前一阵看到同事在用一个名叫 AirFlow 的工具，而我竟然素未耳闻，一番搜索之后发现这个工具
+> 是 Apache 的顶级项目，而且在 GitHub 上有 1w+ 的 Star。震惊之余，感觉有必要把 GitHub
+> 上常用工具捋一遍，以避免以后发生重复造轮子的情况。计划是把 GitHub 上 5k+ Star 的项目
+> 都知道是做什么用的，每周看 50 个，数据来源是这里：https://gitstar-ranking.com/repositories。
+
+
+# 教程资源类
+
+1. jlevy/the-art-of-command-line
+
+    命令行的基础教程, 有中文翻译
+
+2. justjavac/free-programming-books-zh_CN
+
+    免费中文编程书
+
+3. googlesamples/android-architecture
+
+    Google 官方提供的 Android 应用架构例子
+
+4. sindresorhus/awesome-nodejs
+
+    Nodejs 资源, awesome 系列, 不再赘述.
+
+5. toddmotto/public-apis
+
+    一些免费的公共 API, 值得收藏.
+
+# 前端 UI 框架/库
+
+1. moment/moment
+
+    moment.js 是前端处理验证以及显示时间的一个库. 没想到这个功能这么常用啊, 竟然能进
+    GitHub 前100.
+
+2. ElementUI/Element
+
+    饿了么出品的 Vue 组件库
+
+3. google/material-design-lite
+
+    Google 的 Material Design 的一个简化版, 貌似现在不再支持了.
+
+4. Dogfalo/materialize
+
+    Material 风格的前端 CSS 库
+
+5. callemall/material-ui
+
+    Material 风格的 React 组件库
+
+6. necolas/normalize.css
+
+    我们知道当不使用任何 CSS 的时候, HTML 页面在不同浏览器还是有略微不同的, 这是因为浏览
+    器自带了一些样式, 而 normalize 的意义就在于把这些样式统一起来. 有人把它比喻成女生化
+    妆的打底妆过程, 可以说是非常形象生动了~
+
+7. zurb/foundation-sites
+
+    类似 Bootstrap 的前端 UI 框架, 貌似响应式支持更好一些.
+
+# 大前端框架和库
+
+1. ionic-team/ionic
+
+    使用 web 技术来编写移动应用的库. 和 React Native 相比可以说是两条不同的路子吧. Ionic
+    更加 web 一些.
+
+2. mrdoob/three.js
+
+    前端的 3D 库. 可能需要一些基础的图形学知识才能用好.
+
+3. zeit/next.js
+
+    基于 React 的一个框架. 前端不是很懂, 不多说了. 关于现在的前端三大框架
+    React/Vue/Angular 可以阅读前文.
+
+4. nwjs/nw.js
+
+    前身是 NodeWebkit, 使用 web 技术来编写跨平台的桌面应用的工具.
+
+5. apache/incubator-echarts
+
+    前端的一个显示饼图等示意图的库
+
+6. gatsbyjs/gatsby
+
+    Gatsby.js 是一个基于 React 的静态网站生成器
+
+7. square/retrofit
+
+    用于 Java 和 Android 的 HTTP 客户端
+
+8. AFNetworking/AFNetworking
+
+    用于苹果系列系统的网络库
+
+9. babel/babel
+
+    JavaScript 这些年的进化速度非常快, 但是不能保证浏览器升级足够快, 好多过时的浏览器还
+    有不少市场份额, 但是你又想用新的语法, 这时候就可以使用 babel, 他可以帮你把新版本的
+    JavaScript 编译到老版本的浏览器支持的语法.
+
+10. square/okhttp
+
+    Square 提供的又一个 Java 和 Android 的 HTTP 客户端.
+
+11. blueimp/jQuery-File-Upload
+
+    jQuery 的文件上传插件
+
+12. gulpjs/gulp
+
+    JS 的构建工具, 有点类似于 C 语言的 make
+
+13. yarnpkg/yarn
+
+    Facebook 出品的 Nodejs 包管理器, 貌似有比官方的 npm 优秀的地方, 不太清楚了.
+
+14. jashkenas/backbone
+
+    老牌的前端框架了, 现在用的人应该很少了
+
+# 后端工具
+
+1. ansible/ansible
+
+    Ansible 是一个用于部署, 管理多台机器的工具. 和 Puppet 等工具不同的是, Ansible 不需要
+    再被控机上安装任何 Agent, 只需要能够 SSH 上去就行.
+
+    Ansible 使用 Python 编写.
+
+# 库
+
+1. google/guava
+
+    Google 的 Java 核心库, 当想造 Java 的轮子的时候不妨来这里看看是不是已经有了.
+
+2. requests/requests
+
+    Python 的第三方 HTTP 客户端, 接口相比标准库的urllib 友好一些, 不过有内存泄露的严重问
+    题. 建议生产应用考虑使用 pycurl 比较好, 虽然接口不太友好, 但是特别稳定.
+
+# 语言
+
+1. iojs/node-v0.x-archive
+
+    Node.js 老版本的归档, 不再赘述. 请参考 Nodejs
+
+# 通用工具类
+
+1. typicode/json-server
+
+    这个其实既是前端工具也是后端工具吧. 根据给定的 json 文件, 提供一个模拟接口. 在后端接
+    口还没有开发好, 或者需要测试的时候供前端调用, 非常方便.
+
+2. jykell/jykell
+
+    jykell 是一个使用 Ruby 编写的静态网站生成器, 也就是说把你的网站预编译成 HTML. 经常用
+    在 GitHub Pages 上做免费的博客. 不过我个人更喜欢 Pelican.
+
+3. impress/impress.js
+
+    又一个基于前端技术来做幻灯片的工具, 不过更加强调 CSS3 的应用, 效果更酷炫一些.
+
+4. getlatern/latern
+
+    这个不好多说, 懂的自然懂~
+
+5. jakubroztocil/httpie
+
+    命令行调试接口的工具, 相比 curl 来说, 更加直观一点, 对新手友好. 不过我还是喜欢用
+    curl.
+
+6. resume/resume.github.com
+
+    利用 GitHub 上的信息生成简历的工具
+
+7. nvbn/thefuck
+
+    这个工具很有意思, 当你在命令行敲错命令的时候, 一定会心里默念一句: fuck. 现在你可以直
+    接再敲一遍 fuck, 他会帮你才出来你刚刚应该输入的正确命令.
+
+8. shadowsocks/shadowsocks 系列
+
+    这个库懂的自然懂, 不便多说.
+
+9. NARKOZ/hacker-scripts
+
+    一个黑客的一些脚本, 比如说如果九点之后还在开发机上登录的话就给老婆发个短信解释一下 ...
+
+10. rg3/youtube-dl
+
+    YouTube 视频下载工具
+
+11. adobe/brackets
+
+    Adobe 出品的一个代码编辑器, 貌似现在已经不火了吧.
+
+12. zeit/hyper
+
+    基于 Electron 做的一个终端模拟器, 不过我现在还在用 iterm2, 有空了体验下.
+
+13. discourse/discourse
+
+    一个开源的论坛
+
+# Web 框架
+
+1. Pallets/flask
+
+    Flask 是一个 Python 的微框架, 相对 Django 来说上手更简单. 不过我个人用得不多, 感觉业
+    务的复杂性是不可避免的, 框架并不能解决多少问题.
+
+2. spring-projects/spring-boot
+
+    spring 框架相关的东西, 不太熟悉, 有做 Java 的同学欢迎在评论区补充.
+
+3. django/django
+
+    老牌的 Python web 框架, 自带了 ORM 和管理界面, 配合 DRF 做后端 Restful API 爽歪歪.
+
+
+# 架构
+
+1. kubernetes/kubernetes
+
+    Kubernetes 经常被缩写成 K8S, 可以毫不犹豫地说, K8S 已经取得了容器编排市场的胜利.
+    用 Docker 打镜像可以避免装环境的困扰, 同时相对于虚拟机来说, 又不会有很多性能损失. 但
+    是当 Docker 构成的服务太多的时候, Container 的伸缩, 网络通信等等问题都需要系统性的解
+    决, 就好比想要多个进程同时运行就需要操作系统来管理一样, 这时候就需要 K8S 来做容器编
+    排工具了. 有人说, K8S 是云时代的操作系统, 我觉得这个比喻是非常好的.
+
+2. Google/protobuf
+
+    使用 RPC 的时候, 可以选择不同序列化工具, ProtoBuffer 可以说是其中的佼佼者了. 支持的
+    语言多, 序列化性能高, 而且很省空间.

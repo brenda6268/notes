@@ -9,7 +9,7 @@ WireGuard 是新一代的 VPN 协议，特点是简单安全，总共只有几�
 ```sh
 sudo add-apt-repository ppa:wireguard/wireguard
 sudo apt-get update
-sudo apt-get install wireguard resolveconf
+sudo apt-get install wireguard resolvconf
 ```
 
 ## 网络规划
@@ -111,10 +111,12 @@ AllowedIPs = 10.100.0.3/32  # 这个 Peer 只能是 10.100.0.3
 
 ```
 sudo wg-quick strip wg0 > temp.conf
-wg syncconf wg0 temp.conf
+sudo wg syncconf wg0 temp.conf
 ```
 
 这里我们使用了 `wg-quick strip` 命令，wg0.conf 中的一些指令是 wg-quick 才能使用的，而不是 wg 原生的配置。
+
+不过有时候可能还是不太好用，这时候不用急，重启一下机器总会解决的。
 
 然后生成新的客户端：
 
@@ -135,6 +137,10 @@ Address = 10.100.0.3/32
 ```sh
 sudo systemctl enable wg-quick@wg0.service
 ```
+
+## DNS 配置
+
+我们可以使用 dnsmasq 作为虚拟网络内部的 DNS，但是这里有一个问题
 
 ## 参考
 
