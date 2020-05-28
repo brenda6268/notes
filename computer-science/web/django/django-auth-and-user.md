@@ -1,7 +1,7 @@
 # django auth and user
 
 
-ID: 714
+wp_id: 714
 Status: publish
 Date: 2018-01-17 22:53:00
 Modified: 2018-01-17 22:53:00

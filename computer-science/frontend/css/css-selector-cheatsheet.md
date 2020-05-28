@@ -1,7 +1,7 @@
 # [译] CSS 选择器备忘录（cheatsheet）
 
 
-ID: 760
+wp_id: 760
 Status: publish
 Date: 2018-04-11 09:51:00
 Modified: 2020-05-16 11:35:04

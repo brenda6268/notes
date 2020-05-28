@@ -1,7 +1,7 @@
 # Python pip 和 poetry 极简教程
 
 
-ID: 638
+wp_id: 638
 Status: publish
 Date: 2017-05-30 03:04:00
 Modified: 2020-05-16 11:58:10

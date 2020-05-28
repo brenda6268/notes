@@ -1,7 +1,7 @@
 # mysql 基础知识(3) - 创建修改表和权限
 
 
-ID: 176
+wp_id: 176
 Status: publish
 Date: 2017-11-12 17:02:50
 Modified: 2020-05-16 11:52:44
@@ -84,7 +84,7 @@ ALTER TABLE SET AUTO_INCREMENT=xxx;
 ## 更新表
 
 ```
-rename table &#039;old_name&#039; to &#039;new_name&#039;
+rename table "old_name" to "new_name"
 ```
 
 添加一列，其中的 COLUMN 关键字是 optional 的。
@@ -143,10 +143,10 @@ alter table TABLENAME drop index xxxx
 下面的情况都会用到这个索引：
 
 ```
-col_a = &quot;some value&quot;;
-col_a = &quot;some value&quot; and col_b = &quot;some value&quot;;
-col_a = &quot;some value&quot; and col_b = &quot;some value&quot; and col_c = &quot;some value&quot;;
-col_b = &quot;some value&quot; and col_a = &quot;some value&quot; and col_c = &quot;some value&quot;;
+col_a = "some value";
+col_a = "some value" and col_b = "some value";
+col_a = "some value" and col_b = "some value" and col_c = "some value";
+col_b = "some value" and col_a = "some value" and col_c = "some value";
 ```
 
 对于最后一条语句，mysql会自动优化成第三条的样子
@@ -154,6 +154,6 @@ col_b = &quot;some value&quot; and col_a = &quot;some value&quot; and col_c = &q
 下面的情况就不会用到索引：
 
 ```
-col_b = &quot;aaaaaa&quot;;
-col_b = &quot;aaaa&quot; and col_c = &quot;cccccc&quot;;
+col_b = "aaaaaa";
+col_b = "aaaa" and col_c = "cccccc";
 ```

@@ -1,7 +1,7 @@
 # Deep Learning 的一些思考
 
 
-ID: 474
+wp_id: 474
 Status: publish
 Date: 2017-08-06 23:33:00
 Modified: 2020-05-16 11:48:08

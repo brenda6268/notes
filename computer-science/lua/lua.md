@@ -1,7 +1,7 @@
 # lua
 
 
-ID: 693
+wp_id: 693
 Status: publish
 Date: 2017-05-30 13:45:00
 Modified: 2017-05-30 13:45:00
@@ -39,3 +39,11 @@ end
 lua 的标准库补充 [Penlight](https://github.com/stevedonovan/Penlight)
 
 ![](http://ww4.sinaimg.cn/large/006tNbRwgy1fg3q43bjn9j31kw1rgk1j.jpg)
+
+Programming in Lua
+
+Lua编程手册
+
+Lua Unofficial FAQ
+
+知乎上 lua 相关的问题

@@ -1,7 +1,7 @@
 # vim 中的拼写检查
 
 
-ID: 735
+wp_id: 735
 Status: publish
 Date: 2017-06-14 04:20:00
 Modified: 2020-05-16 11:42:54
@@ -22,8 +22,8 @@ http://vimcasts.org/episodes/spell-checking/
 
 ```
 zg       Add word under the cursor as a good word to the first
-         name in &#039;spellfile&#039;.  A count may precede the command
-         to indicate the entry in &#039;spellfile&#039; to be used.  A
+         name in "spellfile".  A count may precede the command
+         to indicate the entry in "spellfile" to be used.  A
          count of two uses the second entry.
 
          In Visual mode the selected characters are added as a
@@ -37,22 +37,22 @@ zg       Add word under the cursor as a good word to the first
          another spell file the result is unpredictable.
 
 
-zG       Like &quot;zg&quot; but add the word to the internal word list
+zG       Like "zg" but add the word to the internal word list
          |internal-wordlist|.
 
 
-zw       Like &quot;zg&quot; but mark the word as a wrong (bad) word.
-         If the word already appears in &#039;spellfile&#039; it is
+zw       Like "zg" but mark the word as a wrong (bad) word.
+         If the word already appears in "spellfile" it is
          turned into a comment line.  See |spellfile-cleanup|
          for getting rid of those.
 
 
-zW       Like &quot;zw&quot; but add the word to the internal word list
+zW       Like "zw" but add the word to the internal word list
          |internal-wordlist|.
 
 zuw
 zug      Undo |zw| and |zg|, remove the word from the entry in
-         &#039;spellfile&#039;.  Count used as with |zg|.
+         "spellfile".  Count used as with |zg|.
 
 zuW
 zuG      Undo |zW| and |zG|, remove the word from the internal

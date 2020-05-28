@@ -1,7 +1,7 @@
 # 美剧数据库 TheTVdb API 介绍
 
 
-ID: 621
+wp_id: 621
 Status: draft
 Date: 2018-08-05 15:50:00
 Modified: 2020-05-16 11:22:52
@@ -25,22 +25,22 @@ TheTVdb 的所有 API 都需要登录授权，可能是为了防止过量访问�
 
 ```
 curl -X POST \
---header &#039;Content-Type: application/json&#039; \
---header &#039;Accept: application/json&#039; \
--d &#039;{&quot;apikey&quot;: &quot;xxxxxxx&quot;}&#039; \
-&#039;https://api.thetvdb.com/login&#039;
+--header "Content-Type: application/json" \
+--header "Accept: application/json" \
+-d "{"apikey": "xxxxxxx"}" \
+"https://api.thetvdb.com/login"
 ```
 
 返回如下：
 
 ```
 {
-  &quot;token&quot;: &quot;xxx&quot;
+  "token": "xxx"
 }
 ```
 
 2. 之后所有的访问，都需要加上如下的 header
 
 ```
-Authorization: Bearer &lt;上一步得到的token&gt;
+Authorization: Bearer <上一步得到的token>
 ```

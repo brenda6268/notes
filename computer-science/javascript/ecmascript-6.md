@@ -1,7 +1,7 @@
 # EcmaScript 6
 
 
-ID: 507
+wp_id: 507
 Status: publish
 Date: 2017-05-30 13:54:00
 Modified: 2017-05-30 13:54:00

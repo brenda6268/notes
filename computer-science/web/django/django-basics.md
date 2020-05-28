@@ -1,7 +1,7 @@
 # django basics
 
 
-ID: 704
+wp_id: 704
 Status: draft
 Date: 2018-04-29 13:19:00
 Modified: 2020-05-16 11:37:35
@@ -28,7 +28,7 @@ the `django-admin diffsettings` command
 ## start a project
 
 ```
-% django startproject &lt;project_name&gt;
+% django startproject <project_name>
 ```
 
 ## start an app
@@ -36,7 +36,7 @@ the `django-admin diffsettings` command
 to use django models, you have to create django apps, a bundle of Django code, including models and views, that live together in a single Python package and represent a full Django application.
 
 ```
-./manage.py startapp &lt;app_name&gt;
+./manage.py startapp <app_name>
 ```
 
 register in the settings.py INSTALLED_APPS
@@ -62,7 +62,7 @@ views.py
 from django.http import HttpResponse
 
 def hello(request):
-    return HttpResponse(&quot;hello world&quot;)
+    return HttpResponse("hello world")
 ```
 
 if you want parameters, capture them in the url regex and pass them as parameters along with request to handler functions

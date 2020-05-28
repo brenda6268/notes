@@ -1,7 +1,7 @@
 # fzf - 命令行模糊查找工具
 
 
-ID: 431
+wp_id: 431
 Status: publish
 Date: 2018-04-01 04:38:00
 Modified: 2020-05-16 11:31:25
@@ -56,14 +56,14 @@ ALT-C cd 进入选中的目录
 fzf 支持不少命令的自动补全功能，通过 **<tab> 来触发。如果没有特殊支持某个命令的话，fzf会用文件来补全。
 
 ```
-vim **&lt;tab&gt;
-cd **&lt;tab&gt;
-ssh **&lt;tab&gt;  从 /etc/hosts 中读取主机列表
-unset **&lt;tab&gt;
-export **&lt;tab&gt;
-unalias **&lt;tab&gt;
+vim **<tab>
+cd **<tab>
+ssh **<tab>  从 /etc/hosts 中读取主机列表
+unset **<tab>
+export **<tab>
+unalias **<tab>
 
-kill -s TERM &lt;tab&gt;
+kill -s TERM <tab>
 ```
 
 这里我把触发按键设置成了 Ctrl-Y 比原生的触发更方便一点，如何配置见下文。
@@ -85,25 +85,25 @@ kill -s TERM &lt;tab&gt;
 ```
 # Press F1 to open the file with less without leaving fzf
 # Press CTRL-Y to copy the line to clipboard and aborts fzf (requires pbcopy)
-fzf --bind &#039;f1:execute(less -f {}),ctrl-y:execute-silent(echo {} | pbcopy)+abort&#039;
+fzf --bind "f1:execute(less -f {}),ctrl-y:execute-silent(echo {} | pbcopy)+abort"
 ```
 
 默认情况下，fzf 不会预览文件的内容，可以使用 --preview 指定，
 
 ```
-# Use head instead of cat so that the command doesn&#039;t take too long to finish
-fzf --preview &#039;head -100 {}&#039;
+# Use head instead of cat so that the command doesn"t take too long to finish
+fzf --preview "head -100 {}"
 ```
 
 语法高亮
 
 ```
-fzf --preview &#039;[[ $(file --mime {}) =~ binary ]] &amp;&amp;
+fzf --preview "[[ $(file --mime {}) =~ binary ]] &amp;&amp;
                  echo {} is a binary file ||
                  (highlight -O ansi -l {} ||
                   coderay {} ||
                   rougify {} ||
-                  cat {}) 2&gt; /dev/null&#039;
+                  cat {}) 2> /dev/null"
 ```
 
 ## 相关的环境变量
@@ -111,9 +111,9 @@ fzf --preview &#039;[[ $(file --mime {}) =~ binary ]] &amp;&amp;
 默认情况下，fzf 从 `find * -type f` 中读取文件列表，可以使用更好用的 fd 来替换。
 
 ```
-export FZF_DEFAULT_OPTS=&#039;--height 40% --reverse --border&#039; 这个变量来指定默认选项。
-export FZF_DEFAULT_COMMAND=&#039;fd --type f&#039; 来指定
-export FZF_CTRL_T_COMMAND=&quot;$FZF_DEFAULT_COMMAND&quot;
+export FZF_DEFAULT_OPTS="--height 40% --reverse --border" 这个变量来指定默认选项。
+export FZF_DEFAULT_COMMAND="fd --type f" 来指定
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 ```
 
 ##  我的最终配置
@@ -121,21 +121,21 @@ export FZF_CTRL_T_COMMAND=&quot;$FZF_DEFAULT_COMMAND&quot;
 ```
 [ -f ~/.fzf.zsh ] &amp;&amp; source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND=&#039;fd --type f&#039;
-export FZF_CTRL_T_COMMAND=&#039;fd --type f&#039;
-export FZF_ALT_C_COMMAND=&#039;fd --type d&#039;
-export FZF_COMPLETION_TRIGGER=&#039;&#039;
-export FZF_DEFAULT_OPTS=&quot;--height 40% --reverse --border --prompt &#039;&gt;&gt;&gt;&#039; \
-    --bind &#039;alt-j:preview-down,alt-k:preview-up,alt-v:execute(vi {})+abort,ctrl-y:execute-silent(cat {} | pbcopy)+abort,?:toggle-preview&#039; \
-    --header &#039;A-j/k: preview down/up, A-v: open in vim, C-y: copy, ?: toggle preview&#039; \
-    --preview &#039;(highlight -O ansi -l {} 2&gt; /dev/null || cat {} || tree -C {}) 2&gt; /dev/null&#039;&quot;
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_CTRL_T_COMMAND="fd --type f"
+export FZF_ALT_C_COMMAND="fd --type d"
+export FZF_COMPLETION_TRIGGER=""
+export FZF_DEFAULT_OPTS="--height 40% --reverse --border --prompt ">>>" \
+    --bind "alt-j:preview-down,alt-k:preview-up,alt-v:execute(vi {})+abort,ctrl-y:execute-silent(cat {} | pbcopy)+abort,?:toggle-preview" \
+    --header "A-j/k: preview down/up, A-v: open in vim, C-y: copy, ?: toggle preview" \
+    --preview "(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null""
 export FZF_CTRL_T_OPTS=$FZF_DEFAULT_OPTS
-export FZF_CTRL_R_OPTS=&quot;--preview &#039;echo {}&#039; --preview-window hidden:wrap --bind &#039;?:toggle-preview&#039;&quot;
-export FZF_ALT_C_OPTS=&quot;--height 40% --reverse --border --prompt &#039;&gt;&gt;&gt;&#039; \
-    --bind &#039;alt-j:preview-down,alt-k:preview-up,?:toggle-preview&#039; \
-    --header &#039;A-j/k: preview down/up, A-v: open in vim, C-y: copy, ?: toggle preview&#039; \
-    --preview &#039;tree -C {}&#039;&quot;
-bindkey &#039;^Y&#039; fzf-completion
-bindkey &#039;^I&#039; $fzf_default_completion
+export FZF_CTRL_R_OPTS="--preview "echo {}" --preview-window hidden:wrap --bind "?:toggle-preview""
+export FZF_ALT_C_OPTS="--height 40% --reverse --border --prompt ">>>" \
+    --bind "alt-j:preview-down,alt-k:preview-up,?:toggle-preview" \
+    --header "A-j/k: preview down/up, A-v: open in vim, C-y: copy, ?: toggle preview" \
+    --preview "tree -C {}""
+bindkey "^Y" fzf-completion
+bindkey "^I" $fzf_default_completion
 [ -f ~/.dotfiles/lib/fzf-extras.sh ] &amp;&amp; source ~/.dotfiles/lib/fzf-extras.sh
 ```

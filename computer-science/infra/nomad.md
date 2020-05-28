@@ -1,7 +1,7 @@
 # 使用 Nomad 编排服务
 
 
-ID: 559
+wp_id: 559
 Status: publish
 Date: 2018-11-22 22:57:00
 Modified: 2020-05-16 11:06:38
@@ -27,7 +27,7 @@ $ sudo nomad agent -dev
 
 $ nomad node status
 ID        DC   Name   Class   Drain  Eligibility  Status
-171a583b  dc1  nomad  &lt;none&gt;  false  eligible     ready
+171a583b  dc1  nomad  <none>  false  eligible     ready
 
 $ nomad server members
 Name          Address    Port  Status  Leader  Protocol  Build  Datacenter  Region
@@ -56,17 +56,17 @@ Example job file written to example.nomad
 打开生成的 example.nomad 文件，我们看到生成了一大推配置，默认定义了一个 redis 服务器的 job。Job 中包含了 Group，Group 中包含了 Task，task 可以认为是我们最终需要运行服务的那个命令。比如这里就是定义了运行 redis:3.2 这个 docker 镜像。
 
 ```
-task &quot;redis&quot; {
-  # The &quot;driver&quot; parameter specifies the task driver that should be used to
+task "redis" {
+  # The "driver" parameter specifies the task driver that should be used to
   # run the task.
-  driver = &quot;docker&quot;
+  driver = "docker"
 
-  # The &quot;config&quot; stanza specifies the driver configuration, which is passed
+  # The "config" stanza specifies the driver configuration, which is passed
   # directly to the driver to start the task. The details of configurations
   # are specific to each driver, so please see specific driver
   # documentation for more information.
   config {
-    image = &quot;redis:3.2&quot;
+    image = "redis:3.2"
     port_map {
       db = 6379
     }
@@ -76,13 +76,13 @@ task &quot;redis&quot; {
 我们可以运行一下这个 job
 
 ```
--&gt; % nomad job run example.nomad
-==&gt; Monitoring evaluation &quot;4f5559e0&quot;
-    Evaluation triggered by job &quot;example&quot;
-    Allocation &quot;98959767&quot; created: node &quot;ecf9f7cd&quot;, group &quot;cache&quot;
-    Evaluation within deployment: &quot;e66e0957&quot;
-    Evaluation status changed: &quot;pending&quot; -&gt; &quot;complete&quot;
-==&gt; Evaluation &quot;4f5559e0&quot; finished with status &quot;complete&quot;
+-> % nomad job run example.nomad
+==> Monitoring evaluation "4f5559e0"
+    Evaluation triggered by job "example"
+    Allocation "98959767" created: node "ecf9f7cd", group "cache"
+    Evaluation within deployment: "e66e0957"
+    Evaluation status changed: "pending" -> "complete"
+==> Evaluation "4f5559e0" finished with status "complete"
 ```
 
 然后查看一下 job 的运行状态：
@@ -129,10 +129,10 @@ count = 3
 ```
 $ nomad job plan example.nomad
 
-+/- Job: &quot;example&quot;
-+/- Task Group: &quot;cache&quot; (2 create, 1 in-place update)
-  +/- Count: &quot;1&quot; =&gt; &quot;3&quot; (forces create)
-      Task: &quot;redis&quot;
++/- Job: "example"
++/- Task Group: "cache" (2 create, 1 in-place update)
+  +/- Count: "1" => "3" (forces create)
+      Task: "redis"
 ...
 Job Modify Index: 7
 To submit the job with version verification run:
@@ -156,7 +156,7 @@ $ nomad job run -check-index 7 example.nomad
 ```
 # /etc/nomad.d/server.hcl
 
-data_dir = &quot;/etc/nomad.d&quot;
+data_dir = "/etc/nomad.d"
 
 server {
   enabled          = true
@@ -175,8 +175,8 @@ $ nomad agent -config=/etc/nomad.d/server.hcl
 ```
 # /etc/nomad.d/client.hcl
 
-datacenter = &quot;dc1&quot;
-data_dir   = &quot;/etc/nomad.d&quot;
+datacenter = "dc1"
+data_dir   = "/etc/nomad.d"
 
 client {
   enabled = true

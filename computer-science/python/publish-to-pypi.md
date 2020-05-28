@@ -1,7 +1,7 @@
 # 如何发布 Python 代码到 PyPI 上（2018）
 
 
-ID: 637
+wp_id: 637
 Status: publish
 Date: 2018-05-19 11:01:00
 Modified: 2020-05-16 18:39:15
@@ -69,33 +69,33 @@ from distutils.core import setup
 # 可选，读取 README 作为下面的 long_description
 here = os.path.abspath(os.path.dirname(__file__))
 
-with open(os.path.join(here, &#039;README.md&#039;)) as f:
+with open(os.path.join(here, "README.md")) as f:
     long_description = f.read()
 
 
 setup(
-    name = &#039;aioify&#039;,   # 包的名字
-    packages = [&#039;aioify&#039;],   # 同上
-    version = &#039;0.1.3&#039;,    # 当前版本
-    description = &#039;Make every python function async/await&#039;,  # 描述
+    name = "aioify",   # 包的名字
+    packages = ["aioify"],   # 同上
+    version = "0.1.3",    # 当前版本
+    description = "Make every python function async/await",  # 描述
     long_description = long_description,  # 长描述，会显示在 PyPI 主页上
-    long_description_content_type = &#039;text/markdown&#039;,  # 长描述的格式，不过好像markdown支持还不是很好
-    author = &#039;Yifei Kong&#039;,  # 作者
-    author_email = &#039;kongyifei@gmail.com&#039;,  # 作者邮件
-    url = &#039;https://github.com/yifeikong/aioify&#039;,  # 项目地址
-    download_url = &#039;https://github.com/yifeikong/aioify/archive/0.1.3.tar.gz&#039;,  # 下载链接，可选
-    keywords = [&#039;async&#039;, &#039;await&#039;, &#039;wrap&#039;],  # 关键词
+    long_description_content_type = "text/markdown",  # 长描述的格式，不过好像markdown支持还不是很好
+    author = "Yifei Kong",  # 作者
+    author_email = "kongyifei@gmail.com",  # 作者邮件
+    url = "https://github.com/yifeikong/aioify",  # 项目地址
+    download_url = "https://github.com/yifeikong/aioify/archive/0.1.3.tar.gz",  # 下载链接，可选
+    keywords = ["async", "await", "wrap"],  # 关键词
     # 分类器，可以认为是 PyPI 的一些栏目，建议参考文档填写，可选
     classifiers = [
-    &#039;Development Status :: 3 - Alpha&#039;,
-    &#039;Intended Audience :: Developers&#039;,
-    &#039;License :: OSI Approved :: MIT License&#039;,
-    &#039;Programming Language :: Python :: 3&#039;,
-    &#039;Programming Language :: Python :: 3.5&#039;,
-    &#039;Programming Language :: Python :: 3.6&#039;,
-    &#039;Programming Language :: Python :: 3.7&#039;,
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
     ],
-    python_requires=&#039;&gt;=3.5&#039;  # 最低 Python 版本
+    python_requires=">=3.5"  # 最低 Python 版本
 )
 ```
 

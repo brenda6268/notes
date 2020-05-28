@@ -1,3 +1,4 @@
+# Python 标准的 DB API
 Date: 2020-01-20
 
 DB API 2.0(PEP 249) 是 Python 给数据库驱动定义的一个规范。sqlite 和 mysql 的客户端都遵守这个规范。

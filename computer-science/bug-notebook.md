@@ -1,7 +1,6 @@
 # bug 错题本
 
-
-ID: 328
+wp_id: 328
 Status: publish
 Date: 2017-11-30 22:30:00
 Modified: 2020-05-16 11:56:50

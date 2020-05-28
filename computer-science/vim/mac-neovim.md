@@ -1,7 +1,7 @@
 # 在 Mac 上安装 neovim
 
 
-ID: 732
+wp_id: 732
 Status: publish
 Date: 2017-06-09 02:42:00
 Modified: 2020-05-16 12:05:17

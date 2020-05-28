@@ -1,7 +1,7 @@
 # Linux 下的内核参数调优与 sysctl
 
 
-ID: 254
+wp_id: 254
 Status: publish
 Date: 2019-07-13 02:23:54
 Modified: 2020-05-16 10:52:55
@@ -50,7 +50,7 @@ sysctl -fFILE 加载给定文件的值，默认是 /etc/sysctl.conf 也就是我
 
 ```
 tiger@iZ2ze0z0xdiqgv15k20evmZ [01:53:09 AM] [~]
--&gt; % cat /etc/sysctl.conf
+-> % cat /etc/sysctl.conf
 vm.swappiness = 0
 net.ipv4.neigh.default.gc_stale_time=120
 
@@ -114,11 +114,11 @@ spec:
   securityContext:
     sysctls:
     - name: kernel.shm_rmid_forced
-      value: &quot;0&quot;
+      value: "0"
     - name: net.core.somaxconn
-      value: &quot;1024&quot;
+      value: "1024"
     - name: kernel.msgmax
-      value: &quot;65536&quot;
+      value: "65536"
   ...
 ```
 

@@ -1,7 +1,7 @@
 # 国内网络镜像加速
 
 
-ID: 756
+wp_id: 756
 Status: publish
 Date: 2017-05-30 03:43:00
 Modified: 2020-05-16 11:59:12

@@ -1,7 +1,7 @@
 # kubernetes 初探——服务治理
 
 
-ID: 547
+wp_id: 547
 Status: publish
 Date: 2019-01-18 21:33:00
 Modified: 2020-05-16 11:06:01

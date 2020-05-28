@@ -1,7 +1,7 @@
 # Crontab 的语法和使用
 
 
-ID: 433
+wp_id: 433
 Status: publish
 Date: 2017-05-29 15:41:00
 Modified: 2020-05-16 12:10:16
@@ -31,7 +31,7 @@ Minute Hour Day Month DoW
 比如
 
 ```
-5 * * * * echo &quot;hello world&quot;
+5 * * * * echo "hello world"
 ```
 
 每小时的第五分钟打印 hello world
@@ -74,7 +74,7 @@ NOTE:
 # add these line to tweak cron behavior
 SHELL=/bin/bash
 HOME=/
-MAILTO=&quot;example@digitalocean.com&quot;
+MAILTO="example@digitalocean.com"
 ```
 
 

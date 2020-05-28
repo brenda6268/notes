@@ -1,7 +1,7 @@
 # Python Redis 客户端连接池解析
 
 
-ID: 617
+wp_id: 617
 Status: publish
 Date: 2018-11-21 22:47:00
 Modified: 2020-05-16 11:06:50
@@ -29,15 +29,15 @@ class Connection(object):
             pass
 
     def connect(self):
-        &quot;&quot;&quot;
+        """
         连接 Redis 服务器
-        &quot;&quot;&quot;
+        """
         if self._sock:
             return
         try:
             sock = self._connect()
         except socket.timeout:
-            raise TimeoutError(&quot;Timeout connecting to server&quot;)
+            raise TimeoutError("Timeout connecting to server")
         except socket.error:
             e = sys.exc_info()[1]
             raise ConnectionError(self._error_message(e))
@@ -56,14 +56,14 @@ class Connection(object):
             callback(self)
 
     def _connect(self):
-        &quot;&quot;&quot;
+        """
         建立链接的具体过程, 主要是 socket 操作
-        &quot;&quot;&quot;
+        """
 
     def disconnect(self):
-        &quot;&quot;&quot;
+        """
         关闭链接
-        &quot;&quot;&quot;
+        """
         self._parser.on_disconnect()
         if self._sock is None:
             return
@@ -94,8 +94,8 @@ class ConnectionPool(object):
     def __init__(self, connection_class=Connection, max_connections=None,
                  **connection_kwargs):
         max_connections = max_connections or 2 ** 31
-        if not isinstance(max_connections, (int, long)) or max_connections &lt; 0:
-            raise ValueError(&#039;&quot;max_connections&quot; must be a positive integer&#039;)
+        if not isinstance(max_connections, (int, long)) or max_connections < 0:
+            raise ValueError(""max_connections" must be a positive integer")
 
         self.connection_class = connection_class
         self.connection_kwargs = connection_kwargs
@@ -132,8 +132,8 @@ class ConnectionPool(object):
 
     def make_connection(self):
         # 创建一个新的连接
-        if self._created_connections &gt;= self.max_connections:
-            raise ConnectionError(&quot;Too many connections&quot;)
+        if self._created_connections >= self.max_connections:
+            raise ConnectionError("Too many connections")
         self._created_connections += 1
         return self.connection_class(**self.connection_kwargs)
 
@@ -154,9 +154,9 @@ class ConnectionPool(object):
 
 
 class BlockingConnectionPool(ConnectionPool):
-    &quot;&quot;&quot;
+    """
     这个连接池的实现是线程安全的
-    &quot;&quot;&quot;
+    """
     def __init__(self, max_connections=50, timeout=20,
                  connection_class=Connection, queue_class=LifoQueue,
                  **connection_kwargs):
@@ -191,13 +191,13 @@ class BlockingConnectionPool(ConnectionPool):
         return connection
 
     def get_connection(self, command_name, *keys, **options):
-        &quot;&quot;&quot;
+        """
         获取一个新的连接，最长等待 timeout 秒
 
         如果我们读取到的新连接是 None 的话，就会创建一个新的连接。因为我们使用的是 LIFO 队列，也就是栈，
         所以我们优先得到的是已经创建的链接，而不是最开始放进去的 None。也就是我们只有在需要的时候才会创建
         新的连接，也就是说连接数量是按需增长的。
-        &quot;&quot;&quot;
+        """
         # 确保没有更换进程
         self._checkpid()
 
@@ -207,7 +207,7 @@ class BlockingConnectionPool(ConnectionPool):
             connection = self.pool.get(block=True, timeout=self.timeout)
         except Empty:
             # 需要注意的是这个错误并不会被 redis 捕获，需要用户自己处理
-            raise ConnectionError(&quot;No connection available.&quot;)
+            raise ConnectionError("No connection available.")
 
         # 如果真的没有连接可用了，直接创建一个新的连接
         if connection is None:
@@ -226,7 +226,7 @@ class BlockingConnectionPool(ConnectionPool):
             self.pool.put_nowait(connection)
         except Full:
             # perhaps the pool has been reset() after a fork? regardless,
-            # we don&#039;t want this connection
+            # we don"t want this connection
             pass
 
     def disconnect(self):

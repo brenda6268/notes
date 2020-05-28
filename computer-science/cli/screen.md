@@ -1,7 +1,7 @@
 # screen 教程
 
 
-ID: 424
+wp_id: 424
 Status: draft
 Date: 2017-05-30 03:34:00
 Modified: 2020-05-16 11:58:34

@@ -1,13 +1,13 @@
 # sudo passwordless
 
 
-ID: 427
+wp_id: 427
 Status: publish
 Date: 2017-06-30 13:51:00
 Modified: 2017-06-30 13:51:00
 
 
-```
+```sh
 $ EDITOR=vi visudo
 
 # then add this

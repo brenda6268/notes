@@ -1,7 +1,7 @@
 # Dockerfile 基础教程
 
 
-ID: 188
+wp_id: 188
 Status: publish
 Date: 2017-06-27 15:24:19
 Modified: 2020-05-16 11:44:26

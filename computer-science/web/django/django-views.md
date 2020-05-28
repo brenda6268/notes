@@ -1,7 +1,7 @@
 # Django views 视图
 
 
-ID: 700
+wp_id: 700
 Status: publish
 Date: 2018-06-17 08:00:00
 Modified: 2020-05-16 11:40:42
@@ -20,8 +20,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
  
 def add(request):
-    a = request.GET[&#039;a&#039;]
-    b = request.GET[&#039;b&#039;]
+    a = request.GET["a"]
+    b = request.GET["b"]
     c = int(a) + int(b)
     return HttpResponse(str(c))
 
@@ -41,9 +41,9 @@ def add2(request, a, b):
 from calc import views as calc_views
  
 urlpatterns = [
-    path(&#039;add/&#039;, calc_views.add, name=&#039;add&#039;),  # new
-    path(&#039;admin/&#039;, admin.site.urls),
-    path(&#039;add/&lt;int:a&gt;/&lt;int:b&gt;/&#039;, calc_views.add2, name=&#039;add2&#039;),  # django 2.0 的新语法，以前都是用正则分组
+    path("add/", calc_views.add, name="add"),  # new
+    path("admin/", admin.site.urls),
+    path("add/<int:a>/<int:b>/", calc_views.add2, name="add2"),  # django 2.0 的新语法，以前都是用正则分组
 ]
 ```
 
@@ -57,11 +57,11 @@ response 对象可以当做字典使用，向其中复制就可以设定响应�
 from django.http import HttpResponse
 
 def add(request):
-    a = request.GET[&#039;a&#039;]
-    b = request.GET[&#039;b&#039;]
+    a = request.GET["a"]
+    b = request.GET["b"]
     c = int(a) + int(b)
     response = HttpResponse(str(c))
-    response[&#039;Powered-By&#039;] = &#039;django&#039;
+    response["Powered-By"] = "django"
     return response
 ```
 
@@ -71,9 +71,9 @@ def add(request):
 
 ```
 # urls.py
-path(&#039;add/&lt;int:a&gt;/&lt;int:b&gt;/&#039;, calc_views.add2, name=&#039;add2&#039;)
+path("add/<int:a>/<int:b>/", calc_views.add2, name="add2")
 
 # other.py
 from django.urls import reverse
-url = reverse(&#039;add2&#039;)
+url = reverse("add2")
 ```

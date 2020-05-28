@@ -1,7 +1,7 @@
 # 基于 gRPC 的 Python 微服务框架探索
 
 
-ID: 557
+wp_id: 557
 Status: draft
 Date: 2018-09-28 22:42:00
 Modified: 2020-05-16 11:24:28

@@ -1,7 +1,7 @@
 # YAML 语言和 Python 中的使用
 
 
-ID: 630
+wp_id: 630
 Status: publish
 Date: 2017-05-29 15:20:00
 Modified: 2020-05-16 12:09:48

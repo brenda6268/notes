@@ -1,7 +1,7 @@
 # Python coroutine 以及和 Goroutine 的对比
 
 
-ID: 681
+wp_id: 681
 Status: publish
 Date: 2018-04-29 05:44:00
 Modified: 2020-05-16 11:37:10
@@ -17,7 +17,7 @@ coroutine 又被称为用户级线程，也就是可以在一个系统线程中�
 
 首先，`pip install pulsar lxml`。pulsar 是一个异步版的 http 库。
 
-```
+```py
 import asyncio
 from pulsar.apps import http
 
@@ -25,13 +25,13 @@ client = http.HttpClient()
 
 async def fetch(url):
     r = await client.get(url)
-    return r.content.decode(&#039;utf-8&#039;)
+    return r.content.decode("utf-8")
 
 async def main():
-    page = await fetch(&quot;http://toutiao.com&quot;)
+    page = await fetch("http://toutiao.com")
     print(page)
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
 ```
@@ -52,14 +52,14 @@ client = http.HttpClient()
 
 async def fetch(url):
     r = await client.get(url)
-    return r.content.decode(&#039;utf-8&#039;)
+    return r.content.decode("utf-8")
 
 def get_title(page):
     doc = lxml.html.fromstring(page)
-    return doc.xpath(&quot;//title/text()&quot;)[0]
+    return doc.xpath("//title/text()")[0]
 
 async def main():
-    urls = [&#039;https://www.toutiao.com&#039;, &#039;https://www.douban.com&#039;, &#039;https://www.sina.com.cn&#039;]
+    urls = ["https://www.toutiao.com", "https://www.douban.com", "https://www.sina.com.cn"]
     futures = []
     for url in urls:
         future = asyncio.ensure_future(fetch(url))
@@ -68,7 +68,7 @@ async def main():
     for url, page in zip(urls, pages):
         print(url, get_title(page))
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
 ```
@@ -79,7 +79,7 @@ if __name__ == &quot;__main__&quot;:
 
 ```
 async def main():
-    urls = [&#039;https://www.toutiao.com&#039;, &#039;https://www.douban.com&#039;, &#039;https://www.sina.com.cn&#039;]
+    urls = ["https://www.toutiao.com", "https://www.douban.com", "https://www.sina.com.cn"]
     for url in urls:
         page = await fetch(url)
         print(page)
@@ -106,7 +106,7 @@ async def main():
         futures.append(future)
     await asyncio.gather(*futures)
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
 
@@ -145,35 +145,35 @@ python aio_sleep.py  0.13s user 0.03s system 13% cpu 1.166 total
 package main
 
 import (
-	&quot;fmt&quot;
-	&quot;io/ioutil&quot;
-	&quot;log&quot;
-	&quot;net/http&quot;
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
 )
 
 func fetch(url string, bodies chan []byte) {
 	resp, err := http.Get(url)
 	if err != nil {
-		log.Fatalf(&quot;error %s&quot;, err)
+		log.Fatalf("error %s", err)
 	}
 	defer resp.Body.Close()
 	body, _ := ioutil.ReadAll(resp.Body)
-	bodies &lt;- body
+	bodies <- body
 }
 
 func main() {
 	urls := []string{
-		&quot;https://www.toutiao.com&quot;,
-                &quot;https://www.douban.com&quot;,
-                &quot;https://www.sina.com.cn&quot;,
+		"https://www.toutiao.com",
+                "https://www.douban.com",
+                "https://www.sina.com.cn",
 	}
 	bodies := make(chan []byte)
 	for _, url := range urls {
 		go fetch(url, bodies)
 	}
-	for i := 0; i &lt; len(urls); i++ {
-		fmt.Println(string(&lt;-bodies)[:100])
-		fmt.Println(&quot;--------------------&quot;)
+	for i := 0; i < len(urls); i++ {
+		fmt.Println(string(<-bodies)[:100])
+		fmt.Println("--------------------")
 	}
 	close(bodies)
 }

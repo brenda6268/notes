@@ -1,7 +1,7 @@
 # Chrome Extension Tabs
 
 
-ID: 501
+wp_id: 501
 Status: publish
 Date: 2017-06-12 14:36:00
 Modified: 2017-06-12 14:36:00

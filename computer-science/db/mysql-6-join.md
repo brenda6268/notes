@@ -1,7 +1,7 @@
 # mysql 基础知识(6) - Join
 
 
-ID: 179
+wp_id: 179
 Status: publish
 Date: 2018-04-11 17:29:20
 Modified: 2020-05-16 11:35:11
@@ -30,14 +30,14 @@ id | content     | user_id
 ```
 create table user (id integer, name string);
 create table package (id integer, content string, user_id integer);
-insert into user (id, name) values (1, &#039;Luke&#039;);
-insert into user (id, name) values (2, &#039;Leia&#039;);
-insert into user (id, name) values (3, &#039;Anakin&#039;);
-insert into user (id, name) values (4, &#039;Padme&#039;);
-insert into package (id, content, user_id) values (1, &#039;droid&#039;, 3);
-insert into package (id, content, user_id) values (2, &#039;lightsaber&#039;, 2);
-insert into package (id, content, user_id) values (3, &#039;blaster&#039;, 1);
-insert into package (id, content, user_id) values (4, &#039;R2D2&#039;, 5);
+insert into user (id, name) values (1, "Luke");
+insert into user (id, name) values (2, "Leia");
+insert into user (id, name) values (3, "Anakin");
+insert into user (id, name) values (4, "Padme");
+insert into package (id, content, user_id) values (1, "droid", 3);
+insert into package (id, content, user_id) values (2, "lightsaber", 2);
+insert into package (id, content, user_id) values (3, "blaster", 1);
+insert into package (id, content, user_id) values (4, "R2D2", 5);
 ```
 
 Veen diagram（韦恩图）是一种表示集合的图形语言。SQL 的 join 本质上也是从集合论里面来的，可以从集合论的角度来学习和记忆 Join 的语法。

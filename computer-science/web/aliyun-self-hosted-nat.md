@@ -1,7 +1,7 @@
 # 在阿里云上为内网VPC搭建NAT出口服务器
 
 
-ID: 618
+wp_id: 618
 Status: publish
 Date: 2018-07-16 08:14:00
 Modified: 2020-05-16 11:19:48
@@ -28,7 +28,7 @@ Modified: 2020-05-16 11:19:48
 然后，在 10.1.1.1 上执行：
 
 ```
-echo 1 &gt; /proc/sys/net/ipv4/ip_forward   # 打开转发功能
+echo 1 > /proc/sys/net/ipv4/ip_forward   # 打开转发功能
 
 # 所有来自10.0.0.0/8 的流量通过 eth0 发出
 iptables -t nat -A POSTROUTING -s 10.0.0.0/8 -o eth0 -j MASQUERADE

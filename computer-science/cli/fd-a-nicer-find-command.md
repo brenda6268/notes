@@ -1,7 +1,7 @@
 # fd - 更好的 find 命令（fd - A nicer find command）
 
 
-ID: 434
+wp_id: 434
 Status: publish
 Date: 2018-04-01 04:33:00
 Modified: 2020-05-16 11:31:18
@@ -18,7 +18,7 @@ Modified: 2020-05-16 11:31:18
 OLD
 
 ```
--&gt; % find . -name &quot;*hello*&quot;
+-> % find . -name "*hello*"
 ./courses/hello_world.go
 ./courses/chapter_01/hello_world.go
 ./courses/chapter_01/hello_world
@@ -28,7 +28,7 @@ OLD
 NEW
 
 ```
--&gt; % fd hello
+-> % fd hello
 courses/chapter_01/hello_world
 courses/chapter_01/hello_world.go
 courses/hello_world.go
@@ -48,7 +48,7 @@ For example, let's find a file whose name matches `\d{2}_ti`. `find` uses a very
 OLD 
 
 ```
--&gt; % find . -regex &quot;.*[0-9][0-9]_ti.*&quot;
+-> % find . -regex ".*[0-9][0-9]_ti.*"
 ./examples/33_tickers.go
 ./examples/48_time.go
 ./examples/28_timeouts.go
@@ -60,7 +60,7 @@ OLD
 NEW
 
 ```
--&gt; % fd &#039;\d{2}_ti&#039;
+-> % fd "\d{2}_ti"
 examples/28_timeouts.go
 examples/32_timers.go
 examples/33_tickers.go
@@ -78,14 +78,14 @@ examples/50_time_format.go
 OLD
 
 ```
--&gt; % find examples -name &quot;*hello*&quot;
+-> % find examples -name "*hello*"
 examples/01_hello_world.go
 ```
 
 NEW
 
 ```
--&gt; % fd hello examples
+-> % fd hello examples
 examples/01_hello_world.go
 ```
 
@@ -98,7 +98,7 @@ find 会打印帮助信息，而 fd 则会显示当前目录的所有文件。
 OLD
 
 ```
--&gt; % find
+-> % find
 usage: find [-H | -L | -P] [-EXdsx] [-f path] path ... [expression]
        find [-H | -L | -P] [-EXdsx] -f path [path ...] [expression]
 ```
@@ -106,7 +106,7 @@ usage: find [-H | -L | -P] [-EXdsx] [-f path] path ... [expression]
 NEW
 
 ```
--&gt; % fd
+-> % fd
 courses
 courses/chapter_01
 courses/chapter_01/chapter_1.md
@@ -124,7 +124,7 @@ It's a very common use case. With `find`, you have to use `-name "*.xxx"`, while
 OLD
 
 ```
--&gt; % find . -name &quot;*.md&quot;
+-> % find . -name "*.md"
 ./courses/chapter_01/chapter_1.md
 ./courses/chapter_1.md
 ```
@@ -132,7 +132,7 @@ OLD
 NEW
 
 ```
--&gt; % fd -e md
+-> % fd -e md
 courses/chapter_01/chapter_1.md
 courses/chapter_1.md
 ```
@@ -151,13 +151,13 @@ You could use `-I` to include those files, `-H` to also include hidden files.
 OLD
 
 ```
--&gt; % git ls-files | grep xxx
+-> % git ls-files | grep xxx
 ```
 
 NEW
 
 ```
--&gt; % fd xxx
+-> % fd xxx
 ```
 
 ## 排除某个文件夹 Exclude a directory
@@ -167,7 +167,7 @@ NEW
 OLD
 
 ```
--&gt; % find . -path ./examples -prune -o -name &#039;*.go&#039;
+-> % find . -path ./examples -prune -o -name "*.go"
 ./courses/hello_world.go
 ./courses/chapter_01/hello_world.go
 ./examples
@@ -176,7 +176,7 @@ OLD
 NEW
 
 ```
--&gt; % fd -E examples &#039;.go$&#039;
+-> % fd -E examples ".go$"
 courses/chapter_01/hello_world.go
 courses/hello_world.go
 ```
@@ -195,7 +195,7 @@ If you are using pipes to filter results, using `\0` other than `\n` would be a 
 OLD
 
 ```
--&gt; % find . -name &quot;*.go&quot; -print0 | xargs -0 wc -l
+-> % find . -name "*.go" -print0 | xargs -0 wc -l
        7 ./courses/hello_world.go
        7 ./courses/chapter_01/hello_world.go
       50 ./examples/07_switch.go
@@ -205,7 +205,7 @@ OLD
 NEW
 
 ```
--&gt; % fd -0 -e go | xargs -0 wc -l
+-> % fd -0 -e go | xargs -0 wc -l
        7 courses/chapter_01/hello_world.go
        7 courses/hello_world.go
        7 examples/01_hello_world.go
@@ -223,7 +223,7 @@ As you can see, using `fd` can save you a lot of keystrokes.
 OLD
 
 ```
--&gt; % find . -name &quot;*.md&quot; -exec wc -l {} \;
+-> % find . -name "*.md" -exec wc -l {} \;
      114 ./courses/chapter_01/chapter_1.md
      114 ./courses/chapter_1.md
 ```
@@ -233,7 +233,7 @@ NEW
 You could also omit the `{}`
 
 ```
--&gt; % fd -e md --exec wc -l {}
+-> % fd -e md --exec wc -l {}
      114 courses/chapter_1.md
      114 courses/chapter_01/chapter_1.md
 ```

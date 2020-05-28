@@ -1,7 +1,7 @@
 # get and change android device id
 
 
-ID: 537
+wp_id: 537
 Status: publish
 Date: 2017-05-29 14:48:00
 Modified: 2017-05-29 14:48:00

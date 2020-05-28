@@ -1,7 +1,7 @@
 # Python + Influxdb + Grafana 的监控系统
 
 
-ID: 739
+wp_id: 739
 Status: publish
 Date: 2018-10-16 02:18:00
 Modified: 2020-05-16 11:25:51
@@ -40,9 +40,9 @@ measurement,tag=value,tag1=value1 field=value,field1=value1 timestamp
 使用类似 SQL 的语言, 执行 `influx` 进入shell
 
 ```
-&gt; CREATE DATABASE mydb
-&gt; SHOW DATABASES
-&gt; USE mydb
+> CREATE DATABASE mydb
+> SHOW DATABASES
+> USE mydb
 ```
 插入数据, 和 SQL 差别还是挺大的, 其中 cpu 是 measurement, 也就是 "表名", 没指定时间的话, influxdb 会自己加上.
 
@@ -53,7 +53,7 @@ INSERT cpu,host=serverA,region=us_west value=0.64
 查询数据, 注意多出来的 timestamp 一栏
 
 ```
-&gt; SELECT &quot;host&quot;, &quot;region&quot;, &quot;value&quot; FROM &quot;cpu&quot;
+> SELECT "host", "region", "value" FROM "cpu"
 name: cpu
 ---------
 time		    	                     host     	region   value
@@ -66,7 +66,7 @@ time		    	                     host     	region   value
 默认情况下, influxdb 会永久保留数据, 一般来说这样是没有意义的, 我们可以设置短一点.
 
 ```
-CREATE RETENTION POLICY &lt;retention_policy_name&gt; ON &lt;database_name&gt; DURATION &lt;duration&gt; REPLICATION &lt;n&gt; [DEFAULT]
+CREATE RETENTION POLICY <retention_policy_name> ON <database_name> DURATION <duration> REPLICATION <n> [DEFAULT]
 ```
 
 其中 replication 只能设置为 1, 因为开源版只有 1. 可以设置成 30d, 1w

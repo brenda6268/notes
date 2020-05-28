@@ -1,7 +1,7 @@
 # django 小技巧
 
 
-ID: 706
+wp_id: 706
 Status: publish
 Date: 2017-06-26 02:24:00
 Modified: 2020-05-16 11:44:14

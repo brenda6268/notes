@@ -1,7 +1,7 @@
 # kubernetes 初探——使用 helm 部署服务
 
 
-ID: 569
+wp_id: 569
 Status: publish
 Date: 2018-10-06 02:52:00
 Modified: 2020-05-16 11:25:03
@@ -57,7 +57,7 @@ helm inspect values stable/mysql 查看 mysql 的默认值. 或者去 GitHub 上
 使用 helm list 可以查看当前部署的 release, 这时候我们可以看到部署的版本变成了 2 (最初是1).
 
 ```
--&gt; % helm ls
+-> % helm ls
 NAME    REVISION        UPDATED                         STATUS          CHART           NAMESPACE
 mysql   1               Sat Oct  6 15:44:25 2018        DEPLOYED        mysql-0.3.0     default
 ```

@@ -1,7 +1,7 @@
 # 在 Python 中优雅地处理 SIGTERM 信号
 
 
-ID: 653
+wp_id: 653
 Status: publish
 Date: 2018-07-18 01:46:00
 Modified: 2020-05-16 11:20:09
@@ -15,12 +15,12 @@ Modified: 2020-05-16 11:20:09
 
 所以在 docker stop 的时候服务并不能优雅的推出。
 
-# 解决方法
+## 解决方法
 
 使用 atexit 模块是不可以的，atexit 不会处理 SIGTERM。需要使用 signal 模块来，在网上找到了一份源码。这个代码注册了一个 SIGTERM 的 handler，把 SIGTERM 转换成正常的 `sys.exit` 调用，当运行 `sys.exit` 的时候会运行 finally 子句中的语句。
 
-```
-# Author: Giampaolo Rodola&#039; &lt;g.rodola [AT] gmail [DOT] com&gt;
+```py
+# Author: Giampaolo Rodola" <g.rodola [AT] gmail [DOT] com>
 # License: MIT
 
 from __future__ import with_statement
@@ -36,27 +36,27 @@ _sigterm_handler.__enter_ctx__ = False
 
 @contextlib.contextmanager
 def handle_exit(callback=None, append=False):
-    &quot;&quot;&quot;A context manager which properly handles SIGTERM and SIGINT
+    """A context manager which properly handles SIGTERM and SIGINT
     (KeyboardInterrupt) signals, registering a function which is
     guaranteed to be called after signals are received.
     Also, it makes sure to execute previously registered signal
     handlers as well (if any).
 
-    &gt;&gt;&gt; app = App()
-    &gt;&gt;&gt; with handle_exit(app.stop):
+    >>> app = App()
+    >>> with handle_exit(app.stop):
     ...     app.start()
     ...
-    &gt;&gt;&gt;
+    >>>
 
-    If append == False raise RuntimeError if there&#039;s already a handler
+    If append == False raise RuntimeError if there"s already a handler
     registered for SIGTERM, otherwise both new and old handlers are
     executed in this order.
-    &quot;&quot;&quot;
+    """
     old_handler = signal.signal(signal.SIGTERM, _sigterm_handler)
     if (old_handler != signal.SIG_DFL) and (old_handler != _sigterm_handler):
         if not append:
-            raise RuntimeError(&quot;there is already a handler registered for &quot;
-                               &quot;SIGTERM: %r&quot; % old_handler)
+            raise RuntimeError("there is already a handler registered for "
+                               "SIGTERM: %r" % old_handler)
 
         def handler(signum, frame):
             try:
@@ -66,7 +66,7 @@ def handle_exit(callback=None, append=False):
         signal.signal(signal.SIGTERM, handler)
 
     if _sigterm_handler.__enter_ctx__:
-        raise RuntimeError(&quot;can&#039;t use nested contexts&quot;)
+        raise RuntimeError("can"t use nested contexts")
     _sigterm_handler.__enter_ctx__ = True
 
     try:
@@ -75,9 +75,9 @@ def handle_exit(callback=None, append=False):
         pass
     except SystemExit, err:
         # code != 0 refers to an application error (e.g. explicit
-        # sys.exit(&#039;some error&#039;) call).
-        # We don&#039;t want that to pass silently.
-        # Nevertheless, the &#039;finally&#039; clause below will always
+        # sys.exit("some error") call).
+        # We don"t want that to pass silently.
+        # Nevertheless, the "finally" clause below will always
         # be executed.
         if err.code != 0:
             raise
@@ -87,7 +87,7 @@ def handle_exit(callback=None, append=False):
             callback()
 
 
-if __name__ == &#039;__main__&#039;:
+if __name__ == "__main__":
     # ===============================================================
     # --- test suite
     # ===============================================================
@@ -136,23 +136,23 @@ if __name__ == &#039;__main__&#039;:
         def test_sigterm_old(self):
             # make sure the old handler gets executed
             queue = []
-            signal.signal(signal.SIGTERM, lambda s, f: queue.append(&#039;old&#039;))
-            with handle_exit(lambda: queue.append(&#039;new&#039;), append=True):
+            signal.signal(signal.SIGTERM, lambda s, f: queue.append("old"))
+            with handle_exit(lambda: queue.append("new"), append=True):
                 os.kill(os.getpid(), signal.SIGTERM)
             self.flag = True
-            self.assertEqual(queue, [&#039;old&#039;, &#039;new&#039;])
+            self.assertEqual(queue, ["old", "new"])
 
         def test_sigint_old(self):
             # make sure the old handler gets executed
             queue = []
-            signal.signal(signal.SIGINT, lambda s, f: queue.append(&#039;old&#039;))
-            with handle_exit(lambda: queue.append(&#039;new&#039;), append=True):
+            signal.signal(signal.SIGINT, lambda s, f: queue.append("old"))
+            with handle_exit(lambda: queue.append("new"), append=True):
                 os.kill(os.getpid(), signal.SIGINT)
             self.flag = True
-            self.assertEqual(queue, [&#039;old&#039;, &#039;new&#039;])
+            self.assertEqual(queue, ["old", "new"])
 
         def test_no_append(self):
-            # make sure we can&#039;t use the context manager if there&#039;s
+            # make sure we can"t use the context manager if there"s
             # already a handler registered for SIGTERM
             signal.signal(signal.SIGTERM, lambda s, f: sys.exit(0))
             try:
@@ -161,7 +161,7 @@ if __name__ == &#039;__main__&#039;:
             except RuntimeError:
                 pass
             else:
-                self.fail(&quot;exception not raised&quot;)
+                self.fail("exception not raised")
             finally:
                 self.flag = True
 
@@ -174,7 +174,7 @@ if __name__ == &#039;__main__&#039;:
             except RuntimeError:
                 pass
             else:
-                self.fail(&quot;exception not raised&quot;)
+                self.fail("exception not raised")
 
     unittest.main()
 ```

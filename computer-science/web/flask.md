@@ -1,7 +1,7 @@
 # flask 全家桶学习笔记(未完待续)
 
 
-ID: 298
+wp_id: 298
 Status: publish
 Date: 2019-08-15 20:33:56
 Modified: 2020-05-16 10:51:51
@@ -16,9 +16,9 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route(&quot;/&quot;)
+@app.route("/")
 def hello():
-    return &quot;hello, world&quot;
+    return "hello, world"
 
 app.run()
 ```
@@ -44,7 +44,7 @@ def create_app(**kwargs):
     return app
 
 from example import create_app
-app = create_app(DB_CONN=&quot;production&quot;)
+app = create_app(DB_CONN="production")
 ```
 
 ## 方便依赖管理
@@ -112,10 +112,10 @@ manager.init_app(app)
 用户登录。使用 login_user 方法登录后，flask_login 会设置 cookie。
 
 ```python
-@app.route(&quot;/login&quot;)
+@app.route("/login")
 def login():
-    username = request.args.get(&quot;username&quot;)
-    password = request.args.get(&quot;password&quot;)
+    username = request.args.get("username")
+    password = request.args.get("password")
     user = User.get(username=username)
     if user.check_password(password):
         login_user(user)
@@ -124,7 +124,7 @@ def login():
 这时候之后的访问就都可以从 session 中加载出用户了。如果需要登出的话：
 
 ```python
-@app.route(&quot;/logout&quot;)
+@app.route("/logout")
 @login_required  # 只有登录后可以访问
 def logout():
     logout_user()
@@ -163,7 +163,7 @@ Flask-Login 内置了基于表单的一些辅助方法，在这里我们就不�
 ```python
 @manager.request_loader
 def login_from_request(request):
-    token = request.headers.get(&quot;X-Token&quot;)
+    token = request.headers.get("X-Token")
     user = get_user_with_token(token)
     return user
 ```
@@ -182,7 +182,7 @@ get_id() # None
 ```python
 @manager.unauthorized_handler
 def handle_login():
-    return {&quot;error&quot;: &quot;need login&quot;}
+    return {"error": "need login"}
 ```
 
 #### 登录验证的 view

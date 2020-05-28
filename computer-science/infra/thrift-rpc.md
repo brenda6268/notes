@@ -1,7 +1,7 @@
 # Thrift RPC 框架
 
 
-ID: 549
+wp_id: 549
 Status: publish
 Date: 2017-06-23 15:45:00
 Modified: 2020-05-16 11:44:07
@@ -34,7 +34,7 @@ struct Cat {
     1: required i32 number=10;  // 可以有默认值
     2: optional i64 big_number;
     3: double decimal;
-    4: string name=&quot;thrifty&quot;;  // 字符串也可以有默认值
+    4: string name="thrifty";  // 字符串也可以有默认值
 }
 ```
 
@@ -76,7 +76,7 @@ Thrift 中包含了常见的容器类型 `list set map` 等。
 
 ```
 const i32 INT_CONST = 1234;    // 1
-const map&lt;string,string&gt; MAP_CONST = {&quot;hello&quot;: &quot;world&quot;, &quot;goodnight&quot;: &quot;moon&quot;}
+const map<string,string> MAP_CONST = {"hello": "world", "goodnight": "moon"}
 ```
 
 ## 注释

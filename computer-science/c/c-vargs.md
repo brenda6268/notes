@@ -1,7 +1,7 @@
 # C语言中的 vargs
 
 
-ID: 405
+wp_id: 405
 Status: publish
 Date: 2017-05-29 15:02:00
 Modified: 2020-05-16 12:09:21
@@ -13,9 +13,9 @@ int max(int n, ...) {
     int result = INT_MIN;
     
     va_start(arg_pointer, n);
-    for (int i = 0; i &lt; n; i++) {
+    for (int i = 0; i < n; i++) {
         int arg = va_arg(arg_pointer, int);
-        if (arg &gt; result)
+        if (arg > result)
             result = arg;
     }
     va_end(arg_pointer);

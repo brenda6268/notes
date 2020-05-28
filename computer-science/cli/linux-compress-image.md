@@ -1,7 +1,7 @@
 # 命令行压缩图片的工具
 
 
-ID: 429
+wp_id: 429
 Status: publish
 Date: 2017-05-30 01:42:00
 Modified: 2020-05-16 12:10:43
@@ -30,8 +30,8 @@ gif 图像的压缩可以使用gifsicle
 如果需要对一个目录下的所有文件都进行优化, 可以配合 find 命令使用, 比如
 
 ```
-find . -name &quot;*.jpg&quot; -exec jpegoptim {} -m90 -p
-find . -name &quot;*.png&quot; -exec pngquant {}
+find . -name "*.jpg" -exec jpegoptim {} -m90 -p
+find . -name "*.png" -exec pngquant {}
 ```
 
 通过以上命令就可以把降低一些图片的体积

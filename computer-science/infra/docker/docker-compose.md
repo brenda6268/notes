@@ -1,7 +1,7 @@
 # Docker Compose 教程
 
 
-ID: 232
+wp_id: 232
 Status: publish
 Date: 2018-06-17 14:38:17
 Modified: 2020-05-16 11:40:55
@@ -12,7 +12,7 @@ Modified: 2020-05-16 11:40:55
 话不多说，下面通过一个例子来学习一下 docker-compose.yml 文件的语法。
 
 ```yaml
-version: &quot;3&quot;  # 版本号，目前最新版是 3，不同版本的语法是不太兼容的
+version: "3"  # 版本号，目前最新版是 3，不同版本的语法是不太兼容的
 services:  # 定义的服务，注意是一个字典
   web:
     build: .
@@ -24,19 +24,19 @@ services:  # 定义的服务，注意是一个字典
   redis:
     image: redis  # 使用 dockerhub 上的 redis 镜像，这里也可以填自己的私有地址
     ports:
-     - &quot;3000&quot;
-     - &quot;3000-3005&quot;
-     - &quot;8000:8000&quot;
-     - &quot;9090-9091:8080-8081&quot;
-     - &quot;49100:22&quot;
-     - &quot;127.0.0.1:8001:8001&quot;
-     - &quot;127.0.0.1:5000-5010:5000-5010&quot;
-     - &quot;6060:6060/udp&quot;
+     - "3000"
+     - "3000-3005"
+     - "8000:8000"
+     - "9090-9091:8080-8081"
+     - "49100:22"
+     - "127.0.0.1:8001:8001"
+     - "127.0.0.1:5000-5010:5000-5010"
+     - "6060:6060/udp"
   db:
     image: postgres
     volumes:
-      - &quot;/var/run/postgres/postgres.sock:/var/run/postgres/postgres.sock&quot;
-      - &quot;dbdata:/var/lib/postgresql/data&quot;  # 挂载的库，为了和 yaml 语法兼容，必须用引号
+      - "/var/run/postgres/postgres.sock:/var/run/postgres/postgres.sock"
+      - "dbdata:/var/lib/postgresql/data"  # 挂载的库，为了和 yaml 语法兼容，必须用引号
 
 volumes:  # 定义的卷
   - dbdata

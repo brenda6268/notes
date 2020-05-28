@@ -1,7 +1,7 @@
 # sklearn 入门笔记
 
 
-ID: 481
+wp_id: 481
 Status: publish
 Date: 2017-11-24 19:35:00
 Modified: 2020-05-16 11:56:16
@@ -48,10 +48,10 @@ sklearn 为了方便学习自带了一些数据库，可以说是非常方便了
 代码：
 
 ```
-&gt;&gt;&gt; from sklearn import datasets
-&gt;&gt;&gt; iris = datasets.load_iris()          # iris 花瓣数据库
-&gt;&gt;&gt; digits = datasets.load_digits()      # 手写数字数据库
-&gt;&gt;&gt; print(digits.data)                   # 数据库的输入
+>>> from sklearn import datasets
+>>> iris = datasets.load_iris()          # iris 花瓣数据库
+>>> digits = datasets.load_digits()      # 手写数字数据库
+>>> print(digits.data)                   # 数据库的输入
 [[  0.   0.   5. ...,   0.   0.   0.]
  [  0.   0.   0. ...,  10.   0.   0.]
  [  0.   0.   0. ...,  16.   9.   0.]
@@ -59,7 +59,7 @@ sklearn 为了方便学习自带了一些数据库，可以说是非常方便了
  [  0.   0.   1. ...,   6.   0.   0.]
  [  0.   0.   2. ...,  12.   0.   0.]
  [  0.   0.  10. ...,  12.   1.   0.]]
-&gt;&gt;&gt; digits.target                        # 数据库的输出
+>>> digits.target                        # 数据库的输出
 array([0, 1, 2, ..., 8, 9, 8])
 ```
 
@@ -74,17 +74,17 @@ array([0, 1, 2, ..., 8, 9, 8])
 比如我们使用支持向量机模型：
 
 ```
-&gt;&gt;&gt; from sklearn import svm
-&gt;&gt;&gt; classifier = svm.SVC(gamma=0.001, C=100.)
+>>> from sklearn import svm
+>>> classifier = svm.SVC(gamma=0.001, C=100.)
 
-&gt;&gt;&gt; classifier.fit(digits.data[:-1], digits.target[:-1])  # 注意第一个参数是数据，第二个参数是结果
+>>> classifier.fit(digits.data[:-1], digits.target[:-1])  # 注意第一个参数是数据，第二个参数是结果
 SVC(C=100.0, cache_size=200, class_weight=None, coef0=0.0,
-  decision_function_shape=&#039;ovr&#039;, degree=3, gamma=0.001, kernel=&#039;rbf&#039;,
+  decision_function_shape="ovr", degree=3, gamma=0.001, kernel="rbf",
   max_iter=-1, probability=False, random_state=None, shrinking=True,
   tol=0.001, verbose=False)
 
 # 现在我们开始预测最后一个数据
-&gt;&gt;&gt; classifier.predict(digits.data[-1:])
+>>> classifier.predict(digits.data[-1:])
 array([8])  # 得出的结果是 8
 
 ```
@@ -112,10 +112,10 @@ X_train, X_test, y_train, y_test = train_test_split(
 训练模型还是很花费时间的，我们不可能每次都去训练一个模型，所以一般都是离线训练好了之后，保存下模型来，然后在线调用。保存模型可是直接使用 Python 内置的 pickle 模块，但是一般模型数据都比较大，pickle 对大文件支持不好，最好采用 sklearn 自带的 joblib.
 
 ```
-&gt;&gt;&gt; from sklearn.externals import joblib
-&gt;&gt;&gt; joblib.dump(classifier, &#039;filename.pkl&#039;) 
+>>> from sklearn.externals import joblib
+>>> joblib.dump(classifier, "filename.pkl") 
 
-&gt;&gt;&gt; clf = joblib.load(&#039;filename.pkl&#039;) 
+>>> clf = joblib.load("filename.pkl") 
 ```
 
 很简单吧
@@ -132,9 +132,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 ## 可视化
 
 ```
-&gt;&gt;&gt; X, y = datasets.make_regression(n_samples=100, n_features=1, n_targets=1, noise=10)
-&gt;&gt;&gt; plt.scatter(X, y)
-&gt;&gt;&gt; plt.show()
+>>> X, y = datasets.make_regression(n_samples=100, n_features=1, n_targets=1, noise=10)
+>>> plt.scatter(X, y)
+>>> plt.show()
 ```
 
 会有下面的图

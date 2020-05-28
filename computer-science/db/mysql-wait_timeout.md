@@ -1,7 +1,7 @@
 # MySQL 中的 wait_timeout 是做什么的？
 
 
-ID: 227
+wp_id: 227
 Status: publish
 Date: 2018-07-23 14:29:52
 Modified: 2020-05-16 11:21:05

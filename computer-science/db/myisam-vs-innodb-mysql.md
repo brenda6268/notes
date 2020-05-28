@@ -1,7 +1,7 @@
 # MyISAM vs InnoDB: mysql 的两种存储引擎的区别
 
 
-ID: 172
+wp_id: 172
 Status: publish
 Date: 2018-03-27 16:50:51
 Modified: 2020-05-16 11:31:08

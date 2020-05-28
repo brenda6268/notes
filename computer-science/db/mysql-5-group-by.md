@@ -1,7 +1,7 @@
 # mysql 基础知识(5) - 聚合语句(group by)
 
 
-ID: 178
+wp_id: 178
 Status: publish
 Date: 2018-04-09 17:28:39
 Modified: 2020-05-16 11:34:49
@@ -39,7 +39,7 @@ from
 group by 
   1
 having
-  max(area) &gt;= 1e7
+  max(area) >= 1e7
 ```
 
 # 隐式聚合
@@ -54,7 +54,7 @@ select
 from 
   countries
 where 
-  continent = &#039;Europe&#039;
+  continent = "Europe"
 ```
 
 # MySQL 的特殊处理

@@ -1,7 +1,7 @@
 # sqlite3 和在 Python 中的使用教程
 
 
-ID: 672
+wp_id: 672
 Status: publish
 Date: 2018-04-04 05:17:00
 Modified: 2020-05-16 11:32:32
@@ -32,15 +32,15 @@ Yifei's notes:
 让 sqlite 的输出更美观，使用 `.mode column` 和 `.headers on` 两个命令
 
 ```
-sqlite&gt; select * from foo;
+sqlite> select * from foo;
 234|kshitiz|dba.se
 
-sqlite&gt; .mode column
-sqlite&gt; select * from foo;
+sqlite> .mode column
+sqlite> select * from foo;
 234         kshitiz     dba.se
 
-sqlite&gt; .headers on
-sqlite&gt; select * from foo;
+sqlite> .headers on
+sqlite> select * from foo;
 bar         baz         baf
 ----------  ----------  ----------
 234         kshitiz     dba.se
@@ -50,17 +50,17 @@ bar         baz         baf
 
 导出
 ```
-sqlite&gt; .mode csv   -- use &#039;.separator SOME_STRING&#039; for something other than a comma.
-sqlite&gt; .headers on 
-sqlite&gt; .out file.dmp 
-sqlite&gt; select * from MyTable;
+sqlite> .mode csv   -- use ".separator SOME_STRING" for something other than a comma.
+sqlite> .headers on 
+sqlite> .out file.dmp 
+sqlite> select * from MyTable;
 ```
 
 导入
 
 ```
-sqlite&gt; .mode csv
-sqlite&gt; .import CSV_FILE TABLE_NAME
+sqlite> .mode csv
+sqlite> .import CSV_FILE TABLE_NAME
 ```
 
 ## 备份还原
@@ -71,8 +71,8 @@ sqlite3 DATABASE < backup.sql
 或者
 
 ```
-sqlite3&gt; .read backup.sql
-sqlite3&gt; .dump backup.sql
+sqlite3> .read backup.sql
+sqlite3> .dump backup.sql
 ```
 
 # 在 Python 中使用 SQLite
@@ -84,13 +84,13 @@ sqlite3&gt; .dump backup.sql
 ```
 import sqlite3
 
-conn = sqlite3.connect(&#039;database.db&#039;)  # connections
+conn = sqlite3.connect("database.db")  # connections
 cursor = conn.cursor()  # get cursor
-cursor.execute(&#039;CREATE TABLE books (id int primary key, name text)&#039;)
-cursor.execute(&#039;INSERT INTO books (name) VALUES (&#039; sophie&#039;s choice&#039;)&#039;)
-cursor.execute(&#039;INSERT INTO books (name) VALUES (&#039;the bible&#039;)&#039;)
+cursor.execute("CREATE TABLE books (id int primary key, name text)")
+cursor.execute("INSERT INTO books (name) VALUES (" sophie"s choice")")
+cursor.execute("INSERT INTO books (name) VALUES ("the bible")")
 conn.commit()  # always remember to commit
-cursor.execute(&#039;SELECT * FROM books&#039;)
+cursor.execute("SELECT * FROM books")
 
 conn.close()
 ```
@@ -98,7 +98,7 @@ conn.close()
 或者使用 with 语句
 
 ```
-with sqlite3.connect(&#039;db&#039;) as conn:
+with sqlite3.connect("db") as conn:
     cursor = conn.cursor()
     # cursor executes
 ```
@@ -107,11 +107,11 @@ with sqlite3.connect(&#039;db&#039;) as conn:
 
 ```
 # fabricating statement
-cursor.execute(&#039;select from books where name = ?&#039;, (&#039;the bible&#039;,)) 
+cursor.execute("select from books where name = ?", ("the bible",)) 
 # NOTE the param must be a sequence
 
 # You could also use named placeholders
-cursor.execute(&#039;insert into books (name) values (:name)&#039;, {name: &#039;the bible&#039;})
+cursor.execute("insert into books (name) values (:name)", {name: "the bible"})
 ```
 
 ## 获取数据
@@ -121,15 +121,15 @@ cursor.execute(&#039;insert into books (name) values (:name)&#039;, {name: &#039
 使用 fetchone, fetchmany(n), fetchall
 
 ```
-r = c.execute(&#039;SELECT id FROM stocks WHERE name = &#039;MSFT&#039;&#039;)
+r = c.execute("SELECT id FROM stocks WHERE name = "MSFT"")
 id = r.fetchone()[0]
 ```
 
 直接迭代返回结果
 
 ```
-for row in c.execute(&#039;SELECT * FROM stocks ORDER BY price&#039;):
-    print row[0], row[1], row[&#039;id&#039;], row[&#039;name&#039;]
+for row in c.execute("SELECT * FROM stocks ORDER BY price"):
+    print row[0], row[1], row["id"], row["name"]
 ```
 
 注意结果每行是一个 tuple 或者一个 dict，即使 select 了一个元素，结果也是 tuple。

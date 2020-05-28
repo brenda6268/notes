@@ -1,7 +1,7 @@
 # List of OpenGL online tutorials
 
 
-ID: 738
+wp_id: 738
 Status: publish
 Date: 2017-05-30 03:44:00
 Modified: 2017-05-30 03:44:00

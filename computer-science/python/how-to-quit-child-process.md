@@ -1,7 +1,7 @@
 # 父进程退出后如何退出子进程
 
 
-ID: 650
+wp_id: 650
 Status: publish
 Date: 2018-07-09 03:52:00
 Modified: 2020-05-16 11:15:03
@@ -58,11 +58,11 @@ import signal
 
 @atexit.register
 def kill_children():
-    print(&#039;quitting, press Ctrl-C to force quit&#039;)
+    print("quitting, press Ctrl-C to force quit")
     current_process = psutil.Process()
     children = current_process.children(recursive=True)
     for child in children:
-        print(&#039;Child pid is {}&#039;.format(child.pid))
+        print("Child pid is {}".format(child.pid))
         os.kill(child.pid, signal.SIGTERM)
 ```
 

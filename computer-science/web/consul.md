@@ -1,7 +1,7 @@
 # 服务发现注册中心 consul 的使用
 
 
-ID: 609
+wp_id: 609
 Status: draft
 Date: 2018-01-18 07:11:00
 Modified: 2020-05-16 11:30:04
@@ -63,10 +63,10 @@ consul members
 
 ```
 {
-    &quot;service&quot;: {
-        &quot;name&quot;: &quot;redis.db&quot;,
-        &quot;tags&quot;: [&quot;db&quot;]
-        &quot;port&quot;: 80
+    "service": {
+        "name": "redis.db",
+        "tags": ["db"]
+        "port": 80
     }
 }
 ```

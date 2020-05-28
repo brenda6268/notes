@@ -1,7 +1,7 @@
 # django dump to csv
 
 
-ID: 697
+wp_id: 697
 Status: publish
 Date: 2018-04-30 09:59:00
 Modified: 2018-04-30 09:59:00

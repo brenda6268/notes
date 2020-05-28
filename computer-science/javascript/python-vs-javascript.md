@@ -1,7 +1,7 @@
 # Python 和 JavaScript 语法对比
 
 
-ID: 33
+wp_id: 33
 Status: publish
 Date: 2019-06-15 14:17:45
 Modified: 2020-05-16 11:01:22

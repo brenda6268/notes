@@ -1,7 +1,7 @@
-# Android am command
+# Android am 命令
 
 
-ID: 523
+wp_id: 523
 Status: publish
 Date: 2017-06-03 15:36:00
 Modified: 2017-06-03 15:36:00

@@ -1,7 +1,7 @@
 # nginx 使用基础
 
 
-ID: 611
+wp_id: 611
 Status: draft
 Date: 2018-01-14 00:20:00
 Modified: 2020-05-16 11:29:26
@@ -120,8 +120,8 @@ $cookie_XXX	Cookie variable
 $document_root	Root directory of current request
 $document_uri/$uri	Current serving document
 $host	Http host header
-$hostname	Server&#039;s hostname
-$https	&#039;on&#039; if its https request
+$hostname	Server"s hostname
+$https	"on" if its https request
 $is_args	&#x60;?&#x60; if args exist, empty other wise
 $msec	Current time in milliseconds
 $remote_addr/port/user	Remote address/port/user
@@ -130,7 +130,7 @@ $request_body_file	/path/to/temp/file if body was saved
 $request_method/time/uri	Request method/time/uri
 $scheme	Http or https
 $server_addr	This call is expensive
-$server_name/port/protocol	Server&#039;s name/port/protocol
+$server_name/port/protocol	Server"s name/port/protocol
 $time_iso8601/local	Time
 ```
 

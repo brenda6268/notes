@@ -1,7 +1,7 @@
 # MySQL 备份与恢复
 
 
-ID: 183
+wp_id: 183
 Status: publish
 Date: 2017-06-15 17:50:04
 Modified: 2020-05-16 11:43:06
@@ -32,7 +32,7 @@ OR     mysqldump [OPTIONS] --all-databases [OPTIONS]
 # 一行操作
 
 ```
-mysqldump -u root -pPassword --all-databases | ssh user@new_host.host.com &#039;cat - | mysql -u root -pPassword&#039;
+mysqldump -u root -pPassword --all-databases | ssh user@new_host.host.com "cat - | mysql -u root -pPassword"
 ```
 
 # 问题

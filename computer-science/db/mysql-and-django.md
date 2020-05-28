@@ -1,7 +1,7 @@
 # MySQL 性能小技巧和在 Django 中的应用
 
 
-ID: 184
+wp_id: 184
 Status: publish
 Date: 2018-07-24 17:51:07
 Modified: 2020-05-16 11:21:24
@@ -12,7 +12,7 @@ Modified: 2020-05-16 11:21:24
 ```
 while (1) {
     //每次只做1000条
-    mysql_query(&quot;DELETE FROM logs WHERE log_date &lt;= &#039;2009-11-01&#039; LIMIT 1000&quot;);
+    mysql_query("DELETE FROM logs WHERE log_date <= "2009-11-01" LIMIT 1000");
     if (mysql_affected_rows() == 0) {
         // 没得可删了，退出！
         break;
@@ -51,7 +51,7 @@ SELECT username FROM user WHERE user_id = 1
 在 django 中，可以使用 `only`：
 
 ```
-books = Book.objects.filter(author=&quot;Jim&quot;).only(&#039;book_name&#039;)
+books = Book.objects.filter(author="Jim").only("book_name")
 ```
 
 # 5. 当只要一行数据时使用 LIMIT 1
@@ -63,8 +63,8 @@ books = Book.objects.filter(author=&quot;Jim&quot;).only(&#039;book_name&#039;)
 下面的示例，只是为了找一下是否有“中国”的用户，很明显，后面的会比前面的更有效率。（请注意，第一条中是Select *，第二条是Select 1）
 
 ```
-SELECT * FROM user WHERE country = &#039;China&#039;
-SELECT 1 FROM user WHERE country = &#039;China&#039; LIMIT 1
+SELECT * FROM user WHERE country = "China"
+SELECT 1 FROM user WHERE country = "China" LIMIT 1
 ```
 
 在 Django 中可以使用 `[:1]` 来添加 limit 1

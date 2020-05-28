@@ -1,7 +1,7 @@
 # Python 中的正则表达式
 
 
-ID: 646
+wp_id: 646
 Status: draft
 Date: 2018-06-22 09:00:00
 Modified: 2020-05-16 11:12:29
@@ -14,7 +14,7 @@ https://github.com/zeeshanu/learn-regex
 https://stackoverflow.com/questions/22937618/reference-what-does-this-regex-mean
 
 
-```
+```py
 re.sub(pattern, repl, string)
 ```
 

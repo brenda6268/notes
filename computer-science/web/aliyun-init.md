@@ -1,7 +1,7 @@
 # 阿里云新环境机器配置步骤
 
 
-ID: 589
+wp_id: 589
 Status: draft
 Date: 2017-08-24 06:30:00
 Modified: 2020-05-16 11:50:59
@@ -16,7 +16,7 @@ Modified: 2020-05-16 11:50:59
 文件为 `/etc/hostname`
 
 ```
-echo ip-10-0-0-0 &gt; /etc/hostname
+echo ip-10-0-0-0 > /etc/hostname
 ```
 
 # 配置账户
@@ -85,8 +85,8 @@ systemctl restart mysql
 创建数据库用户 tiger：
 
 ```
-create user &#039;tiger&#039;@&#039;%&#039; identified by &#039;password&#039;;
-grant all on *.* to &#039;tiger&#039;@&#039;%&#039;;
+create user "tiger"@"%" identified by "password";
+grant all on *.* to "tiger"@"%";
 flush privileges;
 exit;
 ```

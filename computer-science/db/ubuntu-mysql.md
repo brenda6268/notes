@@ -1,7 +1,7 @@
 # 在 Ubuntu 上安装 MySQL
 
 
-ID: 87
+wp_id: 87
 Status: publish
 Date: 2018-06-15 15:09:32
 Modified: 2020-05-16 11:40:11

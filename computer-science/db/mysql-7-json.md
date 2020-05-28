@@ -1,7 +1,7 @@
 # mysql 基础知识(7) - JSON 字段
 
 
-ID: 180
+wp_id: 180
 Status: publish
 Date: 2018-05-20 17:30:34
 Modified: 2020-05-16 11:39:07
@@ -29,8 +29,8 @@ CREATE TABLE &#x60;book&#x60; (
 ```
 INSERT INTO &#x60;book&#x60; (&#x60;title&#x60;, &#x60;tags&#x60;)
 VALUES (
-  &#039;ECMAScript 2015: A SitePoint Anthology&#039;,
-  &#039;[&quot;JavaScript&quot;, &quot;ES2015&quot;, &quot;JSON&quot;]&#039;
+  "ECMAScript 2015: A SitePoint Anthology",
+  "["JavaScript", "ES2015", "JSON"]"
 );
 ```
 
@@ -41,10 +41,10 @@ VALUES (
 ## json path
 
 ```
--- returns &quot;SitePoint&quot;:
+-- returns "SitePoint":
 SELECT JSON_EXTRACT(
-  &#039;{&quot;id&quot;: 1, &quot;website&quot;: &quot;SitePoint&quot;}&#039;, 
-  &#039;$.website&#039;
+  "{"id": 1, "website": "SitePoint"}", 
+  "$.website"
 );
 ```
 
@@ -60,12 +60,12 @@ json path 的语法，用 $ 开头，然后跟着下面的选择器:
 
 ```
 {
-  &quot;a&quot;: 1,
-  &quot;b&quot;: 2,
-  &quot;c&quot;: [3, 4],
-  &quot;d&quot;: {
-    &quot;e&quot;: 5,
-    &quot;f&quot;: 6
+  "a": 1,
+  "b": 2,
+  "c": [3, 4],
+  "d": {
+    "e": 5,
+    "f": 6
   }
 }
 the following paths:
@@ -82,26 +82,26 @@ $**.e returns [5]
 函数都比较简单，看注释就明白了。
 
 ```
--- returns [1, 2, &quot;abc&quot;]:
-SELECT JSON_ARRAY(1, 2, &#039;abc&#039;);
+-- returns [1, 2, "abc"]:
+SELECT JSON_ARRAY(1, 2, "abc");
 
--- returns {&quot;a&quot;: 1, &quot;b&quot;: 2}:
-SELECT JSON_OBJECT(&#039;a&#039;, 1, &#039;b&#039;, 2);
+-- returns {"a": 1, "b": 2}:
+SELECT JSON_OBJECT("a", 1, "b", 2);
 
--- returns [&quot;a&quot;, 1, {&quot;key&quot;: &quot;value&quot;}]:
-SELECT JSON_MERGE(&#039;[&quot;a&quot;, 1]&#039;, &#039;{&quot;key&quot;: &quot;value&quot;}&#039;);
+-- returns ["a", 1, {"key": "value"}]:
+SELECT JSON_MERGE("["a", 1]", "{"key": "value"}");
 
 -- returns ARRAY:
-SELECT JSON_TYPE(&#039;[1, 2, &quot;abc&quot;]&#039;);
+SELECT JSON_TYPE("[1, 2, "abc"]");
 
 -- returns OBJECT:
-SELECT JSON_TYPE(&#039;{&quot;a&quot;: 1, &quot;b&quot;: 2}&#039;);
+SELECT JSON_TYPE("{"a": 1, "b": 2}");
 
 -- returns an error:
-SELECT JSON_TYPE(&#039;{&quot;a&quot;: 1, &quot;b&quot;: 2&#039;);
+SELECT JSON_TYPE("{"a": 1, "b": 2");
 
 -- returns 1:
-SELECT JSON_VALID(&#039;[1, 2, &quot;abc&quot;]&#039;);
+SELECT JSON_VALID("[1, 2, "abc"]");
 ```
 
 还有其他一些函数，可以查看文档：
@@ -128,17 +128,17 @@ removes data from the document.
 json_contains 用于选取数组中包含某个元素的行
 
 ```
--- all books with the &#039;JavaScript&#039; tag:
+-- all books with the "JavaScript" tag:
 SELECT * FROM &#x60;book&#x60; 
-WHERE JSON_CONTAINS(tags, &#039;[&quot;JavaScript&quot;]&#039;);
+WHERE JSON_CONTAINS(tags, "["JavaScript"]");
 ```
 
 json_search 用于选取字典中包含某个值的行
 
 ```
--- all books with tags starting &#039;Java&#039;:
+-- all books with tags starting "Java":
 SELECT * FROM &#x60;book&#x60; 
-WHERE JSON_SEARCH(tags, &#039;one&#039;, &#039;Java%&#039;) IS NOT NULL;
+WHERE JSON_SEARCH(tags, "one", "Java%") IS NOT NULL;
 ```
 
 ### 用于 select 子句中的 json 函数
@@ -152,7 +152,7 @@ WHERE JSON_SEARCH(tags, &#039;one&#039;, &#039;Java%&#039;) IS NOT NULL;
 ```
 SELECT
   name,
-  tags-&gt;&quot;$[0]&quot; AS &#x60;tag1&#x60;
+  tags->"$[0]" AS &#x60;tag1&#x60;
 FROM &#x60;book&#x60;;
 ```
 
@@ -165,16 +165,16 @@ id|name|profile
 
 ```
 SELECT
-  name, profile-&gt;&quot;$.twitter&quot; AS &#x60;twitter&#x60;
+  name, profile->"$.twitter" AS &#x60;twitter&#x60;
 FROM &#x60;user&#x60;;
 ```
 
 ```
 SELECT
-  name, profile-&gt;&quot;$.twitter&quot; AS &#x60;twitter&#x60;
+  name, profile->"$.twitter" AS &#x60;twitter&#x60;
 FROM &#x60;user&#x60;
 WHERE
-  profile-&gt;&quot;$.twitter&quot; IS NOT NULL;
+  profile->"$.twitter" IS NOT NULL;
 ```
 
 

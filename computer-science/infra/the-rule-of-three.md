@@ -1,7 +1,7 @@
 # 软件工程中的 “3” 的规则
 
 
-ID: 550
+wp_id: 550
 Status: publish
 Date: 2018-06-23 02:48:00
 Modified: 2020-05-16 11:14:37
@@ -27,10 +27,10 @@ class ChaseScraper:
 
     def scrape(self):
     	session = requests.Session()
-        sessions.get(&#039;https://chase.com/rest/login.aspx&#039;,
-	             data={&#039;username&#039;: self._username,
-		           &#039;password&#039;: self._password})
-	sessions.get(&#039;https://chase.com/rest/download_current_statement.aspx&#039;)
+        sessions.get("https://chase.com/rest/login.aspx",
+	             data={"username": self._username,
+		           "password": self._password})
+	sessions.get("https://chase.com/rest/download_current_statement.aspx")
 ```
 
 现在你想添加第二个类 CitiBankScraper 来实现相同的接口，但是改变了一些实现细节。实际上假设CitiBank只是有一个不同的 url 和表单元素名称而已。让我们来添加一个新的爬虫：
@@ -43,10 +43,10 @@ class CitibankScraper:
 
     def scrape(self):
     	session = requests.Session()
-        sessions.get(&#039;https://citibank.com/cgi-bin/login.pl&#039;,
-	             data={&#039;user&#039;: self._username,
-		           &#039;pass&#039;: self._password})
-        sessions.get(&#039;https://citibank.com/cgi-bin/download-stmt.pl&#039;)
+        sessions.get("https://citibank.com/cgi-bin/login.pl",
+	             data={"user": self._username,
+		           "pass": self._password})
+        sessions.get("https://citibank.com/cgi-bin/download-stmt.pl")
 ```
 
 因为经过了多年DRY原则的教育，这时候我们发现这两个类的代码几乎是重复的！我们应该重构一下，把所有的重复代码都放到一个基类中。在这里，我们需要Inserve of Control 模式，让基类来控制逻辑。
@@ -66,17 +66,17 @@ class BaseScraper:
 
 
 class ChaseScraper(BaseScraper):
-    _LOGIN_URL = &#039;https://chase.com/rest/login.aspx&#039;
-    _STATEMENT_URL = &#039;https://chase.com/rest/download_current_statement.aspx&#039;
-    _USERNAME_FORM_KEY = &#039;username&#039;
-    _PASSWORD_FORM_KEY = &#039;password&#039;
+    _LOGIN_URL = "https://chase.com/rest/login.aspx"
+    _STATEMENT_URL = "https://chase.com/rest/download_current_statement.aspx"
+    _USERNAME_FORM_KEY = "username"
+    _PASSWORD_FORM_KEY = "password"
 
 
 class CitibankScraper(BaseScraper):
-    _LOGIN_URL = &#039;https://citibank.com/cgi-bin/login.pl&#039;
-    _STATEMENT_URL = &#039;https://citibank.com/cgi-bin/download-stmt.pl&#039;
-    _USERNAME_FORM_KEY = &#039;user&#039;
-    _PASSWORD_FORM_KEY = &#039;pass&#039;
+    _LOGIN_URL = "https://citibank.com/cgi-bin/login.pl"
+    _STATEMENT_URL = "https://citibank.com/cgi-bin/download-stmt.pl"
+    _USERNAME_FORM_KEY = "user"
+    _PASSWORD_FORM_KEY = "pass"
 ```
 
 这应该让我们删掉了不少代码。这已经是最简单的方法之一了。所以问题在哪里呢？（出去我们实现继承的方法不好之外）

@@ -1,7 +1,7 @@
 # android public key pinning
 
 
-ID: 540
+wp_id: 540
 Status: publish
 Date: 2017-07-07 08:10:00
 Modified: 2017-07-07 08:10:00

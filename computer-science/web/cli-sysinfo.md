@@ -1,7 +1,7 @@
 # Linux 命令行查看系统信息
 
 
-ID: 599
+wp_id: 599
 Status: publish
 Date: 2018-03-03 05:23:00
 Modified: 2020-05-16 11:30:52

@@ -1,7 +1,7 @@
 # Python Argparse 库的使用
 
 
-ID: 651
+wp_id: 651
 Status: publish
 Date: 2018-04-04 06:23:00
 Modified: 2020-05-16 11:34:12
@@ -9,10 +9,10 @@ Modified: 2020-05-16 11:34:12
 
 ## 基本用法
 
-```
+```py
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument(&quot;--verbosity&quot;, help=&quot;increase output verbosity&quot;)
+parser.add_argument("--verbosity", help="increase output verbosity")
 args = parser.parse_args()
 print(args.verbosity)
 ```

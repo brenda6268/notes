@@ -1,7 +1,7 @@
 # 如何让安卓手机插上电源自动开机
 
 
-ID: 543
+wp_id: 543
 Status: publish
 Date: 2017-05-30 03:10:00
 Modified: 2020-05-16 11:58:21
@@ -13,7 +13,7 @@ Modified: 2020-05-16 11:58:21
 
 替换成如下文件
 
-```
+```sh
 #!/system/bin/sh
 /system/bin/reboot
 ```

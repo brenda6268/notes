@@ -1,7 +1,7 @@
 # xpath generator 是如何实现的?
 
 
-ID: 725
+wp_id: 725
 Status: publish
 Date: 2017-08-20 18:57:00
 Modified: 2020-05-16 11:50:53

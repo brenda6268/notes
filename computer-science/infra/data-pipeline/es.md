@@ -1,7 +1,7 @@
 # elasticsearch 调研
 
 
-ID: 766
+wp_id: 766
 Status: draft
 Date: 2018-06-22 08:00:00
 Modified: 2020-05-16 11:11:41
@@ -44,24 +44,24 @@ GET /_search 返回
 
 ```
    {
-   &quot;hits&quot; : {
-      &quot;total&quot; :       14,
-      &quot;hits&quot; : [
+   "hits" : {
+      "total" :       14,
+      "hits" : [
         {
-          &quot;_index&quot;:   &quot;us&quot;,
-          &quot;_type&quot;:    &quot;tweet&quot;,
-          &quot;_id&quot;:      &quot;7&quot;,
-          &quot;_score&quot;:   1,
-          &quot;_source&quot;: {
-             &quot;date&quot;:    &quot;2014-09-17&quot;,
-             &quot;name&quot;:    &quot;John Smith&quot;,
-             &quot;tweet&quot;:   &quot;The Query DSL is really powerful and flexible&quot;,
-             &quot;user_id&quot;: 2
+          "_index":   "us",
+          "_type":    "tweet",
+          "_id":      "7",
+          "_score":   1,
+          "_source": {
+             "date":    "2014-09-17",
+             "name":    "John Smith",
+             "tweet":   "The Query DSL is really powerful and flexible",
+             "user_id": 2
           }
        },
         ... 9 RESULTS REMOVED ...
       ],
-      &quot;max_score&quot; :   1
+      "max_score" :   1
    },
 ```
 

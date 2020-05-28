@@ -1,7 +1,7 @@
 # Git 使用技巧
 
 
-ID: 438
+wp_id: 438
 Status: publish
 Date: 2017-06-05 10:30:00
 Modified: 2020-05-16 12:06:02
@@ -50,7 +50,7 @@ git update-ref -d HEAD
 首先，保存到一个分支
 
 ```
-git commit -a -m &quot;Saving my work, just in case&quot;
+git commit -a -m "Saving my work, just in case"
 git branch my-saved-work
 ```
 
@@ -63,7 +63,7 @@ git reset --hard origin/master
 ## 从 staging area 中删除文件
 
 ```
-git reset HEAD &lt;file&gt;  // remove a file from staging area
+git reset HEAD <file>  // remove a file from staging area
 
 git reset // to remove all files from staging area
 ```
@@ -123,7 +123,7 @@ git merge --abort  # 放弃合并
 git pull --rebase  # 如果有冲突的话，先运行 git stash
 git stash # if you and remote change the same file
 git stash pop  # pull 之后再 stash pop
-git commit -am &quot;some change&quot;
+git commit -am "some change"
 git push
 ```
 
@@ -150,8 +150,8 @@ git rebase origin/master
 
 ```	
 [alias]
-sshow = &quot;!f() { git stash show stash^{/$*} -p; }; f&quot;
-sapply = &quot;!f() { git stash apply stash^{/$*}; }; f&quot;
+sshow = "!f() { git stash show stash^{/$*} -p; }; f"
+sapply = "!f() { git stash apply stash^{/$*}; }; f"
 ```
 	
 use these lines to show and apply stash by name

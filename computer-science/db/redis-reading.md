@@ -1,7 +1,7 @@
 # 阅读 redis 源码
 
 
-ID: 570
+wp_id: 570
 Status: publish
 Date: 2017-06-17 02:15:00
 Modified: 2020-05-16 11:43:28
@@ -33,7 +33,7 @@ typedef struct listNode {
 
 typedef struct list {
     listNode * head;
-    listNode * tail;&#039;
+    listNode * tail;"
     unsigned long len;
     void *(*dup) (void *ptr);
     void (*free)(void *ptr);

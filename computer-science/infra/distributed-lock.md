@@ -1,7 +1,7 @@
 # 分布式系统中的锁
 
 
-ID: 552
+wp_id: 552
 Status: publish
 Date: 2017-11-15 04:42:00
 Modified: 2020-05-16 11:53:48
@@ -28,15 +28,15 @@ SET resource-name my_random_string NX EX max-lock-time
 因为解锁时会检查是否提供了随机数的值，所以只有创建锁的进程才能够解锁。
 
 ```
-if redis.call(&quot;get&quot;,KEYS[1]) == ARGV[1] then
-    return redis.call(&quot;del&quot;,KEYS[1])
+if redis.call("get",KEYS[1]) == ARGV[1] then
+    return redis.call("del",KEYS[1])
 else
     return 0
 end
 ```
 
 ```
-EVAL &#039;script...&#039; 1 resource-name my_random_string
+EVAL "script..." 1 resource-name my_random_string
 ```
 
 参考:

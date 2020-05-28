@@ -1,7 +1,7 @@
 # redis 实战总结
 
 
-ID: 577
+wp_id: 577
 Status: publish
 Date: 2017-05-30 14:33:00
 Modified: 2020-05-16 12:03:33
@@ -34,18 +34,18 @@ redis 的 string 是 binary-safe 的，可以存储任意的二进制数据（by
 imporve performance by combining multi command into one and reduce TCP times
 
 ```
-&gt;&gt;&gt; p = r.pipeline()        # 创建一个管道
-&gt;&gt;&gt; p.set(&#039;hello&#039;,&#039;redis&#039;)
-&gt;&gt;&gt; p.sadd(&#039;faz&#039;,&#039;baz&#039;)
-&gt;&gt;&gt; p.incr(&#039;num&#039;)
-&gt;&gt;&gt; p.execute()
+>>> p = r.pipeline()        # 创建一个管道
+>>> p.set("hello","redis")
+>>> p.sadd("faz","baz")
+>>> p.incr("num")
+>>> p.execute()
 [True, 1, 1]
-&gt;&gt;&gt; r.get(&#039;hello&#039;)
-&#039;redis&#039;
+>>> r.get("hello")
+"redis"
 
 or 
 
-&gt;&gt;&gt; p.set(&#039;hello&#039;,&#039;redis&#039;).sadd(&#039;faz&#039;,&#039;baz&#039;).incr(&#039;num&#039;).execute()
+>>> p.set("hello","redis").sadd("faz","baz").incr("num").execute()
 ```
 
 默认的情况下，管道里执行的命令可以保证执行的原子性，执行pipe = r.pipeline(transaction=False)可以禁用这一特性。

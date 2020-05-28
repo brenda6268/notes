@@ -1,7 +1,7 @@
 # Python functools 中有用的一些函数
 
 
-ID: 636
+wp_id: 636
 Status: publish
 Date: 2018-06-22 08:59:00
 Modified: 2020-05-16 11:12:23

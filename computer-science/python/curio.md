@@ -1,7 +1,7 @@
 # curio
 
 
-ID: 665
+wp_id: 665
 Status: publish
 Date: 2017-07-07 14:56:00
 Modified: 2017-07-07 14:56:00
@@ -9,10 +9,10 @@ Modified: 2017-07-07 14:56:00
 
 curio 是一个神奇的 Python 库，它完全面向 Python 3.5 增加的 async/await 语法，从低层就没有使用 callback 的语法，因此相比 asyncio 来说设计更简单，API 更优雅，性能却更好。
 
-# 一个例子
+## 一个例子
 curio 的文档给了一个很好的例子，下面总结一下这个例子。这个例子模拟了孩子在玩Minecraft，而家长在催促孩子该出发了的情景。
 
-```
+```py
 import curio
 
 async def countdonw(n):
@@ -87,7 +87,7 @@ if __name__ == '__main__':
     # python3 -m curio.monitor
 ```
 
-# curio monitor 的使用
+## curio monitor 的使用
 
 ### 打开 curio
 ```
@@ -142,9 +142,9 @@ Cancelling task 4
 *** Connection closed by remote host ***
 ```
 
-# curio 的API
+## curio 的API
 
-## coroutine 与 kernel
+### coroutine 与 kernel
 
 使用`async def`来创建一个新的coroutine. 每个coroutine不能够单独执行, 而是需要通过一个`kernel`来执行(相当于asyncio中的loop). 当然一般情况下, 我们不会主动去生成一个kernel, 而是调用curio.run来交给curio 隐式执行. 
 
@@ -156,22 +156,22 @@ run(hello, 'Guido')    # Preferred
 run(hello('Guido'))    # Ok
 ```
 
-## tasks
+### tasks
 
 前面说到, 一个coroutine需要交给curio来运行, 但是实际上 curio 运行的并不是这个coroutine, 而是包含了这个coroutine 的 task. task 可以认为是一个线程, 而coroutine则可以看成是target函数. 和线程一样, task 也分为了daemon的和非daemon的. 当所有非daemon的task执行完毕之后, kernel就会自动退出. 这个和线程是类似的, 所有的非daemon的线程执行完毕之后, 整个进程就会退出. 而我们通过 curio.run 创建的那个task实际上就相当于是我们在多线程程序中的主线程了.
 
-### spawn
+#### spawn
 
-```
+```py
 await spawn(corofunc, *args, daemon=False)
 ```
 
 在多线程编程中, 我们通过使用 `t = Theaad(target=func); t.start()` 来开始执行新的线程. 然而, 在curio中,你不能通过 `t = Task(target=func); t.start()` 来创建新的 task. 而应改通过 `t = await spawn(corofunc)` 来创建并开始执行新的coroutine.
 
-### Task join
+#### Task join
 
 可以使用 `r = await task.join()` 来等待task运行结束, 并获得返回值. 也可以使用 `await task.wait()` 但是不会返回值, 必须之后再使用 task.result 获得返回值
-```
+```py
 v = await Task.join()  # 返回返回值
 
 # or 
@@ -180,7 +180,7 @@ await task.wait()
 v = task.result  # 如果在task结束之前访问, 会raise RuntimeError
 ```
 
-### Task Group
+#### Task Group
 
 curio 支持使用 taskgroup 来管理一组任务, `class TaskGroup(tasks=(), *, wait=all, name=None)`.
 
@@ -201,7 +201,7 @@ await TaskGroup.cancel_remaining()
 # 取消所有还在运行的task
 ```
 
-#### 用在with语句和迭代器中
+##### 用在with语句和迭代器中
 
 task group 可以用在with语句中, 这样在with块退出的时候就会隐式地调用 task_group.join().
 
@@ -228,18 +228,18 @@ async with TaskGroup() as g:
         print(task, 'completed.', task.result)
 ```
 
-### task local storage
+#### task local storage
 
 `class Local` 类似于threading.Local, 但是随着一个新的 context local storage PEP 的到来, 这个功能会被废弃掉
 
-## time
+### time
 
 使用 curio.sleep 而不是 time.sleep, 以为整个协程都是单线程的.
 
-## workers
+### workers
 如果需要运行一些CPU密集的任务或者是一些可能block住的任务, 可以使用workers.
 
-### 有用的函数
+#### 有用的函数
 ```
 await curio.workers.run_in_process(callable, *args)
 ```
@@ -263,7 +263,7 @@ curio.workers.MAX_WORKER_THREADS  # 同一个kernel能使用的最大的线程�
 curio.workers.MAX_WORKER_PROCESSES  # 同一个kernel能使用的最大进程数, 默认 CPU 数量
 ```
 
-## 文件
+### 文件
 
 读取文件可能是个很耗时的工作, 不光是读写磁盘, 如果你的文件是在一个网络文件系统上, 那么将会更加耗时. 如果在协程中发生这种操作, 整个协程kernel 都会被block住.
 
@@ -281,15 +281,15 @@ async with aopen(filename) as:
         print(line)
 ```
 
-## 原语
+### 原语
 
 curio 提供了 `Event`, `Lock`, `RLock`, `Semephore`, `BoundedSemaphore`, `Condition`等
 
-## queue
+### queue
 
 正如标准库提供了 queue 模块用于多线程之间通信一样, curio 提供了 curio.queue 来实现task 之间的通信. 用法和queue 模块基本上是一样的, 除了一些方法变成了 coroutine function, 而不是普通的函数了.
 
-## 异步线程
+### 异步线程
 
 如果你需要执行很多的同步操作, 但是还是想要能够和 curio 来交互, 可以使用异步线程. 在异步线程内, 可以使用`AWAIT`函数来实现`await`关键字的操作, 可以使用普通的`with` 和 `for`来实现使用了`async with`. 也就是实现了不用在coroutine内部而使用 coroutine 的操作.
 

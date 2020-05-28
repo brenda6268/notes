@@ -1,7 +1,7 @@
 # 给李博士推荐的 MySQL 教程
 
 
-ID: 5
+wp_id: 5
 Status: publish
 Date: 2019-06-15 13:12:11
 Modified: 2020-05-16 11:02:07

@@ -1,7 +1,7 @@
 # 动态规划（LeetCode 413. Arithmetic Slices）
 
 
-ID: 490
+wp_id: 490
 Status: publish
 Date: 2018-07-23 01:12:00
 Modified: 2020-05-16 11:20:53
@@ -54,10 +54,10 @@ dp[i] = dp[i-1] + 1
 ```
 class Solution:
     def numberOfArithmeticSlices(self, A):
-        &quot;&quot;&quot;
+        """
         :type A: List[int]
         :rtype: int
-        &quot;&quot;&quot;
+        """
         dp = [0] * len(A)
         for i in range(2, len(A)):
             if A[i] - A[i-1] == A[i-1] - A[i-2]:

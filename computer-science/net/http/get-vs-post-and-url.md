@@ -1,7 +1,7 @@
 # Get 和 Post 方法的选择和URL的设计
 
 
-ID: 585
+wp_id: 585
 Status: publish
 Date: 2018-07-10 08:59:00
 Modified: 2020-05-16 11:15:14
@@ -12,7 +12,7 @@ HTTP 中常用的方法有 GET/POST/PUT/DELETE 等，在设计API或者表单的
 1. 只使用 GET 和 POST，GET 主要用来读取数据，POST 用来创建或者更新数据。
 2. RESTful的方法，GET/POST/PUT/DELETE 分别用来增删改查。
 
-# URL 的设计
+## URL 的设计
 
 为了探讨两种方案，首先我们来看一下 URL 的设计。URL 是 Universal Resource Locator 的缩写，也就是一个 URL 表示的是唯一的一个资源，所以这个资源的 id 或者说主键应该是放在 URL 路径中的。
 
@@ -34,7 +34,7 @@ http://example.com/post?id=1234
 http://exmaple.com/post/1234?lang=zh&amp;utm_source=google
 ```
 
-# HTTP 方法的含义
+## HTTP 方法的含义
 
 好多人对于 http 方法的理解是 GET 是参数在url里，而POST是参数在 body 里面，这样理解是不对的。
 

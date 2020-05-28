@@ -1,7 +1,7 @@
 # ncurses library
 
 
-ID: 619
+wp_id: 619
 Status: publish
 Date: 2017-05-30 08:08:00
 Modified: 2017-05-30 08:08:00

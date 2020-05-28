@@ -1,7 +1,7 @@
 # kubernetes 初探——部署集群
 
 
-ID: 566
+wp_id: 566
 Status: publish
 Date: 2018-09-30 04:58:00
 Modified: 2020-05-16 11:24:36

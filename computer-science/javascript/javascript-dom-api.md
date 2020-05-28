@@ -1,7 +1,7 @@
 # JavaScript DOM API
 
 
-ID: 503
+wp_id: 503
 Status: publish
 Date: 2017-05-30 09:45:00
 Modified: 2017-05-30 09:45:00

@@ -1,7 +1,7 @@
 # JavaScript snippets
 
 
-ID: 508
+wp_id: 508
 Status: publish
 Date: 2017-06-12 12:31:00
 Modified: 2017-06-12 12:31:00

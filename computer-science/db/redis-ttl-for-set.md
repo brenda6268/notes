@@ -1,7 +1,7 @@
 # redis 中如何给集合中的元素设置 TTL
 
 
-ID: 572
+wp_id: 572
 Status: publish
 Date: 2018-07-16 07:54:00
 Modified: 2020-05-16 11:19:31
@@ -23,11 +23,11 @@ class RedisSet:
         # 把过期时间作为 score 添加到 zset 中
         self.client.zadd(self.key, now + ttl, val)
         # 删除已经过期的元素
-        self.client.zremrangebyscore(self, now, &#039;+inf&#039;)
+        self.client.zremrangebyscore(self, now, "+inf")
 
     def getall(self):
         # 只读取还没有过期的元素
-        return self.client.zrangebyscore(self.key, &#039;-inf&#039;, time.time())
+        return self.client.zrangebyscore(self.key, "-inf", time.time())
 ```
 
 

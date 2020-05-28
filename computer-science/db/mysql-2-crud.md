@@ -1,7 +1,7 @@
 # mysql 基础知识(2) - 增删改查
 
 
-ID: 175
+wp_id: 175
 Status: publish
 Date: 2017-11-12 17:01:18
 Modified: 2020-05-16 11:52:35
@@ -36,7 +36,7 @@ insert into students(**field_names) values(**VALUES), values(**VALUES);
 使用 `UPDATE` 语句.
 
 ```
-update students set math_score = 100 where first_name = &#039;luke&#039;;
+update students set math_score = 100 where first_name = "luke";
 ```
 
 ## 删除数据
@@ -44,7 +44,7 @@ update students set math_score = 100 where first_name = &#039;luke&#039;;
 使用 `DELETE` 语句.
 
 ```
-delete from students where name = &#039;luke&#039;;
+delete from students where name = "luke";
 ```
 
 ## 参考

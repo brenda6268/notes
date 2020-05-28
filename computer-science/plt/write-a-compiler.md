@@ -1,13 +1,13 @@
 # 学习写一个编译器
 
 
-ID: 512
-Status: publish
+wp_id: 512
+Status: draft
 Date: 2017-12-18 07:14:00
 Modified: 2020-05-16 11:28:55
 
 
-# 为什么？
+## 为什么？
 
 有一个很好的比喻：不懂编译器写程序就好比没有学过人体解剖学就去画人像一样，能当让是能，但是核心上总有些不对的地方
 
@@ -17,7 +17,7 @@ Modified: 2020-05-16 11:28:55
 
 ![](http://www.craftinginterpreters.com/image/a-map-of-the-territory/mountain.png)
 
-# 编译的步骤
+## 编译的步骤
 
 ![](http://www.craftinginterpreters.com/image/a-map-of-the-territory/string.png)
 

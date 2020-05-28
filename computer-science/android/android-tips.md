@@ -1,7 +1,7 @@
 # Android 开发的一些 tips
 
 
-ID: 530
+wp_id: 530
 Status: publish
 Date: 2018-04-04 06:00:00
 Modified: 2020-05-16 11:33:46
@@ -11,8 +11,8 @@ Prefer Maven dependency resolution instead of importing jar files. If you expli
 
 ```
 dependencies {
-    compile &#039;com.squareup.okhttp:okhttp:2.2.0&#039;
-    compile &#039;com.squareup.okhttp:okhttp-urlconnection:2.2.0&#039;
+    compile "com.squareup.okhttp:okhttp:2.2.0"
+    compile "com.squareup.okhttp:okhttp-urlconnection:2.2.0"
 }
 ```
 
@@ -22,8 +22,8 @@ Use different package name for non-release builds Use applicationIdSuffix for
 android {
     buildTypes {
         debug {
-            applicationIdSuffix &#039;.debug&#039;
-            versionNameSuffix &#039;-DEBUG&#039;
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-DEBUG"
         }
 release {
             // ...

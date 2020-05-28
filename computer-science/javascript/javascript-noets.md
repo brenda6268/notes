@@ -1,7 +1,7 @@
 # JavaScript 学习笔记
 
 
-ID: 500
+wp_id: 500
 Status: publish
 Date: 2017-05-30 07:53:00
 Modified: 2020-05-16 12:00:32
@@ -93,7 +93,7 @@ point.setX = function (x) {
 ```
 function constfuncs() {
     var funcs = [];
-    for (var i = 0; i &lt; 10; i++) {
+    for (var i = 0; i < 10; i++) {
         funcs[i] = function() {return i;} // they refers to only one i in the closure, which is 10 in the end
     }
     return funcs;

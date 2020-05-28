@@ -1,7 +1,7 @@
 # 完全理解 SQL 的内在逻辑
 
 
-ID: 182
+wp_id: 182
 Status: publish
 Date: 2018-04-08 17:48:49
 Modified: 2020-05-16 11:34:32
@@ -73,9 +73,9 @@ SELECT C.customerid, COUNT(O.orderid) AS numorders
 FROM dbo.Customers AS C
   LEFT OUTER JOIN dbo.Orders AS O
     ON C.customerid = O.customerid
-WHERE C.city = &#039;Madrid&#039;
+WHERE C.city = "Madrid"
 GROUP BY C.customerid
-HAVING COUNT(O.orderid) &lt; 3
+HAVING COUNT(O.orderid) < 3
 ORDER BY numorders
 ```
 
@@ -101,14 +101,14 @@ FROM (SELECT * FROM author) a -- 后边这个变量是可选的
 ```
 
 ```
--- Get authors&#039; first and last names, and their age in days
+-- Get authors" first and last names, and their age in days
 SELECT first_name, last_name, age
 FROM (
   SELECT first_name, last_name, current_date - date_of_birth age
   FROM author
 )
 -- If the age is greater than 10000 days
-WHERE age &gt; 10000
+WHERE age > 10000
 ```
 
 在 MySQL 8.0 中还可以使用 with 语句
@@ -120,7 +120,7 @@ WITH a AS (
 )
 SELECT *
 FROM a
-WHERE age &gt; 10000
+WHERE age > 10000
 ```
 
 SQL 中的 Select 语句在关系代数中被称作投影（projection）。一旦你生成了表的引用，然后过滤，转换，接着你就可以把它投影成另一种形式。在 select 语句中，你终于可以按列操作生成的表了。也就是说其他的语句都是按表，或者说按照行操作的，只有到了 select 语句中你才可以操作列。

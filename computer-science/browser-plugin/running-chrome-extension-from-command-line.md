@@ -1,7 +1,7 @@
-# running chrome extension from command line
+# 从命令行执行 Chrome 插件
 
 
-ID: 719
+wp_id: 719
 Status: publish
 Date: 2017-06-17 02:14:00
 Modified: 2017-06-17 02:14:00

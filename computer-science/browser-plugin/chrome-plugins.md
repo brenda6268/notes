@@ -1,7 +1,7 @@
 # Chrome 扩展插件开发
 
 
-ID: 721
+wp_id: 721
 Status: publish
 Date: 2017-06-09 05:11:00
 Modified: 2020-05-16 12:05:04
@@ -17,12 +17,12 @@ https://developer.chrome.com/extensions/messaging
 
 Add browser_action.default_icon in your manifest.json file
 
-```
+```json
 {
   ...
 
-  &quot;browser_action&quot;: {
-    &quot;default_icon&quot;: &quot;icons/icon-32.png&quot;
+  "browser_action": {
+    "default_icon": "icons/icon-32.png";
   },
 
   ...

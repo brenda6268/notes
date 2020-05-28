@@ -1,7 +1,7 @@
 # 为安卓编译64位的dropbear
 
 
-ID: 533
+wp_id: 533
 Status: publish
 Date: 2017-11-15 05:13:00
 Modified: 2020-05-16 11:54:39
@@ -23,11 +23,11 @@ dropbear -P /data/local/dropbear.pid -r /data/local/dropbear_host_key -A -N root
 需要更改如下代码（svr-chansession.c）:
 
 ```
-addnewvar(&quot;LD_LIBRARY_PATH&quot;, &quot;/system/lib&quot;);
+addnewvar("LD_LIBRARY_PATH", "/system/lib");
 
 to:
 
-addnewvar(&quot;LD_LIBRARY_PATH&quot;, &quot;/system/lib64&quot;);
+addnewvar("LD_LIBRARY_PATH", "/system/lib64");
 ```
 
 ## 使用AIL把dropbear添加为服务
@@ -60,8 +60,7 @@ mount -o remount,rw /system
 
 
 
-参考
-
+## 参考
 
 1. http://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2016-73-t3351671
 2. http://forum.xda-developers.com/nexus-7-2013/general/guide-compiling-dropbear-2015-67-t3142412/page3

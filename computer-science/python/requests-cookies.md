@@ -1,7 +1,7 @@
 # requests cookies 为空的一个坑
 
 
-ID: 676
+wp_id: 676
 Status: publish
 Date: 2018-09-27 19:10:00
 Modified: 2020-05-16 11:24:18
@@ -13,7 +13,7 @@ Modified: 2020-05-16 11:24:18
 
 ```
 s = requests.Session()
-r = s.get(&#039;http://httpbin.org/cookies/set?foo=bar&#039;)
+r = s.get("http://httpbin.org/cookies/set?foo=bar")
 cookies = requests.utils.dict_from_cookiejar(s.cookies)
 s.cookies.clear()
 ```

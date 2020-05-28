@@ -1,7 +1,7 @@
 # 一些 vim 小技巧
 
 
-ID: 731
+wp_id: 731
 Status: publish
 Date: 2018-01-18 06:26:00
 Modified: 2020-05-16 11:29:58
@@ -10,7 +10,7 @@ Modified: 2020-05-16 11:29:58
 ### 重新对齐文本到固定长度
 
 ```
-gq&lt;motion&gt;
+gq<motion>
 ```
 
 ### check if mapping is replaced

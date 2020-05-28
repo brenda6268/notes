@@ -1,7 +1,7 @@
 # How to publish a paper?
 
 
-ID: 332
+wp_id: 332
 Status: draft
 Date: 2017-05-29 14:07:00
 Modified: 2020-05-16 12:08:37

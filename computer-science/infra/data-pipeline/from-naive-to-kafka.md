@@ -1,7 +1,7 @@
 # 消息队列：从一脸懵逼到 Kafka
 
 
-ID: 764
+wp_id: 764
 Status: publish
 Date: 2018-07-15 04:35:00
 Modified: 2020-05-16 11:17:46

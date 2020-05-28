@@ -1,7 +1,7 @@
 # Docker 删除镜像“Permission Denied”
 
 
-ID: 774
+wp_id: 774
 Status: publish
 Date: 2019-10-15 12:05:20
 Modified: 2020-05-16 10:50:00

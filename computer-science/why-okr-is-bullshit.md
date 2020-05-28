@@ -1,7 +1,7 @@
 # 为什么说 OKR 都是扯淡？
 
 
-ID: 36
+wp_id: 36
 Status: draft
 Date: 2019-06-15 14:31:18
 Modified: 2020-05-16 11:01:10

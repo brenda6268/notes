@@ -1,7 +1,7 @@
 # ssh tutorial
 
 
-ID: 596
+wp_id: 596
 Status: draft
 Date: 2017-05-30 01:21:00
 Modified: 2020-05-16 12:10:33

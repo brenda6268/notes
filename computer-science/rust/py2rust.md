@@ -1,7 +1,7 @@
 # rust-lang for pythonistas
 
 
-ID: 521
+wp_id: 521
 Status: draft
 Date: 2017-11-18 03:38:00
 Modified: 2020-05-16 11:55:44
@@ -68,26 +68,26 @@ rust 是块作用，而Python是函数作用与。
 rust 的函数参数需要生命类型，语法和 Python 3 的annotation 有点类似。
 
 ```
-fn add(x: i32, y: i32) -&gt; i32 {
+fn add(x: i32, y: i32) -> i32 {
     x + y
 }
 ```
 
 rust 中没有返回值的函数称之为发散函数，类似于 C 中的void函数
 ```
-fn diverge() -&gt; ! {
-  panic!(&quot;not returning&quot;);
+fn diverge() -> ! {
+  panic!("not returning");
 }
 ```
 
 rust 可以把函数复制给变量，rust的语法比C简单了一万倍。
 
 ```
-fn plus_one(i: i32) -&gt; i32 {
+fn plus_one(i: i32) -> i32 {
   i + 1
 }
 
-let f: fn(i32) -&gt; i32 = plus_one;
+let f: fn(i32) -> i32 = plus_one;
 
 let f = plus_one;
 ```
@@ -139,9 +139,9 @@ rust 的 if 并不复杂，像 Python一样不需要括号，但是像 C 一样�
 
 ```
 if x == 5 {
-    println!(&quot;x is five&quot;);
+    println!("x is five");
 } else {
-    println!(&quot;x is not five&quot;);
+    println!("x is not five");
 }
 
 let y = if x == 5 { 10 } else {15};  // 像 python一样的三元表达式
@@ -155,7 +155,7 @@ loop 就像是 while true，但是 rust 推荐使用 loop。
 
 ```
 for (idx, value) in (5..10).enumerate() {
-  println!(&quot;index = {} and value = {}&quot;, idx, value);
+  println!("index = {} and value = {}", idx, value);
 }
 ```
 
@@ -172,11 +172,11 @@ Rust 的核心概念就是ownership。在 rust 中，有如下三条规则：
 rust 中有一个类型叫做 String，相对于 str 类型， String 默认在堆上分配空间，而且是可变的。
 
 ```
-let mut s = String::from(&quot;hello&quot;);
+let mut s = String::from("hello");
 
-s.push_str(&quot;, world!&quot;); // push_str() appends a literal to a String
+s.push_str(", world!"); // push_str() appends a literal to a String
 
-println!(&quot;{}&quot;, s); // This will print &#x60;hello, world!&#x60;
+println!("{}", s); // This will print &#x60;hello, world!&#x60;
 ```
 
 在这里，String s 的内存的释放类似于C++ 中的RAII模式，在走出作用域的时候，调用s的drop方法，释放内存。
@@ -184,7 +184,7 @@ println!(&quot;{}&quot;, s); // This will print &#x60;hello, world!&#x60;
 ## 赋值于函数调用默认是 move 的语义
 
 ```
-let s = String::from(&quot;hello&quot;);
+let s = String::from("hello");
 let v = s;    //相当于 C++ 的 std::move
 println!(s)  // error
 ```
@@ -196,7 +196,7 @@ println!(s)  // error
 其实就相当于 C++ 的常量引用
 
 ```
-fn calculate_length(s: &amp;String) -&gt; usize { // s is a reference to a String
+fn calculate_length(s: &amp;String) -> usize { // s is a reference to a String
     s.len()
 } // Here, s goes out of scope. But because it does not have ownership of what
   // it refers to, nothing happens.
@@ -206,13 +206,13 @@ fn calculate_length(s: &amp;String) -&gt; usize { // s is a reference to a Strin
 
 ```
 fn main() {
-    let mut s = String::from(&quot;hello&quot;);
+    let mut s = String::from("hello");
 
     change(&amp;mut s);
 }
 
 fn change(some_string: &amp;mut String) {
-    some_string.push_str(&quot;, world&quot;);
+    some_string.push_str(", world");
 }
 ```
 

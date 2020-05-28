@@ -1,7 +1,7 @@
 # Configuring OpenWrt in TP-Link 702n
 
 
-ID: 442
+wp_id: 442
 Status: publish
 Date: 2017-05-29 01:09:00
 Modified: 2019-10-18 18:53:12
@@ -26,18 +26,18 @@ rm -rf /overlay/*
 ### 2.Interface config: `/etc/config/network`
 
 ```
-        config interface &#039;loopback&#039;
-            option ifname &#039;lo&#039;
-            option proto &#039;static&#039;
-            option ipaddr &#039;127.0.0.1&#039;
-            option netmask &#039;255.0.0.0&#039;
-        config interface &#039;lan&#039;
-            option ifname &#039;eth0&#039;
-            option proto &#039;dhcp&#039;
-        config interface &#039;wifi&#039;
-            option proto &#039;static&#039;
-            option ipaddr &#039;172.19.1.1&#039;
-            option netmask &#039;255.255.255.0&#039; 
+        config interface "loopback"
+            option ifname "lo"
+            option proto "static"
+            option ipaddr "127.0.0.1"
+            option netmask "255.0.0.0"
+        config interface "lan"
+            option ifname "eth0"
+            option proto "dhcp"
+        config interface "wifi"
+            option proto "static"
+            option ipaddr "172.19.1.1"
+            option netmask "255.255.255.0" 
 ```
 
 ### 3.Wireless Config: `/etc/config/wireless`
@@ -47,12 +47,12 @@ rm -rf /overlay/*
             option disabled 1
         2) config wifi interface
             config wifi-iface
-                option device &#039;radio0&#039;
-                option network &#039;wifi&#039;
-                option mode &#039;ap&#039;
-                option ssid &#039;WR703n&#039;
-                option encryption &#039;psk2&#039;
-                option key &#039;secret&#039;
+                option device "radio0"
+                option network "wifi"
+                option mode "ap"
+                option ssid "WR703n"
+                option encryption "psk2"
+                option key "secret"
 ```
 
 ### 4.DHCP Config: `/etc/config/dhcp`
@@ -78,7 +78,7 @@ rm -rf /overlay/*
             option forward ACCEPT
         config zone
             option name lan
-            option network &#039;lan&#039;
+            option network "lan"
             option input ACCEPT
             option output ACCEPT
             option forward ACCEPT
@@ -86,7 +86,7 @@ rm -rf /overlay/*
             option mtu_fix 1
         config zone
             option name wifi
-            option network &#039;wifi&#039;
+            option network "wifi"
             option input ACCEPT
             option output ACCEPT
             option forward ACCEPT
@@ -96,7 +96,7 @@ rm -rf /overlay/*
         config forwarding
             option src wifi
             option dest lan 
-    PS: to use pppoe, lan -&gt; wan
+    PS: to use pppoe, lan -> wan
 ```
 
 ###6.Reboot

@@ -1,7 +1,7 @@
 # 使用 gitbook 创建一本书
 
 
-ID: 750
+wp_id: 750
 Status: publish
 Date: 2017-05-30 07:50:00
 Modified: 2019-10-12 11:19:04

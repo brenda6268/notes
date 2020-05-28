@@ -1,7 +1,7 @@
 # Redis 与 Pika scan 性能对比
 
 
-ID: 575
+wp_id: 575
 Status: publish
 Date: 2019-03-31 08:44:00
 Modified: 2020-05-16 11:02:35
@@ -29,20 +29,20 @@ import time
 def gen(r):
     for i in range(10000000):
         r.set(str(uuid4()), 1)
-    r.set(&quot;user:1&quot;, &quot;bar&quot;)
+    r.set("user:1", "bar")
 
 
 def scan(r):
     start = time.time()
-    for key in r.scan_iter(&quot;user:*&quot;):
-        print(&quot;user=%s&quot; % r.get(key).decode())
+    for key in r.scan_iter("user:*"):
+        print("user=%s" % r.get(key).decode())
         duration = time.time() - start
-        print(&quot;duration for finding user is %.3f&quot; % duration)
+        print("duration for finding user is %.3f" % duration)
     duration = time.time() - start
-    print(&quot;duration for full scan is %.3f&quot; % duration)
+    print("duration for full scan is %.3f" % duration)
 
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == "__main__":
     import sys
     port = int(sys.argv[1])
     r = Redis(port=port)
@@ -53,7 +53,7 @@ if __name__ == &quot;__main__&quot;:
 首先插入一千万个随机数据，然后从中查找我们的目标数据。结果如下：
 
 ```
--&gt; % python3 rb.py 6379
+-> % python3 rb.py 6379
 user=bar
 duration for finding user is 80.145
 duration for full scan is 180.936
@@ -65,7 +65,7 @@ duration for full scan is 180.936
 
 
 ```
--&gt; % python3 rb.py 9221
+-> % python3 rb.py 9221
 user=bar
 duration for finding user is 0.002
 duration for full scan is 0.003

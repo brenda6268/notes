@@ -1,7 +1,7 @@
 # open sourcing a django project
 
 
-ID: 712
+wp_id: 712
 Status: publish
 Date: 2017-07-14 20:51:00
 Modified: 2017-07-14 20:51:00

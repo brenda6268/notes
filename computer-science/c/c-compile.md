@@ -1,7 +1,7 @@
 # C的编译、调试与静态检查
 
 
-ID: 402
+wp_id: 402
 Status: publish
 Date: 2017-07-27 01:14:00
 Modified: 2020-05-16 11:46:30
@@ -81,7 +81,7 @@ g++ -Wall -std=c++11 source.cc -o executable
 
 ```
 void processAddBytesOverflow(uint8_t *bytes, uint32_t len) {
-    for (uint32_t i = 0; i &lt; len; i++) {
+    for (uint32_t i = 0; i < len; i++) {
         bytes[0] += bytes[i];
     }
 }
@@ -90,7 +90,7 @@ void processAddBytesOverflow(uint8_t *bytes, uint32_t len) {
 ```
 void processAddBytesOverflow(void *input, uint32_t len) {
     uint8_t *bytes = input;
-for (uint32_t i = 0; i &lt; len; i++) {
+for (uint32_t i = 0; i < len; i++) {
         bytes[0] += bytes[i];
     }
 }
@@ -109,9 +109,9 @@ for (uint32_t i = 0; i &lt; len; i++) {
 核心思想，malloc/free不配对
 
 ```
-windows，使用&lt;crtdbg.h&gt;
+windows，使用<crtdbg.h>
 #define _CRTDBG_MAP_MALLOC
-#include &lt;crtdbg.h&gt;
+#include <crtdbg.h>
 
 _CrtDumpMemoryLeaks();
 ```

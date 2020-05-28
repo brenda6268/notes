@@ -1,7 +1,7 @@
 # influxdb+grafana+telegraf 监控系统搭建
 
 
-ID: 740
+wp_id: 740
 Status: publish
 Date: 2018-09-20 19:05:00
 Modified: 2020-05-16 11:24:11
@@ -29,7 +29,7 @@ Modified: 2020-05-16 11:24:11
 ```
 curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 source /etc/lsb-release
-echo &quot;deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable&quot; | sudo tee /etc/apt/sources.list.d/influxdb.list
+echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 
 sudo apt-get update &amp;&amp; sudo apt-get install influxdb telegraf
 sudo systemctl start influxdb telegraf

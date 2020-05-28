@@ -1,7 +1,7 @@
 # Java Notes
 
 
-ID: 525
+wp_id: 525
 Status: publish
 Date: 2017-05-30 13:46:00
 Modified: 2017-05-30 13:46:00

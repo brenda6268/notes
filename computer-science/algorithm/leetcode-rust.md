@@ -1,7 +1,7 @@
 # LeetCode Rust 刷题记录
 
 
-ID: 489
+wp_id: 489
 Status: draft
 Date: 2019-01-27 00:39:00
 Modified: 2020-05-16 11:05:42

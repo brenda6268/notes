@@ -1,7 +1,7 @@
 # Python urllib 模块
 
 
-ID: 671
+wp_id: 671
 Status: publish
 Date: 2018-05-01 14:36:00
 Modified: 2020-05-16 11:38:16
@@ -18,7 +18,7 @@ Python3 把这两个模块进行了合并并拆分成了子模块，只使用 ur
 ## 直接使用 urlopen
 
 ```
-urllib.request.urlopen(url, data=None, [timeout, ] *, context) -&gt; http.client.HTTPResponse
+urllib.request.urlopen(url, data=None, [timeout, ] *, context) -> http.client.HTTPResponse
 ```
 
 用于发送 GET 或者 POST 请求，如果有data，则发送的是 POST 请求.返回一个 file-like的http.client.HTTPResponse对象，这个对象也可以作为一个 context manager。
@@ -29,15 +29,15 @@ getcode() |
 read()/readlines() | 返回文件内容
 
 ```
-&gt;&gt;&gt; import urllib.request
-&gt;&gt;&gt; with urllib.request.urlopen(&#039;http://www.python.org/&#039;) as f:
+>>> import urllib.request
+>>> with urllib.request.urlopen("http://www.python.org/") as f:
 ...     print(f.read(300))
 ...
-b&#039;&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
-&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;\n\n\n&lt;html
-xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;\n\n&lt;head&gt;\n
-&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;\n
-&lt;title&gt;Python Programming &#039;
+b"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n\n\n<html
+xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">\n\n<head>\n
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />\n
+<title>Python Programming "
 ```
 
 ## 使用 Request 对象
@@ -69,16 +69,16 @@ from cookielib import CookieJar
 cj = CookieJar()
 opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
 # input-type values from the html form
-formdata = { &quot;username&quot; : username, &quot;password&quot;: password, &quot;form-id&quot; : &quot;1234&quot; }
+formdata = { "username" : username, "password": password, "form-id" : "1234" }
 data_encoded = urllib.urlencode(formdata)
-response = opener.open(&quot;https://page.com/login.php&quot;, data_encoded)
+response = opener.open("https://page.com/login.php", data_encoded)
 ```
 
 ```
 import urllib.request
 opener = urllib.request.build_opener()
-opener.addheaders = [(&#039;User-agent&#039;, &#039;Mozilla/5.0&#039;)]
-opener.open(&#039;http://www.example.com/&#039;)
+opener.addheaders = [("User-agent", "Mozilla/5.0")]
+opener.open("http://www.example.com/")
 ```
 
 From <http://stackoverflow.com/questions/3334809/python-urllib2-how-to-send-cookie-with-urlopen-request> 
@@ -109,17 +109,17 @@ port	 	Port number as integer, if present	None
 note，the netloc contains domain and port
 
 ```
-&gt;&gt;&gt; urlsplit(&#039;www.cwi.nl/%7Eguido/Python.html&#039;)
-SplitResult(scheme=&#039;&#039;, netloc=&#039;&#039;, path=&#039;www.cwi.nl/%7Eguido/Python.html&#039;, query=&#039;&#039;, fragment=&#039;&#039;)
-# notice the netloc will be wrong if &quot;//&quot; is missing
-&gt;&gt;&gt; urlsplit(&#039;//www.cwi.nl/%7Eguido/Python.html&#039;)
-SplitResult(scheme=&#039;&#039;, netloc=&#039;www.cwi.nl&#039;, path=&#039;/%7Eguido/Python.html&#039;, query=&#039;&#039;, fragment=&#039;&#039;)
+>>> urlsplit("www.cwi.nl/%7Eguido/Python.html")
+SplitResult(scheme="", netloc="", path="www.cwi.nl/%7Eguido/Python.html", query="", fragment="")
+# notice the netloc will be wrong if "//" is missing
+>>> urlsplit("//www.cwi.nl/%7Eguido/Python.html")
+SplitResult(scheme="", netloc="www.cwi.nl", path="/%7Eguido/Python.html", query="", fragment="")
 ```
 
 urlunsplit join the parse result。
 
 ```
-parse_qs(qs, keep_blank_values=False, encoding=&#039;utf-8&#039;)
+parse_qs(qs, keep_blank_values=False, encoding="utf-8")
 ```
 
 parse a query string to { key: [values] } pair, note without '?'

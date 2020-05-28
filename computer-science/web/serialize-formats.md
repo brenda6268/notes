@@ -1,7 +1,7 @@
 # 序列化协议的选择 json vs msgpack vs thrift vs protobuf
 
 
-ID: 594
+wp_id: 594
 Status: publish
 Date: 2018-07-14 19:45:00
 Modified: 2020-05-16 11:17:14
@@ -54,9 +54,9 @@ makefile 里面去，但是对于 Python 这种没有编译的动态语言就尴
 protobuf 现在有两个主流版本，显然 proto2 要被逐渐废弃，本文使用的是 proto3。
 
 ```
-syntax = &quot;proto3&quot;;
+syntax = "proto3";
 package foo.bar;
-import &quot;myproject/other_protos.proto&quot;;
+import "myproject/other_protos.proto";
 
 message SearchRequest {
   string query = 1;

@@ -1,7 +1,7 @@
 # Linux 命令行文件管理
 
 
-ID: 423
+wp_id: 423
 Status: publish
 Date: 2017-05-30 12:31:00
 Modified: 2020-05-16 12:01:20
@@ -12,9 +12,9 @@ Modified: 2020-05-16 12:01:20
 ```
 #!/bin/bash 
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
-SCRIPT=$(readlink -f &quot;$0&quot;)
+SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
-SCRIPTPATH=$(dirname &quot;$SCRIPT&quot;)
+SCRIPTPATH=$(dirname "$SCRIPT")
 echo $SCRIPTPATH
 ```
 
@@ -39,7 +39,7 @@ cat -ns file -n命令表示加入行号，-s 表示压缩多个空行到一个
 
 ### Syntax
 ```
-find &lt;dir&gt; [!] &lt;filter&gt; &lt;action&gt;
+find <dir> [!] <filter> <action>
 ```
 
 ### Filters

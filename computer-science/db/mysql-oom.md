@@ -1,7 +1,7 @@
 # 解决小内存机器 MySQL 总是 OOM 的问题
 
 
-ID: 173
+wp_id: 173
 Status: publish
 Date: 2017-11-13 16:52:49
 Modified: 2020-05-16 11:52:54
@@ -36,11 +36,11 @@ innodb_buffer_pool_size = 8M
 三 limit apache memory cosumption，editing /etc/apache2/mods-enabled/mpm_prefork.conf
 
 ```	
-&lt;IfModule mpm_prefork_module&gt;
+<IfModule mpm_prefork_module>
     StartServers        3
     MinSpareServers     3
     MaxSpareServers     5
     MaxRequestWorkers   25
     MaxConnectionsPerChild  0
-&lt;/IfModule&gt;
+</IfModule>
 ```

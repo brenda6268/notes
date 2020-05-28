@@ -1,7 +1,7 @@
 # MySQL “incorrect string value” error when save unicode string in Django
 
 
-ID: 709
+wp_id: 709
 Status: publish
 Date: 2017-06-07 08:47:00
 Modified: 2017-06-07 08:47:00

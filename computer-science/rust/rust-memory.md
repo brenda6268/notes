@@ -1,7 +1,7 @@
 # 如何理解 Rust 中的 Box、Rc、RefCell 等内存管理类型
 
 
-ID: 169
+wp_id: 169
 Status: draft
 Date: 2019-06-16 14:58:05
 Modified: 2020-05-16 10:54:42
@@ -43,7 +43,7 @@ fn main() {
     let mut b = Rc::new(1);
 
     *a = 2; // works
-    *b = 2; // doesn&#039;t
+    *b = 2; // doesn"t
 }
 ```
 

@@ -1,7 +1,7 @@
 # uwsgi 和 wsgi 协议
 
 
-ID: 640
+wp_id: 640
 Status: publish
 Date: 2017-06-21 15:37:00
 Modified: 2020-05-16 11:43:56
@@ -23,73 +23,73 @@ YN:
 2. start_response的参数
 3. simple_app的调用次序和返回值
 
-```
-HELLO_WORLD = b&quot;Hello world!\n&quot;
+```py
+HELLO_WORLD = b"Hello world!\n"
 
 def simple_app(environ, start_response):
-    &quot;&quot;&quot;Simplest possible application object&quot;&quot;&quot;
-    status = &#039;200 OK&#039;
-    response_headers = [(&#039;Content-type&#039;, &#039;text/plain&#039;)]
+    """Simplest possible application object"""
+    status = "200 OK"
+    response_headers = [("Content-type", "text/plain")]
     start_response(status, response_headers)
     return [HELLO_WORLD]
 
 class AppClass:
-    &quot;&quot;&quot;Produce the same output, but using a class
-    (Note: &#039;AppClass&#039; is the &quot;application&quot; here, so calling it
-    returns an instance of &#039;AppClass&#039;, which is then the iterable
-    return value of the &quot;application callable&quot; as required by
+    """Produce the same output, but using a class
+    (Note: "AppClass" is the "application" here, so calling it
+    returns an instance of "AppClass", which is then the iterable
+    return value of the "application callable" as required by
     the spec.
-    If we wanted to use *instances* of &#039;AppClass&#039; as application
-    objects instead, we would have to implement a &#039;__call__&#039;
+    If we wanted to use *instances* of "AppClass" as application
+    objects instead, we would have to implement a "__call__"
     method, which would be invoked to execute the application,
     and we would need to create an instance for use by the
     server or gateway.
-    &quot;&quot;&quot;
+    """
     def __init__(self, environ, start_response):
         self.environ = environ
         self.start = start_response
     def __iter__(self):
-        status = &#039;200 OK&#039;
-        response_headers = [(&#039;Content-type&#039;, &#039;text/plain&#039;)]
+        status = "200 OK"
+        response_headers = [("Content-type", "text/plain")]
         self.start(status, response_headers)
         yield HELLO_WORLD
 ```
 
 而对于server/gateway来说, 每接收到一个http客户端, 都会调用一次这个 application callable
 
-```
+```py
 import os, sys
-enc, esc = sys.getfilesystemencoding(), &#039;surrogateescape&#039;
+enc, esc = sys.getfilesystemencoding(), "surrogateescape"
 def unicode_to_wsgi(u):
-    # Convert an environment variable to a WSGI &quot;bytes-as-unicode&quot; string
-    return u.encode(enc, esc).decode(&#039;iso-8859-1&#039;)
+    # Convert an environment variable to a WSGI "bytes-as-unicode" string
+    return u.encode(enc, esc).decode("iso-8859-1")
 def wsgi_to_bytes(s):
-    return s.encode(&#039;iso-8859-1&#039;)
+    return s.encode("iso-8859-1")
 def run_with_cgi(application):
     environ = {k: unicode_to_wsgi(v) for k,v in os.environ.items()}
-    environ[&#039;wsgi.input&#039;]        = sys.stdin.buffer
-    environ[&#039;wsgi.errors&#039;]       = sys.stderr
-    environ[&#039;wsgi.version&#039;]      = (1, 0)
-    environ[&#039;wsgi.multithread&#039;]  = False
-    environ[&#039;wsgi.multiprocess&#039;] = True
-    environ[&#039;wsgi.run_once&#039;]     = True
-if environ.get(&#039;HTTPS&#039;, &#039;off&#039;) in (&#039;on&#039;, &#039;1&#039;):
-        environ[&#039;wsgi.url_scheme&#039;] = &#039;https&#039;
+    environ["wsgi.input"]        = sys.stdin.buffer
+    environ["wsgi.errors"]       = sys.stderr
+    environ["wsgi.version"]      = (1, 0)
+    environ["wsgi.multithread"]  = False
+    environ["wsgi.multiprocess"] = True
+    environ["wsgi.run_once"]     = True
+if environ.get("HTTPS", "off") in ("on", "1"):
+        environ["wsgi.url_scheme"] = "https"
     else:
-        environ[&#039;wsgi.url_scheme&#039;] = &#039;http&#039;
+        environ["wsgi.url_scheme"] = "http"
 headers_set = []
     headers_sent = []
 def write(data):
         out = sys.stdout.buffer
 if not headers_set:
-             raise AssertionError(&quot;write() before start_response()&quot;)
+             raise AssertionError("write() before start_response()")
 elif not headers_sent:
              # Before the first output, send the stored headers
              status, response_headers = headers_sent[:] = headers_set
-             out.write(wsgi_to_bytes(&#039;Status: %s\r\n&#039; % status))
+             out.write(wsgi_to_bytes("Status: %s\r\n" % status))
              for header in response_headers:
-                 out.write(wsgi_to_bytes(&#039;%s: %s\r\n&#039; % header))
-             out.write(wsgi_to_bytes(&#039;\r\n&#039;))
+                 out.write(wsgi_to_bytes("%s: %s\r\n" % header))
+             out.write(wsgi_to_bytes("\r\n"))
 out.write(data)
         out.flush()
 def start_response(status, response_headers, exc_info=None):
@@ -101,7 +101,7 @@ def start_response(status, response_headers, exc_info=None):
             finally:
                 exc_info = None     # avoid dangling circular ref
         elif headers_set:
-            raise AssertionError(&quot;Headers already set!&quot;)
+            raise AssertionError("Headers already set!")
 headers_set[:] = [status, response_headers]
 # Note: error checking on the headers should happen here,
         # *after* the headers are set.  That way, if an error
@@ -111,16 +111,16 @@ return write
 result = application(environ, start_response)
     try:
         for data in result:
-            if data:    # don&#039;t send headers until body appears
+            if data:    # don"t send headers until body appears
                 write(data)
         if not headers_sent:
-            write(&#039;&#039;)   # send headers now if body was empty
+            write("")   # send headers now if body was empty
     finally:
-        if hasattr(result, &#039;close&#039;):
+        if hasattr(result, "close"):
             result.close()
 ```
 
-# 参考资料
+## 参考资料
 
 1. https://bottlepy.org/docs/dev/async.html
 2. http://uwsgi-docs-cn.readthedocs.io/zh_CN/latest/WSGIquickstart.html

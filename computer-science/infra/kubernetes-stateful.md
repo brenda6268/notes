@@ -1,7 +1,7 @@
 # kubernetes 初探——部署有状态服务
 
 
-ID: 563
+wp_id: 563
 Status: publish
 Date: 2018-10-05 08:02:00
 Modified: 2020-05-16 11:24:58

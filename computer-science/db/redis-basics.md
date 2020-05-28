@@ -1,7 +1,7 @@
 # 学习 redis 的基础命令
 
 
-ID: 571
+wp_id: 571
 Status: publish
 Date: 2017-06-08 10:19:00
 Modified: 2020-05-16 12:05:24
@@ -14,7 +14,7 @@ string list set sorted set hash
 ## key related
 
 ```
-keys &lt;pattern&gt;	list all keys share the pattern
+keys <pattern>	list all keys share the pattern
 exists key	
 del key	
 expire key expiration	
@@ -27,11 +27,11 @@ type key
 ## string related
 
 ```
-set key value	set mystr &quot;hello world&quot;
+set key value	set mystr "hello world"
 setex key timeout value	set key with expiration
 setnx key value	set only not exist
-get key -&gt; value	get mystr
-getset key new -&gt; old	get old and set new
+get key -> value	get mystr
+getset key new -> old	get old and set new
 setrange key offset value	
 getrange key start end	returns the value, inclusive
 mget key...	returns a list of values
@@ -102,7 +102,7 @@ rank is which place the value ranked by score in the zset.
 
 ```
 zadd KEY SCORE MEMBER           # add a value to a zset
-zincrby KEY SCORE MEMBER        # increment the member&#039;s score NOTE redis-py implements wrongly
+zincrby KEY SCORE MEMBER        # increment the member"s score NOTE redis-py implements wrongly
 zrem KEY MEMBER...              # remove a value from zset
 zremrangebyrank KEY START STOP  # removes all values in the set within the give index
 zremrangebyscore KEY MIN MAX    # removes all values in the set within the given scores

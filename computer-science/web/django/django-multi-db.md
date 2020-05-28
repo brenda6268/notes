@@ -1,7 +1,7 @@
 # Django 中使用多个数据库
 
 
-ID: 710
+wp_id: 710
 Status: publish
 Date: 2018-08-22 04:20:00
 Modified: 2020-05-16 11:23:12
@@ -15,18 +15,18 @@ Modified: 2020-05-16 11:23:12
 
 ```
 DATABASES = {
-    &#039;default&#039;: {},
-    &#039;users&#039;: {
-        &#039;NAME&#039;: &#039;user_data&#039;,
-        &#039;ENGINE&#039;: &#039;django.db.backends.mysql&#039;,
-        &#039;USER&#039;: &#039;mysql_user&#039;,
-        &#039;PASSWORD&#039;: &#039;superS3cret&#039;
+    "default": {},
+    "users": {
+        "NAME": "user_data",
+        "ENGINE": "django.db.backends.mysql",
+        "USER": "mysql_user",
+        "PASSWORD": "superS3cret"
     },
-    &#039;customers&#039;: {
-        &#039;NAME&#039;: &#039;customer_data&#039;,
-        &#039;ENGINE&#039;: &#039;django.db.backends.mysql&#039;,
-        &#039;USER&#039;: &#039;mysql_cust&#039;,
-        &#039;PASSWORD&#039;: &#039;veryPriv@ate&#039;
+    "customers": {
+        "NAME": "customer_data",
+        "ENGINE": "django.db.backends.mysql",
+        "USER": "mysql_cust",
+        "PASSWORD": "veryPriv@ate"
     }
 }
 ```
@@ -49,5 +49,5 @@ DB router 需要实现下面四个方法，用来指定不同的 Model 对应的
 最后使用 `DATABASE_ROUTERS` 安装对应的路由：
 
 ```
-DATABASE_ROUERS = [&#039;path.to.router&#039;]
+DATABASE_ROUERS = ["path.to.router"]
 ```

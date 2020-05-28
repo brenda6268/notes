@@ -1,7 +1,7 @@
 # 安卓开发中的Context
 
 
-ID: 544
+wp_id: 544
 Status: publish
 Date: 2017-11-15 05:29:00
 Modified: 2020-05-16 11:54:46
@@ -13,7 +13,7 @@ Modified: 2020-05-16 11:54:46
 
 比如下面的例子：
 
-```
+```java
 public class DumpLocationLog extends Thread {
     LocationManager lm;
     LocationHelper loc;

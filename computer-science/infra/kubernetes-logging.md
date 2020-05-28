@@ -1,7 +1,7 @@
 # kubernetes 初探——日志收集
 
 
-ID: 555
+wp_id: 555
 Status: publish
 Date: 2018-09-30 04:58:00
 Modified: 2020-05-16 11:24:43

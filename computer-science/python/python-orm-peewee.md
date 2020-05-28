@@ -1,7 +1,7 @@
 # Python 微型ORM Peewee 教程
 
 
-ID: 303
+wp_id: 303
 Status: publish
 Date: 2019-08-17 08:54:32
 Modified: 2020-05-16 10:51:32
@@ -32,7 +32,7 @@ from playhouse.shortcuts import ReconnectMixin
 class ReconnectMySQLDatabase(ReconnectMixin, MySQLDatabase):
     pass
 
-db = ReconnectMySQLDatabase(&#039;my_app&#039;, ...)
+db = ReconnectMySQLDatabase("my_app", ...)
 ```
 
 # 定义表
@@ -52,7 +52,7 @@ class Person(pw.Model):
         database = db
 
 class Pet(Model):
-    owner = ForeignKeyField(Person, backref=&#039;pets&#039;)
+    owner = ForeignKeyField(Person, backref="pets")
     name = CharField()
     animal_type = CharField()
 
@@ -83,15 +83,15 @@ database.execute_sql()
 
 ```python
 # peewee 只会查询一次数据库，不管迭代多少次。
-query = Pet.select().where(Pet.animal_type == &#039;cat&#039;)
+query = Pet.select().where(Pet.animal_type == "cat")
 for pet in query:
     print(pet.name, pet.owner.name)  # 注意这里有 N+1 问题，N 指的是获取 owner.name
 
 # 直接获取一条数据，select, where 全省略了
-grandma = Person.get(Person.name == &#039;Grandma L.&#039;)
+grandma = Person.get(Person.name == "Grandma L.")
 
 # 或者全写出来
-grandma = Person.select().where(Person.name == &quot;Gramdma L.&quot;).get()
+grandma = Person.select().where(Person.name == "Gramdma L.").get()
 
 # in 查询使用 in_ 方法
 Pet.select().where(Pet.id.in_([1,2]))
@@ -108,7 +108,7 @@ Person.get_or_none()
 query = (Pet
          .select(Pet, Person)
          .join(Person)
-         .where(Pet.animal_type == &#039;cat&#039;))
+         .where(Pet.animal_type == "cat"))
          .order_by(Pet.name)  # 或者 Pet.name.desc() 逆序排列
 
 for pet in query:
@@ -122,7 +122,7 @@ d1940 = date(1940, 1, 1)
 d1960 = date(1960, 1, 1)
 query = (Person
          .select()
-         .where((Person.birthday &lt; d1940) | (Person.birthday &gt; d1960)))
+         .where((Person.birthday < d1940) | (Person.birthday > d1960)))
 
 for person in query:
     print(person.name, person.birthday)
@@ -142,7 +142,7 @@ peewee 模仿 django 实现了 get_or_create 的方法。注意他的参数是 D
 person, created = Person.get_or_create(
     first_name=first_name,
     last_name=last_name,
-    defaults={&#039;dob&#039;: dob, &#039;favorite_color&#039;: &#039;green&#039;})
+    defaults={"dob": dob, "favorite_color": "green"})
 ```
 
 ### iterator
@@ -159,24 +159,24 @@ person, created = Person.get_or_create(
 from datetime import date
 
 # 使用 save
-uncle_bob = Person(name=&#039;Bob&#039;, birthday=date(1960, 1, 15))
+uncle_bob = Person(name="Bob", birthday=date(1960, 1, 15))
 uncle_bob.save() # bob is now stored in the database
 
 # 使用 create
-grandma = Person.create(name=&#039;Grandma&#039;, birthday=date(1935, 3, 1))
-bob_kitty = Pet.create(owner=uncle_bob, name=&#039;Kitty&#039;, animal_type=&#039;cat&#039;)  # 带有外键的宠物
+grandma = Person.create(name="Grandma", birthday=date(1935, 3, 1))
+bob_kitty = Pet.create(owner=uncle_bob, name="Kitty", animal_type="cat")  # 带有外键的宠物
 
 # 使用 bulk_create
-users = [User(username=&#039;u%s&#039; % i) for i in range(10)]
+users = [User(username="u%s" % i) for i in range(10)]
 User.bulk_create(users, batch_size=100)
 
 # 使用 insert
-User.insert(username=&quot;mickey&quot;).execute()
+User.insert(username="mickey").execute()
 
 # 使用 insert many。或者使用 tuple 也可以
 data_source = [
-    {&#039;field1&#039;: &#039;val1-1&#039;, &#039;field2&#039;: &#039;val1-2&#039;},
-    {&#039;field1&#039;: &#039;val2-1&#039;, &#039;field2&#039;: &#039;val2-2&#039;},
+    {"field1": "val1-1", "field2": "val1-2"},
+    {"field1": "val2-1", "field2": "val2-2"},
     # ...
 ]
 
@@ -184,9 +184,9 @@ data_source = [
 MyModel.insert_many(data_source).execute()
 
 # We can INSERT tuples as well...
-data = [(&#039;val1-1&#039;, &#039;val1-2&#039;),
-        (&#039;val2-1&#039;, &#039;val2-2&#039;),
-        (&#039;val3-1&#039;, &#039;val3-2&#039;)]
+data = [("val1-1", "val1-2"),
+        ("val2-1", "val2-2"),
+        ("val3-1", "val3-2")]
 
 # But we need to indicate which fields the values correspond to.
 MyModel.insert_many(data, fields=[MyModel.field1, MyModel.field2]).execute()
@@ -202,16 +202,16 @@ herb_fido.owner = uncle_bob
 herb_fido.save()
 
 # 使用 update 更新
-query = Tweet.update(is_published=True).where(Tweet.creation_date &lt; today)
+query = Tweet.update(is_published=True).where(Tweet.creation_date < today)
 
 # 批量更新数据
 # First, create 3 users with usernames u1, u2, u3.
-u1, u2, u3 = [User.create(username=&#039;u%s&#039; % i) for i in (1, 2, 3)]
+u1, u2, u3 = [User.create(username="u%s" % i) for i in (1, 2, 3)]
 
-# Now we&#039;ll modify the user instances.
-u1.username = &#039;u1-x&#039;
-u2.username = &#039;u2-y&#039;
-u3.username = &#039;u3-z&#039;
+# Now we"ll modify the user instances.
+u1.username = "u1-x"
+u2.username = "u2-y"
+u3.username = "u3-z"
 
 # Update all three users with a single UPDATE query.
 User.bulk_update([u1, u2, u3], fields=[User.username])
@@ -221,7 +221,7 @@ User.bulk_update([u1, u2, u3], fields=[User.username])
 
 错误做法
 ```python
-&gt;&gt;&gt; for stat in Stat.select().where(Stat.url == request.url):
+>>> for stat in Stat.select().where(Stat.url == request.url):
 ...     stat.counter += 1
 ...     stat.save()
 ```
@@ -229,8 +229,8 @@ User.bulk_update([u1, u2, u3], fields=[User.username])
 正确做法
 
 ```
-&gt;&gt;&gt; query = Stat.update(counter=Stat.counter + 1).where(Stat.url == request.url)
-&gt;&gt;&gt; query.execute()
+>>> query = Stat.update(counter=Stat.counter + 1).where(Stat.url == request.url)
+>>> query.execute()
 ```
 
 ## 删除数据
@@ -242,7 +242,7 @@ User.bulk_update([u1, u2, u3], fields=[User.username])
 herb_mittens.delete_instance()
 
 # 使用 Model.delete
-Tweet.delete().where(Tweet.creation_date &lt; one_year_ago).execute()
+Tweet.delete().where(Tweet.creation_date < one_year_ago).execute()
 ```
 
 # 一些有用的拓展
@@ -252,9 +252,9 @@ Tweet.delete().where(Tweet.creation_date &lt; one_year_ago).execute()
 除了在查询的时候使用 model.dicts 以外，还可以使用 model_to_dict(model) 这个函数。
 
 ```python
-&gt;&gt;&gt; user = User.create(username=&#039;charlie&#039;)
-&gt;&gt;&gt; model_to_dict(user)
-{&#039;id&#039;: 1, &#039;username&#039;: &#039;charlie&#039;}
+>>> user = User.create(username="charlie")
+>>> model_to_dict(user)
+{"id": 1, "username": "charlie"}
 ```
 
 
@@ -264,7 +264,7 @@ Tweet.delete().where(Tweet.creation_date &lt; one_year_ago).execute()
 最后也是最牛逼的一点，可以使用 pwiz 工具从已有的数据库产生 peewee 的模型文件：
 
 ```
-python -m pwiz -e postgresql charles_blog &gt; blog_models.py
+python -m pwiz -e postgresql charles_blog > blog_models.py
 ```
 
 # 参考

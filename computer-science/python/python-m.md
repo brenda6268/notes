@@ -1,7 +1,7 @@
 # Python `-m`
 
 
-ID: 688
+wp_id: 688
 Status: publish
 Date: 2017-05-30 13:19:00
 Modified: 2017-05-30 13:19:00
@@ -49,13 +49,15 @@ Differing files : ['3']
 
 
 Several modules lets you encode/decode in various formats:
-	• base64
-	• uu
-	• encodings.rot_13
-	• binhex
-	• mimify
-	• quopri
+- base64
+- uu
+- encodings.rot_13
+- binhex
+- mimify
+- quopri
+
 For example
+
 $ echo 'secertpassword' | python -m encodings.rot_13
 frpregcnffjbeq
 

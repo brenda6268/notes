@@ -1,7 +1,7 @@
 # RSS 和 Atom 协议详解和不足
 
 
-ID: 420
+wp_id: 420
 Status: publish
 Date: 2016-12-27 11:35:00
 Modified: 2020-05-16 12:06:48
@@ -18,24 +18,24 @@ So we could use CDATA to smuggle some HTML into the XML document, so that the HT
 # RSS 2.0
 
 ```
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;rss version=&quot;2.0&quot;&gt;
-    &lt;channel&gt;
-        &lt;title&gt;Example Feed&lt;/title&gt;
-        &lt;description&gt;Insert witty or insightful remark here&lt;/description&gt;
-        &lt;link&gt;http://example.org/&lt;/link&gt;
-        &lt;lastBuildDate&gt;Sat, 13 Dec 2003 18:30:02 GMT&lt;/lastBuildDate&gt;
-        &lt;managingEditor&gt;johndoe@example.com (John Doe)&lt;/managingEditor&gt;
-        &lt;item&gt;
-            &lt;title&gt;Atom-Powered Robots Run Amok&lt;/title&gt;
-            &lt;link&gt;http://example.org/2003/12/13/atom03&lt;/link&gt;
-            &lt;pubDate&gt;Sat, 13 Dec 2003 18:30:02 GMT&lt;/pubDate&gt;
-            &lt;description&gt;Some text.&lt;/description&gt;
-            &lt;source&gt;Shit News&lt;/source&gt;
-        &lt;/item&gt;
-        &lt;item&gt;...&lt;/item&gt;
-    &lt;/channel&gt;
-&lt;/rss&gt;
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Example Feed</title>
+        <description>Insert witty or insightful remark here</description>
+        <link>http://example.org/</link>
+        <lastBuildDate>Sat, 13 Dec 2003 18:30:02 GMT</lastBuildDate>
+        <managingEditor>johndoe@example.com (John Doe)</managingEditor>
+        <item>
+            <title>Atom-Powered Robots Run Amok</title>
+            <link>http://example.org/2003/12/13/atom03</link>
+            <pubDate>Sat, 13 Dec 2003 18:30:02 GMT</pubDate>
+            <description>Some text.</description>
+            <source>Shit News</source>
+        </item>
+        <item>...</item>
+    </channel>
+</rss>
 ```
 
 ## RSS 协议的一些不足和改进方向
@@ -61,27 +61,27 @@ So we could use CDATA to smuggle some HTML into the XML document, so that the HT
 # Atom 1.0
 
 ```
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;feed xmlns=&quot;http://www.w3.org/2005/Atom&quot;&gt;
-    &lt;title&gt;Example Feed&lt;/title&gt;
-    &lt;subtitle&gt;Insert witty or insightful remark here&lt;/subtitle&gt;
-    &lt;link href=&quot;http://example.org/&quot;/&gt;
-    &lt;updated&gt;2003-12-13T18:30:02Z&lt;/updated&gt;
-    &lt;author&gt;
-        &lt;name&gt;John Doe&lt;/name&gt;
-        &lt;email&gt;johndoe@example.com&lt;/email&gt;
-    &lt;/author&gt;
-    &lt;id&gt;urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6&lt;/id&gt;
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Example Feed</title>
+    <subtitle>Insert witty or insightful remark here</subtitle>
+    <link href="http://example.org/"/>
+    <updated>2003-12-13T18:30:02Z</updated>
+    <author>
+        <name>John Doe</name>
+        <email>johndoe@example.com</email>
+    </author>
+    <id>urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6</id>
  
-    &lt;entry&gt;
-        &lt;title&gt;Atom-Powered Robots Run Amok&lt;/title&gt;
-        &lt;link href=&quot;http://example.org/2003/12/13/atom03&quot;/&gt;
-        &lt;id&gt;urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a&lt;/id&gt;
-        &lt;updated&gt;2003-12-13T18:30:02Z&lt;/updated&gt;
-        &lt;summary&gt;Some text.&lt;/summary&gt;
-    &lt;/entry&gt;
+    <entry>
+        <title>Atom-Powered Robots Run Amok</title>
+        <link href="http://example.org/2003/12/13/atom03"/>
+        <id>urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a</id>
+        <updated>2003-12-13T18:30:02Z</updated>
+        <summary>Some text.</summary>
+    </entry>
  
-&lt;/feed&gt;
+</feed>
 ```
  
 # reference

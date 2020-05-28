@@ -1,7 +1,7 @@
 # shell 编程教程
 
 
-ID: 430
+wp_id: 430
 Status: publish
 Date: 2017-07-16 01:38:00
 Modified: 2020-05-16 11:46:09
@@ -48,28 +48,28 @@ echo $FOO
 字符串在双引号中可以直接插入，这时候要加上大括号来指示变量名的起始位置。
 
 ```
-echo &quot;${FOO}xxx&quot;
+echo "${FOO}xxx"
 ```
 
 变量默认实在当前的回话中可见的，而不会作为环境变量传递给调用的命令。可以使用 export 导出变量，或者在命令前加上指定的环境变量。
 
 ```
--&gt; % cat env.py
+-> % cat env.py
 import os
-print(&#039;FOO env variable is: &#039;, os.environ.get(&#039;FOO&#039;))
+print("FOO env variable is: ", os.environ.get("FOO"))
 
--&gt; % python3 env.py
+-> % python3 env.py
 FOO env variable is:  None
 
--&gt; % FOO=bar python3 env.py
+-> % FOO=bar python3 env.py
 FOO env variable is:  bar
 ```
 
 使用 export
 
 ```
--&gt; % export FOO=bar
--&gt; % python3 env.py
+-> % export FOO=bar
+-> % python3 env.py
 FOO env variable is:  bar
 ```
 
@@ -179,10 +179,10 @@ fi
 虽然可以使用任意的语句作为判断条件，不过我们一般情况下都是用 `[` 这个命令来作为判断条件的，需要注意的是 `[` 并不是一个语法，而是一个命令。不过由于 `[` 这个上古命令实在功能太少，现在一般采用 `[[` 来作为判断条件。
 
 ```
-if [[ &quot;a&quot; == &quot;b&quot; ]]; then
-    echo &quot;wtf&quot;
+if [[ "a" == "b" ]]; then
+    echo "wtf"
 else
-    echo &quot;meh&quot;
+    echo "meh"
 fi
 ```
 
@@ -206,8 +206,8 @@ Note: Variables may contain space, so the best way to comparison is to add quote
 ```
 str1 == str2	equal
 str1 != str2	not equal
-str1 &lt; str2	less
-str1 &gt; str2	greater
+str1 < str2	less
+str1 > str2	greater
 -z str	zero
 -n str	not zero length
 ```
@@ -264,7 +264,7 @@ the result of a for loop is pipe-able to other command
 ```
 for city in beijing shanghai; do
     echo $city is big
-done &gt; cities.txt
+done > cities.txt
 # will save the result in cities.txt
 ```
 
@@ -372,7 +372,7 @@ use `local` to declare local variables
 # alias
 
 ```
-alias new_name=&#039;command string&#039;
+alias new_name="command string"
 $ \command  # bypass alias
 ```
 

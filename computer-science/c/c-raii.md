@@ -1,7 +1,7 @@
 # C/C++ 中的 RAII
 
 
-ID: 401
+wp_id: 401
 Status: publish
 Date: 2017-05-29 15:36:00
 Modified: 2020-05-16 12:10:11
@@ -17,18 +17,19 @@ Modified: 2020-05-16 12:10:11
 
 This is inherent implementation dependent, since the Standard doesn't include such a possibility. For GCC, the cleanup attribute runs a function when a variable goes out of scope:
 
-```
-#include &lt;stdio.h&gt;
+```c
+#include <stdio.h>
+
 void scoped(int * pvariable) {
-    printf(&quot;variable (%d) goes out of scope\n&quot;, *pvariable);
+    printf("variable (%d) goes out of scope\n", *pvariable);
 }
 int main(void) {
-    printf(&quot;before scope\n&quot;);
+    printf("before scope\n");
     {
         int watched __attribute__((cleanup (scoped)));
         watched = 42;
     }
-    printf(&quot;after scope\n&quot;);
+    printf("after scope\n");
 }
 ```
 

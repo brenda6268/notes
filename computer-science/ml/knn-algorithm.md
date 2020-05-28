@@ -1,7 +1,7 @@
 # kNN algorithm
 
 
-ID: 478
+wp_id: 478
 Status: publish
 Date: 2017-05-29 15:22:00
 Modified: 2017-05-29 15:22:00

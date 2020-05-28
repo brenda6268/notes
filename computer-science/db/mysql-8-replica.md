@@ -1,7 +1,7 @@
 # mysql 基础知识(8) - 主从复制
 
 
-ID: 181
+wp_id: 181
 Status: publish
 Date: 2018-06-18 17:31:09
 Modified: 2020-05-16 11:08:36

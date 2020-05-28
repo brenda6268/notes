@@ -1,7 +1,7 @@
 # iterm2 tricks
 
 
-ID: 754
+wp_id: 754
 Status: publish
 Date: 2017-07-29 23:19:00
 Modified: 2017-07-29 23:19:00

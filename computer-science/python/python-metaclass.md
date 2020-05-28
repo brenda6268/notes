@@ -1,7 +1,7 @@
 # Python metaclass 的原理和应用
 
 
-ID: 831
+wp_id: 831
 Status: publish
 Date: 2019-12-02 18:03:33
 Modified: 2020-05-16 10:46:52
@@ -9,34 +9,34 @@ Modified: 2020-05-16 10:46:52
 
 元编程(meta programming)是一项很神奇的能力，可以通过代码在**运行时**动态生成代码。元类(meta classes)是 Python 提供的一种元编程的能力。在 Python 中，类也是一种对象，那么类这种对象就是元类的实例，所以我们可以在运行时通过实例化元类动态生成类。
 
-# 使用 type “函数”
+## 使用 type “函数”
 
 首先我们来了解一下 type，type 可以作为函数使用，用来获得对象的类型：
 
 ```python
-&gt;&gt;&gt; class Foo:
+>>> class Foo:
 ...     pass
-&gt;&gt;&gt; obj = Foo()
-&gt;&gt;&gt; obj.__class__
-&lt;class &#039;__main__.Foo&#039;&gt;
-&gt;&gt;&gt; type(obj)
-&lt;class &#039;__main__.Foo&#039;&gt;
-&gt;&gt;&gt; obj.__class__ is type(obj)
+>>> obj = Foo()
+>>> obj.__class__
+<class "__main__.Foo">
+>>> type(obj)
+<class "__main__.Foo">
+>>> obj.__class__ is type(obj)
 True
 ```
 
 实际上 type 并不是一个函数，而是一个类，我们可以使用 type(type) 来确定一下：
 
 ```python
-&gt;&gt;&gt; type(type)
-&lt;class &#039;type&#039;&gt;
+>>> type(type)
+<class "type">
 ```
 
 type 实际上不只是类，而是一个“元类”。我们接下来要可以看到，所有的元类都需要继承自 type。type 是所以类的元类，所以在上面的例子中 x 是 Foo 的实例，Foo 是 type 的实例，type 又是他自己的实例。
 
 ![file](https://yifei.me/wp-content/uploads/2019/12/image-1575282914707.png)
 
-# 使用 type 动态创建类
+## 使用 type 动态创建类
 
 如果传递给 type 的参数是三个的时候，type 的语义就不再是返回给定参数的类，而是实例化生成一个新的类。
 
@@ -51,7 +51,7 @@ type(name: str, bases: tuple, namespace: dict)
 ```python
 classes = []
 for i in range(10):
-    cls = type(&quot;Foo%s&quot; % i, tuple(), {})
+    cls = type("Foo%s" % i, tuple(), {})
     classes.append(cls)
 
 # 就像使用普通类一样初始化 Foo0
@@ -68,15 +68,15 @@ def __init__(self, name):
 def print_name(self):
     print(self.name)
 
-Duck = type(&quot;Duck&quot;, tuple(), {&quot;__init__&quot;: __init__, &quot;print_name&quot;: print_name})
+Duck = type("Duck", tuple(), {"__init__": __init__, "print_name": print_name})
 
-duck = Duck(&quot;Donald&quot;)
+duck = Duck("Donald")
 
 duck.print_name()
 # Donald
 ```
 
-# 创建自己的元类
+## 创建自己的元类
 
 首先我们来回顾一下 Python 中类的初始化过程：
 
@@ -99,18 +99,18 @@ foo = Foo()
 那么怎样定义一个 MetaFoo 呢？只需要继承自 type 就行了。因为元类的实例化就是类的创建过程，所以在元类中，我们可以修改 `__new__` 来在 `__init__` 之前对新创建的类做一些操作。
 
 ```python
-&gt;&gt;&gt; class MetaFoo(type):
+>>> class MetaFoo(type):
 ...     def __new__(cls, name, bases, namespace):
 ...         x = super().__new__(cls, name, bases, namespace)  # super实际上就是 type
 ...         x.bar = 100  # 为这个类增加一个属性
 ...         return x
 ...
 
-&gt;&gt;&gt; Foo = MetaFoo(&quot;Foo&quot;, tuple(), {})  # MetaFoo 在这里就相当于 type 了，可以动态创建类
-&gt;&gt;&gt; Foo.bar
+>>> Foo = MetaFoo("Foo", tuple(), {})  # MetaFoo 在这里就相当于 type 了，可以动态创建类
+>>> Foo.bar
 100
-&gt;&gt;&gt; foo = Foo()
-&gt;&gt;&gt; foo.bar
+>>> foo = Foo()
+>>> foo.bar
 100
 ```
 
@@ -125,7 +125,7 @@ class Foo(metaclass=MetaFoo):
 
 这种定义和上面的元类用法效果完全是一致的。
 
-# 一个现实世界的元类例子
+## 一个现实世界的元类例子
 
 在 django.models 或者 peewee 等 ORM 中，我们一般使用类的成员变量来定义字段，这里就用到了元类。
 
@@ -145,12 +145,12 @@ class MetaModel(type):
         fields = {}
         for key, value in attrs.items():
             if isinstance(value, Field):
-                value.name = &#039;%s.%s&#039; % (name, key)
+                value.name = "%s.%s" % (name, key)
                 fields[key] = value
         for base in bases:
-            if hasattr(base, &#039;_fields&#039;):
+            if hasattr(base, "_fields"):
                 fields.update(base._fields)
-        attrs[&#039;_fields&#039;] = fields
+        attrs["_fields"] = fields
         return type.__new__(meta, name, bases, attrs)
 
 class Model(metaclass=MetaModel):
@@ -160,14 +160,14 @@ class Model(metaclass=MetaModel):
 这样用户使用的时候就可以这样定义：
 
 ```python
-&gt;&gt;&gt; class A(Model):
+>>> class A(Model):
 ...     foo = IntegerField()
 ...
-&gt;&gt;&gt; class B(A):
+>>> class B(A):
 ...     bar = CharField()
 ...
-&gt;&gt;&gt; B._fields
-{&#039;foo&#039;: Integer(&#039;A.foo&#039;), &#039;bar&#039;: String(&#039;B.bar&#039;)}
+>>> B._fields
+{"foo": Integer("A.foo"), "bar": String("B.bar")}
 ```
 
 程序在执行的时候就可以直接访问 `X._fields`，而不用每次都通过反射遍历一次，从而提高效率以及做一些验证。
@@ -179,10 +179,10 @@ def model(cls):
     fields = {}
     for key, value in vars(cls).items():
         if isinstance(value, Field):
-            value.name = &#039;%s.%s&#039; % (cls.__name__, key)
+            value.name = "%s.%s" % (cls.__name__, key)
             fields[key] = value
     for base in cls.__bases__:
-        if hasattr(base, &#039;_fields&#039;):
+        if hasattr(base, "_fields"):
             fields.update(base._fields)
     cls._fields = fields
     return cls
@@ -197,7 +197,7 @@ class B(A):
 
 但是用装饰器的话，就失去了一些类型继承的语义信息。
 
-# 总结与思考
+## 总结与思考
 
 Python 中的元编程还是一种很强大的特性，但是也比较复杂，有时候很难以理解。实际上，过分的动态特性也导致了 Python 的解释器和静态分析、自动补全等很难优化，因为有好多信息必须到运行时才能知道。
 
@@ -207,7 +207,7 @@ Python 中的元编程还是一种很强大的特性，但是也比较复杂，�
 
 Au revoir, Python!
 
-# 参考
+## 参考
 
 1. https://realpython.com/python-metaclasses/
 2. https://stackoverflow.com/questions/392160/what-are-some-concrete-use-cases-for-metaclasses

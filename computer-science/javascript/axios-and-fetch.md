@@ -1,7 +1,7 @@
 # 浏览器用于替换 ajax/xhr 的 fetch api
 
 
-ID: 505
+wp_id: 505
 Status: publish
 Date: 2017-06-14 01:37:00
 Modified: 2019-12-21 17:07:13
@@ -17,7 +17,7 @@ fetch 是近年来浏览器实现的一个用于取代 xhr 的 API，相比于 x
 # 基本用法
 
 ```javascript
-const response = await fetch(&#039;http://example.com/movies.json&#039;);
+const response = await fetch("http://example.com/movies.json");
 const myJson = await response.json(); // text() 返回纯文本
 console.log(JSON.stringify(myJson));
 ```
@@ -34,17 +34,17 @@ console.log(JSON.stringify(myJson));
 try {
   // Default options are marked with *
   const response = await fetch(url, {
-    method: &#039;POST&#039;, // *GET, POST, PUT, DELETE, etc.
-    mode: &#039;cors&#039;, // no-cors, *cors, same-origin
-    cache: &#039;no-cache&#039;, // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: &#039;same-origin&#039;, // include, *same-origin, omit
+    method: "POST", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
     headers: {
-      &#039;Content-Type&#039;: &#039;application/json&#039;
-      // &#039;Content-Type&#039;: &#039;application/x-www-form-urlencoded&#039;,
+      "Content-Type": "application/json"
+      // "Content-Type": "application/x-www-form-urlencoded",
     },
-    redirect: &#039;follow&#039;, // manual, *follow, error
-    referrer: &#039;no-referrer&#039;, // no-referrer, *client
-    body: JSON.stringify(data) // body data type must match &quot;Content-Type&quot; header
+    redirect: "follow", // manual, *follow, error
+    referrer: "no-referrer", // no-referrer, *client
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
   });
   console.log(await response.json());
 } catch (error) {
@@ -66,23 +66,23 @@ fetch 的 credentials 有三个选项：
 
 ```javascript
 const headers = new Headers();
-headers.append(&#039;Content-Type&#039;, &#039;text/plain&#039;);
-headers.append(&#039;Content-Length&#039;, content.length.toString());
-headers.append(&#039;X-Custom-Header&#039;, &#039;ProcessThisImmediately&#039;);
+headers.append("Content-Type", "text/plain");
+headers.append("Content-Length", content.length.toString());
+headers.append("X-Custom-Header", "ProcessThisImmediately");
 
 // 另一种方法是直接使用字典
 const headers = new Headers({
-  &quot;Content-Type&quot;: &quot;text/plain&quot;,
+  "Content-Type": "text/plain",
 })
 
 const init = {
-  method: &quot;POST&quot;,
+  method: "POST",
   headers: headers,
-  mode: &quot;cors&quot;,
-  cache: &quot;default&quot;,
+  mode: "cors",
+  cache: "default",
 }
 
-const request = new Request(&quot;flowers.jpg&quot;, init);
+const request = new Request("flowers.jpg", init);
 const rsp = await fetch(request);
 ```
 

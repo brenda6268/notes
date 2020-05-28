@@ -1,7 +1,7 @@
 # 如何调试 Python 的 Core Dump
 
 
-ID: 627
+wp_id: 627
 Status: publish
 Date: 2018-11-12 18:47:00
 Modified: 2020-05-16 11:07:57
@@ -19,6 +19,6 @@ python -X faulthandler main.py
 gdb python core
 ```
 
-参考
+## 参考
 
 1. https://stackoverflow.com/questions/2663841/python-tracing-a-segmentation-fault/2664232#2664232

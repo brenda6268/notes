@@ -1,7 +1,7 @@
 # 使用 Gson 解析 json 文档
 
 
-ID: 532
+wp_id: 532
 Status: publish
 Date: 2018-04-04 05:56:00
 Modified: 2020-05-16 11:33:16
@@ -25,7 +25,7 @@ Modified: 2020-05-16 11:33:16
 
 ```
 dependencies {
-  compile &#039;com.google.code.gson:gson:2.3.1&#039;
+  compile "com.google.code.gson:gson:2.3.1"
 }
 ```
 
@@ -39,7 +39,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Example {
 
-@SerializedName(&quot;foo&quot;)
+@SerializedName("foo")
 @Expose
 private String foo;
 
@@ -57,7 +57,7 @@ public void setFoo(String foo) {
 ```
 Gson gson = new Gson();
 
-String json = &quot;{\&quot;foo\&quot;: \&quot;bar\&quot;}&quot;;
+String json = "{\"foo\": \"bar\"}";
 Example example = gson.fromJson(json, Example.class);
 // 解析：JavaBean对象 = gson.fromJson(json, JavaBean.class);
 ```

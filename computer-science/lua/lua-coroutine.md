@@ -1,7 +1,7 @@
 # lua coroutine
 
 
-ID: 695
+wp_id: 695
 Status: publish
 Date: 2017-05-30 13:43:00
 Modified: 2017-05-30 13:43:00

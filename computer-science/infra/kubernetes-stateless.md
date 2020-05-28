@@ -1,7 +1,7 @@
 # kubernetes 初探——部署无状态应用
 
 
-ID: 556
+wp_id: 556
 Status: publish
 Date: 2018-10-04 17:45:00
 Modified: 2020-05-16 11:24:50

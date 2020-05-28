@@ -1,7 +1,7 @@
 # browser extension monetization
 
 
-ID: 720
+wp_id: 720
 Status: draft
 Date: 2017-11-29 19:54:00
 Modified: 2020-05-16 11:56:44
@@ -32,6 +32,16 @@ mocking or copying some other extension can be a easy way to find what to do. RE
 
 
 
+
+外链记录
+
+I found <a href="https://chrome.google.com/webstore/detail/xpal-xpath-generator-test/lpfjogcaifigkimnlkepjlkfhpdhebap">this extension</a> very useful, although it's a paid extension, it worth the cost. 
+
+I would like to recommend <a href="https://chrome.google.com/webstore/detail/xpal-xpath-generator-test/lpfjogcaifigkimnlkepjlkfhpdhebap">this extension</a> very useful, It automatically generates xpath expressions for you by id or class or other attributes by simply clicking on the element you like, which is probably what you want to manually generate. besides, you can verify and modify the xpath expression it the plugin. Although it's a paid extension, it worth the cost.
+
+
+1. http://webdata-scraping.com/web-scraping-using-chrome-scraper-extension/
+
 [1]: https://groups.google.com/a/chromium.org/forum/#!topic/chromium-apps/kDccQN9DA4w
 [2]: https://www.bitcro.com/
 [3]: http://factory.extensionfactory.com/promo/
@@ -43,13 +53,3 @@ mocking or copying some other extension can be a easy way to find what to do. RE
 [9]: https://www.ghostery.com/
 [10]: https://www.quora.com/How-do-Chrome-add-ons-make-money
 [11]: https://www.quora.com/How-do-browser-extensions-monetize-What-are-the-options
-
-
-外链记录
-
-I found <a href="https://chrome.google.com/webstore/detail/xpal-xpath-generator-test/lpfjogcaifigkimnlkepjlkfhpdhebap">this extension</a> very useful, although it's a paid extension, it worth the cost. 
-
-I would like to recommend <a href="https://chrome.google.com/webstore/detail/xpal-xpath-generator-test/lpfjogcaifigkimnlkepjlkfhpdhebap">this extension</a> very useful, It automatically generates xpath expressions for you by id or class or other attributes by simply clicking on the element you like, which is probably what you want to manually generate. besides, you can verify and modify the xpath expression it the plugin. Although it's a paid extension, it worth the cost.
-
-
-1. http://webdata-scraping.com/web-scraping-using-chrome-scraper-extension/

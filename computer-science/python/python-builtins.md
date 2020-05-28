@@ -1,7 +1,7 @@
 # Python 的内置类型和函数
 
 
-ID: 682
+wp_id: 682
 Status: publish
 Date: 2018-06-18 00:16:00
 Modified: 2020-05-16 11:41:27
@@ -9,23 +9,22 @@ Modified: 2020-05-16 11:41:27
 
 # 内置类型
 
-Python的内置类型按照类来分，包括了 numerics, sequences, mappings, files, classes, instances 和 exceptions
-。对用户自定义类型的实例，如果__nonzero__或者__len__返回是 0 或 False 会被认为是假。
+Python的内置类型按照类来分，包括了 numerics, sequences, mappings, files, classes, instances 和 exceptions。对用户自定义类型的实例，如果__nonzero__或者__len__返回是 0 或 False 会被认为是假。
 
 ## 注意浅拷贝
 
-```
-&gt;&gt;&gt; lists = [[]] * 3
-&gt;&gt;&gt; lists
+```py
+>>> lists = [[]] * 3
+>>> lists
 [[], [], []]
-&gt;&gt;&gt; lists[0].append(3)
-&gt;&gt;&gt; lists
+>>> lists[0].append(3)
+>>> lists
 [[3], [3], [3]]
 ```
 
 ## 字典的一些方法
 
-```
+```py
 keys()/values()
 iterkeys()/itervalues()
 items()/iteritems()
@@ -40,7 +39,7 @@ write/writelines
 
 ## 字符串方法
 
-```
+```py
 str.capitalize() 	首字母大写
 center/ljust/rjust(width, filled_char) 	扩充并使得原字符串居中
 decode(codecsm, how_to_handle_erroe) 	throws UnicodeError
@@ -78,7 +77,7 @@ reload
 
 ```
 delattr	
-dir	return a object&#039;s attributes
+dir	return a object"s attributes
 getattr(object, name, default)	when default supplied, no exception thrown
 hasattr	
 globals	
@@ -109,7 +108,7 @@ pow
 frozenset	
 bool	
 dict	
-float	note float(&#039;NaN&#039;), float(&#039;-inf&#039;)     
+float	note float("NaN"), float("-inf")     
 int(x, base=10)	
 list	
 long	

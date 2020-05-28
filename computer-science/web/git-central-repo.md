@@ -1,7 +1,7 @@
 # 搭建 git 服务器（中心仓库）
 
 
-ID: 604
+wp_id: 604
 Status: publish
 Date: 2018-01-20 22:50:00
 Modified: 2020-05-16 11:30:22
@@ -29,7 +29,7 @@ Modified: 2020-05-16 11:30:22
 首先，在服务器新建一个项目, 其中 new_project 是你的项目的名字.
 
 ```
-ssh git@git.example.com &quot;mkdir &lt;new_project&gt;.git &amp;&amp; cd &lt;new_project&gt;.git &amp;&amp; git init -bare&quot;
+ssh git@git.example.com "mkdir <new_project>.git &amp;&amp; cd <new_project>.git &amp;&amp; git init -bare"
 ```
 
 当然这么一长串实在是太烦了, 我们可以把它写成一行脚本new_repo.sh
@@ -37,8 +37,8 @@ ssh git@git.example.com &quot;mkdir &lt;new_project&gt;.git &amp;&amp; cd &lt;ne
 
 ```
 #!/bin/bash
-ssh git@git.example &quot;mkdir $1\.git &amp;&amp; cd $1\.git &amp;&amp; git init --bare&quot;
-echo &quot;New git repo git@git.example.com:$1.git&quot;
+ssh git@git.example "mkdir $1\.git &amp;&amp; cd $1\.git &amp;&amp; git init --bare"
+echo "New git repo git@git.example.com:$1.git"
 ```
 
 然后 chmod +x new_repo.sh

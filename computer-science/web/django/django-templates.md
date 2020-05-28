@@ -1,7 +1,7 @@
 # django templates
 
 
-ID: 702
+wp_id: 702
 Status: publish
 Date: 2017-11-13 11:34:00
 Modified: 2017-11-13 11:34:00

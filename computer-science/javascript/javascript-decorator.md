@@ -1,7 +1,7 @@
 # JavaScript 中的装饰器(decorator)
 
 
-ID: 840
+wp_id: 840
 Status: draft
 Date: 2019-12-17 10:46:38
 Modified: 2020-05-16 10:46:07
@@ -24,15 +24,15 @@ fn = deco(fn);
 ```javascript
 // 原函数
 function hello(name) {
-    console.log(&quot;hello %s&quot;, name);
+    console.log("hello %s", name);
 }
 
 // 装饰器函数
 function addLogging(fn) {
     return function(...args) {
-        console.log(&quot;starting...&quot;);
+        console.log("starting...");
         let result = fn(...args);
-        console.log(&quot;ending...&quot;);
+        console.log("ending...");
         return result;
     }
 }
@@ -44,7 +44,7 @@ let hello = addLogging(hello);
 下面我们来调用一下这个函数：
 
 ```javascript
-hello(&quot;js&quot;);
+hello("js");
 // starting...
 // hello js
 // ending...

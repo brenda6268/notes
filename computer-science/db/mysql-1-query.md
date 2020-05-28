@@ -1,7 +1,7 @@
 # mysql 基础知识(1) - 查询数据
 
 
-ID: 174
+wp_id: 174
 Status: publish
 Date: 2017-07-05 16:55:19
 Modified: 2020-05-16 11:45:09
@@ -81,7 +81,7 @@ select name from students order by score desc, name;
 可以使用 `WHERE` 子句过滤结果, 比如
 
 ```
-select * from students where score &gt; 100;
+select * from students where score > 100;
 ```
 
 值得注意的是, 如果要比较的是null, 那么不能使用 = 来比较, 需要使用 `IS`
@@ -96,13 +96,13 @@ select * from students where name is null;
 使用 `IN` 来表达在某些值之间, 就像在Python中一样.
 
 ```
-select * from students where name in (&#039;yoda&#039;, &#039;obiwan&#039;, &#039;luke&#039;);
+select * from students where name in ("yoda", "obiwan", "luke");
 ```
 
 使用 `LIKE` 来匹配结果, `%` 表示任意字符出现任意次数, `_` 表示任意一个字符出现一次.
 
 ```
-select * from students where name like &#039;%walker&#039;;
+select * from students where name like "%walker";
 ```
 
 ## 函数与计算字段
@@ -142,7 +142,7 @@ select grade, count(*) as num_students from students group by grade;
 需要注意的是SQL的计算顺序是先计算 WHERE 子句, 然后才回去使用 `GROUP BY` 聚合, 那么如果想要过滤GROUP BY 分组之后的数据呢, 这时候可以使用 HAVING 子句.
 
 ```
-select grade, count(*) as num_students from students group by grade having count(*) &gt; 1;
+select grade, count(*) as num_students from students group by grade having count(*) > 1;
 ```
 
 ## 子查询
@@ -168,10 +168,10 @@ Join 太复杂了, 未完待续
 ## 数据类型
 
 ```
-TINYBLOB, TINYTEXT       L + 1 bytes, where L &lt; 2^8    (255 Bytes)
-BLOB, TEXT               L + 2 bytes, where L &lt; 2^16   (64 Kibibytes)
-MEDIUMBLOB, MEDIUMTEXT   L + 3 bytes, where L &lt; 2^24   (16 Mebibytes)
-LONGBLOB, LONGTEXT       L + 4 bytes, where L &lt; 2^32   (4 Gibibytes)
+TINYBLOB, TINYTEXT       L + 1 bytes, where L < 2^8    (255 Bytes)
+BLOB, TEXT               L + 2 bytes, where L < 2^16   (64 Kibibytes)
+MEDIUMBLOB, MEDIUMTEXT   L + 3 bytes, where L < 2^24   (16 Mebibytes)
+LONGBLOB, LONGTEXT       L + 4 bytes, where L < 2^32   (4 Gibibytes)
 ```
 
 史上最全的 mysql 总结：https://mp.weixin.qq.com/s/87BoE2-0mW_3qALyNSpiTw

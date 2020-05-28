@@ -1,7 +1,7 @@
 # 如何处理旧的代码
 
 
-ID: 121
+wp_id: 121
 Status: publish
 Date: 2019-06-15 18:11:52
 Modified: 2020-05-16 10:57:30

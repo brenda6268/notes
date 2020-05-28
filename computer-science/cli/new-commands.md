@@ -1,7 +1,7 @@
 # 几个新一代命令行工具
 
 
-ID: 61
+wp_id: 61
 Status: publish
 Date: 2019-06-15 14:49:23
 Modified: 2020-05-16 11:00:18

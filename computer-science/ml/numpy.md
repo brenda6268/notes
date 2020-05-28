@@ -1,7 +1,7 @@
 # numpy 入门
 
 
-ID: 476
+wp_id: 476
 Status: draft
 Date: 2018-06-23 02:44:00
 Modified: 2020-05-16 11:14:25
@@ -25,29 +25,29 @@ np.array is the basic structure is numpy. It's a n-dimension array
 directly from a python list or lists
 
 ```
-print(type(a))            # Prints &quot;&lt;class &#039;numpy.ndarray&#039;&gt;&quot;
-print(a.shape)            # Prints &quot;(3,)&quot;
-print(a[0], a[1], a[2])   # Prints &quot;1 2 3&quot;
+print(type(a))            # Prints "<class "numpy.ndarray">"
+print(a.shape)            # Prints "(3,)"
+print(a[0], a[1], a[2])   # Prints "1 2 3"
 a[0] = 5                  # Change an element of the array
-print(a)                  # Prints &quot;[5, 2, 3]&quot;
+print(a)                  # Prints "[5, 2, 3]"
 b = np.array([[1,2,3],[4,5,6]])    # Create a rank 2 array
-print(b.shape)                     # Prints &quot;(2, 3)&quot;
-print(b[0, 0], b[0, 1], b[1, 0])   # Prints &quot;1 2 4&quot;
+print(b.shape)                     # Prints "(2, 3)"
+print(b[0, 0], b[0, 1], b[1, 0])   # Prints "1 2 4"
 
 # Numpy also provides many functions to create arrays:
 import numpy as np
 a = np.zeros((2,2))   # Create an array of all zeros
-print(a)              # Prints &quot;[[ 0.  0.]
-                      #          [ 0.  0.]]&quot;
+print(a)              # Prints "[[ 0.  0.]
+                      #          [ 0.  0.]]"
 b = np.ones((1,2))    # Create an array of all ones
-print(b)              # Prints &quot;[[ 1.  1.]]&quot;
+print(b)              # Prints "[[ 1.  1.]]"
 c = np.full((2,2), 7)  # Create a constant array
-print(c)               # Prints &quot;[[ 7.  7.]
-                       #          [ 7.  7.]]&quot;
+print(c)               # Prints "[[ 7.  7.]
+                       #          [ 7.  7.]]"
 d = np.eye(2)         # Create a 2x2 identity matrix
-print(d)              # Prints &quot;[[ 1.  0.]
-                      #          [ 0.  1.]]&quot;
+print(d)              # Prints "[[ 1.  0.]
+                      #          [ 0.  1.]]"
 e = np.random.random((2,2))  # Create an array filled with random values
-print(e)                     # Might print &quot;[[ 0.91940167  0.08143941]
-                             #               [ 0.68744134  0.87236687]]&quot;
+print(e)                     # Might print "[[ 0.91940167  0.08143941]
+                             #               [ 0.68744134  0.87236687]]"
 ```

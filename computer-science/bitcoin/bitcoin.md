@@ -1,7 +1,7 @@
 # 比特币相关技术调研
 
 
-ID: 716
+wp_id: 716
 Status: publish
 Date: 2018-04-04 05:28:00
 Modified: 2020-05-16 11:32:59
@@ -16,7 +16,7 @@ Modified: 2020-05-16 11:32:59
 ```
 while (1)
  HDR[kNoncePos]++;
- IF (SHA256(SHA256(HDR)) &lt; (65535 &lt;&lt; 208)/ DIFFICULTY) return;
+ IF (SHA256(SHA256(HDR)) < (65535 << 208)/ DIFFICULTY) return;
 ```
 
 monero 使用了适合于现代CPU的AES算法，参见[这里][2]

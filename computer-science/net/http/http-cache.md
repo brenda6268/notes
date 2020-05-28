@@ -1,7 +1,7 @@
 # HTTP 缓存介绍
 
 
-ID: 587
+wp_id: 587
 Status: publish
 Date: 2017-05-30 02:37:00
 Modified: 2020-05-16 11:57:16
@@ -35,8 +35,7 @@ Etag 是由服务器给出的文档的哈希值，当第二次请求该文档的
 实际使用中，为了兼容性考虑，应该把这几种头部都结合起来使用。
 
 
-
-see: 
+## 参考
 
 1. https://www.mnot.net/cache_docs/
 2. http://stackoverflow.com/questions/499966/etag-vs-header-expires

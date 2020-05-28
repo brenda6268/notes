@@ -1,7 +1,7 @@
 # 使用 dokuwiki
 
 
-ID: 38
+wp_id: 38
 Status: publish
 Date: 2019-06-15 14:32:10
 Modified: 2020-05-16 11:00:58

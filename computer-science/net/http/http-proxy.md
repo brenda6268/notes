@@ -1,21 +1,19 @@
 # http(s) 代理的原理
 
 
-ID: 579
+wp_id: 579
 Status: draft
 Date: 2017-05-29 11:53:00
 Modified: 2020-05-16 12:07:49
 
 
-http(s) 协议
-------
+## http(s) 协议
 
 http 协议相信大家都明白，不再赘述。
 
 https 是在 http 协议下面加了一层 ssl 协议。root ca's public key is preinstalled into the OS/browser. server and client exchange metadata, server send its certs, the certs is issued by the root ca and contains the sites's public key
 
-http proxy
-------
+## http proxy
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1fqautp3tlrj30mr0awdh5.jpg)
 
@@ -25,8 +23,7 @@ one thing to notice is that, browser use persistent connections by default, so a
 
 https protocol is basically ssl layer on port 443 + http protocol
 
-http proxy tunneling/https proxy
-------
+## http proxy tunneling/https proxy
 
 if a http proxy server support the CONNECT method, and forward the following binary bytes as is, then it's considered a tunneling http proxy.
 

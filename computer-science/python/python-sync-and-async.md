@@ -1,7 +1,7 @@
 # Python中同步代码和异步代码和谐相处
 
 
-ID: 635
+wp_id: 635
 Status: draft
 Date: 2018-05-30 12:08:00
 Modified: 2020-05-16 11:39:25
@@ -11,11 +11,11 @@ Python 3.5  中引入了`async`函数和异步执行能力。比如aiohttp性能
 
 本文使用的是 Python 3.7
 
-# 错误方案
+## 错误方案
 
 首先，我们先来看*错误*的代码：
 
-```
+```py
 import asyncio
 import aiohttp
 
@@ -33,28 +33,28 @@ async def batch_download(urls):
     return await asyncio.gather(futures)
 
 def main():
-    urls = [&#039;https://www.baidu.com&#039;,
-            &#039;https://www.weibo.com&#039;,
-            &#039;https://www.toutiao.com&#039;
+    urls = ["https://www.baidu.com",
+            "https://www.weibo.com",
+            "https://www.toutiao.com"
            ]
     pages = await batch_download(urls)  # 错误
 
-if __name__ == &#039;__main__&#039;:
+if __name__ == "__main__":
     main()
 ```
 
 上面的代码本意是使用 asyncio 并发下载，但是实际上会直接出发 syntax error，因为在普通函数中不能使用 await 语句。
 
 
-# 微小的改进
+## 微小的改进
 
 可以使用 asyncio.run() 函数来运行异步程序
 
-```
+```py
 def main():
-    urls = [&#039;https://www.baidu.com&#039;,
-            &#039;https://www.weibo.com&#039;,
-            &#039;https://www.toutiao.com&#039;
+    urls = ["https://www.baidu.com",
+            "https://www.weibo.com",
+            "https://www.toutiao.com"
            ]
     pages = asyncio.run(batch_download(urls))
 ```

@@ -1,7 +1,7 @@
 # Linux 下分区并挂载磁盘
 
 
-ID: 426
+wp_id: 426
 Status: publish
 Date: 2018-11-01 23:45:00
 Modified: 2020-05-16 11:26:19
@@ -68,7 +68,7 @@ mount /dev/sdb1 /home
 ```
 blkid /dev/sdb1
 
-/dev/sdb1: UUID=&quot;e087e709-20f9-42a4-a4dc-d74544c490a6&quot; TYPE=&quot;ext4&quot; PARTLABEL=&quot;primary&quot; PARTUUID=&quot;52d77e5c-0b20-4a68-ada4-881851b2ca99&quot;
+/dev/sdb1: UUID="e087e709-20f9-42a4-a4dc-d74544c490a6" TYPE="ext4" PARTLABEL="primary" PARTUUID="52d77e5c-0b20-4a68-ada4-881851b2ca99"
 ```
 
 在 /etc/fstab 中增加
@@ -97,7 +97,7 @@ UUID=e087e709-20f9-42a4-a4dc-d74544c490a6   /home   ext4   defaults   0   2
 tiger@iZ8vbe91kz7sqlvkjdu8p6Z:~$ sudo parted
 GNU Parted 3.2
 Using /dev/vda
-Welcome to GNU Parted! Type &#039;help&#039; to view a list of commands.
+Welcome to GNU Parted! Type "help" to view a list of commands.
 (parted) select /dev/vdc
 Using /dev/vdc
 (parted) resizepart

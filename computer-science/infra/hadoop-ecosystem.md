@@ -1,7 +1,7 @@
 # 大数据相关工具（Hadoop 生态）
 
 
-ID: 554
+wp_id: 554
 Status: draft
 Date: 2018-06-19 02:44:00
 Modified: 2020-05-16 11:09:04

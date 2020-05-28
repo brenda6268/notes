@@ -1,7 +1,7 @@
 # 如何导出 Docker 镜像
 
 
-ID: 743
+wp_id: 743
 Status: publish
 Date: 2019-10-10 09:50:13
 Modified: 2020-05-16 10:50:16
@@ -24,7 +24,7 @@ docker save [OPTIONS] IMAGE [IMAGE...]
 如果需要压缩的话还可以这样
 
 ```bash
-docker save myimage:latest | gzip &gt; myimage_latest.tar.gz
+docker save myimage:latest | gzip > myimage_latest.tar.gz
 ```
 
 导出之后，可以使用 docker load 导入镜像。不使用 -i 的话直接从 stdin 读取。

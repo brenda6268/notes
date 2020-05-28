@@ -1,7 +1,7 @@
 # 使用 supervisord 部署服务
 
 
-ID: 613
+wp_id: 613
 Status: publish
 Date: 2018-05-24 00:32:00
 Modified: 2020-05-16 11:39:17
@@ -20,21 +20,21 @@ Modified: 2020-05-16 11:39:17
 下面是我们的例子， 把它放在 /srv/http.js 中
 
 ```javascript
-var http = require(&#039;http&#039;);
+var http = require("http");
 
 function serve(ip, port) {
         http.createServer(function (req, res) {
-            res.writeHead(200, {&#039;Content-Type&#039;: &#039;text/plain&#039;});
-            res.write(&quot;\nSome Secrets:&quot;);
-            res.write(&quot;\n&quot;+process.env.SECRET_PASSPHRASE);
-            res.write(&quot;\n&quot;+process.env.SECRET_TWO);
-            res.end(&quot;\nThere&#039;s no place like &quot;+ip+&quot;:&quot;+port+&quot;\n&quot;);
+            res.writeHead(200, {"Content-Type": "text/plain"});
+            res.write("\nSome Secrets:");
+            res.write("\n"+process.env.SECRET_PASSPHRASE);
+            res.write("\n"+process.env.SECRET_TWO);
+            res.end("\nThere"s no place like "+ip+":"+port+"\n");
         }).listen(port, ip);
-        console.log(&#039;Server running at http://&#039;+ip+&#039;:&#039;+port+&#039;/&#039;);
+        console.log("Server running at http://"+ip+":"+port+"/");
 }
 
 // Create a server listening on all networks
-serve(&#039;0.0.0.0&#039;, 9000);
+serve("0.0.0.0", 9000);
 ```
 这个服务仅仅是接受一个 http 请求并打印一条消息。在现实中并没有什么卵用，但是用来演示很好。我们只是需要一个服务来运行和监控。
 
@@ -61,7 +61,7 @@ brew install supervisor
    Loaded: loaded (/lib/systemd/system/supervisor.service; enabled; vendor preset: enabled)
    Active: active (running) since Mon 2019-12-09 18:05:36 CST; 1min 15s ago
      Docs: http://supervisord.org
- Main PID: 1356 (supervisord)
+ Main Pwp_id: 1356 (supervisord)
     Tasks: 1 (limit: 4915)
    CGroup: /system.slice/supervisor.service
            └─1356 /usr/bin/python /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
@@ -98,7 +98,7 @@ startretries=3
 stderr_logfile=/var/log/webhook/nodehook.err.log
 stdout_logfile=/var/log/webhook/nodehook.out.log
 user=www-data
-environment=SECRET_PASSPHRASE=&#039;this is secret&#039;,SECRET_TWO=&#039;another secret&#039;
+environment=SECRET_PASSPHRASE="this is secret",SECRET_TWO="another secret"
 ```
 
 每个选项如下：

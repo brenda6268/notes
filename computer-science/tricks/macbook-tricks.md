@@ -1,7 +1,7 @@
 # Macbook tricks
 
 
-ID: 752
+wp_id: 752
 Status: publish
 Date: 2017-05-30 07:46:00
 Modified: 2017-05-30 07:46:00

@@ -1,14 +1,13 @@
 # Chrome Hotkeys
 
 
-ID: 753
+wp_id: 753
 Status: publish
 Date: 2017-05-30 07:50:00
 Modified: 2017-05-30 07:50:00
 
 
-In Omnibar, press tab after a search-able website will search for the website
-prefix ? will search forcefully
+In Omnibar, press tab after a search-able website will search for the website prefix ? will search forcefully
 
 
 ```

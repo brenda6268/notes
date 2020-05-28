@@ -1,7 +1,7 @@
 # influxdb 排坑记
 
 
-ID: 748
+wp_id: 748
 Status: publish
 Date: 2018-10-30 19:01:00
 Modified: 2020-05-16 11:26:12

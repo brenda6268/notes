@@ -1,7 +1,7 @@
 # CSS remove spaces between inline elements
 
 
-ID: 763
+wp_id: 763
 Status: publish
 Date: 2017-05-31 09:39:00
 Modified: 2017-05-31 09:39:00

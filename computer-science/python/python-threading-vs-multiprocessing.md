@@ -1,7 +1,7 @@
 # 吐槽一下 Python 混乱的 threading 和 multiprocessing
 
 
-ID: 645
+wp_id: 645
 Status: publish
 Date: 2018-10-15 03:21:00
 Modified: 2020-05-16 11:25:22
@@ -9,7 +9,7 @@ Modified: 2020-05-16 11:25:22
 
 最近要写一个库往 influxdb 中打点, 因为要被很多程序使用, 而又要创建新的进程, 为了避免引起使用方的异常, 简单深入了解了下 Python 的并发控制, 这才发现标准库真是坑. 之前没过多考虑过, 只是凭感觉在 CPU 密集的时候使用 multiprocessing, 而默认使用 threading, 其实两个还是有很多不一样的, 除了都是并发执行以外还有很大的不同. Python 中试图用 threading 和 multiprocessing 实现类似的接口来统一两方面, 结果导致更混乱了. 本文探讨几个坑.
 
-# 在多线程环境中 fork
+## 在多线程环境中 fork
 
 首先不谈 Python, 我们思考一下, 在多线程环境下如果执行 fork 会怎样? 在新的进程中, 会不会所有线程都在运行? 答案是否定的, **在 fork 之后, 只有执行 fork 的线程在运行**, 而其他线程都不会运行. 这是 POSIX 标准规定的:
 
@@ -20,7 +20,7 @@ Modified: 2020-05-16 11:25:22
 1. http://www.linuxprogrammingblog.com/threads-and-fork-think-twice-before-using-them
 2. https://stackoverflow.com/questions/1073954/fork-and-existing-threads/1074663#1074663
 
-# 在 python 的 daemon thread 中 fork 又会怎样
+## 在 python 的 daemon thread 中 fork 又会怎样
 
 在 Python 中可以把线程设置为 daemon 状态, 如果一个进程中只有 daemon thread, 这个进程就会自动退出. 那么问题来了, 如果我们 daemon thread 中执行 fork 会怎样呢?
 
@@ -30,13 +30,13 @@ Modified: 2020-05-16 11:25:22
 
 1. https://stackoverflow.com/questions/31055960/is-it-a-python-bug-that-the-main-thread-of-a-process-created-in-a-daemon-thread
 
-# 在新创建的进程中创建线程又会怎样
+## 在新创建的进程中创建线程又会怎样
 
 在普通进程中, 进程在所有非daemon 的线程退出之后才会推出, 但是在新创建的进程中, 不论创建的线程是 daemon thread 还是不是 daemon thread 都会在主线程退出后退出. 这是 Python 的一个 [bug](https://bugs.python.org/issue18966), 这个 bug 最早在 2013-09-08 01:20 报告出来, 而直到 2017-08-16 18:54 的 Python 3.7 才修复...
 
 如何复现这个 bug
 
-```
+```py
 #!/usr/bin/env python
 
 from multiprocessing import Process
@@ -46,19 +46,19 @@ from time import sleep
 def proc():
     mythread = Thread(target=run)
     mythread.start()
-    print(&#039;Thread.daemon = %s&#039; % mythread.daemon)
+    print("Thread.daemon = %s" % mythread.daemon)
     sleep(4)
     #mythread.join()
 
 def run():
     for i in range(10):
         sleep(1)
-        print(&#039;Tick: %s&#039; % i)
+        print("Tick: %s" % i)
 
-if __name__ == &#039;__main__&#039;:
+if __name__ == "__main__":
     p = Process(target=proc)
     p.start()
-    print(&#039;Process.daemon = %s&#039; % p.daemon)
+    print("Process.daemon = %s" % p.daemon)
 ```
 
 下面大概说下这个 bug 的原因:
@@ -85,13 +85,13 @@ if __name__ == &#039;__main__&#039;:
 2. https://stackoverflow.com/questions/38236211/why-multiprocessing-process-behave-differently-on-windows-and-linux-for-global-o
 
 
-# fork 和 asyncio
+## fork 和 asyncio
 
 多进程和 Event Loop 也可能引起一些问题, [这篇文章](http://4fish.xyz/posts/asyncio-concurrency/) 给了一个很好的例子:
 
 假设现在有一个场景，主进程运行着一个event loop，在某个时候会fork出一个子进程，子进程再去运行一个新建的event loop：
 
-```
+```py
 async def coro(loop):
     pid = os.fork()
     if pid != 0:  # parent
@@ -108,11 +108,11 @@ loop.close()
 
 这段代码看起来没有什么问题, 在子进程中开了一个新的 Event Loop, 然而在 Python 3.5 和以下, 在真正运行时会报错:
 
-```
+```py
 ...
 cloop.run_forever()
-  File &quot;/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/asyncio/base_events.py&quot;, line 411, in run_forever
-    &#039;Cannot run the event loop while another loop is running&#039;)
+  File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/asyncio/base_events.py", line 411, in run_forever
+    "Cannot run the event loop while another loop is running")
 RuntimeError: Cannot run the event loop while another loop is running
 ```
 

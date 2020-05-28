@@ -1,7 +1,7 @@
 # vimscript 基础教程
 
 
-ID: 733
+wp_id: 733
 Status: draft
 Date: 2017-07-25 23:34:00
 Modified: 2020-05-16 11:46:16
@@ -14,9 +14,9 @@ Modified: 2020-05-16 11:46:16
 * There are a number of ways to exit insert mode in Vim by default:
 
 ```
-&lt;esc&gt;
-&lt;c-c&gt;
-&lt;c-[&gt;
+<esc>
+<c-c>
+<c-[>
 ```
 
 # autocommands
@@ -27,9 +27,9 @@ Modified: 2020-05-16 11:46:16
          |          | |
          |          | The command to run.
          |          |
-         |          A &quot;pattern&quot; to filter the event.
+         |          A "pattern" to filter the event.
          |
-         The &quot;event&quot; to watch for.
+         The "event" to watch for.
 ```
 
 A common idiom in Vim scripting is to pair the BufRead and BufNewFile events together to run a command whenever you open a certain kind of file, regardless of whether it happens to exist already or not.

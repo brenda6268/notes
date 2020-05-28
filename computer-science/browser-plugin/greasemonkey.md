@@ -1,7 +1,7 @@
 # 学习 greasemonkey 教程
 
 
-ID: 722
+wp_id: 722
 Status: publish
 Date: 2017-05-29 15:23:00
 Modified: 2020-05-16 12:09:56
@@ -9,7 +9,7 @@ Modified: 2020-05-16 12:09:56
 
 GreaseMonkey/TamperMonkey 学习
 
-# 头部命令
+## 头部命令
 
 
 * @name | 脚本名字|	
@@ -29,7 +29,7 @@ GreaseMonkey/TamperMonkey 学习
 * @run-at	when to run the script	document-start/document-body/document-end/document-idle/context-menu
 * @grant	whitelist GM_* functions	If no @grant tag is given TM guesses the scripts needs.
 
-# 函数
+## 函数
 
 ```
 GM_addStyle(css)		

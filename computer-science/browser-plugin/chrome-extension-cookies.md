@@ -1,13 +1,13 @@
 # Chrome extension cookies
 
 
-ID: 724
+wp_id: 724
 Status: publish
 Date: 2017-06-12 08:01:00
 Modified: 2017-06-12 08:01:00
 
 
-# permissions
+## permissions
 
 set the cookies permission and the domain you would like to access cookies.
 
@@ -18,13 +18,14 @@ set the cookies permission and the domain you would like to access cookies.
 }
 ```
 
-# type
-## cookie
+## type
+### cookie
 just a simple object with `{name, value, domain...}`
 
-## CookieStore
+### CookieStore
 normal mode and incognito mode use different cookie stores.
-# read
+
+## read
 
 get: `chrome.cookies.get({url: URL, name: COOKIE_NAME, storeId: COOKIE_STORE_ID}, function(cookie) {})`
 

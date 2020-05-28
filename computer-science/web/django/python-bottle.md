@@ -1,7 +1,7 @@
 # Python bottle 库的使用
 
 
-ID: 701
+wp_id: 701
 Status: draft
 Date: 2018-04-04 06:22:00
 Modified: 2020-05-16 11:34:08
@@ -25,12 +25,12 @@ In this section, we run bottle in default app mode, which means we do not make a
 ```
 from bottle import *
 
-@method(&#039;/path/&lt;param:filter:config&gt;/&lt;more&gt;&#039;)
+@method("/path/<param:filter:config>/<more>")
 def func(param, more):
-    return template(&#039;&lt;h1&gt;{{ name }}&lt;/h1&gt;&#039;, name=name)
+    return template("<h1>{{ name }}</h1>", name=name)
 
-if __name__ == &#039;__main__&#039;:
-    run(host=&#039;localhost&#039;, port=8080)
+if __name__ == "__main__":
+    run(host="localhost", port=8080)
 ```
 
 filter

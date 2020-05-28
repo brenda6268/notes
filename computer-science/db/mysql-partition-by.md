@@ -1,7 +1,7 @@
 # 使用 partition by 查找并删除 MySQL 数据库中重复的行
 
 
-ID: 858
+wp_id: 858
 Status: publish
 Date: 2020-01-20 22:26:31
 Modified: 2020-05-16 10:45:40
@@ -22,21 +22,21 @@ CREATE TABLE contacts (
 );
 
 INSERT INTO contacts (first_name,last_name,email) 
-VALUES (&#039;Carine &#039;,&#039;Schmitt&#039;,&#039;carine.schmitt@verizon.net&#039;),
-       (&#039;Jean&#039;,&#039;King&#039;,&#039;jean.king@me.com&#039;),
-       (&#039;Peter&#039;,&#039;Ferguson&#039;,&#039;peter.ferguson@google.com&#039;),
-       (&#039;Janine &#039;,&#039;Labrune&#039;,&#039;janine.labrune@aol.com&#039;),
-       (&#039;Jonas &#039;,&#039;Bergulfsen&#039;,&#039;jonas.bergulfsen@mac.com&#039;),
-       (&#039;Janine &#039;,&#039;Labrune&#039;,&#039;janine.labrune@aol.com&#039;),
-       (&#039;Susan&#039;,&#039;Nelson&#039;,&#039;susan.nelson@comcast.net&#039;),
-       (&#039;Zbyszek &#039;,&#039;Piestrzeniewicz&#039;,&#039;zbyszek.piestrzeniewicz@att.net&#039;),
-       (&#039;Roland&#039;,&#039;Keitel&#039;,&#039;roland.keitel@yahoo.com&#039;),
-       (&#039;Julie&#039;,&#039;Murphy&#039;,&#039;julie.murphy@yahoo.com&#039;),
-       (&#039;Kwai&#039;,&#039;Lee&#039;,&#039;kwai.lee@google.com&#039;),
-       (&#039;Jean&#039;,&#039;King&#039;,&#039;jean.king@me.com&#039;),
-       (&#039;Susan&#039;,&#039;Nelson&#039;,&#039;susan.nelson@comcast.net&#039;),
-	   (&#039;Roland&#039;,&#039;Keitel&#039;,&#039;roland.keitel@yahoo.com&#039;),
-       (&#039;Roland&#039;,&#039;Keitel&#039;,&#039;roland.keitel@yahoo.com&#039;);
+VALUES ("Carine ","Schmitt","carine.schmitt@verizon.net"),
+       ("Jean","King","jean.king@me.com"),
+       ("Peter","Ferguson","peter.ferguson@google.com"),
+       ("Janine ","Labrune","janine.labrune@aol.com"),
+       ("Jonas ","Bergulfsen","jonas.bergulfsen@mac.com"),
+       ("Janine ","Labrune","janine.labrune@aol.com"),
+       ("Susan","Nelson","susan.nelson@comcast.net"),
+       ("Zbyszek ","Piestrzeniewicz","zbyszek.piestrzeniewicz@att.net"),
+       ("Roland","Keitel","roland.keitel@yahoo.com"),
+       ("Julie","Murphy","julie.murphy@yahoo.com"),
+       ("Kwai","Lee","kwai.lee@google.com"),
+       ("Jean","King","jean.king@me.com"),
+       ("Susan","Nelson","susan.nelson@comcast.net"),
+	   ("Roland","Keitel","roland.keitel@yahoo.com"),
+       ("Roland","Keitel","roland.keitel@yahoo.com");
 ```
 
 注意其中有一行重复了三次。输入完成后，数据如图所示：
@@ -56,7 +56,7 @@ SELECT
 FROM
     contacts
 GROUP BY email
-HAVING COUNT(email) &gt; 1;
+HAVING COUNT(email) > 1;
 ```
 
 ![file](https://yifei.me/wp-content/uploads/2020/01/image-1579589748602.png)

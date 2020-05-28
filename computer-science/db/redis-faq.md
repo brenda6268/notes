@@ -1,7 +1,7 @@
 # redis 常见问题
 
 
-ID: 576
+wp_id: 576
 Status: publish
 Date: 2018-07-20 04:03:00
 Modified: 2020-05-16 11:20:38
@@ -32,7 +32,7 @@ for _ in 0..5000
 方案2：改用redis的 HMSET一次将所有元素设置到hash中
 
 ```
-map&lt;k, v&gt; = 50000个元素
+map<k, v> = 50000个元素
 HMSET hash map
 ```
 
@@ -42,7 +42,7 @@ HMSET hash map
 方案3：依然使用 HMSET，只是每次设置500个，循环100次
 
 ```
-map_chunk&lt;k, v&gt; = 500个元素
+map_chunk<k, v> = 500个元素
 for i in 0..100
     HMSET hash map_chunk[i]
 ```

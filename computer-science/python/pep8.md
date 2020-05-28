@@ -1,7 +1,7 @@
 # PEP8 中需要注意的地方
 
 
-ID: 666
+wp_id: 666
 Status: publish
 Date: 2017-07-27 01:04:00
 Modified: 2020-05-16 11:46:21
@@ -43,10 +43,10 @@ Conventions for writing good documentation strings (a.k.a. "docstrings") are imm
 * Write docstrings for all public modules, functions, classes, and methods. Docstrings are not necessary for non-public methods, but you should have a comment that describes what the method does. This comment should appear after thedef line.
 * PEP 257 describes good docstring conventions. Note that most importantly, the """ that ends a multiline docstring should be on a line by itself, e.g.:
 ```
-&quot;&quot;&quot;Return a foobang
+"""Return a foobang
 
 Optional plotz says to frobnicate the bizbaz first.
-&quot;&quot;&quot;
+"""
 ```
 For one liner docstrings, please keep the closing """ on the same line.
 

@@ -1,7 +1,7 @@
 # Python 中的异常总结
 
 
-ID: 675
+wp_id: 675
 Status: publish
 Date: 2017-05-30 03:01:00
 Modified: 2020-05-16 11:58:03
@@ -15,7 +15,7 @@ for user defined exceptions, just subclass Exception
 
 ```
 except Exception as e: # SystemExit, KeyboardInterrupt, GeneratorExit is not captured
-    log(&#039;Reason&#039;, e)    # the baseline is to record
+    log("Reason", e)    # the baseline is to record
 ```
 
 ## 容易抛出异常的地方

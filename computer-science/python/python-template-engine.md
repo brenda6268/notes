@@ -1,7 +1,7 @@
 # [译] 用 Python 编写一个模板引擎
 
 
-ID: 268
+wp_id: 268
 Status: publish
 Date: 2018-04-17 15:11:45
 Modified: 2020-05-16 11:36:17
@@ -16,12 +16,12 @@ Modified: 2020-05-16 11:36:17
 这里设计的模板语言非常基础。使用两种标签，变量和块。
 
 ```
-&lt;!-- 变量使用 &#x60;{{&#x60; 和 &#x60;}}&#x60; 作为标识--&gt;
-&lt;div&gt;{{my_var}}&lt;/div&gt;
+<!-- 变量使用 &#x60;{{&#x60; 和 &#x60;}}&#x60; 作为标识-->
+<div>{{my_var}}</div>
 
-&lt;!-- 块使用 &#x60;{%&#x60; 和 &#x60;%}&#x60; 作为标识--&gt;
+<!-- 块使用 &#x60;{%&#x60; 和 &#x60;%}&#x60; 作为标识-->
 {% each items %}
-    &lt;div&gt;{{it}}&lt;/div&gt;
+    <div>{{it}}</div>
 {% end %}
 ```
 
@@ -35,15 +35,15 @@ Modified: 2020-05-16 11:36:17
 
 ```
 {% each people %}
-    &lt;div&gt;{{it.name}}&lt;/div&gt;
+    <div>{{it.name}}</div>
 {% end %}
 
 {% each [1, 2, 3] %}
-    &lt;div&gt;{{it}}&lt;/div&gt;
+    <div>{{it}}</div>
 {% end %}
 
 {% each records %}
-    &lt;div&gt;{{..name}}&lt;/div&gt;
+    <div>{{..name}}</div>
 {% end %}
 ```
 
@@ -54,10 +54,10 @@ Modified: 2020-05-16 11:36:17
 条件语句不需要多解释。这个语言支持 if 和 else 结构，而且支持 `==`, `<=`, `>=`, `!=`, `is`, `<`, `>` 这几个操作符。
 
 ```
-{% if num &gt; 5 %}
-    &lt;div&gt;more than 5&lt;/div&gt;
+{% if num > 5 %}
+    <div>more than 5</div>
 {% else %}
-    &lt;div&gt;less than or equal to 5&lt;/div&gt;
+    <div>less than or equal to 5</div>
 {% end %}
 ```
 
@@ -66,10 +66,10 @@ Modified: 2020-05-16 11:36:17
 Callable 可以通过模板上下文传递，并且使用普通位置参数或者具名参数调用。调用块不需要使用 end 关闭。
 
 ```
-&lt;!-- 使用普通参数... --&gt;
-&lt;div class=&#039;date&#039;&gt;{% call prettify date_created %}&lt;/div&gt;
-&lt;!-- ...使用具名参数 --&gt;
-&lt;div&gt;{% call log &#039;here&#039; verbosity=&#039;debug&#039; %}&lt;/div&gt;
+<!-- 使用普通参数... -->
+<div class="date">{% call prettify date_created %}</div>
+<!-- ...使用具名参数 -->
+<div>{% call log "here" verbosity="debug" %}</div>
 ```
 
 # 原理
@@ -85,11 +85,11 @@ Callable 可以通过模板上下文传递，并且使用普通位置参数或�
 解析的第一步是把内容分隔成不同的片段。每个片段可以是任意的 HTML 或者是一个标签。这里使用正则表达式和 `split()` 函数分隔文本。
 
 ```
-VAR_TOKEN_START = &#039;{{&#039;
-VAR_TOKEN_END = &#039;}}&#039;
-BLOCK_TOKEN_START = &#039;{%&#039;
-BLOCK_TOKEN_END = &#039;%}&#039;
-TOK_REGEX = re.compile(r&quot;(%s.*?%s|%s.*?%s)&quot; % (
+VAR_TOKEN_START = "{{"
+VAR_TOKEN_END = "}}"
+BLOCK_TOKEN_START = "{%"
+BLOCK_TOKEN_END = "%}"
+TOK_REGEX = re.compile(r"(%s.*?%s|%s.*?%s)" % (
     VAR_TOKEN_START,
     VAR_TOKEN_END,
     BLOCK_TOKEN_START,
@@ -102,8 +102,8 @@ TOK_REGEX = re.compile(r&quot;(%s.*?%s|%s.*?%s)&quot; % (
 下面这个例子实际展示了一下上面的正则:
 
 ```
-&gt;&gt;&gt; TOK_REGEX.split(&#039;{% each vars %}&lt;i&gt;{{it}}&lt;/i&gt;{% endeach %}&#039;)
-[&#039;{% each vars %}&#039;, &#039;&lt;i&gt;&#039;, &#039;{{it}}&#039;, &#039;&lt;/i&gt;&#039;, &#039;{% endeach %}&#039;]
+>>> TOK_REGEX.split("{% each vars %}<i>{{it}}</i>{% endeach %}")
+["{% each vars %}", "<i>", "{{it}}", "</i>", "{% endeach %}"]
 ```
 
 把每个片段封装成 Fragment 对象。这个对象包含了片段的类型，并且可以作为编译函数的参数。片段有以下四种类型：
@@ -147,8 +147,8 @@ class _Node(object):
             children = self.children
         def render_child(child):
             child_html = child.render(context)
-            return &#039;&#039; if not child_html else str(child_html)
-        return &#039;&#039;.join(map(render_child, children))
+            return "" if not child_html else str(child_html)
+        return "".join(map(render_child, children))
 ```
 
 下面是变量节点的定义：
@@ -178,7 +178,7 @@ def compile(self):
     scope_stack = [root]
     for fragment in self.each_fragment():
         if not scope_stack:
-            raise TemplateError(&#039;nesting issues&#039;)
+            raise TemplateError("nesting issues")
         parent_scope = scope_stack[-1]
         if fragment.type == CLOSE_BLOCK_FRAGMENT:
             parent_scope.exit_scope()
@@ -200,20 +200,20 @@ def compile(self):
 ```
 def eval_expression(expr):
     try:
-        return &#039;literal&#039;, ast.literal_eval(expr)
+        return "literal", ast.literal_eval(expr)
     except ValueError, SyntaxError:
-        return &#039;name&#039;, expr
+        return "name", expr
 ```
 
 如果我们使用上下文变量，而不是字面量的话，需要在上下文中搜索来找到它的值。在这里需要处理包含点的变量名以及使用两个点访问外部上下文的变量。下面是 resolve 函数，也是整个难题的最后一部分了~
 
 ```
 def resolve(name, context):
-    if name.startswith(&#039;..&#039;):
-        context = context.get(&#039;..&#039;, {})
+    if name.startswith(".."):
+        context = context.get("..", {})
         name = name[2:]
     try:
-        for tok in name.split(&#039;.&#039;):
+        for tok in name.split("."):
             context = context[tok]
         return context
     except KeyError:

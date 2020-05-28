@@ -1,7 +1,7 @@
 # 知乎 API 整理（1）—— Web API
 
 
-ID: 460
+wp_id: 460
 Status: draft
 Date: 2018-04-28 02:43:00
 Modified: 2020-05-16 11:36:52
@@ -147,12 +147,12 @@ PS：收藏夹 API 无法打开。https://api.zhihu.com/collections/100776277/co
 其中分页信息是这样的：
 
 ```
-&quot;paging&quot;: {
-    &quot;is_end&quot;: false,
-    &quot;totals&quot;: 11,
-    &quot;previous&quot;: &quot;https://www.zhihu.com/members/kongyifei/questions?limit=10&amp;offset=0&quot;,
-    &quot;is_start&quot;: true,
-    &quot;next&quot;: &quot;https://www.zhihu.com/members/kongyifei/questions?limit=10&amp;offset=10&quot;
+"paging": {
+    "is_end": false,
+    "totals": 11,
+    "previous": "https://www.zhihu.com/members/kongyifei/questions?limit=10&amp;offset=0",
+    "is_start": true,
+    "next": "https://www.zhihu.com/members/kongyifei/questions?limit=10&amp;offset=10"
 },
 ```
 
@@ -175,8 +175,8 @@ include=voteup_count,business
 
 ```
 {
-    &quot;voteup_count&quot;: 704,
-    &quot;business&quot;: ...
+    "voteup_count": 704,
+    "business": ...
 }
 ```
 
@@ -190,14 +190,14 @@ include=data[*].answer_count,articles_count
 
 ```
 {
-    &quot;paging&quot;: {
+    "paging": {
         ...
     },
-    &quot;data&quot;: [
+    "data": [
         {
             ...
-            &quot;answer_count&quot;: 100,
-            &quot;articles_count: 100
+            "answer_count": 100,
+            "articles_count: 100
             ...
         },
         ...
@@ -389,25 +389,25 @@ GET https://www.zhihu.com/api/v4/me
 响应：
 
 {
-    &quot;avatar_url_template&quot;: &quot;https://pic4.zhimg.com/71084089289f9820f529a9457a93db02_{size}.jpg&quot;,
-    &quot;uid&quot;: 26963964067840,
-    &quot;follow_notifications_count&quot;: 0,
-    &quot;user_type&quot;: &quot;people&quot;,
-    &quot;badge&quot;: [],
-    &quot;editor_info&quot;: [],
-    &quot;default_notifications_count&quot;: 0,
-    &quot;url_token&quot;: &quot;kongyifei&quot;,
-    &quot;id&quot;: &quot;e8002099d78754129be0180a00890361&quot;,
-    &quot;messages_count&quot;: 0,
-    &quot;name&quot;: &quot;Angry Bugs&quot;,
-    &quot;is_advertiser&quot;: false,
-    &quot;url&quot;: &quot;http://www.zhihu.com/api/v4/people/e8002099d78754129be0180a00890361&quot;,
-    &quot;gender&quot;: 1,
-    &quot;headline&quot;: &quot;requests工程师&quot;,
-    &quot;avatar_url&quot;: &quot;https://pic4.zhimg.com/71084089289f9820f529a9457a93db02_is.jpg&quot;,
-    &quot;is_org&quot;: false,
-    &quot;type&quot;: &quot;people&quot;,
-    &quot;vote_thank_notifications_count&quot;: 0
+    "avatar_url_template": "https://pic4.zhimg.com/71084089289f9820f529a9457a93db02_{size}.jpg",
+    "uid": 26963964067840,
+    "follow_notifications_count": 0,
+    "user_type": "people",
+    "badge": [],
+    "editor_info": [],
+    "default_notifications_count": 0,
+    "url_token": "kongyifei",
+    "id": "e8002099d78754129be0180a00890361",
+    "messages_count": 0,
+    "name": "Angry Bugs",
+    "is_advertiser": false,
+    "url": "http://www.zhihu.com/api/v4/people/e8002099d78754129be0180a00890361",
+    "gender": 1,
+    "headline": "requests工程师",
+    "avatar_url": "https://pic4.zhimg.com/71084089289f9820f529a9457a93db02_is.jpg",
+    "is_org": false,
+    "type": "people",
+    "vote_thank_notifications_count": 0
 }
 ```
 
@@ -428,7 +428,7 @@ GET https://www.zhihu.com/api/v4/me
 请求：
 
 PUT https://www.zhihu.com/api/v4/me
-{&quot;employments&quot;:[{&quot;job&quot;:&quot;&quot;,&quot;company&quot;:&quot;今日头条（应用）&quot;},{&quot;job&quot;:&quot;&quot;,&quot;company&quot;:&quot;汤森路透 (Thomson Reuters)&quot;}]}
+{"employments":[{"job":"","company":"今日头条（应用）"},{"job":"","company":"汤森路透 (Thomson Reuters)"}]}
 
 响应：
 
@@ -473,28 +473,28 @@ GET https://www.zhihu.com/api/v4/members/yksin/followees?include=data[*].answer_
 响应：
 
 {
-    &quot;paging&quot;: {
-        &quot;is_end&quot;: false,
-        &quot;totals&quot;: 460,
-        &quot;previous&quot;: &quot;http://www.zhihu.com/api/v4/members/yksin/followees?limit=10&amp;offset=0&quot;,
-        &quot;is_start&quot;: true,
-        &quot;next&quot;: &quot;http://www.zhihu.com/api/v4/members/yksin/followees?limit=10&amp;offset=10&quot;
+    "paging": {
+        "is_end": false,
+        "totals": 460,
+        "previous": "http://www.zhihu.com/api/v4/members/yksin/followees?limit=10&amp;offset=0",
+        "is_start": true,
+        "next": "http://www.zhihu.com/api/v4/members/yksin/followees?limit=10&amp;offset=10"
     },
-    &quot;data&quot;: [
+    "data": [
         {
-            &quot;avatar_url_template&quot;: &quot;https://pic4.zhimg.com/v2-c87c70b1162392461b8bf8d014ccccf2_{size}.jpg&quot;,
-            &quot;type&quot;: &quot;people&quot;,
-            &quot;name&quot;: &quot;王瑞恩&quot;,
-            &quot;is_advertiser&quot;: false,
-            &quot;url&quot;: &quot;http://www.zhihu.com/api/v4/people/6d443177eca4f4f098b4a4b63046b4b0&quot;,
-            &quot;user_type&quot;: &quot;people&quot;,
-            &quot;headline&quot;: &quot;老王力气大无穷 双手举起纸灯笼&quot;,
-            &quot;avatar_url&quot;: &quot;https://pic4.zhimg.com/v2-c87c70b1162392461b8bf8d014ccccf2_is.jpg&quot;,
-            &quot;is_org&quot;: false,
-            &quot;gender&quot;: 1,
-            &quot;url_token&quot;: &quot;wang-rui-en&quot;,
-            &quot;id&quot;: &quot;6d443177eca4f4f098b4a4b63046b4b0&quot;,
-            &quot;answer_count&quot;: 100
+            "avatar_url_template": "https://pic4.zhimg.com/v2-c87c70b1162392461b8bf8d014ccccf2_{size}.jpg",
+            "type": "people",
+            "name": "王瑞恩",
+            "is_advertiser": false,
+            "url": "http://www.zhihu.com/api/v4/people/6d443177eca4f4f098b4a4b63046b4b0",
+            "user_type": "people",
+            "headline": "老王力气大无穷 双手举起纸灯笼",
+            "avatar_url": "https://pic4.zhimg.com/v2-c87c70b1162392461b8bf8d014ccccf2_is.jpg",
+            "is_org": false,
+            "gender": 1,
+            "url_token": "wang-rui-en",
+            "id": "6d443177eca4f4f098b4a4b63046b4b0",
+            "answer_count": 100
         },
         ...
     ]
@@ -553,13 +553,13 @@ https://www.zhihu.com/api/v4/questions/21241873
 响应：
 
 {
-    &quot;question_type&quot;: &quot;normal&quot;,
-    &quot;created&quot;: 1371953970,
-    &quot;url&quot;: &quot;http://www.zhihu.com/api/v4/questions/21241873&quot;,
-    &quot;title&quot;: &quot;如何评价凤姐的诗？&quot;,
-    &quot;type&quot;: &quot;question&quot;,
-    &quot;id&quot;: 21241873,
-    &quot;updated_time&quot;: 1386308423
+    "question_type": "normal",
+    "created": 1371953970,
+    "url": "http://www.zhihu.com/api/v4/questions/21241873",
+    "title": "如何评价凤姐的诗？",
+    "type": "question",
+    "id": 21241873,
+    "updated_time": 1386308423
 }
 ```
 
@@ -570,7 +570,7 @@ https://www.zhihu.com/api/v4/questions/21241873
 请求：
 
 POST questions
-{&quot;type&quot;:0,&quot;title&quot;:&quot;炒土豆时如何避免过软？&quot;,&quot;topic_url_tokens&quot;:[&quot;19680763&quot;],&quot;detail&quot;:&quot;&quot;,&quot;is_anonymous&quot;:false}
+{"type":0,"title":"炒土豆时如何避免过软？","topic_url_tokens":["19680763"],"detail":"","is_anonymous":false}
 ```
 
 ### 用户创建的问题列表
@@ -587,22 +587,22 @@ https://www.zhihu.com/api/v4/questions/21241873?include=author
 响应：
 
 {
-    &quot;paging&quot;: {
-        &quot;is_end&quot;: false,
-        &quot;totals&quot;: 11,
-        &quot;previous&quot;: &quot;https://www.zhihu.com/members/kongyifei/questions?limit=10&amp;offset=0&quot;,
-        &quot;is_start&quot;: true,
-        &quot;next&quot;: &quot;https://www.zhihu.com/members/kongyifei/questions?limit=10&amp;offset=10&quot;
+    "paging": {
+        "is_end": false,
+        "totals": 11,
+        "previous": "https://www.zhihu.com/members/kongyifei/questions?limit=10&amp;offset=0",
+        "is_start": true,
+        "next": "https://www.zhihu.com/members/kongyifei/questions?limit=10&amp;offset=10"
     },
-    &quot;data&quot;: [
+    "data": [
         {
-            &quot;question_type&quot;: &quot;normal&quot;,
-            &quot;created&quot;: 1523350938,
-            &quot;url&quot;: &quot;https://www.zhihu.com/questions/271758908&quot;,
-            &quot;title&quot;: &quot;如何看待广电总局要求今日头条关闭内涵段子？&quot;,
-            &quot;type&quot;: &quot;question&quot;,
-            &quot;id&quot;: 271758908,
-            &quot;updated_time&quot;: 1523350938
+            "question_type": "normal",
+            "created": 1523350938,
+            "url": "https://www.zhihu.com/questions/271758908",
+            "title": "如何看待广电总局要求今日头条关闭内涵段子？",
+            "type": "question",
+            "id": 271758908,
+            "updated_time": 1523350938
         },
          ...
     ]
@@ -618,7 +618,7 @@ https://www.zhihu.com/api/v4/questions/21241873?include=author
 ```
 POST questions/xxx/answers
 
-{&quot;content&quot;:&quot;&lt;p&gt;加点醋就好了&lt;/p&gt;&quot;,&quot;reshipment_settings&quot;:&quot;allowed&quot;,&quot;comment_permission&quot;:&quot;all&quot;,&quot;reward_setting&quot;:{&quot;can_reward&quot;:false}}
+{"content":"<p>加点醋就好了</p>","reshipment_settings":"allowed","comment_permission":"all","reward_setting":{"can_reward":false}}
 ```
 
 
@@ -635,36 +635,36 @@ https://www.zhihu.com/api/v4/questions/21241873/answers
 响应：
 
 {
-    &quot;paging&quot;: {
-        &quot;is_end&quot;: false,
-        &quot;totals&quot;: 115,
-        &quot;previous&quot;: &quot;http://www.zhihu.com/api/v4/questions/21241873/answers?limit=5&amp;offset=0&quot;,
-        &quot;is_start&quot;: true,
-        &quot;next&quot;: &quot;http://www.zhihu.com/api/v4/questions/21241873/answers?limit=5&amp;offset=5&quot;
+    "paging": {
+        "is_end": false,
+        "totals": 115,
+        "previous": "http://www.zhihu.com/api/v4/questions/21241873/answers?limit=5&amp;offset=0",
+        "is_start": true,
+        "next": "http://www.zhihu.com/api/v4/questions/21241873/answers?limit=5&amp;offset=5"
     },
-    &quot;data&quot;: [
+    "data": [
         {
-            &quot;is_collapsed&quot;: false,
-            &quot;author&quot;: {
+            "is_collapsed": false,
+            "author": {
                 ...
             },
-            &quot;url&quot;: &quot;http://www.zhihu.com/api/v4/answers/20596524&quot;,
-            &quot;id&quot;: 20596524,
-            &quot;question&quot;: {
-                &quot;question_type&quot;: &quot;normal&quot;,
-                &quot;created&quot;: 1371953970,
-                &quot;url&quot;: &quot;http://www.zhihu.com/api/v4/questions/21241873&quot;,
-                &quot;title&quot;: &quot;如何评价凤姐的诗？&quot;,
-                &quot;type&quot;: &quot;question&quot;,
-                &quot;id&quot;: 21241873,
-                &quot;updated_time&quot;: 1386308423
+            "url": "http://www.zhihu.com/api/v4/answers/20596524",
+            "id": 20596524,
+            "question": {
+                "question_type": "normal",
+                "created": 1371953970,
+                "url": "http://www.zhihu.com/api/v4/questions/21241873",
+                "title": "如何评价凤姐的诗？",
+                "type": "question",
+                "id": 21241873,
+                "updated_time": 1386308423
             },
-            &quot;updated_time&quot;: 1386560586,
-            &quot;extras&quot;: &quot;&quot;,
-            &quot;created_time&quot;: 1386236483,
-            &quot;type&quot;: &quot;answer&quot;,
-            &quot;thumbnail&quot;: &quot;&quot;,
-            &quot;is_copyable&quot;: true
+            "updated_time": 1386560586,
+            "extras": "",
+            "created_time": 1386236483,
+            "type": "answer",
+            "thumbnail": "",
+            "is_copyable": true
         },
         ...
     ]
@@ -701,42 +701,42 @@ https://www.zhihu.com/api/v4/answers/30480156/comments
 响应：
 
 {
-    &quot;featured_counts&quot;: 0,
-    &quot;common_counts&quot;: 1,
-    &quot;collapsed_counts&quot;: 0,
-    &quot;reviewing_counts&quot;: 0,
-    &quot;paging&quot;: {
-+---  5 lines: &quot;is_end&quot;: true,---------------------------------------------------------------
+    "featured_counts": 0,
+    "common_counts": 1,
+    "collapsed_counts": 0,
+    "reviewing_counts": 0,
+    "paging": {
++---  5 lines: "is_end": true,---------------------------------------------------------------
     },
-    &quot;data&quot;: [
+    "data": [
         {
-            &quot;id&quot;: 100969802,
-            &quot;type&quot;: &quot;comment&quot;,
-            &quot;url&quot;: &quot;https://www.zhihu.com/api/v4/comments/100969802&quot;,
-            &quot;content&quot;: &quot;你好請問ralink和ramips有什麼區別，刷小米路由器mini時要用哪種&quot;,
-            &quot;featured&quot;: false,
-            &quot;collapsed&quot;: false,
-            &quot;is_author&quot;: false,
-            &quot;is_delete&quot;: false,
-            &quot;created_time&quot;: 1445988512,
-            &quot;resource_type&quot;: &quot;answer&quot;,
-            &quot;reviewing&quot;: false,
-            &quot;allow_like&quot;: true,
-            &quot;allow_delete&quot;: false,
-            &quot;allow_reply&quot;: true,
-            &quot;allow_vote&quot;: true,
-            &quot;can_recommend&quot;: false,
-            &quot;can_collapse&quot;: false,
-            &quot;author&quot;: {
-                &quot;role&quot;: &quot;normal&quot;,
-                &quot;member&quot;: {
-+------ 13 lines: &quot;id&quot;: &quot;3be65dd46b4801b139cc8c7a59d8a679&quot;,----------------------------------
+            "id": 100969802,
+            "type": "comment",
+            "url": "https://www.zhihu.com/api/v4/comments/100969802",
+            "content": "你好請問ralink和ramips有什麼區別，刷小米路由器mini時要用哪種",
+            "featured": false,
+            "collapsed": false,
+            "is_author": false,
+            "is_delete": false,
+            "created_time": 1445988512,
+            "resource_type": "answer",
+            "reviewing": false,
+            "allow_like": true,
+            "allow_delete": false,
+            "allow_reply": true,
+            "allow_vote": true,
+            "can_recommend": false,
+            "can_collapse": false,
+            "author": {
+                "role": "normal",
+                "member": {
++------ 13 lines: "id": "3be65dd46b4801b139cc8c7a59d8a679",----------------------------------
                 }
             },
-            &quot;is_parent_author&quot;: false,
-            &quot;vote_count&quot;: 0,
-            &quot;voting&quot;: false,
-            &quot;disliked&quot;: false
+            "is_parent_author": false,
+            "vote_count": 0,
+            "voting": false,
+            "disliked": false
         }
     ]
 }
@@ -751,22 +751,22 @@ https://www.zhihu.com/api/v4/answers/30480156/comments
 用于获取某个话题的相关信息，其中 topic_id  是这个话题的 id。
 
 ```
-&gt;&gt;&gt; https://www.zhihu.com/api/v4/topics/19850467
+>>> https://www.zhihu.com/api/v4/topics/19850467
 
 {
-    &quot;unanswered_count&quot;: 4253,
-    &quot;best_answerers_count&quot;: 185,
-    &quot;name&quot;: &quot;今日头条（应用）&quot;,
-    &quot;url&quot;: &quot;http://www.zhihu.com/api/v4/topics/19850467&quot;,
-    &quot;father_count&quot;: 2,
-    &quot;excerpt&quot;: &quot;你关心的，才是头条！《今日头条》会聪明地分析您的兴趣爱好，理解您的阅读行为，自动为您推荐喜欢的内容，并且越用越懂你！&quot;,
-    &quot;introduction&quot;: &quot;你关心的，才是头条！《今日头条》会聪明地分析您的兴趣爱好，理解您的阅读行为，自动为您推荐喜欢的内容，并且越用越懂你！&quot;,
-    &quot;followers_count&quot;: 12620,
-    &quot;avatar_url&quot;: &quot;https://pic2.zhimg.com/50/14f39d483ad0cc2ebcae6306bd974b0e_hd.jpg&quot;,
-    &quot;best_answers_count&quot;: 695,
-    &quot;type&quot;: &quot;topic&quot;,
-    &quot;id&quot;: &quot;19850467&quot;,
-    &quot;questions_count&quot;: 4253
+    "unanswered_count": 4253,
+    "best_answerers_count": 185,
+    "name": "今日头条（应用）",
+    "url": "http://www.zhihu.com/api/v4/topics/19850467",
+    "father_count": 2,
+    "excerpt": "你关心的，才是头条！《今日头条》会聪明地分析您的兴趣爱好，理解您的阅读行为，自动为您推荐喜欢的内容，并且越用越懂你！",
+    "introduction": "你关心的，才是头条！《今日头条》会聪明地分析您的兴趣爱好，理解您的阅读行为，自动为您推荐喜欢的内容，并且越用越懂你！",
+    "followers_count": 12620,
+    "avatar_url": "https://pic2.zhimg.com/50/14f39d483ad0cc2ebcae6306bd974b0e_hd.jpg",
+    "best_answers_count": 695,
+    "type": "topic",
+    "id": "19850467",
+    "questions_count": 4253
 }
 
 ```

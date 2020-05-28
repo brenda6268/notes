@@ -1,7 +1,7 @@
 # CSS 布局基础知识
 
 
-ID: 761
+wp_id: 761
 Status: publish
 Date: 2018-04-30 07:56:00
 Modified: 2020-05-16 11:37:42
@@ -77,7 +77,7 @@ query device width
 set viewport
 
 ```
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width/320, initial-scale=0.5, maximum-scale=1, minimum-scale=3, user-scalable=no&quot; /&gt;
+<meta name="viewport" content="width=device-width/320, initial-scale=0.5, maximum-scale=1, minimum-scale=3, user-scalable=no" />
 ```
 
 # 记录 CSS 的一个坑

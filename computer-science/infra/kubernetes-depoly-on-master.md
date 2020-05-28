@@ -1,7 +1,7 @@
 # kubernetes 初探——在 Master 节点部署 Pod
 
 
-ID: 551
+wp_id: 551
 Status: publish
 Date: 2019-02-12 19:57:00
 Modified: 2020-05-16 11:05:00

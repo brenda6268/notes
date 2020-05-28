@@ -1,7 +1,7 @@
 # 如何快速删除文件
 
 
-ID: 59
+wp_id: 59
 Status: publish
 Date: 2019-06-15 14:48:59
 Modified: 2020-05-16 11:00:28

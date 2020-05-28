@@ -1,7 +1,7 @@
 # Django Admin 后台教程
 
 
-ID: 699
+wp_id: 699
 Status: publish
 Date: 2017-06-07 08:07:00
 Modified: 2020-05-16 12:05:50
@@ -29,9 +29,9 @@ from django.contrib import admin
 from mysite.books.models import Publisher, Author, Book
 	
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = (&#039;first_name&#039;, &#039;last_name&#039;, &#039;email&#039;)
-    search_fields = (&#039;first_name&#039;, &#039;last_name&#039;)
-    list_filter = (&#039;publication_date&#039;,)
+    list_display = ("first_name", "last_name", "email")
+    search_fields = ("first_name", "last_name")
+    list_filter = ("publication_date",)
 		
 admin.site.register(Publisher)
 ```
@@ -58,11 +58,11 @@ list_display 中的元素可以是:
 ```
 # example
 class PersonAdmin(admin.ModelAdmin):
-    list_display = (&#039;upper_case_name&#039;,)
+    list_display = ("upper_case_name",)
 
     def upper_case_name(self, obj):
-        return (&quot;%s %s&quot; % (obj.first_name, obj.last_name)).upper()
-    upper_case_name.short_description = &#039;Name&#039;
+        return ("%s %s" % (obj.first_name, obj.last_name)).upper()
+    upper_case_name.short_description = "Name"
 ```
 
 ## 可以覆盖的方法
@@ -97,9 +97,9 @@ ModelAdmin.delete_model(request, obj)
 
     class MyModelAdmin(admin.ModelAdmin):
         class Media:
-            js = (&#039;js/admin/my_own_admin.js&#039;,)    
+            js = ("js/admin/my_own_admin.js",)    
             css = {
-                 &#039;all&#039;: (&#039;css/admin/my_own_admin.css&#039;,)
+                 "all": ("css/admin/my_own_admin.css",)
             }
 
 ```

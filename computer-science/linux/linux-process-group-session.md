@@ -1,7 +1,7 @@
 # Linux 中的 Process Group 和 Session
 
 
-ID: 482
+wp_id: 482
 Status: publish
 Date: 2018-10-20 07:22:00
 Modified: 2020-05-16 11:25:59
@@ -24,11 +24,11 @@ import time
 def child():
     while True:
         try:
-            sys.stdout.write(&quot;child process\n&quot;)
+            sys.stdout.write("child process\n")
             sys.stdout.flush()
             time.sleep(5)
         except KeyboardInterrupt:
-            sys.stdout.write(&quot;child sigint\n&quot;)
+            sys.stdout.write("child sigint\n")
             sys.stdout.flush()
             sys.exit()
 
@@ -36,11 +36,11 @@ def child():
 def main():
     while True:
         try:
-            sys.stdout.write(&quot;main process\n&quot;)
+            sys.stdout.write("main process\n")
             sys.stdout.flush()
             time.sleep(4)
         except KeyboardInterrupt:
-            sys.stdout.write(&quot;main sigint\n&quot;)
+            sys.stdout.write("main sigint\n")
             sys.stdout.flush()
             sys.exit()
 

@@ -1,7 +1,7 @@
 # cross compiling on android
 
 
-ID: 536
+wp_id: 536
 Status: publish
 Date: 2017-05-29 13:27:00
 Modified: 2017-05-29 13:27:00

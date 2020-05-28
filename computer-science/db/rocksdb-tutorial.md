@@ -1,7 +1,7 @@
 # RocksDB 基础操作教程
 
 
-ID: 578
+wp_id: 578
 Status: publish
 Date: 2017-11-11 03:59:00
 Modified: 2020-05-16 11:51:58
@@ -10,14 +10,14 @@ Modified: 2020-05-16 11:51:58
 ## 打开一个数据库
 
 ```
-  #include &lt;cassert&gt;
-  #include &quot;rocksdb/db.h&quot;
+  #include <cassert>
+  #include "rocksdb/db.h"
 
   rocksdb::DB* db;
   rocksdb::Options options;
   options.create_if_missing = true;
   options.error_if_exists = true;
-  rocksdb::Status status = rocksdb::DB::Open(options, &quot;/tmp/testdb&quot;, &amp;db);
+  rocksdb::Status status = rocksdb::DB::Open(options, "/tmp/testdb", &amp;db);
   assert(status.ok());
   ...
 ```
@@ -28,7 +28,7 @@ Modified: 2020-05-16 11:51:58
 
 ```
    rocksdb::Status s = ...;
-   if (!s.ok()) cerr &lt;&lt; s.ToString() &lt;&lt; endl;
+   if (!s.ok()) cerr << s.ToString() << endl;
 ```
 
 关闭数据库, 只需要简单得把指针释放就可以了: `delete db`.
@@ -39,9 +39,9 @@ Modified: 2020-05-16 11:51:58
 
 ```
   std::string value;
-  rocksdb::Status s = db-&gt;Get(rocksdb::ReadOptions(), key1, &amp;value);
-  if (s.ok()) s = db-&gt;Put(rocksdb::WriteOptions(), key2, value);
-  if (s.ok()) s = db-&gt;Delete(rocksdb::WriteOptions(), key1);
+  rocksdb::Status s = db->Get(rocksdb::ReadOptions(), key1, &amp;value);
+  if (s.ok()) s = db->Put(rocksdb::WriteOptions(), key2, value);
+  if (s.ok()) s = db->Delete(rocksdb::WriteOptions(), key1);
 ```
 
 注意其中每次都检查了操作是否成功.
@@ -50,7 +50,7 @@ Modified: 2020-05-16 11:51:58
 
 ```
   PinnableSlice pinnable_val;
-  rocksdb::Status s = db-&gt;Get(rocksdb::ReadOptions(), key1, &amp;pinnable_val);
+  rocksdb::Status s = db->Get(rocksdb::ReadOptions(), key1, &amp;pinnable_val);
 ```
 
 ## 原子操作
@@ -58,15 +58,15 @@ Modified: 2020-05-16 11:51:58
 使用`WriteBatch`来构成一个原子性的操作. 什么是原子性操作总不用多说吧...原子操作不仅保证了原子性, 而且一般来说对性能也有帮助
 
 ```
-  #include &quot;rocksdb/write_batch.h&quot;
+  #include "rocksdb/write_batch.h"
   ...
   std::string value;
-  rocksdb::Status s = db-&gt;Get(rocksdb::ReadOptions(), key1, &amp;value);
+  rocksdb::Status s = db->Get(rocksdb::ReadOptions(), key1, &amp;value);
   if (s.ok()) {
     rocksdb::WriteBatch batch;
     batch.Delete(key1);
     batch.Put(key2, value);
-    s = db-&gt;Write(rocksdb::WriteOptions(), &amp;batch);
+    s = db->Write(rocksdb::WriteOptions(), &amp;batch);
   }
 ```
 
@@ -79,7 +79,7 @@ Modified: 2020-05-16 11:51:58
 ```
   rocksdb::WriteOptions write_options;
   write_options.sync = true;
-  db-&gt;Put(write_options, ...);
+  db->Put(write_options, ...);
 ```
 
 异步读写经常会比同步读写快上1000倍, 但是当机器down掉的时候, 会丢失最后的几个写入. 不过通常来说, 可以认为异步读写安全性也是够的.
@@ -99,32 +99,32 @@ Modified: 2020-05-16 11:51:58
 遍历所有的key
 
 ```
-  rocksdb::Iterator* it = db-&gt;NewIterator(rocksdb::ReadOptions());
-  for (it-&gt;SeekToFirst(); it-&gt;Valid(); it-&gt;Next()) {
-    cout &lt;&lt; it-&gt;key().ToString() &lt;&lt; &quot;: &quot; &lt;&lt; it-&gt;value().ToString() &lt;&lt; endl;
+  rocksdb::Iterator* it = db->NewIterator(rocksdb::ReadOptions());
+  for (it->SeekToFirst(); it->Valid(); it->Next()) {
+    cout << it->key().ToString() << ": " << it->value().ToString() << endl;
   }
-  assert(it-&gt;status().ok()); // Check for any errors found during the scan
+  assert(it->status().ok()); // Check for any errors found during the scan
   delete it;
 ```
 
 遍历[start, limit)之间的值
 
 ```
-  for (it-&gt;Seek(start);
-       it-&gt;Valid() &amp;&amp; it-&gt;key().ToString() &lt; limit;
-       it-&gt;Next()) {
+  for (it->Seek(start);
+       it->Valid() &amp;&amp; it->key().ToString() < limit;
+       it->Next()) {
     ...
   }
-  assert(it-&gt;status().ok()); // Check for any errors found during the scan
+  assert(it->status().ok()); // Check for any errors found during the scan
 ```
 
 反向遍历
 
 ```
-  for (it-&gt;SeekToLast(); it-&gt;Valid(); it-&gt;Prev()) {
+  for (it->SeekToLast(); it->Valid(); it->Prev()) {
     ...
   }
-  assert(it-&gt;status().ok()); // Check for any errors found during the scan
+  assert(it->status().ok()); // Check for any errors found during the scan
 ```
 
 ## Snapshot(快照)
@@ -133,12 +133,12 @@ Snapshot 提供了当前系统在某一点的一个只读的状态表示.
 
 ```
   rocksdb::ReadOptions options;
-  options.snapshot = db-&gt;GetSnapshot();
+  options.snapshot = db->GetSnapshot();
   ... apply some updates to db ...
-  rocksdb::Iterator* iter = db-&gt;NewIterator(options);
+  rocksdb::Iterator* iter = db->NewIterator(options);
   ... read using iter to view the state when the snapshot was created ...
   delete iter;
-  db-&gt;ReleaseSnapshot(options.snapshot);
+  db->ReleaseSnapshot(options.snapshot);
 ```
 
 注意这里通过snapshot读到的都是在做snapshot那个时间点的数据库的值.
@@ -150,13 +150,13 @@ Snapshot 提供了当前系统在某一点的一个只读的状态表示.
 Slice和string的互相转换:
 
 ```
-   rocksdb::Slice s1 = &quot;hello&quot;;
+   rocksdb::Slice s1 = "hello";
 
-   std::string str(&quot;world&quot;);
+   std::string str("world");
    rocksdb::Slice s2 = str;
 
    std::string str = s1.ToString();
-   assert(str == std::string(&quot;hello&quot;));
+   assert(str == std::string("hello"));
 ```
 
 未完待续...

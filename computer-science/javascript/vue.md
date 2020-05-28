@@ -1,7 +1,7 @@
 # 前端框架 Vue 学习笔记
 
 
-ID: 497
+wp_id: 497
 Status: publish
 Date: 2017-09-22 04:30:00
 Modified: 2020-05-16 11:51:11
@@ -24,7 +24,7 @@ npm install --global @vue/cli
 
 ```js
 // $watch 是一个实例方法
-vm.$watch(&#039;a&#039;, function (newValue, oldValue) {
+vm.$watch("a", function (newValue, oldValue) {
   // 这个回调将在 &#x60;vm.a&#x60; 改变后调用
 })
 ```
@@ -45,14 +45,14 @@ v-bind 类似的指令还有 v-once 和 v-html
 v-model 实际上等价于
 
 ```html
-&lt;input v-model=&quot;searchText&quot;&gt;
+<input v-model="searchText">
 ```
 
 ```html
-&lt;input
-  v-bind:value=&quot;searchText&quot;
-  v-on:input=&quot;searchText = $event.target.value&quot;
-&gt;
+<input
+  v-bind:value="searchText"
+  v-on:input="searchText = $event.target.value"
+>
 ```
 
 要想在自定义输入组件中支持 v-model 的话，就需要使用 v-bind 和 v-on 两个方法了，而不能直接使用 v-model。
@@ -79,28 +79,28 @@ vue 没有代理数组的赋值方法，所以需要使用 app.$set 方法
 vue 中最终要的概念就是组件了。使用组件来模块式得构建应用。需要通过 props 属性来定义组件中的属性
 
 ```html
-&lt;div id=&quot;app-7&quot;&gt;
-  &lt;ol&gt;
-    &lt;!--
+<div id="app-7">
+  <ol>
+    <!--
       现在我们为每个 todo-item 提供 todo 对象
       todo 对象是变量，即其内容可以是动态的。
       我们也需要为每个组件提供一个“key”，稍后再
       作详细解释。
-    --&gt;
-    &lt;todo-item
-      v-for=&quot;item in groceryList&quot;
-      v-bind:todo=&quot;item&quot;
-      v-bind:key=&quot;item.id&quot;&gt;
-    &lt;/todo-item&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
+    -->
+    <todo-item
+      v-for="item in groceryList"
+      v-bind:todo="item"
+      v-bind:key="item.id">
+    </todo-item>
+  </ol>
+</div>
 
-Vue.component(&#039;todo-item&#039;, {
+Vue.component("todo-item", {
   // todo-item 组件现在接受一个
-  // &quot;prop&quot;，类似于一个自定义特性。
+  // "prop"，类似于一个自定义特性。
   // 这个 prop 名为 todo。
-  props: [&#039;todo&#039;],
-  template: &#039;&lt;li&gt;{{ todo.text }}&lt;/li&gt;&#039;
+  props: ["todo"],
+  template: "<li>{{ todo.text }}</li>"
 })
 ```
 
@@ -119,10 +119,10 @@ new Vue({
   },
   created: function () {
     // &#x60;this&#x60; 指向 vm 实例
-    console.log(&#039;a is: &#039; + this.a)
+    console.log("a is: " + this.a)
   }
 })
-// =&gt; &quot;a is: 1&quot;
+// => "a is: 1"
 ```
 
 # 创建vue应用
@@ -138,17 +138,17 @@ vue init webpack notelet
 打开 `src/router/index.js` 可以看到 vue 创建的router的代码, 其中`@`是`src`目录的缩写.
 
 ```html
-import Vue from &#039;vue&#039;
-  import Router from &#039;vue-router&#039;
-import Hello from &#039;@/components/Hello&#039;
+import Vue from "vue"
+  import Router from "vue-router"
+import Hello from "@/components/Hello"
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-    ¦ path: &#039;/&#039;,
-    ¦ name: &#039;Hello&#039;,
+    ¦ path: "/",
+    ¦ name: "Hello",
     ¦ component: Hello
     }
   ]
@@ -160,17 +160,17 @@ export default new Router({
 ```js
 // The Vue build version to load with the &#x60;import&#x60; command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from &#039;vue&#039;
-import App from &#039;./App&#039;
-import router from &#039;./router&#039;
+import Vue from "vue"
+import App from "./App"
+import router from "./router"
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: &#039;#app&#039;,
+  el: "#app",
   router,
-  template: &#039;&lt;App/&gt;&#039;,
+  template: "<App/>",
   components: { App }
 })
 ```
@@ -180,28 +180,28 @@ new Vue({
 打开 `App.vue`, 也就是我们的根组件, 可以看到下面的内容
 
 ```html
-&lt;template&gt;
-  &lt;div id=&quot;app&quot;&gt;
-  ¦ &lt;router-view&gt;&lt;/router-view&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+<template>
+  <div id="app">
+  ¦ <router-view></router-view>
+  </div>
+</template>
 
-&lt;script&gt;
+<script>
 export default {
-  name: &#039;app&#039;
+  name: "app"
 }
-&lt;/script&gt;
+</script>
 
-&lt;style&gt;
+<style>
 #app {
-  font-family: &#039;Avenir&#039;, Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
-&lt;/style&gt;
+</style>
 ```
 
 注意其中的 router-view 便签, 意思就是路由的内容都在 router-view 中显示.
@@ -213,13 +213,13 @@ export default {
 export default new Router({
   routes: [
   ¦ {
-  ¦ ¦ path: &#039;/&#039;,
-  ¦ ¦ name: &#039;Hello&#039;,
+  ¦ ¦ path: "/",
+  ¦ ¦ name: "Hello",
   ¦ ¦ component: Hello
   ¦ },
   ¦ {
-  ¦ ¦ path: &#039;/about&#039;,
-  ¦ ¦ name: &#039;About&#039;,
+  ¦ ¦ path: "/about",
+  ¦ ¦ name: "About",
   ¦ ¦ component: About
   ¦ }
   ]
@@ -229,35 +229,35 @@ export default new Router({
 然后添加 `src/components/About.vue` 文件
 
 ```html
-&lt;template&gt;
-  &lt;div class=&quot;hello&quot;&gt;
-  ¦ &lt;h1&gt;About Notelet&lt;/h1&gt;
-  ¦ &lt;p&gt;This is a simple note app&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+<template>
+  <div class="hello">
+  ¦ <h1>About Notelet</h1>
+  ¦ <p>This is a simple note app</p>
+  </div>
+</template>
 
-&lt;script&gt;
+<script>
 export default {
-  name: &#039;About&#039;,
+  name: "About",
   data () {
   ¦ return {
-  ¦ ¦ msg: &#039;Hello Vue&#039;
+  ¦ ¦ msg: "Hello Vue"
   ¦ }
   }
 }
-&lt;/script&gt;
+</script>
 ```
 
 然后更改 `App.vue` 文件
 
 ```html
-&lt;template&gt;
-  &lt;div id=&quot;app&quot;&gt;
-  ¦ &lt;router-link :to=&quot;{name: &#039;Hello&#039;}&quot;&gt;Home&lt;/router-link&gt;
-  ¦ &lt;router-link to=&quot;/about&quot;&gt;About&lt;/router-link&gt;
-  ¦ &lt;router-view&gt;&lt;/router-view&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+<template>
+  <div id="app">
+  ¦ <router-link :to="{name: "Hello"}">Home</router-link>
+  ¦ <router-link to="/about">About</router-link>
+  ¦ <router-view></router-view>
+  </div>
+</template>
 ```
 
 注意, 我们使用about指向了 About 这个组件, 而使用 hello 指向了 Hello 这个组件, 注意其中还动态传递了参数.
