@@ -14,7 +14,7 @@ fetch 是近年来浏览器实现的一个用于取代 xhr 的 API，相比于 x
 - fetch 默认只会携带同一个域名下的 cookies，也就是 same-origin，默认更安全；
 - fetch 不接受跨域的 Set-Cookie。
 
-# 基本用法
+## 基本用法
 
 ```javascript
 const response = await fetch("http://example.com/movies.json");
@@ -28,7 +28,7 @@ console.log(JSON.stringify(myJson));
 - await response.text() 返回文本文件
 - await response.json() 返回解析的 json
 
-# 增加选项
+## 增加选项
 
 ```javascript
 try {
@@ -52,7 +52,7 @@ try {
 }
 ```
 
-# 携带 cookies
+## 携带 cookies
 
 fetch 的 credentials 有三个选项：
 
@@ -62,7 +62,7 @@ fetch 的 credentials 有三个选项：
 
 其中 `same-origin` 是默认选项。
 
-# 使用自定义 headers 和 request
+## 使用自定义 headers 和 request
 
 ```javascript
 const headers = new Headers();
@@ -88,6 +88,6 @@ const rsp = await fetch(request);
 
 ## 参考
 
-* https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-* https://stackoverflow.com/questions/34558264/fetch-api-with-cookie
-* https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials
+1. https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+2. https://stackoverflow.com/questions/34558264/fetch-api-with-cookie
+3. https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials
