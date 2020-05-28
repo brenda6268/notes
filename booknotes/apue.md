@@ -1,7 +1,7 @@
 # APUE 阅读笔记
 
 
-ID: 357
+wp_id: 357
 Status: publish
 Date: 2018-06-22 04:50:00
 Modified: 2020-05-16 11:09:43
@@ -99,7 +99,7 @@ chmod 和 chown
 /etc/passwd 保存了系统中的用户相关信息，虽然这个信息是纯文本的，但是需要使用系统函数来解析，而不是自己解析这个文件。
 
 ```
-#include&lt;pwd.h&gt;
+#include<pwd.h>
 struct passwd *getpwuid(uid_t uid);
 struct passwd *getpwnam(const char* name);
 ```
@@ -118,10 +118,10 @@ getgroups/setgroups/initgroups
 ##  其他数据库文件
 
 ```
-/etc/hosts/ &lt;netdb.h&gt; hostent | getnameinfo/getaddrinfo
-/etc/networks &lt;netdb.h&gt; netent | getnetbyname/getnetbyaddr
-/etc/protocols &lt;netdb.h&gt; protoent | getprotobyname/getprotobynumber
-/etc/services &lt;netdb.h&gt; servent | getservbyname/get servbyport
+/etc/hosts/ <netdb.h> hostent | getnameinfo/getaddrinfo
+/etc/networks <netdb.h> netent | getnetbyname/getnetbyaddr
+/etc/protocols <netdb.h> protoent | getprotobyname/getprotobynumber
+/etc/services <netdb.h> servent | getservbyname/get servbyport
 ```
 
 ## hostname
@@ -200,7 +200,7 @@ For instance, suppose I have a machine with specialized instructions that can mu
 
 ```
 void MultiplyArrays(int* dest, int* src1, int* src2, int n) {
-    for(int i = 0; i &lt; n; i++) {
+    for(int i = 0; i < n; i++) {
         dest[i] = src1[i]*src2[i];
     }
 }

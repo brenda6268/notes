@@ -1,7 +1,7 @@
 # 读  Web Scraping with Python
 
 
-ID: 352
+wp_id: 352
 Status: publish
 Date: 2017-05-29 14:31:00
 Modified: 2020-05-16 12:09:02
@@ -56,9 +56,9 @@ whois.whois(url)
 ```
 import robotsparser
 rp = robotparser.RobotFileParser
-rp.set_url(&#039;path_to_robots.txt&#039;)
+rp.set_url("path_to_robots.txt")
 rp.read()
-rp.can_fetch(&quot;UA&quot;, &quot;url&quot;)
+rp.can_fetch("UA", "url")
 True or False
 ```
 
@@ -102,7 +102,7 @@ while thread or crawl_queue:
     for thread in threads:
         if not threads.is_alive():            
             threads.remove(thread)
-    while len(threads) &lt; max_threads and crawl_queue:
+    while len(threads) < max_threads and crawl_queue:
         thread = threading.Thread(target=process_queue, daemon=True)
         thread.start()
         threads.append(thread)
@@ -135,8 +135,8 @@ while thread or crawl_queue:
 
 ##一种锐化方法
 ```
-img.convert(&#039;L&#039;)
-img.point(lambda x: 0 if x &lt; 1 else 255, &#039;l&#039;)
+img.convert("L")
+img.point(lambda x: 0 if x < 1 else 255, "l")
 tessact.image_to_string(img)
 ```
 	

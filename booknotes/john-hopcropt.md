@@ -1,7 +1,7 @@
 # 图灵奖获得者John Hopcropt讲座
 
 
-ID: 350
+wp_id: 350
 Status: publish
 Date: 2017-08-08 17:06:00
 Modified: 2020-05-16 11:48:31

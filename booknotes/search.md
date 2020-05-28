@@ -1,7 +1,7 @@
 # 搜索阅读笔记
 
 
-ID: 361
+wp_id: 361
 Status: publish
 Date: 2018-06-22 05:18:00
 Modified: 2020-05-16 11:10:02
@@ -20,15 +20,15 @@ Modified: 2020-05-16 11:10:02
 1. 把 term 和 zone 合起来作为新的term
 
 ```
-wiliam.abstrct -&gt; [11], [122], [1441]
-william.title -&gt; [2], [4], [8]
-william.author -&gt; [2], [3], [5]
+wiliam.abstrct -> [11], [122], [1441]
+william.title -> [2], [4], [8]
+william.author -> [2], [3], [5]
 ```
 	
 2. 把 zone 和 docID 一起记录
 
 ```
-william -&gt; [2.title, 2.author], [3.author], [4.title], ...
+william -> [2.title, 2.author], [3.author], [4.title], ...
 ```
 	
 ### 域加权评分

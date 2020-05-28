@@ -1,7 +1,7 @@
 # 李航：自然语言对话现状与未来
 
 
-ID: 360
+wp_id: 360
 Status: draft
 Date: 2017-12-23 22:01:00
 Modified: 2020-05-16 11:29:03
@@ -48,10 +48,10 @@ YN: 计算机缺少人类的经验知识
 ### 基于分析的方法
 
 ```
-Utterance --&gt; Analyzer
+Utterance --> Analyzer
                 |
                 v
-User      &lt;-- Executor  &lt;--&gt;  Knowledge Base
+User      <-- Executor  <-->  Knowledge Base
 ```
 
 ### 基于检索的方法

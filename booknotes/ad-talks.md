@@ -1,7 +1,7 @@
 # ad talks
 
 
-ID: 354
+wp_id: 354
 Status: publish
 Date: 2017-05-30 13:13:00
 Modified: 2017-05-30 13:13:00

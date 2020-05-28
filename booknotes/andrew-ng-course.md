@@ -1,7 +1,7 @@
 # Andrew Ng 的公开课笔记
 
 
-ID: 355
+wp_id: 355
 Status: publish
 Date: 2018-06-22 05:45:00
 Modified: 2020-05-16 11:10:18
