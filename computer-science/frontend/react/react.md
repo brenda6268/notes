@@ -2,7 +2,7 @@
 
 
 wp_id: 510
-Status: publish
+Status: draft
 Date: 2017-05-30 14:10:00
 Modified: 2017-05-30 14:10:00
 
@@ -11,8 +11,7 @@ Most important ideas:
 
 Widget based
 
-Note: You can write your whole app in React, but you can also use it as a component in your app
-props
+Note: You can write your whole app in React, but you can also use it as a component in your app props
 
 state
 
