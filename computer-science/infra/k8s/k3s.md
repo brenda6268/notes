@@ -35,3 +35,4 @@ k3s 好像无论如何弄都在监听 0.0.0.0，只好用安全组禁用掉端�
 1. k3s 官方文档。https://rancher.com/docs/k3s/latest/en/quick-start/
 2. https://www.reddit.com/r/kubernetes/comments/be0415/k3s_minikube_or_microk8s/
 3. https://brennerm.github.io/posts/minikube-vs-kind-vs-k3s.html
+4. 非常全的一份文档 https://kauri.io/38-install-and-configure-a-kubernetes-cluster-with/418b3bc1e0544fbc955a4bbba6fff8a9/a

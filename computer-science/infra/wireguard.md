@@ -152,4 +152,4 @@ sudo systemctl enable wg-quick@wg0.service
 6. https://www.reddit.com/r/WireGuard/comments/9yhog4/wireguard_configuration_parsing_error_bug/
 7. https://nova.moe/deploy-wireguard-on-ubuntu-bionic/mggjbnn
 8. https://www.reddit.com/r/WireGuard/comments/dzy6az/allowedips_configuration/
-9. https://www.ckn.io/blog/2017/11/14/wireguard-vpn-typical-setup/
+9. 还得看一下内网间 client 如何互通 https://www.ckn.io/blog/2017/11/14/wireguard-vpn-typical-setup/
