@@ -1,35 +1,38 @@
-# Maven Basics
-
+# Maven 基础
 
 wp_id: 545
-Status: publish
+Status: draft
 Date: 2018-04-04 05:57:00
 Modified: 2018-04-04 05:57:00
 
-
 From: http://tutorials.jenkov.com/maven/maven-tutorial.html
 
-# Introduction
+## Introduction
+
 Maven is built around the pom.xml file. In Maven, how to build your project is predefined in the Maven Build Life Cycles, Phases and Goals.  The POM file describes *what to build*, but most often *not how to build it*. How to build it is up to the Maven build phases and goals.
 
 # Minimal POM file
 Here is a minimal POM file: 
 
+```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 	<groupId>com.jenkov</groupId>
-<artifactId>java-web-crawler</artifactId>
-<version>1.0.0</version>
+    <artifactId>java-web-crawler</artifactId>
+    <version>1.0.0</version>
 </project>
+```
 
 this outputs MAVEN_REPO/com/jenkov/java-web-crawler/1.0.0/java-web-crawler-1.0.0.jar
 
-# Super POM
+## Super POM
+
 You can make a POM file explicitly inherit from another POM file. That way you can change the settings across all inheriting POM's via their common super POM. You specify the super POM at the top of a POM file like this: 
 
+```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -46,11 +49,11 @@ You can make a POM file explicitly inherit from another POM file. That way you c
 	<artifactId>my-project</artifactId>
     ...
 </project>
+```
 
 mvn help:effective-pom shows the combined pom of parent and current
 
-
-# Running Maven
+## Running Maven
 
 When executing the mvn command you pass the name of a build life cycle, phase or goal to it, which Maven then executes.
 
@@ -71,12 +74,9 @@ You must follow the maven directory structure
 - target
 ```
 
-more here: Introduction to the Maven Standard Directory Layout
+## Dependencies
 
-
-# Dependencies
-
-```
+```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -108,7 +108,7 @@ more here: Introduction to the Maven Standard Directory Layout
 
 ## external dependencies
 
-```
+```xml
 <dependency>
   <groupId>mydependency</groupId>
   <artifactId>mydependency</artifactId>
@@ -133,11 +133,13 @@ maven tries to pull dependencies from local, central, and remote repo
 
 it's defined in ~/.m2/settings.xml
 
+```xml
 <settings>
     <localRepository>
         d:\data\java\products\maven\repository
     </localRepository>
 </settings>
+```
 
 ## Central Repositories
 
@@ -147,27 +149,31 @@ Maintained by the maven community
 
 A remote repository is often used for hosting projects internal to your organization, which are shared by multiple projects.
 
+```xml
 <repositories>
    <repository>
        <id>jenkov.code</id>
        <url>http://maven.jenkov.com/maven2/lib</url>
    </repository>
 </repositories>
+```
 
 # Maven Build Cycles
 
 When Maven builds a software project it follows a build life cycle. The build life cycle is divided into build phases, and the build phases are divided into build goals.
 Since you cannot execute the default life cycle directly, you need to execute a build phase or goal from the default life cycle. 
 
-	1. default 
-	validate	Validates that the project is correct and all necessary information is available. This also makes sure the dependencies are downloaded.
-	compile	Compiles the source code of the project.
-	test	Runs the tests against the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed.
-	package	Packs the compiled code in its distributable format, such as a JAR.
-	install	Install the package into the local repository, for use as a dependency in other projects locally.
-	deploy	Copies the final package to the remote repository for sharing with other developers and projects.
-	2. clean
-	3. site
+1. default 
+
+    validate	Validates that the project is correct and all necessary information is available. This also makes sure the dependencies are downloaded.
+    compile	Compiles the source code of the project.
+    test	Runs the tests against the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed.
+    package	Packs the compiled code in its distributable format, such as a JAR.
+    install	Install the package into the local repository, for use as a dependency in other projects locally.
+    deploy	Copies the final package to the remote repository for sharing with other developers and projects.
+
+2. clean
+3. site
 
 # Profiles
 
