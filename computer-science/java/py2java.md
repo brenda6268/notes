@@ -231,7 +231,7 @@ TODO: `<?>` 是什么意思呢？
 
 Java 中没有 `from x import y` 的语法，而只有 `import xxx`。import 之后会默认使用最后一个名字作为导入的名字，而 Python 中必须依然写完整的路径名。
 
-使用 import 时，默认去 CLASSPATH 查找对应的包
+使用 import 时，默认去 $CLASSPATH 查找对应的包
 
 ### 项目结构
 
