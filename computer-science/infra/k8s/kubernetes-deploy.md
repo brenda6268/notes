@@ -15,9 +15,7 @@ Modified: 2020-05-16 11:24:36
 - rke
 - kubernetes: the hard way
 
-有的出于教学目的的单机版本，有的是可以在生产环境部署的版本。研究了一番，发现 rke 这个工具应该是最简单的了。不过 rke 还不太稳定，目前看来，kubespray 声明了可以在生产环境使用
-
-本文基于 ubuntu 16.04. CentOS 上好多默认设置都需要修改，因此建议大家基于 Ubuntu 部署 k8s。
+本文基于 ubuntu 18.04. CentOS 上好多默认设置都需要修改，因此建议大家基于 Ubuntu 部署 k8s。
 
 # 使用 kubespray 安装 k8s
 
@@ -128,7 +126,7 @@ node3     Ready     node          1d        v1.11.3
 ```
 
 
-参考：
+## 参考
 
 1. [HN 上关于 Docker Cloud 关闭的讨论](https://news.ycombinator.com/item?id=16665130)
 2. [使用Kubespray部署生产可用的Kubernetes集群](http://www.itmuch.com/docker/kubernetes-deploy-by-kubespray/)

@@ -24,14 +24,14 @@ kubernetes 架构图
 * Stateful Set. Deployment 对应的部署语义上没有状态的，而StatefulSet会充分运用 PV 和 PVC 实现 Pod 重启之间的状态保持。典型应用场景是数据库。
 * Label 和 Selector. K8S 中的资源全部都通过 Label 来标识的选择。
 
-# deployment
+## Deployment
 
 deployment 是使用 k8s 部署服务直接操作的概念。其他的概念往往都是**通过 deployment 来间接使用**的，因此理解 deployment 至关重要。
 
 
 一个典型的 deployment 配置文件如下：
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:

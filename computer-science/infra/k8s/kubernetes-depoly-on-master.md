@@ -9,7 +9,7 @@ Modified: 2020-05-16 11:05:00
 
 虽然 K8S 本身不建议在 Master 节点中部署 Pod，但是实际上也是可以的。
 
-```
+```sh
 kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 

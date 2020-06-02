@@ -7,7 +7,7 @@ Date: 2018-08-01 05:43:00
 Modified: 2020-05-16 11:22:32
 
 
-# 起源
+## 起源
 
 比如你有 N 个 cache 服务器（后面简称 cache ），那么如何将一个对象 object 映射到 N 个 cache 上呢，你很可能会采用类似下面的通用方法计算 object 的 hash 值，然后均匀的映射到到 N 个 cache ；
 
@@ -27,7 +27,7 @@ hash(object) % N
 
 有什么方法可以改变这个状况呢，这就是 consistent hashing...
 
-# 一致性哈希
+## 一致性哈希
 
 一致性哈希把哈希值想象成一个环，比如说在 0 ~ 2^32-1 这个范围内，然后将节点（名字、IP等）求哈希之后分不到环上。当有访问请求时，把请求信息求哈希之后，寻找小于该哈希值的下一个节点。
 
@@ -39,7 +39,7 @@ hash(object) % N
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1ftvggxvlwfj315o0djq52.jpg)
 
-# 虚拟节点
+## 虚拟节点
 
 以上虽然解决了大部分问题，但是还有三个问题：
 
@@ -80,7 +80,7 @@ hash("10.1.1.3-2")  => n3-2
 
 最后，一致性哈希可以用跳表或者平衡二叉树来实现
 
-参考文档：
+## 参考文档
 
 1. https://blog.csdn.net/MBuger/article/details/76189561
 2. https://www.cnblogs.com/23lalala/p/3588553.html

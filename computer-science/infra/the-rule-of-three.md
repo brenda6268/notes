@@ -19,7 +19,7 @@ Modified: 2020-05-16 11:14:37
 
 比如说你在实现一个类，从银行抓取数据。下面是一个非常傻瓜的版本，但是应该说明了问题：
 
-```
+```py
 class ChaseScraper:
     def __init__(self, username, password):
         self._username = username
@@ -35,7 +35,7 @@ class ChaseScraper:
 
 现在你想添加第二个类 CitiBankScraper 来实现相同的接口，但是改变了一些实现细节。实际上假设CitiBank只是有一个不同的 url 和表单元素名称而已。让我们来添加一个新的爬虫：
 
-```
+```py
 class CitibankScraper:
     def __init__(self, username, password):
         self._username = username
@@ -51,7 +51,7 @@ class CitibankScraper:
 
 因为经过了多年DRY原则的教育，这时候我们发现这两个类的代码几乎是重复的！我们应该重构一下，把所有的重复代码都放到一个基类中。在这里，我们需要Inserve of Control 模式，让基类来控制逻辑。
 
-```
+```py
 class BaseScraper:
     def __init__(self, username, password):
         self._username = username

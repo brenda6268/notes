@@ -26,10 +26,10 @@ the cert is placed at /etc/letsencrypt/live/shujutuzi.com/
 
 there will be four certs:
 
-	• cert.pem: server certificate only.
-	• chain.pem: root and intermediate certificates only.
-	• fullchain.pem: combination of server, root and intermediate certificates (replaces cert.pem and chain.pem).
-	• privkey.pem: private key (do not share this with anyone!).
+- cert.pem: server certificate only.
+- chain.pem: root and intermediate certificates only.
+- fullchain.pem: combination of server, root and intermediate certificates (replaces cert.pem and chain.pem).
+- privkey.pem: private key (do not share this with anyone!).
 
 ## install the cert
 
