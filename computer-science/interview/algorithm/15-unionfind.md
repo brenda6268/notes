@@ -72,7 +72,7 @@ class UnionFind:
         return p
 ```
 
-# Go 语言实现
+## Go 语言实现
 
 ```go
 type UnionFind struct {

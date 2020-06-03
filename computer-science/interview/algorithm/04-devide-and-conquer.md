@@ -35,11 +35,11 @@
 
 ## 改变函数签名与参数传递
 
-参见回溯中的说明
+参见递归中的说明
 
 ## 例题
 
-### LeetCode241
+### LeetCode 241
 
 ```Python
 class Solution:

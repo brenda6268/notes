@@ -1,18 +1,14 @@
-LeetCode 突击手册
-======
+# LeetCode 突击手册
 
 一共定义了几个标签，可以通过 Ctrl+F/Cmd+F 搜索这些标签还快速浏览相同的题目。
 
-标签：#hash #backtracking #slidewindow #stack #queue #pointers
+标签：#hash #backtrack #slidewindow #stack #queue #pointers
 
-
-1 从数组中找出两个数字使得他们的和是给定的数字
-------
+## 1 从数组中找出两个数字使得他们的和是给定的数字
 
 tags: #hash
 
-使用一个散列，存储数字和他对应的索引。然后遍历数组，如果另一半在散列当中，那么返回
-这两个数的索引，程序结束；如果不在，把当前数字加入到散列中。
+使用一个散列，存储数字和他对应的索引。然后遍历数组，如果另一半在散列当中，那么返回这两个数的索引，程序结束；如果不在，把当前数字加入到散列中。
 
 ```C++
 vector<int> twoSum(vector<int>& nums, int target) {
@@ -266,11 +262,10 @@ class Solution:
         return ans
 ```
 
-
 4 找到两个排序数组的中位数
 ------
 
-解法参见[这里](https://leetcode.com/discuss/15790/share-my-o-log-min-m-n-solution-with-explanation)
+解法参见 [这里](https://leetcode.com/discuss/15790/share-my-o-log-min-m-n-solution-with-explanation)
 
 使用两个数字 i 和 j, 分别作为 AB 的分隔元素，把 AB 分成两份，比如
 `A[0..i]`, `B[0..j]` 和 `A[i, m]`, `B[j, n]`，这样我们只需要下面两个条件就可以了：
@@ -320,7 +315,7 @@ double findMedianSortedArrays(int* A, int m, int* B, int n) {
 ------
 
 1. 以某个元素为中心，向两边展开，注意处理奇数和偶数两种情况
-2. Manacher 算法，参见[这里](http://taop.marchtea.com/01.05.html)
+2. Manacher 算法，参见 [这里](http://taop.marchtea.com/01.05.html)
 
 ```Python
 class Solution:
@@ -632,7 +627,6 @@ class Solution:
         return ans
 ```
 
-
 12 十进制转换为罗马数字
 ------
 
@@ -647,7 +641,6 @@ class Solution:
         ones = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
         return thousands[x//1000] + hundreds[x%1000//100] + tens[x%100//10] + ones[x%10]
 ```
-
 
 ```C++
 string intToRoman(int num) {
@@ -767,7 +760,6 @@ class Solution:
         return ans
 ```
 
-
 ```C
 // acts like a dict or map
 int getVal(char c) {
@@ -799,7 +791,6 @@ int romanToInt(char* s) {
 
 纵向扫描，从头到尾，如果不一致，返回当前子串即可。
 
-
 ```Python
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
@@ -814,7 +805,6 @@ class Solution:
                     return strs[0][:i]
         return strs[0][:minlen]
 ```
-
 
 ```C
 // 纵向扫描
@@ -869,7 +859,6 @@ class Solution:
                     k -= 1
         return ans
 ```
-
 
 ```C++
 vector<vector<int>> threeSum(vector<int>& nums) {
@@ -930,8 +919,6 @@ class Solution:
         return ans
 ```
 
-
-
 ```C
 int cmp(int* a, int* b) {
     return *a - *b;
@@ -965,7 +952,7 @@ int threeSumClosest(int* nums, int numsSize, int target) {
 17 生成电话键盘按键数字对应的所有可能的字符串，不限制返回结果的顺序
 ------
 
-tags: #backtracking
+tags: #backtrack
 
 ![键盘](http://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Telephone-keypad2.svg/200px-Telephone-keypad2.svg.png)
 
@@ -1009,7 +996,6 @@ class Solution:
         return ans
 ```
 
-
 ```C++
 // iterative
 vector<string> letterCombinations(string digits) {
@@ -1031,8 +1017,7 @@ vector<string> letterCombinations(string digits) {
 }
 ```
 
-还可以使用深度优先的搜索方法
-
+还可以使用深度优先的搜索方法。
 
 追问：如何通过用户按的数字来查找是否有对应的单词呢
 
@@ -1042,10 +1027,9 @@ vector<string> letterCombinations(string digits) {
 18 4Sum
 ------
 
-tags: #backtracking
+tags: #backtrack
 
 其实可以用 深度优先搜索的方式直接解答 nSum
-
 
 ```Python
 class Solution:
@@ -1092,9 +1076,7 @@ class Solution:
         return ans
 ```
 
-
 下面的 C++ 解法是一个传统解法
-
 
 ```C++
 vector<vector<int>> fourSum(vector<int>& nums, int target) {
@@ -1180,7 +1162,6 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n) {
     return dummy.next;
 }
 ```
-
 
 20 判定给定的字符串是否是合法的括号序列，可能包括大中小三类
 ------
@@ -1315,7 +1296,7 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
 22 给定数字 n, 生成所有合法的 n 个括号组成的序列
 ------
 
-tags: #backtracking
+tags: #backtrack
 
 一道典型的深度优先搜索题目
 
@@ -1619,7 +1600,6 @@ int strStr(char* haystack, char* needle) {
 }
 ```
 
-
 29 给定连个整数，不使用乘法和除法计算除法。
 ------
 
@@ -1757,8 +1737,7 @@ void nextPermutation(vector<int>& nums) {
 }
 ```
 
-32 从一个括号构成的字符串中找出最长的合法括号序列
-------
+## 32 从一个括号构成的字符串中找出最长的合法括号序列
 
 动态规划的基础题目。
 
@@ -1853,7 +1832,6 @@ int search(int* nums, int numsSize, int target) {
 ------
 
 在 C++ 的标准库中包含了这两个函数，分别是`std::lower_bound`和`std::upper_bound`.
-
 
 ```C++
 class Solution:
@@ -2406,7 +2384,7 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
 
 显然不能直接阶乘过去，分治法
 
-``Python
+```Python
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         if n < 0:
@@ -2582,7 +2560,7 @@ class Solution:
 
 一圈一圈地打印就好了
 
-```C
+```c++
 int* spiralOrder(int** matrix, int row, int col) {
     if (row == 0 || col == 0) return NULL;
     int top = 0, right = col - 1, down = row - 1, left = 0;
@@ -2689,7 +2667,6 @@ class Solution:
         ans += intervals[remainder:]
         return ans
 ```
-
 
 58 给定一个字符串，求其中最后一个单词的长度
 ------
@@ -2954,7 +2931,6 @@ def isNumber(self, s):
 ------
 
 乍一看如果需要进位的话，可能需要拷贝整个数组。实际上并不需要，我们知道只有当数字是 999...999 的时候，才会使得数字的长度 +1 变为 1000...000。
-
 
 ```C++
 vector<int> plusOne(vector<int>& digits) {
@@ -3299,7 +3275,7 @@ void combine(vector<vector<int>>& result, vector<int>& temp, int start, int coun
 3. 巧妙的利用 1..2^n 对应
 
 ```C++
-// use backtracking and do a dfs search
+// use backtrack and do a dfs search
 
 vector<vector<int>> subsets(vector<int>& nums) {
     vector<vector<int>> result;
@@ -3895,6 +3871,32 @@ bool isInterleave(char* s1, char* s2, char* s3) {
 }
 ```
 
+```Java
+class Solution {
+    public boolean isInterleave(String s1, String s2, String s3) {
+        if (s3.length() != s1.length() + s2.length()) {
+            return false;
+        }
+
+        boolean[][] dp = new boolean[s1.length()+1][s2.length()+1];
+        for (int i = 0; i <= s1.length(); i++) {
+            for (int j = 0; j <= s2.length(); j++) {
+                if (i == 0 && j == 0) {
+                    dp[i][j] = true;
+                } else if (i == 0) {
+                    dp[i][j] = dp[i][j-1] && s2.charAt(j-1) == s3.charAt(j-1);
+                } else if (j == 0) {
+                    dp[i][j] = dp[i-1][j] && s1.charAt(i-1) == s3.charAt(i-1);
+                } else {
+                    dp[i][j] = (dp[i-1][j] && s1.charAt(i-1) == s3.charAt(i+j-1)) || (dp[i][j-1] && s2.charAt(j-1) == s3.charAt(i+j-1));
+                }
+            }
+        }
+        return dp[s1.length()][s2.length()];
+    }
+}
+```
+
 98 验证二叉搜索树是否合法
 ------
 
@@ -4046,11 +4048,48 @@ vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
 104 树的最大深度
 ------
 
+实际上是一个后序遍历。class Solution {
+    public boolean isInterleave(String s1, String s2, String s3) {
+        if (s3.length() != s1.length() + s2.length()) {
+            return false;
+        }
+
+        boolean[][] dp = new boolean[s1.length()+1][s2.length()+1];
+        for (int i = 0; i <= s1.length(); i++) {
+            for (int j = 0; j <= s2.length(); j++) {
+                if (i == 0 && j == 0) {
+                    dp[i][j] = true;
+                } else if (i == 0) {
+                    dp[i][j] = dp[i][j-1] && s2.charAt(j-1) == s3.charAt(j-1);
+                } else if (j == 0) {
+                    dp[i][j] = dp[i-1][j] && s1.charAt(i-1) == s3.charAt(i-1);
+                } else {
+                    dp[i][j] = (dp[i-1][j] && s1.charAt(i-1) == s3.charAt(i+j-1)) || (dp[i][j-1] && s2.charAt(j-1) == s3.charAt(i+j-1));
+                }
+            }
+        }
+        return dp[s1.length()][s2.length()];
+    }
+}94
+
 ```C
 int maxDepth(struct TreeNode* root) {
     if (!root) return 0;
     int left = maxDepth(root->left), right = maxDepth(root->right);
     return (left > right ?left : right) + 1;
+}
+```
+
+```Java
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftMaxDepth = maxDepth(root.left);
+        int rightMaxDepth = maxDepth(root.right);
+        return Math.max(leftMaxDepth, rightMaxDepth) + 1;
+    }
 }
 ```
 
@@ -4290,7 +4329,6 @@ void flatten(TreeNode* root) {
  * while Path[0][j] = 1 and Path[i][0] = 0.
  */
 
-
 class Solution {
 public:
     int numDistinct(string s, string t) {
@@ -4373,7 +4411,6 @@ void connect(struct TreeLinkNode *root) {
 ```C++
 vector<vector<int>> generate(int n) {
     vector<vector<int>> result(n);
-
 
     for (int i = 0; i < n; i++) {
         result[i].resize(i+1);
@@ -4524,7 +4561,6 @@ int doSum(struct TreeNode* root, int* sum) {
     return max(left, right) + root->val;
 }
 
-
 int maxPathSum(struct TreeNode* root) {
     int sum = INT_MIN;
     doSum(root, &sum);
@@ -4560,7 +4596,6 @@ class Solution:
         self._maxPathSum(root)
         return self.ans
 ```
-
 
 125 给定一个字符串，只考虑字母和数字，忽略大小写，判断是否是回文字符串
 ------
@@ -5107,7 +5142,7 @@ vector<int> preorderTraversal(TreeNode* root) {
 145 二叉树的后序遍历
 ------
 
-参见[树的遍历](tree.md)
+参见 [树的遍历](tree.md)
 
 ```C++
 vector<int> postorderTraversal(TreeNode* root) {
@@ -5828,7 +5863,6 @@ void rotate(int* nums, int numsSize, int k) {
 190 翻转二进制表示
 ------
 
-
 ```C
 uint32_t reverseBits(uint32_t n) {
     uint32_t r = 0;
@@ -6057,7 +6091,6 @@ class UnionFind:
         q_root = self.find(q)
         return p_root == q_root
 
-
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         if not grid or not grid[0]:
@@ -6254,7 +6287,6 @@ bool canFinish(int numCourses, vector<pair<int, int>>& prerequisites) { // next 
 }
 ```
 
-
 208 实现前缀树
 ------
 
@@ -6449,7 +6481,6 @@ private:
     TrieNode* root;
 };
 
-
 class WordDictionary : public Trie{
 
 public:
@@ -6565,7 +6596,6 @@ int rob(int* nums, int numsSize) {
     return max(robNonCyclic(nums, numsSize - 1), robNonCyclic(nums + 1, numsSize - 1));
 }
 ```
-
 
 214 最短回文字符串，给指定的字符串添加字母获得回文
 ------
@@ -6788,7 +6818,6 @@ int maximalSquare(vector<vector<char>>& matrix) {
     return maxsize * maxsize;
 }
 ```
-
 
 222 给定一个完全树，计算节点的数量。
 ------
@@ -7167,7 +7196,6 @@ int countDigitOneBinary(int n) {
     ...
     99999999  10000000
 
-
 234 判断一个链表是否是回文
 ------
 
@@ -7444,8 +7472,6 @@ bool isAnagram(char* s, char* t) {
 
 253 会议室 II
 ------
-
-
 
 257 二叉树左右路径
 ------
@@ -7819,7 +7845,6 @@ public:
     bool hasNext() const;
 };
 
-
 class PeekingIterator : public Iterator {
 public:
     PeekingIterator(const vector<int>& nums) : Iterator(nums) {
@@ -7845,7 +7870,6 @@ public:
     }
 };
 ```
-
 
 287 一个 n 的数组包含了 1...n-1 中的这些数字，证明一定存在重复，并找出这个重复
 ------
@@ -7952,6 +7976,35 @@ class Solution:
         return max(*dp)
 ```
 
+```Java
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+        if (nums.length == 1) {
+            return 1;
+        }
+
+        int[] dp = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            dp[i] = 1;
+        }
+
+        int max = 0;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[j] < nums[i]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1); 
+                }
+                max = Math.max(dp[i], max);
+            }
+        }
+        return max;
+    }
+}
+```
+
 344 翻转字符串
 ------
 
@@ -8053,7 +8106,6 @@ int* intersection(int* A, int m, int* B, int n, int* k) {
 }
 ```
 
-
 345 翻转一个字符串里面的元音字母
 ------
 
@@ -8113,7 +8165,7 @@ int getSum(int a, int b) {
 388
 ------
 
-使用栈的一道简单题目, 其实计算长度部分还可以优化
+使用栈的一道简单题目，其实计算长度部分还可以优化
 
 ```Python
 class Solution:
@@ -8195,7 +8247,7 @@ class Solution:
         return uf.count
 ```
 
-556 N叉树的最大深度
+556 N 叉树的最大深度
 ------
 
 ```
@@ -8228,10 +8280,10 @@ class Solution:
         return ans
 ```
 
-779 第K个语法符号
+779 第 K 个语法符号
 ------
 
-这道题的坑爹之处在于索引是 1. 这是一个普通的递归题目，N 在里面没用。。
+这道题的坑爹之处在于索引是 1. 这是一个普通的递归题目，N 在里面没用。
 
 ```Python
 class Solution:
@@ -8259,7 +8311,6 @@ class Solution:
         y_overlap = not(rec1[1] >= rec2[3] or rec1[3] <= rec2[1])
         return x_overlap and y_overlap
 ```
-
 
 904 找出包含了两个不同数字的最长子序列
 ------
@@ -8455,4 +8506,31 @@ class Solution:
                     ans += (1 + num + prim + num // prim)
                     break
         return ans
+```
+
+## 1143 最长公共子序列
+
+```Java
+class Solution {
+    public int longestCommonSubsequence(String text1, String text2) {
+        int[][] dp = new int[text1.length()+1][text2.length()+1];
+        for (int i = 0; i <= text1.length(); i++) {
+            for (int j = 0; j <= text2.length(); j++) {
+                dp[i][j] = 0;
+            }
+        }
+
+        for (int i = 1; i <= text1.length(); i++) {
+            for (int j = 1; j <= text2.length(); j++) {
+                if (text1.charAt(i-1) == text2.charAt(j-1)) {
+                    dp[i][j] = dp[i-1][j-1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
+                }
+            }
+        }
+
+        return dp[text1.length()][text2.length()];
+    }
+}
 ```

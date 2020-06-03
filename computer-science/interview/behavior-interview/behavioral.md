@@ -12,10 +12,10 @@ Date: 2019-11-14
 
 ## 回答
 
-Situation：一定是客观原因，或者是没有规划好之类的
-Task：在资源不足的情况下完成任务
-Action：我做了什么
-Result：成功解决了问题，并总结了问题原因。
+- Situation：一定是客观原因，或者是没有规划好之类的
+- Task：在资源不足的情况下完成任务
+- Action：我做了什么，重点是『我』，不是『我们』
+- Result：成功解决了问题，并总结了问题原因。
 
 ### Action
 
@@ -26,7 +26,11 @@ Result：成功解决了问题，并总结了问题原因。
 
 行为面试准备
 
-https://www.thebalancecareers.com/behavioral-job-interview-questions-2059620
+优点：抽象能力
+缺点：完美主义
 
-你的优点：抽象能力
-你的缺点：完美主义
+三个词定义：好奇心、行动力、责任感
+
+## 参考
+
+https://www.thebalancecareers.com/behavioral-job-interview-questions-2059620
