@@ -20,18 +20,18 @@ Modified: 2020-05-16 11:58:57
 
 sometimes, especially for single method classes, a closure might be a better solution:
 
-```
-    class Fetch:
-        def __init__(self):
-            self.proxy = proxy
-            self.cookie_jar = cookie_jar
-        def fetch(self)
-            urlopen(url, self.proxy, self.cookie_jar)
+```py
+class Fetch:
+    def __init__(self):
+        self.proxy = proxy
+        self.cookie_jar = cookie_jar
+    def fetch(self)
+        urlopen(url, self.proxy, self.cookie_jar)
 
-    def build_fetcher(proxy, cookie_jar):
-        def fetch(url):
-            urlopen(url, proxy, cookie_jar)
-        return fetch
+def build_fetcher(proxy, cookie_jar):
+    def fetch(url):
+        urlopen(url, proxy, cookie_jar)
+    return fetch
 ```
 
 ## OOP vs FP

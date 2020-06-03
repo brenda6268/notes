@@ -31,7 +31,7 @@ GreaseMonkey/TamperMonkey 学习
 
 ## 函数
 
-```
+```js
 GM_addStyle(css)		
 GM_get/set/deleteValue		
 GM_listValues()		
