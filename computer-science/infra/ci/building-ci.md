@@ -11,7 +11,7 @@ Modified: 2020-05-16 11:45:00
 
 添加到 docker：
 
-```
+```sh
 COPY KEY_FILE /
 RUN \
   chmod 600 /KEY_FILE &amp;&amp; \  

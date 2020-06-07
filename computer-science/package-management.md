@@ -9,29 +9,34 @@ Modified: 2020-05-16 11:32:10
 
 包管理系统一般来说分为了几个维度：
 
-	1. 系统的包管理工具，像是 apt-get、homebrew、yum
-	2. 语言的包管理工具，像是 python 的 easy_install、pip 等等
-	3. 一个工程的包管理工具，可能更多地被称作依赖管理工具，像是 npm、pip+venv、maven 等等
+1. 系统的包管理工具，像是 apt-get、homebrew、yum
+2. 语言的包管理工具，像是 python 的 easy_install、pip 等等
+3. 一个工程的包管理工具，可能更多地被称作依赖管理工具，像是 npm、pip+venv、maven 等等
 
 其中第二个和第三个的界限是非常模糊的，好多时候是同一个工具提供了两者的作用，比如npm。
 
 系统的包管理工具一般用来安装一些工具和或者是库。比如
 
+```
 % apt-get install docker-ce  # 安装docker
 % apt-get install libcurl  # 安装C语言的库libcurl
 % apt-get install python-sqlite3  # 安装python的sqlite3库
+```
 
 系统的包管理工具的仓库往往是由发行版的作者们来维护的，而不是包的作者，也就是说比如debian的维护者来手工收集 docker 或者 curl 的源文件，然后打包编译好。这样的好处就是稳定，但是坏处就是往往会比较滞后，比如像是 docker 和 node 这种升级比较快的软件的版本经常会滞后不少。
 
 使用系统的包管理器来给特定的语言安装库也会遇到同样的问题，往往会安装一个版本比较老的，不过对于 C 语言来说可能问题不大，好多时候安装 libxxx 还挺方便的，不过对于像是 Python 和 JS 来说，使用语言自身的包管理工具通用一些。
 
 值得注意的是，系统的包管理工具往往都会安装到 /usr/local 这一类的目录，也就是说是给当前系统的左右用户都更新了。有两个问题：
-	1. 需要 sudo
-	2. 这时候如果另一个人依赖了某个库，可能造成另一个人无法编译
+
+1. 需要 sudo
+2. 这时候如果另一个人依赖了某个库，可能造成另一个人无法编译
 
 语言的包管理工具一般用来安装依赖的库：
 
+```
 % pip install redis
+```
 
 这样我们就可以在程序中使用 redis 这个库了
 
@@ -41,8 +46,10 @@ import redis
 
 另外也有一些工具通过语言的包管理工具来分发，比如 httpie 的安装命令是：
 
+```
 % pip install httpie
 % http get https://www.example.com
+```
 
 综上来说，不管是系统的包管理工具还是语言的包管理工具，都会对不同项目的不同依赖可能造成影响，所以一般来说还是每一个不同的项目使用不同的依赖比较好，在 python 中可以使用 virturalenv/venv 来实现，而在 npm 中，这是默认的做法。
 

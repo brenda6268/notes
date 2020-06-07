@@ -1,5 +1,4 @@
-# C++ 中的  &
-
+# C++ 中的 &
 
 wp_id: 399
 Status: draft
@@ -9,8 +8,7 @@ Modified: 2020-05-16 11:46:04
 
 For the first time I'm working with a C++ program, I'm surprised by so many `&`s in there, after about one year of learning, I got a summary here.
 
-Starting from C
-------
+## Starting from C
 
 C language has only one way to pass variable to function calls -- pass value. And there are 2 situations where passing value is not perfect.
 

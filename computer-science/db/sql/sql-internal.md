@@ -136,7 +136,7 @@ SQL 中的 Select 语句在关系代数中被称作投影（projection）。一�
 ORDER BY 排序
 
 
-Ref：
+## 参考
 
 1. https://web.archive.org/web/20150424213133/http://tech.pro:80/tutorial/1555/10-easy-steps-to-a-complete-understanding-of-sql
 2. http://www.cnblogs.com/myprogram/archive/2013/01/24/2874666.html

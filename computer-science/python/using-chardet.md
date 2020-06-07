@@ -9,15 +9,13 @@ Modified: 2020-05-16 12:03:56
 
 python 中的 chardet 库可以用来猜测文件的编码
 
-
-
 # usage
 
 ```
 pip install cchardet
 ```
 
-```
+```ipython
 In [1]: import cchardet as chardet
 
 In [2]: chinese_bytes = "中文".encode("utf-8")

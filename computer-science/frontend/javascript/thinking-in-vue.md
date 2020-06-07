@@ -11,7 +11,7 @@ Modified: 2017-06-10 04:03:00
 
 The created vue instance will proxy its data member 
 
-```
+```html
 <div id="app">
   <ol>
     <li v-for="company in companies">

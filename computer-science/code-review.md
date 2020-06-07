@@ -7,7 +7,7 @@ Date: 2017-05-30 07:00:00
 Modified: 2020-05-16 11:59:58
 
 
-转载自：https://mp.weixin.qq.com/s?__biz=MzIwMzg1ODcwMw==&mid=2247486399&amp;idx=1&amp;sn=219af64c7ecbf9e6c601cefddd0a0eba&source=41#wechat_redirect
+转载自：https://mp.weixin.qq.com/s?__biz=MzIwMzg1ODcwMw==&mid=2247486399&idx=1&sn=219af64c7ecbf9e6c601cefddd0a0eba
 
 
 众所周知，在团队中进行代码审查（Code Review）可以提升代码质量，分享项目知识、明确责任，最终达到构建更好的软件、更好的团队。如果你花几秒钟搜索代码审查的相关信息，你会看到许多关于代码审查带来的价值的文章。也有许多方法来进行代码审查：在GitHub中提pull request，或使用像JetBrains的Upsource之类的工具。然而即使拥有清晰的流程和正确的工具，还遗留了一个大问题需要解决——我们需要找寻哪些问题。

@@ -23,4 +23,6 @@ cat /etc/mysql/debian.cnf
 
 开启 root 的远程登录：
 
-    GRANT ALL PRIVILEGES ON *.* TO \'root\'@\'%\' IDENTIFIED BY \'password\';
+```
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';
+```

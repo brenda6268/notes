@@ -7,6 +7,7 @@ Date: 2017-05-30 02:47:00
 Modified: 2020-05-16 11:57:47
 
 
+如何根据包含的文本查找元素：https://stackoverflow.com/questions/14631590/get-text-content-of-an-html-element-using-xpath
 # 基本语法
 
 |syntax|说明|

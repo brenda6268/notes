@@ -74,3 +74,14 @@ Importantly, Monarch is push-based and centralized. Previously, product teams wo
 
 Google needs are extremely common. Take a look at any Fortune 500 and and it could usually benefit greatly from a lot of the infrastructure that powers google.
 Most of them do run their own datacenters, sometimes in numerous locations, they have massive and extremely complex IT systems in place.
+
+## Facebook
+
+### Haystack 文件存储
+
+
+#### 参考
+
+1. https://github.com/Terry-Mao/bfs
+2. https://cloud.tencent.com/developer/news/137215
+
