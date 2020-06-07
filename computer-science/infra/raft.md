@@ -11,17 +11,17 @@ Raft 协议是一个分布式的一致性协议，主要通过 Leader Election �
 
 这篇文章并不是 Raft 协议的一个完整介绍，只是其中核心概念的一个总结概括，要完全理解所有细节还是得看论文。
 
-# Leader 选举
+## Leader 选举
 
 1. 每个节点有三种状态：follower、candidate、leader。
 2. 作为 leader 有任期(term)的概念，根据基本法必须选举上台。Term 是一个自增的数字。
 3. 作为 leader 要不断发送心跳给 follower，告诉他们一律不得经商。
 4. 所有节点都有一个随机的定时器（150ms~300ms），当 follower 没有收到日志后就会升级为 candidate，term + 1，给自己投一票，并且发送 Request Vote RPC 给所有节点，也就是 apply for professor 啦。
 5. 节点收到 Request Vote 后，如果自己还没有投票，而且比自己在的任期大，那就说明水平比自己高到不知道哪里去了，就投票出去，否则拒绝。
-6. 如果节点发现自己的票超过了一半，就吟两句诗，认为自己是 leader 了
+6. 如果节点发现自己的票超过了一半，就吟两句诗，钦点自己是 leader 了
 7. 新的 leader 上台后，继续发送日志昭告天下，其他的 candidate 自动灰溜溜的变为 follower 了。
 
-# 日志复制（Log Replication）
+## 日志复制（Log Replication）
 
 1. 所有的请求都发送给 leader，一律由中央负责。
 2. leader 把收到的请求首先添加到自己的日志当中

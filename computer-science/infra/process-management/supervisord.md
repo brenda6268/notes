@@ -11,7 +11,7 @@ Modified: 2020-05-16 11:39:17
 
 为了实现这一点，我们需要一些东西来监控脚本。这些工具在脚本挂掉的时候重启他们，并且在系统启动的时候拉起他们。
 
-# 脚本
+## 脚本
 
 这样的工具应该是怎样的呢？我们安装的大多数东西都带了某种进程监控的机制。比如说Upstart和Systemd。这些工具被许多系统用来监控重要的进程。当我们安装php5-fpm，Apache 和nginx的时候，他们通常已经和系统集成好了，以便于他们不会默默挂掉。
 
@@ -23,14 +23,14 @@ Modified: 2020-05-16 11:39:17
 var http = require("http");
 
 function serve(ip, port) {
-        http.createServer(function (req, res) {
-            res.writeHead(200, {"Content-Type": "text/plain"});
-            res.write("\nSome Secrets:");
-            res.write("\n"+process.env.SECRET_PASSPHRASE);
-            res.write("\n"+process.env.SECRET_TWO);
-            res.end("\nThere"s no place like "+ip+":"+port+"\n");
-        }).listen(port, ip);
-        console.log("Server running at http://"+ip+":"+port+"/");
+    http.createServer(function (req, res) {
+        res.writeHead(200, {"Content-Type": "text/plain"});
+        res.write("\nSome Secrets:");
+        res.write("\n"+process.env.SECRET_PASSPHRASE);
+        res.write("\n"+process.env.SECRET_TWO);
+        res.end("\nThere"s no place like "+ip+":"+port+"\n");
+    }).listen(port, ip);
+    console.log("Server running at http://"+ip+":"+port+"/");
 }
 
 // Create a server listening on all networks
@@ -40,11 +40,11 @@ serve("0.0.0.0", 9000);
 
 注意到这个服务打印两个变量 "SECRET_PASSPHRASE" 和 "SECRET_TWO"。我们将会演示如何把这个传递个被监控的进程。
 
-# Supervisord
+## Supervisord
 
 Supervisord 是一个使用很广也很简单的进程监控工具。
 
-## 安装
+### 安装
 
 supervisor 支持 python 3，也建议用这个版本。
 
@@ -75,7 +75,7 @@ brew install supervisor
 pip install supervisor
 ```
 
-## 配置
+### 配置
 
 下面我们来配置一个 supervisor 服务。
 
@@ -131,7 +131,7 @@ etc/supervisord.conf
 /etc/supervisor/supervisord.conf
 ```
 
-## 控制进程
+### 控制进程
 
 可以使用 supervisorctl 来控制对应的服务了。不过需要首先启动 supervisord 的daemon 才行。
 
@@ -142,7 +142,7 @@ supervisorctl update
 
 这样就可以启动刚刚定义的服务。supervisorctl 的其他功能可以查看帮助
 
-# Web 界面
+## Web 界面
 
 supervisor 自带了一个 web 界面。这样我们就可以通过浏览器来管理进程了。
 
@@ -158,6 +158,10 @@ password = pass # Basic auth password
 If we access our server in a web browser at port 9001, we'll see the web interface:
 
 ![](https://ws4.sinaimg.cn/large/006tNc79ly1frmjham7zcj319i0c2mz7.jpg)
+
+## 注意
+
+千万不要在 Docker 内部使用 supervisord 来启动多个进程，你这是在玩儿火！Docker 本身就是一个进程管理器，他的设计理念也是进程挂了就重启，如果你加了 supervisord 的话，很可能进程挂了，但是 supervisord 还活着，这样在 docker 看来整个服务就是健康的，殊不知 supervisord 可能在循环重启服务。。总之，禁止套娃！
 
 
 ref: https://serversforhackers.com/c/monitoring-processes-with-supervisord

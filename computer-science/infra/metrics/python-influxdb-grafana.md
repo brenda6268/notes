@@ -113,7 +113,7 @@ $ sysctl -w net.core.rmem_default=26214400
 P.S. 中文互联网上的好多教程都在使用 http 打点, 误人子弟, 毁人不倦啊......
 
 
-参考:
+## 参考
 
 1. https://docs.influxdata.com/influxdb/v1.6/supported_protocols/udp/
 2. https://github.com/MikaelGRA/InfluxDB.Client/issues/31

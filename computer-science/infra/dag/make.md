@@ -44,7 +44,7 @@ $(prom): $(obj)
     $(CC) -o $(prom) $(obj)
 %.o: %.c $(deps)
     $(CC) -c $< -o $@
-clean:                              # empty target to run a commnad
+clean: # empty target to run a commnad
     rm -rf $(obj) $(prom)
 ```
 # Reference

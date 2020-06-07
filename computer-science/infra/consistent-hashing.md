@@ -37,7 +37,7 @@ hash(object) % N
 
 如下图所示：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1ftvggxvlwfj315o0djq52.jpg)
+![](https://tva1.sinaimg.cn/large/006tKfTcly1ftvggxvlwfj315o0djq52.jpg)
 
 ## 虚拟节点
 
@@ -70,7 +70,7 @@ hash("10.1.1.3-2")  => n3-2
 
 如图所示
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1ftvggbzovij315o0en40x.jpg)
+![](https://tva1.sinaimg.cn/large/006tKfTcly1ftvggbzovij315o0en40x.jpg)
 
 引入虚拟节点之后：
 

@@ -1,10 +1,16 @@
+# Kafka 实现细节
+
 ## 为什么速度快
 
 1. 顺序读写磁盘，性能比内存读写还要高
 2. 使用 sendfile，保证了零拷贝
 3. 每个 topic 分成不同的 partition，水平拓展。 
 
+## 存储实现
+
 partition 由多个 segment 实现，每个 segment 包括了 index 和 log 两个文件。“.index”索引文件存储大量的元数据，“.log”数据文件存储大量的消息
+
+## 如何保证消息可靠
 
 每个 partition 都有一个 High watermark 和 Log end offset. consumer 最多消费到 HW 处
 

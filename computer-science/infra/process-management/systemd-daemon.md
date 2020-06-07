@@ -1,9 +1,8 @@
 # 使用 systemd 部署守护进程
 
-
 wp_id: 118
 Status: publish
-Date: 2019-06-15 18:10:48
+Date: 2017-06-26 17:48:47
 Modified: 2020-05-16 10:57:52
 
 
@@ -92,30 +91,26 @@ systemctl list-dependencies [unit]
 
 In that case add Requires=B and After=B to the [Unit] section of A. If the dependency is optional, add Wants=B and After=B instead. Note that Wants= and Requires= do not imply After=, meaning that if After= is not specified, the two units will be started in parallel. if you service depends on another service, use requires= + after= or wants= + after= 
 
- 编辑
-
-
 
 ## 类型
 
 Type: simple / forking 关于每个字段的含义，可以参考[这篇文章](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files "https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files")
 
- 编辑
-
 
 
 # 使用 journalctl 查看日志
 
-首先吐槽一下, 为什么要使用 journal 这么一个拗口的单词, 叫做 logctl 不好么… ```
-<pre class="code">journalctl -u service-name.service
+
+首先吐槽一下, 为什么要使用 journal 这么一个拗口的单词, 叫做 logctl 不好么
+
+```
+journalctl -u service-name.service
 ```
 
 还可以添加 `-b` 仅查看本次重启之后的日志. 
 
- 编辑
-
-
 
 # 启动多个实例
 
-[https://unix.stackexchange.com/questions/288236/have-systemd-spawn-n-processes](https://unix.stackexchange.com/questions/288236/have-systemd-spawn-n-processes "https://unix.stackexchange.com/questions/288236/have-systemd-spawn-n-processes") [http://0pointer.de/blog/projects/instances.html](http://0pointer.de/blog/projects/instances.html "http://0pointer.de/blog/projects/instances.html")
+https://unix.stackexchange.com/questions/288236/have-systemd-spawn-n-processes
+http://0pointer.de/blog/projects/instances.html

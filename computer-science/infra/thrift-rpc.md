@@ -29,7 +29,7 @@ struct 就像编程语言中的结构体或者类一样，用来自定义类型�
 
 注意其中的 required 和 optional 字段，required 表示必选的字段，optional 的字段可以忽略。为了兼容性考虑，建议尽可能把字段声明为 optional。
 
-```
+```thrift
 struct Cat {
     1: required i32 number=10;  // 可以有默认值
     2: optional i64 big_number;
@@ -46,14 +46,14 @@ Thrift 中还可以定义异常，关键字是 exception，其他语法和 struc
 
 Thrift 支持 C/C++ 类型的 typedef
 
-```
+```thrift
 typedef i32 MyInteger   // 1
 typedef Tweet ReTweet   // 2
 ```
 
 ## 枚举
 
-```
+```thrift
 enum Operation {
     ADD = 1;
     SUB = 2;
@@ -74,7 +74,7 @@ Thrift 中包含了常见的容器类型 `list set map` 等。
 
 使用 const 定义常量
 
-```
+```thrift
 const i32 INT_CONST = 1234;    // 1
 const map<string,string> MAP_CONST = {"hello": "world", "goodnight": "moon"}
 ```
@@ -83,7 +83,7 @@ const map<string,string> MAP_CONST = {"hello": "world", "goodnight": "moon"}
 
 Thrift 支持 Python 和 C++ 类型的注释。
 
-```
+```thrift
 # This is a valid comment.
 
 /*
@@ -97,7 +97,7 @@ Thrift 支持 Python 和 C++ 类型的注释。
 ##  命名空间
 for each thrift file, you have to add a namespace for it.
 
-```
+```thrift
 namespace py tutorial
 namespace java tutorial
 ```
@@ -111,7 +111,7 @@ include "other.thrift"
 
 注意其中的 `oneway`, 意思是客户端不会等待响应。
 
-```
+```thrift
 service StringCache {
     void set(1:i32 key, 2:string value),
     string get(1:i32 key) throws (1:KeyNotFound knf),
@@ -122,13 +122,13 @@ service StringCache {
 
 Thrift 的整个网络架构如图：
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1fslz611nmfj30y40igdj2.jpg)
+![](https://tva1.sinaimg.cn/large/006tKfTcgy1fslz611nmfj30y40igdj2.jpg)
 
 生成的代码位于蓝色的一层，Transport 实现了二进制数据的传输，我们可以选择 TCP 或者 HTTP 等协议传输我们的数据。也就是Processor。Protocol 层定义了如何把Thrift内部结构的数据序列化到二进制数据，或者反过来解析，可以使用 JSON、compact 等转换方法。Processor 负责从 Protocol 中读取请求，调用用户的代码，并写入响应。Server 的实现可以有很多中，比如多线程、多进程的等等。
 
 Processor 的定义：
 
-```
+```thrift
 interface TProcessor {
     bool process(TProtocol in, TProtocol out) throws TException
 }

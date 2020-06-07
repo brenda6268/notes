@@ -48,6 +48,7 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 
 Third, change you defautl server settings:
 
+```nginx
 server {
     listen 443 ssl;
     server_name example.com www.example.com;
@@ -66,6 +67,7 @@ server {
         ssl_stapling_verify on;
         add_header Strict-Transport-Security max-age=15768000;
 }
+```
 
 Side Notes:
 

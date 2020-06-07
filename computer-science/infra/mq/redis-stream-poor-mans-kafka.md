@@ -6,12 +6,32 @@ Status: draft
 Date: 2018-07-15 04:57:00
 Modified: 2020-05-16 11:18:37
 
+2020-05-28 更新
+
+仔细想了想，redis stream 还是有可取之处的，业务刚开始的时候没必要先把 kafka 搞起来。
 
 2019-02-15 更新
 
 仔细想了下，redis stream 看起来很好，但是实际上用处却不大。redis stream 虽然模仿了 kafka 的消息模型，但是 kafka 的强势在于消息堆积能力，而 redis stream 把消息放在内存里，也没有很好的 replica 机制。
 
 ----------正文----------
+
+我最喜欢的消息队列系统自然是 Kafka。Kafka 的 Consumer Group、Topic、Partition 这些抽象概念都非常的先进，组合使用这些概念可以高效解决绝大多数的业务问题。然而 Kafka 有一点不好的就是对系统资源消耗太高了，而我现在只有一台 2C8G 的机器，显然是连一个单实例的 kafka 都跑不起来，所以只好寻找类似的软件了。
+
+使用 redis list 自然是非常不推荐的。
+
+Redis 在 5.0 版本带来了全新的 stream 数据结构，基本上是按照 Kafka 的理念来设计的。支持 consumer group，rewind 等特性。但是 redis stream 也有它的局限，主要在以下几方面：
+
+- 没有实时落盘
+- 没有 partition 的概念
+
+使用方式：
+
+0. 每个 consumer group 必须手动创建；
+1. 每一个 consumer 可以有一个 name，最好就是自己的 IP；
+2. 每个 worker 消费时首先检查自己的 backlog，如果有的话，先消费 backlog；
+3. 还有一个独立的线程，使用 xpending 检查是否有 worker 彻底挂掉的，并且 claim 过来。线程检查 claim 的时间要随机化，尽量避免争抢。
+
 
 Redis 5.0 终于把期待已久的 Stream 类型添加了而进去，Stream 类型简单来说就是一个
 内存版的 Kafka。虽然实现完全不同，但是和 Kafka 的好多概念都是相通的，下文假设你
@@ -132,7 +152,6 @@ OK
 XREADGROUP GROUP group_name consumer_name COUNT n STREAMS stream_name msg_id ...
 ```
 
-
 ```
 > XREADGROUP GROUP mygroup Alice COUNT 1 STREAMS mystream >
 1) 1) "mystream"
@@ -158,7 +177,7 @@ last_msg_id），所以他也是一个写操作，也就只能在主节点上操
 
 一个操作 redis stream 的 Python 例子：
 
-```
+```py
 import redis
 import sys
 
@@ -191,3 +210,7 @@ while True:
     items = r.xreadgroup()
 
 ```
+
+## 参考资料
+
+1. https://redis.io/topics/streams-intro
