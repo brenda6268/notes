@@ -56,13 +56,13 @@ ALTER TABLE SET AUTO_INCREMENT=xxx;
 * VARCHAR为0-255，使用VARCHAR(n)指定长度
 * TEXT为65536，MEDIUMTEXT为16k，LONGTEXT为4GB
 
-![](http://ws3.sinaimg.cn/large/006tNc79ly1ft17mebw0kj31900n6wkx.jpg)
+![](http://tva1.sinaimg.cn/large/006tNc79ly1ft17mebw0kj31900n6wkx.jpg)
 
 ### 数字
 
 注意数字后面跟的数字，例如INT(5)，并不是限制数字的存储长度，而是限制数字的展示长度（显示时填充0）！可以使用UNSIGNED指定为非负值，默认为signed
 
-![](http://ws4.sinaimg.cn/large/006tNc79ly1ft17lhmrv7j30wk0fswh3.jpg)
+![](http://tva1.sinaimg.cn/large/006tNc79ly1ft17lhmrv7j30wk0fswh3.jpg)
 
 ### 日期
 

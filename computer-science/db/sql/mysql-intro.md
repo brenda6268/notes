@@ -15,5 +15,5 @@ Modified: 2020-05-16 11:02:07
 
 ## 教程
 
-1. SQL 的内在逻辑：[http://www.cnblogs.com/myprogram/archive/2013/01/24/2874666.html](http://www.cnblogs.com/myprogram/archive/2013/01/24/2874666.html)
-2. 非常全的新手 MySQL 命令速查：[https://mp.weixin.qq.com/s/87BoE2-0mW_3qALyNSpiTw](https://mp.weixin.qq.com/s/87BoE2-0mW_3qALyNSpiTw)
+1. [SQL 的内在逻辑](http://www.cnblogs.com/myprogram/archive/2013/01/24/2874666.html)
+2. [非常全的新手 MySQL 命令速查](https://mp.weixin.qq.com/s/87BoE2-0mW_3qALyNSpiTw)

@@ -9,17 +9,17 @@ Modified: 2020-05-16 11:51:58
 
 ## 打开一个数据库
 
-```
-  #include <cassert>
-  #include "rocksdb/db.h"
+```C++
+#include <cassert>
+#include "rocksdb/db.h"
 
-  rocksdb::DB* db;
-  rocksdb::Options options;
-  options.create_if_missing = true;
-  options.error_if_exists = true;
-  rocksdb::Status status = rocksdb::DB::Open(options, "/tmp/testdb", &amp;db);
-  assert(status.ok());
-  ...
+rocksdb::DB* db;
+rocksdb::Options options;
+options.create_if_missing = true;
+options.error_if_exists = true;
+rocksdb::Status status = rocksdb::DB::Open(options, "/tmp/testdb", &amp;db);
+assert(status.ok());
+...
 ```
 
 通过options制定一些属性, 然后用 `rocksdb::DB::Open`打开. RocksDB 会把使用的配置保存在 `OPTIONS-xxxx` 文件中.

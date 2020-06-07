@@ -31,8 +31,6 @@
 
 ## Vitess
 
-
-
 ## NoSQL
 复杂查询采用 ES 等，不再使用 MySQL 
 

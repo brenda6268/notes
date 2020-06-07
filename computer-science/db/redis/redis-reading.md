@@ -7,9 +7,6 @@ Date: 2017-06-17 02:15:00
 Modified: 2020-05-16 11:43:28
 
 
-* https://zhengqm.github.io/code/2015/06/20/Learn-by-hacking-redis-source-code/
-* https://github.com/huangz1990/blog/blob/master/diary/2014/how-to-read-redis-source-code.rst
-
 # 字符串
 
 redis 内部使用Simple Data String 代表字符串。结构如下：
@@ -24,7 +21,7 @@ sds的内存分配策略：
 
 redis 的 list 是使用链表实现的。
 
-```
+```c
 typedef struct listNode {
     struct listNode * prev;
     struct listNode * next;
@@ -40,3 +37,6 @@ typedef struct list {
     int (*match) (void * ptr, void * key);
 } list;
 ```
+
+* https://zhengqm.github.io/code/2015/06/20/Learn-by-hacking-redis-source-code/
+* https://github.com/huangz1990/blog/blob/master/diary/2014/how-to-read-redis-source-code.rst
