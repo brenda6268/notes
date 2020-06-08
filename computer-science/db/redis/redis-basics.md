@@ -63,15 +63,15 @@ list is implemented as a double-linked list
 
 ```
 lpush key value1 value2 value3	 lpushx only pushes if not exist
-rpush	
+rpush
 lpop key	
-rpop	
-rpoplpush src dst	
+rpop
+rpoplpush src dst
 blpop key... timeout	block until one value is avaliable
-lindex key index	
-llen key	
+lindex key index
+llen key
 lrange key start end	inclusive
-linsert key 	
+linsert key 
 lrem key count value	
 lset key index value	
 ltrim key start end	

@@ -9,7 +9,7 @@ Modified: 2020-05-16 11:51:58
 
 ## 打开一个数据库
 
-```C++
+```
 #include <cassert>
 #include "rocksdb/db.h"
 
@@ -27,8 +27,8 @@ assert(status.ok());
 注意上面返回的那个status变量, 在RocksDB中所有会遇到错误的函数都会返回这个变量, 可以用来检查有没有出错.
 
 ```
-   rocksdb::Status s = ...;
-   if (!s.ok()) cerr << s.ToString() << endl;
+rocksdb::Status s = ...;
+if (!s.ok()) cerr << s.ToString() << endl;
 ```
 
 关闭数据库, 只需要简单得把指针释放就可以了: `delete db`.

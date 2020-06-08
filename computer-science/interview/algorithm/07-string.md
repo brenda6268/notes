@@ -83,3 +83,4 @@ https://juejin.im/post/5d1c7df2e51d45775c73dd49
 8. https://oi-wiki.org/string/ac-automaton/
 9. http://nark.cc/p/?p=1453
 10. https://lingeros-tot.github.io/2019/03/05/Warming-Up-%E8%87%AA%E5%8A%A8%E6%9C%BA%E6%A8%A1%E5%9E%8B/
+11. http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-words/
