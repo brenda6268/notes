@@ -12,3 +12,12 @@ But they do expect you to have some insight into aspects of such a design. The g
 Once you've done this reading, answering system design questions is a matter of process. Start at the highest level, and move downward. At each level, ask your interviewer for specifications (should you suggest a simple starting point, or talk about what a mature system might look like?) and talk about several options (applying the ideas from your reading). Discussing tradeoffs in your design is key. Your interviewer cares less about whether your design is good in itself, and more about whether you are able to talk about the trade-offs (positives and negatives) of your decisions. Practice this.
 
 http://blog.sae.sina.com.cn/archives/1290
+
+Message Queue
+Load Balancer
+Sharding
+Cache
+CDN
+Analytical
+R/W Seperate
+I/O or CPU

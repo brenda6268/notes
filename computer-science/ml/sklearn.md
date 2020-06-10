@@ -47,7 +47,7 @@ sklearn 为了方便学习自带了一些数据库，可以说是非常方便了
 
 代码：
 
-```
+```py
 >>> from sklearn import datasets
 >>> iris = datasets.load_iris()          # iris 花瓣数据库
 >>> digits = datasets.load_digits()      # 手写数字数据库

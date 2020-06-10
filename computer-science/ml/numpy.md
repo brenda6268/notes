@@ -1,30 +1,21 @@
 # numpy 入门
 
-
 wp_id: 476
 Status: draft
 Date: 2018-06-23 02:44:00
 Modified: 2020-05-16 11:14:25
 
-
-From Python to Numpy
-
-http://www.labri.fr/perso/nrougier/from-python-to-numpy/
-
-
 可视化的 numpy 教程：https://jalammar.github.io/visual-numpy/
-
-Write comments
 
 Numpy is a very powerful library and you can make wonders with it but, most of the time, this comes at the price of readability. If you don't comment your code at the time of writing, you won't be able to tell what a function is doing after a few weeks (or possibly days).
 
-np.array
+## np.array
 
 np.array is the basic structure is numpy. It's a n-dimension array
 
 directly from a python list or lists
 
-```
+```py
 print(type(a))            # Prints "<class "numpy.ndarray">"
 print(a.shape)            # Prints "(3,)"
 print(a[0], a[1], a[2])   # Prints "1 2 3"
@@ -51,3 +42,7 @@ e = np.random.random((2,2))  # Create an array filled with random values
 print(e)                     # Might print "[[ 0.91940167  0.08143941]
                              #               [ 0.68744134  0.87236687]]"
 ```
+
+## 参考
+
+1. http://www.labri.fr/perso/nrougier/from-python-to-numpy/
