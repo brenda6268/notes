@@ -7,9 +7,9 @@ Date: 2018-01-14 00:20:00
 Modified: 2020-05-16 11:29:26
 
 
-# 最小配置文件
+## 最小配置文件
 
-```
+```nginx
 events {
 }
 
@@ -30,7 +30,6 @@ http {
 }
 ```
 
-from: https://gist.github.com/jemmanuel/481bdac23690aa002c894cfc3a691b6f
 
 # Nginx 进程模型
 
@@ -290,3 +289,5 @@ https://www.nginx.com/resources/glossary/layer-4-load-balancing/
 https://www.nginx.com/resources/glossary/load-balancing/
 https://www.nginx.com/resources/glossary/round-robin-load-balancing/
 https://devcentral.f5.com/articles/intro-to-load-balancing-for-developers-ndash-the-algorithms
+
+from: https://gist.github.com/jemmanuel/481bdac23690aa002c894cfc3a691b6f

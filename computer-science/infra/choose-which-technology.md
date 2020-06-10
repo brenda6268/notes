@@ -26,6 +26,10 @@ Modified: 2020-05-16 11:09:29
 
 如果你是你们新用户最大的用户，那么你遇到的问题将会是最大的
 
+```
 Maturity = (Blood + Sweat) / Complexity
+```
 
 ## Choose Boring Technology
+
+同一类的技术不要引入重复组件。
