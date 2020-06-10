@@ -7,10 +7,9 @@ Date: 2018-04-04 06:22:00
 Modified: 2020-05-16 11:34:08
 
 
-Yifei's Notes
+## Yifei's Notes
 
-By using bottle, you would like to do some small and easy-to-understand and easy-to-implement code, so just use
-from bottle import *, if your code base grow to large, do refactor when so.
+By using bottle, you would like to do some small and easy-to-understand and easy-to-implement code, so just use `from bottle import *`, if your code base grow to large, do refactor when so.
 
 API design
 
@@ -18,7 +17,7 @@ API design
 * the outer most part of the json should be a dict
 * html rendering endpoint should not be mixed with api endpoints, prefix api with /api/ or /v1/
 
-Basic
+## Basic
 
 In this section, we run bottle in default app mode, which means we do not make a Bottle instance explicitly
 
@@ -34,10 +33,12 @@ if __name__ == "__main__":
 ```
 
 filter
+
 param can be restrcited to specific filter, available filters are int float path re
 
 
 error
+
 error page is described by @error(code) decorator
 
 ```

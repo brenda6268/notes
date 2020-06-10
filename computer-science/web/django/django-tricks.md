@@ -7,7 +7,7 @@ Date: 2017-06-26 02:24:00
 Modified: 2020-05-16 11:44:14
 
 
-# 运行开发服务器
+## 运行开发服务器
 
 ```
 python manage.py runserver [host:]port
@@ -34,7 +34,7 @@ python manage.py shell
 ```
 
 
-# timezone aware time
+## timezone aware time
 
 在向数据库中保存datetime字段的时候，经常会遇到 django 报警缺少时区信息，可以使用 django 自带的 timezone.now()
 

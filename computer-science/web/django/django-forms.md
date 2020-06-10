@@ -11,7 +11,7 @@ django 中的 form 和 model 的用法很像，都是定义一个类，然后指
 
 最简单的form
 
-```
+```py
 from django import forms
 
 class ContactForm(forms.Form):
@@ -27,7 +27,7 @@ class ContactForm(forms.Form):
         return message
 ```
 
-```
+```py
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -45,7 +45,7 @@ def contact(request):
         return render(request, 'contact_form.html', {'form': form})
 ```
 
-```
+```jinja
 <form action="" method="post">
     <table>
         {{ form.as_table }}
@@ -57,30 +57,35 @@ def contact(request):
 
 方法 | 用法
 ------|------
-form.__str__() | return table representation
+`form.__str__()` | return table representation
 form.as_p() | return p representation
 form.as_li() | return li representation
-form.__getitem__() | return element tag
-form.__init__(dict) | fill values
+`form.__getitem__()` | return element tag
+`form.__init__(dict)` | fill values
 form.is_bound | 
 form.is_valid() | 
 form.cleaned_data | 
 
 Note not include table/ul/form tags, just the inside tags
 
+## ajax
 
-# ajax
-
-## ajax 中如何指定 crsf token
+ajax 中如何指定 crsf token
 
 axios 中：
 
-    import axios from 'axios';
-    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-    axios.defaults.xsrfCookieName = "csrftoken";
+```js
+import axios from 'axios';
+axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+axios.defaults.xsrfCookieName = "csrftoken";
+```
 
 settings.py 中
 
-    CSRF_COOKIE_NAME = "csrftoken"
+```
+CSRF_COOKIE_NAME = "csrftoken"
+```
 
-[参考](https://stackoverflow.com/questions/39254562/csrf-with-django-reactredux-using-axios)
+## 参考
+
+https://stackoverflow.com/questions/39254562/csrf-with-django-reactredux-using-axios

@@ -7,7 +7,7 @@ Date: 2017-06-07 08:07:00
 Modified: 2020-05-16 12:05:50
 
 
-# Basics
+## 基础
 
 `./manage.py startapp APP_NAME` would create an `admin.py` file, you should define your admin classes in that file.
 
@@ -15,12 +15,13 @@ Modified: 2020-05-16 12:05:50
 
 by default, the admin panel only contains user and group settings.
 
-# how to create your own admin
+## how to create your own admin
+
 1. subclass `django.contrib.admin.ModelAdmin` in `admin.py`
 2. customize this class
 3. register it to the admin site
 
-## subclass
+### subclass
 
 最简单的一个例子
 

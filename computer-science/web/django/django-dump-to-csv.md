@@ -7,7 +7,7 @@ Date: 2018-04-30 09:59:00
 Modified: 2018-04-30 09:59:00
 
 
-```
+```py
 import csv
 from django.db.models.loading import get_model
 

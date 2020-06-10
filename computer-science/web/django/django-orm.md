@@ -329,7 +329,7 @@ print(connection.queries)
 
 ### 如何在 django 外部单独使用模型
 
-```
+```py
 import os
 from django.conf import settings
 from django.apps import apps

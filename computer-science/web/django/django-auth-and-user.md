@@ -11,17 +11,16 @@ Modified: 2018-01-17 22:53:00
 
 django 自带的 auth 模块需要收先创建数据库才能够使用：
 
-```
+```sh
 python manage.py migrate auth
 python manage.py migrate
 ```
 
-
-request.user.is_anonymous 检查用户是否
+request.user.is_anonymous 检查用户是否是匿名用户
 
 django comes with login/logout forms and views
 
-```
+```py
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
@@ -34,7 +33,7 @@ urlpatterns = [
 
 By default, the django.contrib.auth.views.login view will try to render the registration/login.html template.  and will redirct to the /accouts/profile page
 
-```
+```jinja
 {% extends 'base.html' %}
  {% block title %}Login{% endblock %} 
 {% block content %}

@@ -1,13 +1,11 @@
 # django 静态文件
 
-
 wp_id: 713
 Status: publish
 Date: 2018-06-17 12:48:00
 Modified: 2020-05-16 11:40:49
 
-
-# settings.py 中的相关配置
+## settings.py 中的相关配置
 
 ```
 STATIC_URL = "/static/"
@@ -23,19 +21,18 @@ STATICFILES_DIRS = (
 )
 ```
 
-这样我们就可以把静态文件放在 common_static 和 /var/www/static/中了，Django也能找到它们。
-
+这样我们就可以把静态文件放在 common_static 和 /var/www/static/中了，Django 也能找到它们。
 
 ```
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 ```
 
-media文件夹用来存放用户上传的文件
+media 文件夹用来存放用户上传的文件
 
-# nginx 部署时的配置
+## nginx 部署时的配置
 
-```
+```nginx
 location /media  {
     alias /path/to/project/media;
 }
@@ -45,9 +42,9 @@ location /static {
 }
 ```
 
-# 在模板中引入静态文件
+## 在模板中引入静态文件
 
-```
+```jinja
 {% load static %}
 <img src="{% static "img/example.jpg" %}" alt="My image"/>
 ```

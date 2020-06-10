@@ -9,9 +9,9 @@ Modified: 2020-05-16 11:41:11
 
 settings.py 中的设置：
 
-```
+```py
 MIDDLEWARE_CLASSES = (
-    ...
+    # ...
     "django.middleware.locale.LocaleMiddleware",
 )
  

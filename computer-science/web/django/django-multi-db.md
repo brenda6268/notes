@@ -9,11 +9,11 @@ Modified: 2020-05-16 11:23:12
 
 有时候我们的表并不都在一个数据库中，需要使用多个数据库，django 支持配置并使用多个数据库。
 
-# 定义多个数据库
+## 定义多个数据库
 
 首先，在 DATABASES 中定义需要使用的多个数据库：
 
-```
+```py
 DATABASES = {
     "default": {},
     "users": {
@@ -35,7 +35,7 @@ DATABASES = {
 
 在使用 `manage.py` 的时候可以使用 `--database=xxx` 里指定数据库。
 
-# 数据库路由
+## 数据库路由
 
 可以通过实现 Database Router 来让 django 自动选择应该使用的数据库。
 
@@ -48,6 +48,6 @@ DB router 需要实现下面四个方法，用来指定不同的 Model 对应的
 
 最后使用 `DATABASE_ROUTERS` 安装对应的路由：
 
-```
+```py
 DATABASE_ROUERS = ["path.to.router"]
 ```

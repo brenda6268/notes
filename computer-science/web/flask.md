@@ -203,25 +203,25 @@ def settings():
 
 这里先不展开了。
 
-## flask admin
+### flask admin
 
 https://github.com/flask-admin/flask-admin/blob/master/examples/peewee/app.py
 
-# 使用 swagger 生成文档
+## 使用 swagger 生成文档
 
 swagger 是一套定义 API 的工具，可以实现 API 的文档化和可交互。flasgger 是 flask 的一个插件，可以实现在注释中使用 swagger 语法。
 
 swagger 本身是一套工具，但是后来被社区发展成了 OpenAPI 规范。最新版本是 OpenAPI 3.0，而现在用的最多的是 swagger 2.0。我们这里
 
-# 完整的例子
+## 完整的例子
 
 https://github.com/coleifer/peewee/blob/master/examples/twitter/app.py
 
-# 使用 uwsgi 部署
+## 使用 uwsgi 部署
 
 开发阶段使用的是 flask 内置的 debug server 来提供服务的。在生产环境部署的时候，我们则需要使用 uwsgi 这种多线程的服务器来提供更好的性能。
 
-# 参考文献
+## 参考文献
 
 1. https://blog.csdn.net/u010466329/article/details/78522992
 2. https://blog.csdn.net/qq_21794823/article/details/78194164

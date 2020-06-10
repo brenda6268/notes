@@ -7,13 +7,13 @@ Date: 2017-06-07 08:47:00
 Modified: 2017-06-07 08:47:00
 
 
-# Why this happens?
+## Why this happens?
 
 You cannot store 4-byte characters in MySQL with the utf-8 character set.
 
-# solution
-```
-#! /usr/bin/env python
+## solution
+```py
+#!/usr/bin/env python
 import MySQLdb
 
 host = "localhost"

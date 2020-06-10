@@ -9,7 +9,7 @@ Modified: 2020-05-16 11:41:19
 
 和普通的单元测试不同的是，django 单独提供了一个测试模块，所有的 TestCase 需要继承 `django.test.TestCase`。
 
-# 简单的测试
+## 简单的测试
 
 ```python
 from django.test import TestCase

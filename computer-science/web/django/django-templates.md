@@ -7,7 +7,7 @@ Date: 2017-11-13 11:34:00
 Modified: 2017-11-13 11:34:00
 
 
-# marco
+## marco
  
 there is no marco in django template, you just have to use include with parameters
 
@@ -15,7 +15,7 @@ there is no marco in django template, you just have to use include with paramete
 {% include "marco.html" with arg=parameter %}
 ```
 
-# variable
+## variable
 
 ```
 {{ my_dict.key }}

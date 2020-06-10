@@ -9,11 +9,11 @@ Modified: 2020-05-16 11:40:42
 
 django 使用正则指定路径，然后使用一个函数来处理对应的请求。
 
-# 定义响应函数
+## 定义响应函数
 
 响应函数如下：
 
-```
+```py
 # views.py
 
 from django.shortcuts import render
@@ -33,9 +33,9 @@ def add2(request, a, b):
 
 注意每个函数都需要接受 request 作为第一个参数，GET参数和POST参数都可以从 request 中读取。另外还可以使用从 url path 中读取数据，这些参数作为形参传递给对应的函数。
 
-# 定义 URL 路由
+## 定义 URL 路由
 
-```
+```py
 # urls.py
 
 from calc import views as calc_views
@@ -53,7 +53,7 @@ urlpatterns = [
 
 response 对象可以当做字典使用，向其中复制就可以设定响应的头部
 
-```
+```py
 from django.http import HttpResponse
 
 def add(request):
