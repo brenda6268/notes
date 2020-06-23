@@ -1,13 +1,11 @@
-# 读  Web Scraping with Python
-
+# 读 _Web Scraping with Python_
 
 wp_id: 352
 Status: publish
 Date: 2017-05-29 14:31:00
 Modified: 2020-05-16 12:09:02
 
-
-#Chapter I Introduction
+# Chapter I Introduction
 
 ## 为什么要写爬虫？
 
@@ -43,7 +41,7 @@ whois.whois(url)
 
 下载器需要提供的几个功能：
 
-1. 错误重试，仅当返回的错误为500的时候重试，一般400错误可认为不可恢复的网页
+1. 错误重试，仅当返回的错误为 500 的时候重试，一般 400 错误可认为不可恢复的网页
 2. 伪装 UA
 3. 策略
     a. 爬取站点地图 sitemap
@@ -69,9 +67,9 @@ True or False
 
 例子：https://bitbucket.org/wswp/code/src/chpter01/link_crawler3.py
 
-#Chapter II Scraping
+# Chapter II Scraping
 
-##抽取资源的方式
+## 抽取资源的方式
 
 1. 正则
         不适用于匹配网页结构，因为网页结构中空白等都是无关紧要的，而可能破坏正则 Structural-based
@@ -82,18 +80,18 @@ True or False
 
 下载的第二步，就是把获得的网页传递给 Extractor 来提取内容，可以通过传递给下载函数回调来处理，但是这种耦合性太强了
 
-#Chapter III Downloader Cache
+# Chapter III Downloader Cache
 
-* 书中的缓存把所有相应都做了缓存，包括500的错误响应，实际上这样的直接不缓存好了。。
+* 书中的缓存把所有相应都做了缓存，包括 500 的错误响应，实际上这样的直接不缓存好了。
 * 书中的磁盘缓存把 url normalize 逻辑也加到了这里，感觉比较混乱
 * 注意使用磁盘文件缓存的话会受限于磁盘单目录文件的数量，即使是 ext4 文件系统也不大
 
-#Chapter IV
+# Chapter IV
 
 执行下载时间估算也是很重要的，每个链接下载需要多长时间，整个过程需要多长时间
 多线程的下载例子，手工模拟线程池
 
-```
+```py
 def process_queue(q):
     pass
 	
@@ -111,7 +109,7 @@ while thread or crawl_queue:
 	
 性能的增长与线程和进程的数量并不是成线性比例的，而是对数比例，因为切换要花费一定的时间，再者最终是受限于带宽的
 
-#Chapter V Dynamic Content
+# Chapter V Dynamic Content
 
 ## 逆向接口
 
@@ -121,19 +119,19 @@ while thread or crawl_queue:
 
 ## 渲染动态网页
 
-使用Qt，使用 Selenium 或者 PhantomJS，这时附加 Cookie 等都是很严重的问题
+使用 Qt，使用 Selenium 或者 PhantomJS，这时附加 Cookie 等都是很严重的问题
 
-#Chapter VI Form Interaction
+# Chapter VI Form Interaction
 
 * 登录表单中往往会有隐藏的参数，比如 form_key 用于避免表单重复提交，还可能需要 cookie 验证
 * Wow，竟然可以直接从浏览器加载 Cookie，使用 browsercookie 模块
 
-#Chapter VII
+# Chapter VII
 
 使用机器识别验证码
 使用 Pillow 和 pytesseract 识别验证码，但是 tesseract 本不是用来识别验证码的
 
-##一种锐化方法
+## 一种锐化方法
 ```
 img.convert("L")
 img.point(lambda x: 0 if x < 1 else 255, "l")

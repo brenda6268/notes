@@ -1,11 +1,9 @@
 # 学习 Startup Engineering
 
-
 wp_id: 351
 Status: publish
 Date: 2018-06-22 04:41:00
 Modified: 2020-05-16 11:09:35
-
 
 https://gist.github.com/dideler/5796745
 
@@ -27,7 +25,6 @@ Pricing is important; to the extent that you are not constrained by competition,
 Measure growth rate per week, but only after you've launched. A good growth rate (during YC) is 5-7% a week. If you can hit 10% a week you're doing exceptionally well. If you can only manage 1%, it's a sign you haven't yet figured out what you're doing.
 Focus on just hitting a growth rate every week. This focus reduces the otherwise bewilderingly multifarious problem of starting a startup to a single problem. Use that target growth rate to make all your decisions for you. Having to hit a growth number every week forces founders to act. Nine times out of ten, sitting around strategizing is just a form of procrastination.
 Best thing to measure growth rate of is revenue for startups that charge initially, and active users for startups that do not.
-
 
 Be aggressive when recruiting new users. Manually and individually recruit your initial users; go out to a coffee shop and have people try your product. Go door-to-door. Have people sign up for your beta in person. The numbers will seem small at first, but don't be fooled by compound growth - it starts slow.
 

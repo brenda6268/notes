@@ -1,4 +1,4 @@
-# Michael Sipser - Dean of Science
+# Michael Sipser 在头条的讲座
 
 
 wp_id: 358
