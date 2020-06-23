@@ -1,3 +1,5 @@
+Date: 2020-03-21
+
 But they do expect you to have some insight into aspects of such a design. The good news is that these questions usually focus on web backends, so you can make a lot of progress by reading about this area. An incomplete list of things to understand is:
 
 1. HTTP (at the protocol level)
@@ -13,11 +15,11 @@ Once you've done this reading, answering system design questions is a matter of 
 
 http://blog.sae.sina.com.cn/archives/1290
 
-Message Queue
-Load Balancer
-Sharding
-Cache
-CDN
-Analytical
-R/W Seperate
-I/O or CPU
+- Message Queue
+- Load Balancer
+- Sharding
+- Cache
+- CDN
+- Analytical
+- R/W Seperate
+- I/O or CPU

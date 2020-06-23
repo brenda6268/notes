@@ -127,3 +127,5 @@ func (uf *UnionFind) IsConnected(p, q int) bool {
 ## LeetCode 200 岛屿的数量
 
 这个题就很简单了，简直是 UnionFind 的直接应用。
+
+1. [Union-Find 并查集算法详解](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484751&idx=1&sn=a873c1f51d601bac17f5078c408cc3f6)

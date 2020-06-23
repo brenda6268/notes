@@ -1,4 +1,6 @@
 # 数学知识
+ 
+Date: 2019-10-30
 
 数学类问题一定要记得进位 v = v1 + v2 + carry
 
@@ -45,6 +47,10 @@ long long binpow(long long a, long long b) {
 ```
 
 ## 全排列
+
+## 几何
+
+有时候几何题也会出现在面试中。不过，毕竟是 coding interview 而不是 math interview，这部分复习的优先级不高。
 
 ## 参考
 
