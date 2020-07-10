@@ -143,3 +143,5 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 [1]: https://morvanzhou.github.io/tutorials/machine-learning/sklearn/1-1-why/
 [2]: http://scikit-learn.org/stable/tutorial/basic/tutorial.html
+
+1. https://sklearn.apachecn.org/docs/0.21.3/2.html
