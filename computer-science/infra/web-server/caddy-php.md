@@ -1,27 +1,26 @@
 # 使用 caddy 运行 php
 
-
 wp_id: 93
 Status: publish
 Date: 2019-06-15 15:11:02
 Modified: 2020-05-16 10:58:22
 
-
-使用 caddy 运行 PHP
-
 caddyfile
 
+```
 example.com {
     gzip
     root /srv
     fastcgi / 127.0.0.1:9000 php # php variant only
     on startup php-fpm7 # php variant only
 }
+```
 
 example.com 记得改成自己的域名
 
 docker-compose.yml
 
+```yaml
 version: "3"
 
 services:
@@ -37,6 +36,7 @@ services:
       - "80:80"
       - "443:443"
       - "2015:2015"
+```
 
 参考
 

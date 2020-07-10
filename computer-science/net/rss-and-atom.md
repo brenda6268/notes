@@ -1,13 +1,11 @@
 # RSS 和 Atom 协议详解和不足
 
-
 wp_id: 420
 Status: publish
 Date: 2016-12-27 11:35:00
 Modified: 2020-05-16 12:06:48
 
-
-# 关于CDATA
+# 关于 CDATA
 
 CDATA stands for Character Data and it means that the data in between these strings includes data that could be interpreted as XML markup, but should not be.
 
@@ -51,12 +49,10 @@ So we could use CDATA to smuggle some HTML into the XML document, so that the HT
 现代的 RSS 阅读器需要做三个方面
 
 1. 一个社区
-2. 能够把所有服务都提供RSS，包括不提供RSS的站点
+2. 能够把所有服务都提供 RSS，包括不提供 RSS 的站点
 3. 评论服务
 4. 转码。有的 RSS 只提供了文章的摘要，有的 RSS 有实效性，有的 RSS 有自己的字体
 
-
- 
  
 # Atom 1.0
 

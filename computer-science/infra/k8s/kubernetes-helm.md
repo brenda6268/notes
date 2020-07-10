@@ -9,11 +9,56 @@ Modified: 2020-05-16 11:25:03
 
 在 k8s 上部署一个应用还是有些复杂的, 自己的应用当然需要自己一步一步部署, 但是对于一些通用的应用, 比如说 mysql/grafana 这种就没必要自己手工一步一步部署了. 这时候就有了 helm, 通俗的来说他就是 kubernetes 上的 AppStore 或者是 apt-get, 常见的应用都已经在了, 而且你也可以按照他的格式打包自己的应用部署.
 
-# 安装
+Helm 是 Kubernetes 的一个包管理器，你可以把他理解为 apt-get 或者 App Store。Helm 中的一个包称为一个 Chart，每次安装后称为一个 Release, Release 还有 revision，可以升级或者回滚到之前的 revision。 Helm 中还可以添加不同的 repo，repos 中有不同的 Chart。
+
+
+## 安装
 
 在 helm 的 release 页面下载, 然后拷贝到本地的 /usr/local/bin/ 目录就好了. helm 运行的时候会使用 ~/.kube/config 文件, 所以本地 kubectl 可以使用就好了.
 
 # 使用
+
+添加仓库
+
+```sh
+helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts  # 国内镜像
+```
+
+安装包（Chart）
+
+```sh
+helm repo update  # 更新仓库
+helm install stable/mysql --generate-name  # 安装一个包
+```
+
+列出值
+
+```
+helm list  # 列出当前的 release
+helm status RELEASE # 查看状态
+```
+
+自定义安装
+
+```sh
+helm show values stable/mysql
+helm install -f config.yaml stable/mysql --generate-name
+```
+
+升级和回滚
+
+```sh
+helm upgrade
+helm rollback
+```
+
+卸载
+
+```
+helm uninstall
+```
+
+
 
 ## 概念
 
@@ -72,50 +117,7 @@ mumoshu        	https://mumoshu.github.io/charts
 $ helm repo add dev https://example.com/dev-charts
 ```
 
-Helm 是 Kubernetes 的一个包管理器，你可以把他理解为 apt-get 或者 App Store。Helm 中的一个包称为一个 Chart，每次安装后称为一个 Release, Release 还有 revision，可以升级或者回滚到之前的 revision。 Helm 中还可以添加不同的 repo，repos 中有不同的 Chart。
-
 ## 基本使用
-
-添加仓库
-
-```sh
-helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts  # 国内镜像
-```
-
-安装包（Chart）
-
-```sh
-helm repo update  # 更新仓库
-helm install stable/mysql --generate-name  # 安装一个包
-```
-
-列出值
-
-```
-helm list  # 列出当前的 release
-helm status RELEASE # 查看状态
-```
-
-自定义安装
-
-```sh
-helm show values stable/mysql
-helm install -f config.yaml stable/mysql --generate-name
-```
-
-升级和回滚
-
-```sh
-helm upgrade
-helm rollback
-```
-
-卸载
-
-```
-helm uninstall
-```
-
 
 ## 参考
 

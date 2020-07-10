@@ -1,4 +1,4 @@
-# building ci
+# 打造自己的持续集成
 
 
 wp_id: 565

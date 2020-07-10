@@ -1,21 +1,17 @@
 # 使用 supervisord 部署服务
 
-
 wp_id: 613
 Status: publish
 Date: 2018-05-24 00:32:00
 Modified: 2020-05-16 11:39:17
 
-
-在某一刻你会意识到你需要写一个长期运行的服务。如果有错误，这些脚本不应该停止运行，而且当系统重启的时候应该自动把这些脚本拉起来。
-
-为了实现这一点，我们需要一些东西来监控脚本。这些工具在脚本挂掉的时候重启他们，并且在系统启动的时候拉起他们。
+在某一刻你会意识到你需要写一个长期运行的服务。如果有错误发生，这些脚本不应该停止运行，而且当系统重启的时候应该自动把这些脚本拉起来。为了实现这一点，我们需要一些东西来监控脚本。这些工具在脚本挂掉的时候重启他们，并且在系统启动的时候拉起他们。
 
 ## 脚本
 
-这样的工具应该是怎样的呢？我们安装的大多数东西都带了某种进程监控的机制。比如说Upstart和Systemd。这些工具被许多系统用来监控重要的进程。当我们安装php5-fpm，Apache 和nginx的时候，他们通常已经和系统集成好了，以便于他们不会默默挂掉。
+这样的工具应该是怎样的呢？我们安装的大多数东西都带了某种进程监控的机制。比如说 Upstart 和 Systemd。这些工具被许多系统用来监控重要的进程。当我们安装 php5-fpm，Apache 和 nginx 的时候，他们通常已经和系统集成好了，以便于他们不会默默挂掉。
 
-然而，我们有时候需要一些简单点儿的解决方案。比如说我经常写一些 nodejs 的脚本来监控 github 上的某个动态并作相应的动作。node可以处理 http 请求并且同时处理他们，也就是很适合作为一个一次性运行的服务。这些小的脚本可能不值得使用 Upstart 或者 Systemd 这种重量级的东西。
+然而，我们有时候需要一些简单点儿的解决方案。比如说我经常写一些 nodejs 的脚本来监控 github 上的某个动态并作相应的动作。node 可以处理 http 请求并且同时处理他们，也就是很适合作为一个一次性运行的服务。这些小的脚本可能不值得使用 Upstart 或者 Systemd 这种重量级的东西。
 
 下面是我们的例子， 把它放在 /srv/http.js 中
 
@@ -52,7 +48,7 @@ supervisor 支持 python 3，也建议用这个版本。
 brew install supervisor
 ```
 
-在 linux 上可以通过apt-get来安装 supervisor，同样的命令。Centos 的命令请自己查询。
+在 linux 上可以通过 apt-get 来安装 supervisor，同样的命令。Centos 的命令请自己查询。
 
 ```bash
 % sudo apt-get install supervisor
@@ -133,7 +129,7 @@ etc/supervisord.conf
 
 ### 控制进程
 
-可以使用 supervisorctl 来控制对应的服务了。不过需要首先启动 supervisord 的daemon 才行。
+可以使用 supervisorctl 来控制对应的服务了。不过需要首先启动 supervisord 的 daemon 才行。
 
 ```bash
 supervisorctl reread
@@ -161,7 +157,8 @@ If we access our server in a web browser at port 9001, we'll see the web interfa
 
 ## 注意
 
-千万不要在 Docker 内部使用 supervisord 来启动多个进程，你这是在玩儿火！Docker 本身就是一个进程管理器，他的设计理念也是进程挂了就重启，如果你加了 supervisord 的话，很可能进程挂了，但是 supervisord 还活着，这样在 docker 看来整个服务就是健康的，殊不知 supervisord 可能在循环重启服务。。总之，禁止套娃！
+千万不要在 Docker 内部使用 supervisord 来启动多个进程，你这是在玩儿火！Docker 本身就是一个进程管理器，他的设计理念也是进程挂了就重启，如果你加了 supervisord 的话，很可能进程挂了，但是 supervisord 还活着，这样在 docker 看来整个服务就是健康的，殊不知 supervisord 可能在循环重启服务。总之，禁止套娃！
 
+## 参考
 
-ref: https://serversforhackers.com/c/monitoring-processes-with-supervisord
+1. https://serversforhackers.com/c/monitoring-processes-with-supervisord

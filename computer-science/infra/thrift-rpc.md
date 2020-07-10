@@ -1,13 +1,11 @@
 # Thrift RPC 框架
 
-
 wp_id: 549
 Status: publish
 Date: 2017-06-23 15:45:00
 Modified: 2020-05-16 11:44:07
 
-
-Thrift 是一个全栈的 RPC 框架，它包含了接口定义语言（IDL）和RPC服务两部分，大概相当于 protobuf + gRPC 的功能。
+Thrift 是一个全栈的 RPC 框架，它包含了接口定义语言（IDL）和 RPC 服务两部分，大概相当于 protobuf + gRPC 的功能。
 
 # 安装
 
@@ -17,11 +15,10 @@ Thrift 是一个全栈的 RPC 框架，它包含了接口定义语言（IDL）�
 
 包括 `bool, byte/i8, i16, i32, i64, double, string, binary`。
 
-- 比较蛋疼的是 thrift 不支持 uint，原因是好多语言里面没有原生无符号类型（无语。。）
+- 比较蛋疼的是 thrift 不支持 uint，原因是好多语言里面没有原生无符号类型（无语。）
 - binary 类型相当于某些语言中的 bytes
 - string 使用 utf-8 编码
 - byte 和 i8 是同一个类型，也是有符号的
-
 
 ##  复合类型（struct）
 
@@ -66,8 +63,8 @@ enum Operation {
 
 Thrift 中包含了常见的容器类型 `list set map` 等。
 
-- `list<t1>`: 一个t1类型的有序数组
-- `set<t1>`: 一个t1类型的无需集合
+- `list<t1>`: 一个 t1 类型的有序数组
+- `set<t1>`: 一个 t1 类型的无需集合
 - `map<t1,t2>`: 一个字典，key 是 t1 类型，value 是 t2 类型
 
 ## 常量
@@ -124,7 +121,7 @@ Thrift 的整个网络架构如图：
 
 ![](https://tva1.sinaimg.cn/large/006tKfTcgy1fslz611nmfj30y40igdj2.jpg)
 
-生成的代码位于蓝色的一层，Transport 实现了二进制数据的传输，我们可以选择 TCP 或者 HTTP 等协议传输我们的数据。也就是Processor。Protocol 层定义了如何把Thrift内部结构的数据序列化到二进制数据，或者反过来解析，可以使用 JSON、compact 等转换方法。Processor 负责从 Protocol 中读取请求，调用用户的代码，并写入响应。Server 的实现可以有很多中，比如多线程、多进程的等等。
+生成的代码位于蓝色的一层，Transport 实现了二进制数据的传输，我们可以选择 TCP 或者 HTTP 等协议传输我们的数据。也就是 Processor。Protocol 层定义了如何把 Thrift 内部结构的数据序列化到二进制数据，或者反过来解析，可以使用 JSON、compact 等转换方法。Processor 负责从 Protocol 中读取请求，调用用户的代码，并写入响应。Server 的实现可以有很多中，比如多线程、多进程的等等。
 
 Processor 的定义：
 
@@ -137,10 +134,9 @@ interface TProcessor {
 Server 的具体工作：
 
 - 创建一个 Transport 用于传输数据
-- 为这个Transport创建输入输出的 Protocol 
+- 为这个 Transport 创建输入输出的 Protocol 
 - 基于上面的 Protocol 创建 Processor
 - 等待客户端请求，并且把收到的请求交给 Processor 处理，一直循环下去。
-
 
 # 编译
 
@@ -155,21 +151,18 @@ thrift -r --gen py file.thrift
 
 # 一个例子
 
-
 handler 对应实现 service
 Server 中使用 Handler
 
-Python的 server 和 client 
-
+Python 的 server 和 client 
 
 # 常见问题
 
 YN: 线程安全性
 
-1. thrift默认提供了thread/process 等不同的server类型, 需要考虑handler的线程安全问题
-2. thrift client不是线程安全的, 在多线程程序中使用需要注意(http://grokbase.com/t/thrift/user/127yhv7wmx/is-the-thrift-client-thread-safe)
-3. 看一下pyutil中是如何使用的...
-
+1. thrift 默认提供了 thread/process 等不同的 server 类型，需要考虑 handler 的线程安全问题
+2. thrift client 不是线程安全的，在多线程程序中使用需要注意 (http://grokbase.com/t/thrift/user/127yhv7wmx/is-the-thrift-client-thread-safe)
+3. 看一下 pyutil 中是如何使用的。..
 
 何时需要一个 thrift 服务呢？而不是封装一个类或者 dal 来操作？
 
@@ -178,7 +171,7 @@ YN: 线程安全性
 
 如果只是同一个语言内，需要读写一些数据库之类的，封装成一个类就可以了
 
-Const应该定义在哪儿？
+Const 应该定义在哪儿？
 
 如果是一个需要在调用过程中使用的常量，使用 thrift，如果是在数据库中存储，使用在代码中定义的常量
 
@@ -192,7 +185,6 @@ A few reasons other than speed:
 4. Thrift supports persistent connections and avoids the continuous TCP and HTTP handshakes that HTTP incurs.
 	
 Personally, I use thrift for internal LAN RPC and HTTP when I need connections from outside.
-
 
 # 参考
 

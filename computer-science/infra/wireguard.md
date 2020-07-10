@@ -85,6 +85,8 @@ sudo apt-get install wireguard resolvconf
 
 安装完成后，我们就得到了两个新命令：`wg` 和 `wg-quick`。其中 `wg` 是基础命令，`wg-quick` 是一个封装好的实用工具，实际上，他会调用 `wg` 和 `iptables` 等工作。
 
+因为我们是安装了内核模块，所以需要重启生效。
+
 ## 网络规划
 
 我们使用 `10.100.0.0/16` 作为 VPN 的子网网段。服务器所在的内网网段为：`172.17.0.11/20`。服务器的公网 IP 为 `1.1.1.1`。
@@ -116,7 +118,7 @@ Address = 10.100.0.1/16  # 这里指的是使用 10.100.0.1，网段大小是 16
 SaveConfig = true
 ListenPort = 51820  # 监听的 UDP 端口
 PrivateKey = < 这里填写 Server 上 privatekey 的内容 >
-# 下面这两行规则允许访问服务器的内网
+# 下面这两行规则允许访问服务器的内网，其中的 eth0 可能需要改成实际的网卡，比如 ens3
 PostUp   = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 

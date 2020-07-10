@@ -1,11 +1,9 @@
 # nginx 使用基础
 
-
 wp_id: 611
 Status: draft
 Date: 2018-01-14 00:20:00
 Modified: 2020-05-16 11:29:26
-
 
 ## 最小配置文件
 
@@ -30,10 +28,9 @@ http {
 }
 ```
 
-
 # Nginx 进程模型
 
-* 主进程必须有 root 权限才能使用 80 和 443 端口(小于 1024)
+* 主进程必须有 root 权限才能使用 80 和 443 端口（小于 1024)
 * The worker process are automatically spawned by the master process and they will run as nobody and nogroup if not specified.
 
 # Start nginx:
@@ -149,7 +146,6 @@ Nothing	Accept trailing slash and extra characters
 @	Define a block
 ```
 
-
 # Proxy Module
 
 This module reverse proxies nginx requests to upstream servers
@@ -218,7 +214,6 @@ Nginx has two methods to cache content:
 
 From <http://stackoverflow.com/questions/9137755/nginx-can-proxy-caching-be-configured-so-files-are-saved-without-http-headers>
 
-
 ## load balancing
 
 ```
@@ -262,7 +257,6 @@ Nginx supports FastCGI, WSSI and SCGI, and their directives are identical.
     fastcgi_param PARAM_NAME value // SCRIPT_FILENAME and QUERY_STRINIG is required
     fastcgi_store on|off // store generated html file to local disk
     fastcgi_cache zonename
-
 
 # Miscellaneous
 

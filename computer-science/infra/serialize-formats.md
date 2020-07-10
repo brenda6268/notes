@@ -1,15 +1,13 @@
 # 序列化协议的选择 json vs msgpack vs thrift vs protobuf
 
-
 wp_id: 594
 Status: publish
 Date: 2018-07-14 19:45:00
 Modified: 2020-05-16 11:17:14
 
-
 当我们的程序需要保存一些对象到硬盘上供下次运行时使用，或者需要和其他程序交换数据
 的时候，需要把对象用某种方式编程二进制字符串然后保存到硬盘上或者发送出去，这种方
-法我们一般称作序列化。序列化有很多不同的方法, 一般考虑三个方面：
+法我们一般称作序列化。序列化有很多不同的方法，一般考虑三个方面：
 
 1. 速度，序列化和反序列化的速度越快越好
 2. 体积，序列化之后的文件体积越小越好
@@ -18,7 +16,7 @@ Modified: 2020-05-16 11:17:14
 下面考察几种序列化的方法
 
 1. 语言内置的序列化。比如 Python 的 pickle，显然这种协议只能在一种语言内部使用，
-   而且对于Python来说，甚至不同版本的 pickle 协议都是不兼容的。
+   而且对于 Python 来说，甚至不同版本的 pickle 协议都是不兼容的。
 2. json / xml。这两个都可以把对象序列化成人类可读的字符串的形式，但是序列化后之
    后体积都变大不少，而且性能也不好，适合于简单的场景。另外一点就是 json 不能定
    义 schema（接口规范），*在大型项目中 schema 是必须的*。
@@ -40,7 +38,7 @@ Thrift 的缺点：
 protobuf 和 thrift 两个的用法都是先定义 IDL（接口）文件，然后由编译器编译生成对应的语言
 的代码。对于 C++ 这样的编译语言来说问题不大，我们可以把 IDL 编译的过程放到
 makefile 里面去，但是对于 Python 这种没有编译的动态语言就尴尬了。具体来说，IDL
-文件是需要提交到代码仓库的，但是生成的 Python 代码需不需要呢?
+文件是需要提交到代码仓库的，但是生成的 Python 代码需不需要呢？
 
 1. 不提交，在运行之前多一个编译步骤，不过可以把编译这一步写到 dockerfile 里面
 2. 提交，这样会造成提交的代码冗余，相当于把二进制文件提交到了仓库
@@ -95,7 +93,7 @@ message Result {
    注意的是，如果要增添字段不能复用已有的序号。
 6. 枚举。可以使用 enum 关键字定义枚举。枚举可以定义在 message 的外面或者里面
 7. 在一个文件中可以定义多个 message。像是 enum 一样，message 也可以嵌套在另一个
-   message中。比如可以把上面的 Result 嵌套在 SearchResponse 中。不过这时候再引用
+   message 中。比如可以把上面的 Result 嵌套在 SearchResponse 中。不过这时候再引用
    Result，需要使用 SearchResponse.Result
 8. message 中可以使用另一个 message 作为类型。
 9. 使用 import 语句来引入其他的 proto 文件。这样就可以直接使用引入
@@ -105,7 +103,7 @@ message Result {
 
 ### 在 Python 中使用
 
-ParseFromString: 从字符串中解析protobuf对象. 虽然这个方法名字中包含了string，但是实际上使用的是 bytes。
+ParseFromString: 从字符串中解析 protobuf 对象。虽然这个方法名字中包含了 string，但是实际上使用的是 bytes。
 
 ```
 r = SearchResponse()
@@ -120,10 +118,9 @@ data = r.SerializeToString()
 
 属性可以直接访问和设置，如果属性名或者类型出错会抛出异常。
 
-repeated 类型的基础类型属性可以像一个数组一样访问，map 类型可以像字典一样访问。但是赋值必须通过 append 和 extend 赋值，而不能直接赋值.
+repeated 类型的基础类型属性可以像一个数组一样访问，map 类型可以像字典一样访问。但是赋值必须通过 append 和 extend 赋值，而不能直接赋值。
 
 repeated 类型的 message 类型不能使用 append，而必须使用 add 或者 extend 方法。这样可以确保 message 类型被拷贝进去。
-
 
 # REF
 

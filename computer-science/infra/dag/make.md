@@ -6,17 +6,21 @@ Date: 2017-07-27 01:21:00
 Modified: 2020-05-16 11:46:39
 
 
-## Rule
+Make 实际上包含两部分，一部分是一个任务之间的依赖的逻辑关系（DAG)，另一部分是对 C 语言本身的一些实现知识，比如说 `o` 文件依赖 `c` 文件这些。
+
+
+## 基本规则
+
+Makefile 是一个 DSL，它的基础语法很简单：
 
 ```makefile
-target: dependencies(sepreated by spaces)
-    command(s) to run to build the target from dependencies
+目标: 依赖
+    从依赖生成目标的命令
 ```
 
-# Basic usage 
+## Basic usage 
 
-in most projects, we have a `.h` file for functiont interfaces, and the whole program depends on it.
-typically, all `.o` files are compiled from corresponding `.c` source files
+In most projects, we have a `.h` file for functiont interfaces, and the whole program depends on it. Typically, all `.o` files are compiled from corresponding `.c` source files
 
 ```makefile
 cc = gcc              # marco
@@ -25,11 +29,11 @@ deps = calc.h         # the one .h to rule them all
 obj = main.o getch.o getop.o stack.o
 $(prom): $(obj)
     $(CC) -o $(prom) $(obj)
-%.o: %.c $(deps)      #pattern rule, which means all .o depends on all .c and $(deps)
+%.o: %.c $(deps)      # pattern rule, which means all .o depends on all .c and $(deps)
     $(CC) -c $< -o $@ # $< means the depender and $@ means the dependee
 ```
 
-# Functions
+## Functions
 
 we can make the file even smarter by using makefile funcions
 Makefile function syntax $(func params)
@@ -44,12 +48,9 @@ $(prom): $(obj)
     $(CC) -o $(prom) $(obj)
 %.o: %.c $(deps)
     $(CC) -c $< -o $@
-clean: # empty target to run a commnad
+clean: # 没有依赖的命令
     rm -rf $(obj) $(prom)
 ```
-# Reference
-
-http://www.epubit.com.cn/article/546
 
 # Autotools
 
@@ -138,4 +139,8 @@ newaction {
    end
 }
 ```
-https://stackoverflow.com/questions/2367284/how-does-the-make-j-option-actually-work
+
+## 参考
+
+1. https://stackoverflow.com/questions/2367284/how-does-the-make-j-option-actually-work
+2. http://www.epubit.com.cn/article/546

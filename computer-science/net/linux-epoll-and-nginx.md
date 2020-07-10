@@ -11,7 +11,7 @@ Modified: 2020-05-16 11:32:22
 
 select 和 poll 每次获取可读写的描述符都需要遍历所有的文件描述符，它们的时间复杂度都是 O(n)，而 epoll 是基于回调的，每个 socket 上有事件发生都会调用回调函数放到 epoll 的就序列表中，因此 epoll_wait 只需要简单地读取这个列表，所以epoll的时间复杂度是 O(1) 的。
 
-添加监控的socket只需要使用 epoll_ctl 添加一次，而获取消息 epoll 使用 mmap 加速内核与用户态的消息传递，不需要每次都把 socket 在内核态和用户态之间考来考取。
+添加监控的socket只需要使用 epoll_ctl 添加一次，而获取消息 epoll 使用 mmap 加速内核与用户态的消息传递，不需要每次都把 socket 在内核态和用户态之间复制来复制去。
 
 ## epoll 的工作模式
 
