@@ -15,3 +15,6 @@ Modified: 2020-05-16 11:07:44
 这两个条件几乎是对立的，所以我们必须找到一种算法，并获得一个尽可能优的折衷。
 
 可以使用泊松过程：https://stackoverflow.com/questions/10331738/strategy-for-how-to-crawl-index-frequently-updated-webpages
+
+https://en.wikipedia.org/wiki/Web_crawler
+https://intoli.com/blog/aopic-algorithm/
