@@ -23,7 +23,7 @@ WhateverFirstSearch(s):
         把 w 放入 bag 中
 ```
 
-如果 bag 的算法选用 stack，那么就可以还嫌深度优先遍历，如果选用 queue 就可以实现广度优先遍历。
+如果 bag 的算法选用 stack，那么就可以实现深度优先遍历，如果选用 queue 就可以实现广度优先遍历。
 
 如果选用 priority queue，那么就可以实现最优优先遍历。
 
