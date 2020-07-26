@@ -136,7 +136,7 @@ clickhouse 的 UI：https://github.com/tabixio/tabix 也可以理解为一个简
 - http://redash.io
 - https://www.snowflake.com/
 - https://github.com/spotify/luigi 类似 Airflow
-- https://looker.com/ （已被Google收购）
+- https://looker.com/ （已被 Google 收购）
 - https://popsql.com/
 - https://app.forestadmin.com/signup
 - https://www.periscopedata.com/
