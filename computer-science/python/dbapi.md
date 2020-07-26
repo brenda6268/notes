@@ -1,4 +1,5 @@
 # Python 标准的 DB API
+
 Date: 2020-01-20
 
 DB API 2.0(PEP 249) 是 Python 给数据库驱动定义的一个规范。sqlite 和 mysql 的客户端都遵守这个规范。
@@ -7,6 +8,7 @@ connect 方法连接数据库，返回一个 Connection 对象。
 
 ## 错误体系
 
+```
 StandardError
 |__Warning
 |__Error
@@ -18,6 +20,7 @@ StandardError
       |__InternalError
       |__ProgrammingError
       |__NotSupportedError
+```
 
 ## Connection 对象
 
@@ -36,7 +39,7 @@ cursor.rowcount 返回上一次 execute 后产生的行数
 
 .executemany(stmt, list of params)
 
-.fetchone() 返回一条记录，如果没有，返回None
+.fetchone() 返回一条记录，如果没有，返回 None
 
 .fetchmany(size) 返回多条记录
 

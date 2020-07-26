@@ -11,7 +11,7 @@ Modified: 2020-05-16 11:34:18
 
 跳表是用**并连的链表**来实现的查询结构
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fq102txkvvj30hs07haaf.jpg)
+![](https://tva1.sinaimg.cn/large/006tNc79gy1fq102txkvvj30hs07haaf.jpg)
 
 * 每个节点包含的指针的层数是由一个随机数决定的。
 * 跳表的时间复杂度和平衡二叉树相同，但是在实现上要简单很多。
@@ -19,23 +19,23 @@ Modified: 2020-05-16 11:34:18
 * 在构建跳跃表和查询跳跃的复杂度一致，所以也比较适合于在线的实时索引查询，可以来一个文档，一边查找就一边知道要如何进行插入操作了。
 * 保存到磁盘和从磁盘载入也比较简单，因为本质上是几个链表，所以保存的时候可以按照数组的方式分别保存几个数组就可以了。
 
-# 一些优化
+## 一些优化
 
 空间优化，把底层的表放到硬盘里，影响增加删除节点的效率
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1fq1043qhraj30hs06i3zn.jpg)
+![](https://tva1.sinaimg.cn/large/006tNc79gy1fq1043qhraj30hs06i3zn.jpg)
 
 时间优化，用数组代替链表，可以使用二分查找而非遍历
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1fq104leytgj30hs06j0tf.jpg)
+![](https://tva1.sinaimg.cn/large/006tNc79gy1fq104leytgj30hs06j0tf.jpg)
 
 
 对于类似时间这种数据，比如24小时对应1440分钟对应86400秒钟
 
 甚至可以固定直接用索引随机访问
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fq106sqt91j30hs06j758.jpg)
+![](https://tva1.sinaimg.cn/large/006tNc79gy1fq106sqt91j30hs06j758.jpg)
 
-# 实现
+## 实现
 
 https://github.com/begeekmyfriend/skiplist/blob/master/skiplist.h

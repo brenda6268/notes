@@ -141,3 +141,4 @@ fn main() {
 13. https://tourofrust.com/00_en.html
 14. https://stackoverflow.com/questions/55075458/understand-smart-pointers-in-rust
 15. https://stackoverflow.com/questions/49377231/when-to-use-rc-vs-box
+16. https://ricardomartins.cc/2016/06/08/interior-mutability
