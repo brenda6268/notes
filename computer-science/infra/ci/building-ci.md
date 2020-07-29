@@ -1,10 +1,13 @@
 # 打造自己的持续集成
 
 
-wp_id: 565
+<!--
+ID: 0bf62cbe-1d05-4558-a6bc-5c76b6803d54
 Status: draft
-Date: 2017-07-05 09:59:00
-Modified: 2020-05-16 11:45:00
+Date: 2017-07-05T09:59:00
+Modified: 2020-05-16T11:45:00
+wp_id: 565
+-->
 
 
 生成 deploy_key: `ssh-keygen -q -t rsa -N '' -f KEY_FILE`

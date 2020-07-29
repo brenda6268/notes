@@ -1,20 +1,21 @@
-# tiller for docker
+# Tiller
 
-
-wp_id: 516
+<!--
+ID: 23c68041-a1ac-428f-b473-a1443d5f0c2d
 Status: publish
-Date: 2018-01-17 20:00:00
-Modified: 2018-01-17 20:00:00
+Date: 2018-01-17T20:00:00
+Modified: 2018-01-17T20:00:00
+wp_id: 516
+-->
 
-
-# Yifei's Notes
+## Yifei's Notes
 
 Tiller SUCKS
 
 The only good part of tiller is that it makes a docker image can read environment variables and generate config files based on predefined templates, this functionality should easily be achieved by python and jinja2
 
 
-# Tiller
+## Tiller
 
 tiller runs program such as nginx inside docker instead of bare-bone nginx. tiller dynamically generates config files for different environment such as dev and QA.
 
@@ -28,7 +29,7 @@ After: Docker -> tiller -> nginx
 you copy the config file template when building image
 and run the container with you env vars
 
-# Downsides
+## Downsides
 
 We have to pre-define several environments in the image, then we choose which to use when starting the container.
 It's fine to use if we have limited envs, but what if we want to change the environment, we have to repack the image

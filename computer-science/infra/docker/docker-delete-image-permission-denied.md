@@ -1,10 +1,13 @@
 # Docker 删除镜像“Permission Denied”
 
 
-wp_id: 774
+<!--
+ID: b4beb6a3-3577-4c8c-977d-334ab08c410a
 Status: publish
-Date: 2019-10-15 12:05:20
-Modified: 2020-05-16 10:50:00
+Date: 2019-10-15T12:05:20
+Modified: 2020-05-16T10:50:00
+wp_id: 774
+-->
 
 
 ```bash

@@ -1,4 +1,4 @@
-Date: 2019-09-26
+# Prometheus
 
 
 Prometheus 是使用 Go 语言开发的一个监控工具和时序数据库，它的实现参考了 Borgmon。
@@ -68,9 +68,11 @@ Histograms and summaries both sample observations, typically request durations o
 
 
 To calculate the average request duration during the last 5 minutes from a histogram or summary called http_request_duration_seconds, use the following expression:
-  rate(http_request_duration_seconds_sum[5m])
-/
-  rate(http_request_duration_seconds_count[5m])
+
+```
+rate(http_request_duration_seconds_sum[5m]) / rate(http_request_duration_seconds_count[5m])
+```
+
 Histogram is calculated on the server, summary is calculated on the client and can not be recalculated.
 We have found the following guidelines very effective:
 

@@ -1,9 +1,14 @@
 # influxdb+grafana+telegraf 监控系统搭建
 
-wp_id: 740
+
+<!--
+ID: e9735bdd-8615-49cf-9d27-dc38e321d4f8
 Status: publish
-Date: 2018-09-20 19:05:00
-Modified: 2020-05-16 11:24:11
+Date: 2018-09-20T19:05:00
+Modified: 2020-05-16T11:24:11
+wp_id: 740
+-->
+
 
 本文基于 ubuntu 18.04
 

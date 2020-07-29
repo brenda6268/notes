@@ -1,10 +1,13 @@
 # 在 Mac 上安装 neovim
 
 
-wp_id: 732
+<!--
+ID: 0a5dc1d3-6868-4d4d-877d-08d5e3957b5b
 Status: publish
-Date: 2017-06-09 02:42:00
-Modified: 2020-05-16 12:05:17
+Date: 2017-06-09T02:42:00
+Modified: 2020-05-16T12:05:17
+wp_id: 732
+-->
 
 
 首先通过 homebrew 安装:

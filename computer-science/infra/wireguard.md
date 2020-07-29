@@ -1,5 +1,15 @@
 # 聊聊内核里的 WireGuard
 
+
+<!--
+ID: 67fb984c-9a49-40ad-9cf9-6ece4c3bf82f
+Status: draft
+Date: 2020-06-11T18:01:45
+Modified: 2020-06-11T18:01:45
+wp_id: 944
+-->
+
+
 ## 为什么需要虚拟专用网
 
 当我们需要在家中连上公司网络修复线上 bug 的时候，当拉不起专线的创业公司需要连接两个机房的服务器的时候，都需要用到虚拟专用网络<sup>1</sup>（Virtual Private Network）技术。

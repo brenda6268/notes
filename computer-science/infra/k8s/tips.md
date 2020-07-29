@@ -1,3 +1,15 @@
+# kubernetes tips 
+
+
+<!--
+ID: f7a46688-ad30-4153-a940-ae8f15bc8283
+Status: draft
+Date: 2020-05-28T14:09:32
+Modified: 2020-05-28T14:09:32
+wp_id: 1030
+-->
+
+
 重启一个服务
 
 ```

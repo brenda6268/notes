@@ -1,10 +1,13 @@
 # 使用 Ansible 部署服务
 
 
-wp_id: 615
+<!--
+ID: 5970c396-3db9-4d81-aa7d-fec411c32b1b
 Status: publish
-Date: 2018-06-18 03:16:00
-Modified: 2020-05-16 11:26:40
+Date: 2018-06-18T03:16:00
+Modified: 2020-05-16T11:26:40
+wp_id: 615
+-->
 
 
 ansible 的操作是幂等的，也就是说可以进行任意次操作而不会造成副作用。ansible 基于 ssh，不需要在目标机器上运行任何特殊的 agent。

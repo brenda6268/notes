@@ -1,11 +1,12 @@
-# docker 小技巧
+# Docker 小技巧
 
-
-wp_id: 517
+<!--
+ID: c9c5dd07-cc2c-4356-90ba-e03a75a8d442
 Status: publish
-Date: 2017-07-14 21:04:00
-Modified: 2020-05-16 11:45:46
-
+Date: 2017-07-14T21:04:00
+Modified: 2020-05-16T11:45:46
+wp_id: 517
+-->
 
 # 删除所有停止的容器
 

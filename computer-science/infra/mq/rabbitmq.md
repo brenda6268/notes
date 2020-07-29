@@ -1,10 +1,13 @@
 # rabbitmq 教程
 
 
-wp_id: 614
+<!--
+ID: cae4aefe-4de2-476f-aad6-4f419e8e71ee
 Status: publish
-Date: 2018-08-07 17:10:00
-Modified: 2020-05-16 11:22:57
+Date: 2018-08-07T17:10:00
+Modified: 2020-05-16T11:22:57
+wp_id: 614
+-->
 
 
 更新：弃坑了，rabbitmq 在我这里总是崩溃，实在没法正常使用

@@ -1,10 +1,13 @@
 # kubernetes 初探——在 Master 节点部署 Pod
 
 
-wp_id: 551
+<!--
+ID: d52c9393-b35a-41b2-90c9-fcd3872000dd
 Status: publish
-Date: 2019-02-12 19:57:00
-Modified: 2020-05-16 11:05:00
+Date: 2019-02-12T19:57:00
+Modified: 2020-05-16T11:05:00
+wp_id: 551
+-->
 
 
 虽然 K8S 本身不建议在 Master 节点中部署 Pod，但是实际上也是可以的。

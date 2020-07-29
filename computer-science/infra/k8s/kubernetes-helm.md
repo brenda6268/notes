@@ -1,10 +1,13 @@
 # kubernetes 初探——使用 helm 部署服务
 
 
-wp_id: 569
+<!--
+ID: 8cb2385f-c5b3-4bd5-9a29-3d1fbb2b9c97
 Status: publish
-Date: 2018-10-06 02:52:00
-Modified: 2020-05-16 11:25:03
+Date: 2018-10-06T02:52:00
+Modified: 2020-05-16T11:25:03
+wp_id: 569
+-->
 
 
 在 k8s 上部署一个应用还是有些复杂的, 自己的应用当然需要自己一步一步部署, 但是对于一些通用的应用, 比如说 mysql/grafana 这种就没必要自己手工一步一步部署了. 这时候就有了 helm, 通俗的来说他就是 kubernetes 上的 AppStore 或者是 apt-get, 常见的应用都已经在了, 而且你也可以按照他的格式打包自己的应用部署.

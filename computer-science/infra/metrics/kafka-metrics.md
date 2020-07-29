@@ -1,4 +1,7 @@
-Date: 2019-04-28
+# Kafka Metrics 
+
+
+
 
 JMXtrans + InfluxDB + Grafana实现Kafka性能指标监控 
 

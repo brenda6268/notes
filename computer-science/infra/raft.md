@@ -1,10 +1,13 @@
 # 蛤？什么是 raft 协议？
 
 
-wp_id: 562
+<!--
+ID: 8104e1d9-e8dd-4978-b2dc-82898627d420
 Status: publish
-Date: 2018-07-31 18:59:00
-Modified: 2020-05-16 11:22:22
+Date: 2018-07-31T18:59:00
+Modified: 2020-05-16T11:22:22
+wp_id: 562
+-->
 
 
 Raft 协议是一个分布式的一致性协议，主要通过 Leader Election 和 Log Replication 两个步骤来实现高可用的一致性状态存储。

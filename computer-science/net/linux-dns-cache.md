@@ -1,10 +1,13 @@
 # Linux 上的 DNS 缓存
 
 
-wp_id: 414
+<!--
+ID: 2e572ccf-fb5d-4a54-970d-08099affc33c
 Status: publish
-Date: 2018-04-13 05:51:00
-Modified: 2020-05-16 11:35:48
+Date: 2018-04-13T05:51:00
+Modified: 2020-05-16T11:35:48
+wp_id: 414
+-->
 
 
 Linux 内核中没有 DNS 缓存

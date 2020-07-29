@@ -1,10 +1,13 @@
 # HAR 格式解析
 
 
-wp_id: 413
+<!--
+ID: c344b931-1dd9-4920-a223-870254ef1342
 Status: publish
-Date: 2018-11-15 20:29:00
-Modified: 2020-05-16 11:07:06
+Date: 2018-11-15T20:29:00
+Modified: 2020-05-16T11:07:06
+wp_id: 413
+-->
 
 
 HAR(HTTP Archive) 文件是一种常见的用来保存 HTTP 请求和响应的格式。本质上，HAR 文件其实就是一个 JSON 文件。

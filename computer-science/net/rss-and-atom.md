@@ -1,11 +1,14 @@
-# RSS 和 Atom 协议详解和不足
-
-wp_id: 420
-Status: publish
-Date: 2016-12-27 11:35:00
-Modified: 2020-05-16 12:06:48
-
 # 关于 CDATA
+
+
+<!--
+ID: 419ff63e-a51a-4a01-a898-7f03931ade45
+Status: publish
+Date: 2016-12-27T11:35:00
+Modified: 2020-05-16T12:06:48
+wp_id: 420
+-->
+
 
 CDATA stands for Character Data and it means that the data in between these strings includes data that could be interpreted as XML markup, but should not be.
 

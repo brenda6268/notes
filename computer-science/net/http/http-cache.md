@@ -1,10 +1,13 @@
 # HTTP 缓存介绍
 
 
-wp_id: 587
+<!--
+ID: bf15c141-73c1-4f18-a3c4-6bfafee98f48
 Status: publish
-Date: 2017-05-30 02:37:00
-Modified: 2020-05-16 11:57:16
+Date: 2017-05-30T02:37:00
+Modified: 2020-05-16T11:57:16
+wp_id: 587
+-->
 
 
 和缓存相关的 header 共有如下几种

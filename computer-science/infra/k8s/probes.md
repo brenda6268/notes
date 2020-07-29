@@ -1,6 +1,15 @@
 # Kubernetes 探针
 
 
+<!--
+ID: 38a23839-a53c-4669-8664-2fb6f7d15074
+Status: draft
+Date: 2020-06-07T17:35:04
+Modified: 2020-06-07T17:35:04
+wp_id: 1033
+-->
+
+
 Kubernetes 使用探针来确定服务当前的状态，以及是否需要重启和分配流量。
 
 Kubernetes 中共有三类探针：

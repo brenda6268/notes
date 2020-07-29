@@ -1,9 +1,14 @@
 # 使用 systemd 部署守护进程
 
-wp_id: 118
+
+<!--
+ID: a79764fc-253b-4fd6-93bc-b1b062c194f1
 Status: publish
-Date: 2017-06-26 17:48:47
-Modified: 2020-05-16 10:57:52
+Date: 2017-06-26T17:48:47
+Modified: 2020-05-16T10:57:52
+wp_id: 118
+-->
+
 
 大多数的 Linux 系统已经选择了 systemd 来作为进程管理器。之前打算使用 supervisord 来部署服务，思考之后发现还不如直接使用 systemd 呢。这篇文章简单介绍下 systemd。 # 例子
 

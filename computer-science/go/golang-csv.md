@@ -1,10 +1,13 @@
 # Go语言处理 CSV 文件
 
 
-wp_id: 727
+<!--
+ID: d7680131-ae98-4708-8717-c25a09bb6084
 Status: publish
-Date: 2018-07-15 04:59:00
-Modified: 2020-05-16 11:18:58
+Date: 2018-07-15T04:59:00
+Modified: 2020-05-16T11:18:58
+wp_id: 727
+-->
 
 
 在 Go 语言中可以使用 `encoding/csv` 包来处理 csv 文件。

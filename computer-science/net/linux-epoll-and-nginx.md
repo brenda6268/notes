@@ -1,13 +1,14 @@
-# Linux 中的 epoll 和 nginx 中的应用
-
-
-wp_id: 417
-Status: publish
-Date: 2018-04-04 05:15:00
-Modified: 2020-05-16 11:32:22
-
-
 # epoll 的优势
+
+
+<!--
+ID: c57a3e32-61e2-4770-a561-a70a370d6ead
+Status: publish
+Date: 2018-04-04T05:15:00
+Modified: 2020-05-16T11:32:22
+wp_id: 417
+-->
+
 
 select 和 poll 每次获取可读写的描述符都需要遍历所有的文件描述符，它们的时间复杂度都是 O(n)，而 epoll 是基于回调的，每个 socket 上有事件发生都会调用回调函数放到 epoll 的就序列表中，因此 epoll_wait 只需要简单地读取这个列表，所以epoll的时间复杂度是 O(1) 的。
 

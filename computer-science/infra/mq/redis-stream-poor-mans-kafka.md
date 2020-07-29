@@ -1,10 +1,14 @@
 # Redis Stream - 穷人版的Kafka
 
 
-wp_id: 608
+<!--
+ID: 2dfc6012-6afb-4399-a32c-a0ff9a141f81
 Status: draft
-Date: 2018-07-15 04:57:00
-Modified: 2020-05-16 11:18:37
+Date: 2018-07-15T04:57:00
+Modified: 2020-05-16T11:18:37
+wp_id: 608
+-->
+
 
 2020-05-28 更新
 
