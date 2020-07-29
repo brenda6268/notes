@@ -1,5 +1,7 @@
 # LeetCode 突击手册
 
+Status: ignore
+
 一共定义了几个标签，可以通过 Ctrl+F/Cmd+F 搜索这些标签还快速浏览相同的题目。
 
 标签：#hash #backtrack #slidewindow #stack #queue #pointers
