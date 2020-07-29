@@ -1,9 +1,12 @@
 # Linux 中的 Process Group 和 Session
 
-wp_id: 482
+<!--
+ID: d7f54367-5f6d-4001-8dec-a4b7be72658e
 Status: publish
-Date: 2018-10-20 07:22:00
-Modified: 2020-05-16 11:25:59
+Date: 2018-10-20T07:22:00
+Modified: 2020-05-16T11:25:59
+wp_id: 482
+-->
 
 # 进程
 

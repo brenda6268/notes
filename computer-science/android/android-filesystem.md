@@ -1,11 +1,12 @@
 # 安卓的文件系统
 
-
-wp_id: 527
+<!--
+ID: 3224fcac-943b-43f4-87ab-a342a0dfa17e
 Status: publish
-Date: 2017-05-29 13:39:00
-Modified: 2020-05-16 12:08:19
-
+Date: 2017-05-29T13:39:00
+Modified: 2020-05-16T12:08:19
+wp_id: 527
+-->
 
 let's assume `/system` is the rom folder
 

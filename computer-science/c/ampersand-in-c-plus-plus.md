@@ -1,10 +1,12 @@
 # C++ 中的 &
 
-wp_id: 399
+<!--
+ID: 38338be4-202a-4d25-8fbb-cce457a64cf5
 Status: draft
-Date: 2017-07-16 01:29:00
-Modified: 2020-05-16 11:46:04
-
+Date: 2017-07-16T01:29:00
+Modified: 2020-05-16T11:46:04
+wp_id: 399
+-->
 
 For the first time I'm working with a C++ program, I'm surprised by so many `&`s in there, after about one year of learning, I got a summary here.
 

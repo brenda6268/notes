@@ -1,3 +1,13 @@
+# 无标题
+
+<!--
+ID: 01c6d54f-745d-49e7-b4c4-99d0d1d182e6
+Status: draft
+Date: 2020-07-29T23:37:30
+Modified: 2020-07-29T23:37:30
+wp_id: 1747
+-->
+
 Honestly, skip all of the courses. Pick a problem to solve, start googling for common models that are used to solve the problem, then go on github, find code that solves that problem or a similar one. Download the code and start working with it, change it, experiment. All of the theory and such is mostly worthless, its too much to learn from scratch and you will probably use very little of it. There is so much ml code on github to learn from, its really the best way. When you encounter a concept you need to understand, google the concept and learn the background info. This will give you a highly applied and intuitive understanding of solving ml problems, but you will have large gaps. Which is fine, unless you are going in for job interviews.
 Also bear in mind that courses like fast.ai (as you see plastered on here), aggresively market themselves by answering questions all over the internet. Its a form of SEO.
 

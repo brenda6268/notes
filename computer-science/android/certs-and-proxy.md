@@ -1,11 +1,12 @@
 # 安卓证书与代理自动配置
 
-
-wp_id: 535
+<!--
+ID: 5d725b91-ae13-4b9e-801f-984ffa6588ca
 Status: publish
-Date: 2018-02-24 18:08:00
-Modified: 2020-05-16 11:30:40
-
+Date: 2018-02-24T18:08:00
+Modified: 2020-05-16T11:30:40
+wp_id: 535
+-->
 
 Go to Settings > Security > Install from storage.
 

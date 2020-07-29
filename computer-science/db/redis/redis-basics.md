@@ -1,11 +1,12 @@
 # 学习 redis 的基础命令
 
-
-wp_id: 571
+<!--
+ID: 3b1f53dc-20e9-4e50-ac25-2dd4103b6868
 Status: publish
-Date: 2017-06-08 10:19:00
-Modified: 2020-05-16 12:05:24
-
+Date: 2017-06-08T10:19:00
+Modified: 2020-05-16T12:05:24
+wp_id: 571
+-->
 
 basically, redis is a data structure server
 

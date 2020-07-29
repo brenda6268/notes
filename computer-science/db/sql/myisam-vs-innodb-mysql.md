@@ -1,11 +1,12 @@
 # MyISAM vs InnoDB: mysql 的两种存储引擎的区别
 
-
-wp_id: 172
+<!--
+ID: 3fef2f3c-11a1-4e59-8ecd-a3311262ea51
 Status: publish
-Date: 2018-03-27 16:50:51
-Modified: 2020-05-16 11:31:08
-
+Date: 2018-03-27T16:50:51
+Modified: 2020-05-16T11:31:08
+wp_id: 172
+-->
 
 * InnoDB 有行级别的锁，而 MyISAM 只能锁定到表级别。
 * InnoDB 有更好的故障恢复机制.

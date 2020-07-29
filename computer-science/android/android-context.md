@@ -1,11 +1,12 @@
 # 安卓开发中的Context
 
-
-wp_id: 544
+<!--
+ID: 01297479-f130-4325-9775-ab0609f7bbd0
 Status: publish
-Date: 2017-11-15 05:29:00
-Modified: 2020-05-16 11:54:46
-
+Date: 2017-11-15T05:29:00
+Modified: 2020-05-16T11:54:46
+wp_id: 544
+-->
 
 在安卓当中，Context几乎是无处不在的，每一个Activity是一个Context，每一个Service也是一个Context。
 

@@ -1,9 +1,12 @@
 # APUE 阅读笔记
 
-wp_id: 357
+<!--
+ID: f01665b4-15b4-4ba8-8c60-bb322caaf74c
 Status: publish
-Date: 2018-06-22 04:50:00
-Modified: 2020-05-16 11:09:43
+Date: 2018-06-22T04:50:00
+Modified: 2020-05-16T11:09:43
+wp_id: 357
+-->
 
 使用 sysconf 来动态地在运行时获取 INT_MAX 等常量地值
 

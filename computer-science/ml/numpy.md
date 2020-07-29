@@ -1,9 +1,12 @@
 # numpy 入门
 
-wp_id: 476
+<!--
+ID: 6e043d0b-a6ed-45d5-9181-7f15df715955
 Status: draft
-Date: 2018-06-23 02:44:00
-Modified: 2020-05-16 11:14:25
+Date: 2018-06-23T02:44:00
+Modified: 2020-05-16T11:14:25
+wp_id: 476
+-->
 
 可视化的 numpy 教程：https://jalammar.github.io/visual-numpy/
 

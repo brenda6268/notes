@@ -1,9 +1,12 @@
 # RocksDB 基础概念教程
 
-wp_id: 573
+<!--
+ID: fb1211c1-d0e0-4405-b0a5-7dc5959c1ca7
 Status: publish
-Date: 2017-11-09 09:12:00
-Modified: 2020-05-16 11:51:44
+Date: 2017-11-09T09:12:00
+Modified: 2020-05-16T11:51:44
+wp_id: 573
+-->
 
 RocksDB 起源于 LevelDB, 并且从 HBase 中吸取了不少代码 [1]. RocksDB 设计的初衷是能够利用好 SSD 和内存的高性能，而且可以通过配置来承载高强度的读或者高强度的写。
 

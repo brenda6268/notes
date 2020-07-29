@@ -1,11 +1,12 @@
 # 在 Ubuntu 上安装 MySQL
 
-
-wp_id: 87
+<!--
+ID: 774d9784-3880-45bc-a3b7-d3b6abc41b6b
 Status: publish
-Date: 2018-06-15 15:09:32
-Modified: 2020-05-16 11:40:11
-
+Date: 2018-06-15T15:09:32
+Modified: 2020-05-16T11:40:11
+wp_id: 87
+-->
 
 安装
 

@@ -1,9 +1,12 @@
 # mysql 基础知识 (1) - 查询数据
 
-wp_id: 174
+<!--
+ID: 21ecef71-67c4-43c6-a1da-288b3203fb91
 Status: publish
-Date: 2017-07-05 16:55:19
-Modified: 2020-05-16 11:45:09
+Date: 2017-07-05T16:55:19
+Modified: 2020-05-16T11:45:09
+wp_id: 174
+-->
 
 [最全总结](https://mp.weixin.qq.com/s/87BoE2-0mW_3qALyNSpiTw)
 

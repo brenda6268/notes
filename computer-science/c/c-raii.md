@@ -1,11 +1,12 @@
 # C/C++ 中的 RAII
 
-
-wp_id: 401
+<!--
+ID: 7523feab-e7ef-4546-87cd-9515c39ed807
 Status: publish
-Date: 2017-05-29 15:36:00
-Modified: 2020-05-16 12:10:11
-
+Date: 2017-05-29T15:36:00
+Modified: 2020-05-16T12:10:11
+wp_id: 401
+-->
 
 # RAII 的好处
 

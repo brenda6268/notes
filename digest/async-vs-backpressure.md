@@ -1,3 +1,13 @@
+# 无标题
+
+<!--
+ID: e5452b67-39b7-4c60-9652-7d78a208ae1d
+Status: draft
+Date: 2020-07-29T23:37:30
+Modified: 2020-07-29T23:37:30
+wp_id: 1754
+-->
+
 From: https://news.ycombinator.com/item?id=21927427
 
 Main idea: backpressure is important and async does not solve it.

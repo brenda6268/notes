@@ -1,3 +1,13 @@
+# 无标题
+
+<!--
+ID: c7029d7f-9c44-40d7-a30e-f9318b2fe4d5
+Status: draft
+Date: 2020-07-29T23:37:30
+Modified: 2020-07-29T23:37:30
+wp_id: 1756
+-->
+
 As someone who has implemented a complex system in C++ in this decade, I’d say he’s not wrong, but you need to carefully weight the pros and cons.
 In our case latency and real time demands mattered a lot (NASDAQ feed parser), to the point of the (potential) slowdown of a garbage collector kicking in was enough to rule out Java and .NET. It runs entirely in memory and on 64+ cores.
 

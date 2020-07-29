@@ -1,9 +1,12 @@
 # MySQL 中的 wait_timeout 是做什么的？
 
-wp_id: 227
+<!--
+ID: 4d519980-fe8d-4980-bc22-2b2e80083a9c
 Status: publish
-Date: 2018-07-23 14:29:52
-Modified: 2020-05-16 11:21:05
+Date: 2018-07-23T14:29:52
+Modified: 2020-05-16T11:21:05
+wp_id: 227
+-->
 
 Mysql 中默认的 wait_timeout 和 interactive_timeout 的值是八小时，也就是一个连接（交互式和非交互式的）只有在 8 小时没有活动之后才会被关闭掉。对于互联网公司来说，这个值实在太大了，一个库可能被很多脚本和服务访问，可能只是一个简短的查询就不需要数据库了，如果每个查询都占据了 8 小时的时间，那么 mysql 很快连接数就会满了，报出 too many connections 错误。
 

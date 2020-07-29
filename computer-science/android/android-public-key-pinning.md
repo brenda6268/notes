@@ -1,11 +1,12 @@
 # android public key pinning
 
-
-wp_id: 540
+<!--
+ID: 7ef96407-8e12-4bf9-8d58-c5ba99e72ff3
 Status: publish
-Date: 2017-07-07 08:10:00
-Modified: 2017-07-07 08:10:00
-
+Date: 2017-07-07T08:10:00
+Modified: 2017-07-07T08:10:00
+wp_id: 540
+-->
 
 # What is public key pinning?
 

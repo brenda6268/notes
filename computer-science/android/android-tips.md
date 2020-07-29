@@ -1,11 +1,12 @@
 # Android 开发的一些 tips
 
-
-wp_id: 530
+<!--
+ID: 49ec3452-ab24-481f-816e-f00dcbc572b5
 Status: publish
-Date: 2018-04-04 06:00:00
-Modified: 2020-05-16 11:33:46
-
+Date: 2018-04-04T06:00:00
+Modified: 2020-05-16T11:33:46
+wp_id: 530
+-->
 
 Prefer Maven dependency resolution instead of importing jar files. If you explicitly include jar files in your project, they will be of some specific frozen version, such as 2.1.1. Downloading jars and handling updates is cumbersome, this is a problem that Maven solves properly, and is also encouraged in Android Gradle builds. For example:
 

@@ -1,11 +1,12 @@
 # android intent
 
-
-wp_id: 541
+<!--
+ID: 5d1aae61-56d0-4b07-a06f-5ec4d274ad22
 Status: publish
-Date: 2017-07-06 11:40:00
-Modified: 2017-07-06 11:40:00
-
+Date: 2017-07-06T11:40:00
+Modified: 2017-07-06T11:40:00
+wp_id: 541
+-->
 
 You should use intent to communicate between activities and services
 

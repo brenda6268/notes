@@ -1,11 +1,12 @@
 # 基础 socket 编程
 
-
-wp_id: 406
+<!--
+ID: 329c2faf-f37d-4ba7-abb4-ed2ddb3e2bdc
 Status: publish
-Date: 2017-05-30 03:28:00
-Modified: 2020-05-16 11:58:28
-
+Date: 2017-05-30T03:28:00
+Modified: 2020-05-16T11:58:28
+wp_id: 406
+-->
 
 创建与使用 socket, 一个 echo server 和 client
 

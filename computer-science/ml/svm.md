@@ -1,6 +1,12 @@
 # SVM
 
-Date: 2019-09-04
+<!--
+ID: 2b9e07b1-4c3c-4ce3-805e-be09d14f6458
+Status: draft
+Date: 2019-09-04T00:00:00
+Modified: 2020-07-29T23:37:30
+wp_id: 1564
+-->
 
 ## sklearn
 

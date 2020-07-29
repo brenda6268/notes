@@ -1,11 +1,12 @@
 # Android 连接 WiFi
 
-
-wp_id: 539
+<!--
+ID: 89c937c1-8dd6-4557-ba14-7d1adf98ec2d
 Status: publish
-Date: 2018-04-04 06:00:00
-Modified: 2020-05-16 11:33:36
-
+Date: 2018-04-04T06:00:00
+Modified: 2020-05-16T11:33:36
+wp_id: 539
+-->
 
 https://stackoverflow.com/questions/4249911/android-how-to-create-eap-wifi-configuration-programmatically
 

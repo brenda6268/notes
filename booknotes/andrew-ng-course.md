@@ -1,9 +1,12 @@
 # Andrew Ng 的公开课笔记
 
-wp_id: 355
+<!--
+ID: 4377c451-ad1f-4d49-ad6d-3903ed238eab
 Status: publish
-Date: 2018-06-22 05:45:00
-Modified: 2020-05-16 11:10:18
+Date: 2018-06-22T05:45:00
+Modified: 2020-05-16T11:10:18
+wp_id: 355
+-->
 
 ## Andrew ng 课程的 python 解法
 

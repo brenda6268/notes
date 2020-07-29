@@ -1,9 +1,12 @@
 # 头条大讲堂——短视频与机器学习
 
-wp_id: 356
+<!--
+ID: dc13ccda-ddeb-4003-8eff-6f98e8073c3e
 Status: publish
-Date: 2018-06-22 06:07:00
-Modified: 2020-05-16 11:10:54
+Date: 2018-06-22T06:07:00
+Modified: 2020-05-16T11:10:54
+wp_id: 356
+-->
 
 机器学习需要 Ground Truth
 modality 是什么意思。。。

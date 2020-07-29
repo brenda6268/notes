@@ -1,11 +1,12 @@
 # C的编译、调试与静态检查
 
-
-wp_id: 402
+<!--
+ID: e2d702b2-1084-4b83-9bf4-cbb6f10dfe35
 Status: publish
-Date: 2017-07-27 01:14:00
-Modified: 2020-05-16 11:46:30
-
+Date: 2017-07-27T01:14:00
+Modified: 2020-05-16T11:46:30
+wp_id: 402
+-->
 
 # 使用Clang/gcc 常用的选项
 

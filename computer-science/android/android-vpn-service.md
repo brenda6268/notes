@@ -1,11 +1,12 @@
 # android vpn service
 
-
-wp_id: 522
+<!--
+ID: 1cd44d61-8db8-48c3-acd0-4f3814fec8d5
 Status: publish
-Date: 2017-07-06 10:07:00
-Modified: 2017-07-06 10:07:00
-
+Date: 2017-07-06T10:07:00
+Modified: 2017-07-06T10:07:00
+wp_id: 522
+-->
 
 VPN Service 运行在 IP 层。它创建了一个虚拟的网络接口，可以配置地址和路由规则，并返回一个 file descriptor。每次读这个 fp 返回一个数据包，每次写发送一个数据包。
 

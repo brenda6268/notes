@@ -1,11 +1,12 @@
 # get and change android device id
 
-
-wp_id: 537
+<!--
+ID: 2c86d32d-9dcb-43c5-8c89-a30b20cee938
 Status: publish
-Date: 2017-05-29 14:48:00
-Modified: 2017-05-29 14:48:00
-
+Date: 2017-05-29T14:48:00
+Modified: 2017-05-29T14:48:00
+wp_id: 537
+-->
 
 ## get device id
 

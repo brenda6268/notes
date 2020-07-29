@@ -1,11 +1,12 @@
 # caputre iOS traffic
 
-
-wp_id: 526
+<!--
+ID: d5f289a8-0d3d-42a6-ba3f-e9630746a573
 Status: publish
-Date: 2017-05-30 14:10:00
-Modified: 2017-05-30 14:10:00
-
+Date: 2017-05-30T14:10:00
+Modified: 2017-05-30T14:10:00
+wp_id: 526
+-->
 
 RVI
 

@@ -1,3 +1,13 @@
+# 无标题
+
+<!--
+ID: 06ef6503-35b3-44f1-9a76-8582195dcc05
+Status: draft
+Date: 2020-07-29T23:37:30
+Modified: 2020-07-29T23:37:30
+wp_id: 1752
+-->
+
 > I often feel overwhelmed by the amount of things I either wish to know or that I should know already.
 > Be it theoretical knowledge about ML, CS, mechanics, math topics. Or lack of experience e.g in some algorithms I need to understand, control problems, programming lanuages.
 

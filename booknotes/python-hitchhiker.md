@@ -1,9 +1,12 @@
 # 阅读《Python hitchhiker》笔记
 
-wp_id: 343
+<!--
+ID: bc23cdc8-d61b-4b85-947f-240a03e026fe
 Status: publish
-Date: 2018-06-22 09:06:00
-Modified: 2020-05-16 11:13:01
+Date: 2018-06-22T09:06:00
+Modified: 2020-05-16T11:13:01
+wp_id: 343
+-->
 
 ## Package
 

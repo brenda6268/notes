@@ -1,11 +1,12 @@
 # Chrome Hotkeys
 
-
-wp_id: 753
+<!--
+ID: 1484967c-94cc-4979-b894-8099b4cf8f91
 Status: publish
-Date: 2017-05-30 07:50:00
-Modified: 2017-05-30 07:50:00
-
+Date: 2017-05-30T07:50:00
+Modified: 2017-05-30T07:50:00
+wp_id: 753
+-->
 
 In Omnibar, press tab after a search-able website will search for the website prefix ? will search forcefully
 

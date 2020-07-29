@@ -1,9 +1,12 @@
 # 学习 Startup Engineering
 
-wp_id: 351
+<!--
+ID: d958939d-46ff-4923-a4e2-c879094f7ae2
 Status: publish
-Date: 2018-06-22 04:41:00
-Modified: 2020-05-16 11:09:35
+Date: 2018-06-22T04:41:00
+Modified: 2020-05-16T11:09:35
+wp_id: 351
+-->
 
 https://gist.github.com/dideler/5796745
 

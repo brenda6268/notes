@@ -1,11 +1,12 @@
 # 为安卓编译64位的dropbear
 
-
-wp_id: 533
+<!--
+ID: 586a84d8-3dec-4ad9-97ce-d2f5b0f1d0ee
 Status: publish
-Date: 2017-11-15 05:13:00
-Modified: 2020-05-16 11:54:39
-
+Date: 2017-11-15T05:13:00
+Modified: 2020-05-16T11:54:39
+wp_id: 533
+-->
 
 ## 如何使用dropbear
 

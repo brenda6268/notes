@@ -1,11 +1,12 @@
 # Sequel Pro cannot create a JSON value from a string with CHARACTER SET 'binary'
 
-
-wp_id: 773
+<!--
+ID: a52c085f-9e31-4eff-b1e7-5f9b95375961
 Status: publish
-Date: 2019-10-15 12:03:31
-Modified: 2019-10-15 12:03:31
-
+Date: 2019-10-15T12:03:31
+Modified: 2019-10-15T12:03:31
+wp_id: 773
+-->
 
 > I had this problem dealing with exports made by Sequel Pro. I unchecked the Output BLOB fields as hex option and the problem went away. Visually inspecting the export showed legible JSON instead of binary.
 

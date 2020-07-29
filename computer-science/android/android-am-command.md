@@ -1,11 +1,12 @@
 # Android am 命令
 
-
-wp_id: 523
+<!--
+ID: 8cf83263-a393-4609-bcb5-73db47607d0e
 Status: publish
-Date: 2017-06-03 15:36:00
-Modified: 2017-06-03 15:36:00
-
+Date: 2017-06-03T15:36:00
+Modified: 2017-06-03T15:36:00
+wp_id: 523
+-->
 
 am is short for activity manager, which is used to start and stop activity in android.
 

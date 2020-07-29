@@ -1,11 +1,12 @@
 # MySQL 性能小技巧和在 Django 中的应用
 
-
-wp_id: 184
+<!--
+ID: 0ee102dc-8ea0-412d-8277-dfeff7e57f3b
 Status: publish
-Date: 2018-07-24 17:51:07
-Modified: 2020-05-16 11:21:24
-
+Date: 2018-07-24T17:51:07
+Modified: 2020-05-16T11:21:24
+wp_id: 184
+-->
 
 对于 delete update insert 等语句一定要使用 limit 子句限制影响的行数，避免一次更改特别多的行，造成数据库假死
 

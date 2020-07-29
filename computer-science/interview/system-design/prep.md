@@ -1,4 +1,12 @@
-Date: 2020-03-21
+# 无标题
+
+<!--
+ID: e4bf9d25-ebec-4c60-b799-a48bb69f9d54
+Status: draft
+Date: 2020-03-21T00:00:00
+Modified: 2020-07-29T23:37:30
+wp_id: 1674
+-->
 
 But they do expect you to have some insight into aspects of such a design. The good news is that these questions usually focus on web backends, so you can make a lot of progress by reading about this area. An incomplete list of things to understand is:
 

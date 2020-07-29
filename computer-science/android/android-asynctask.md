@@ -1,11 +1,12 @@
 # 安卓的 AsyncTask
 
-
-wp_id: 534
+<!--
+ID: a45289be-460b-42eb-b296-0d04fbb419cc
 Status: publish
-Date: 2017-11-15 05:05:00
-Modified: 2020-05-16 11:54:08
-
+Date: 2017-11-15T05:05:00
+Modified: 2020-05-16T11:54:08
+wp_id: 534
+-->
 
 asynchronusally run task without explicitly creating thread.
 

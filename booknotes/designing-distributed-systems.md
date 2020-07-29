@@ -1,6 +1,12 @@
 # Designing Distributed Systems 读书笔记
 
-Date: 2019-09-16
+<!--
+ID: 71cae203-3ce5-4090-8c86-3e629a338740
+Status: draft
+Date: 2019-09-16T00:00:00
+Modified: 2020-07-29T23:37:30
+wp_id: 1520
+-->
 
 总体来说是一本比较一般的书。豆瓣评分也只有 6.3
 

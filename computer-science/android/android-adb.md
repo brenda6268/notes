@@ -1,11 +1,12 @@
 # 安卓的adb工具与命令行
 
-
-wp_id: 529
+<!--
+ID: fd3b044b-7c9f-46d9-9c82-2a1127b0809d
 Status: publish
-Date: 2017-05-29 12:45:00
-Modified: 2020-05-16 12:08:09
-
+Date: 2017-05-29T12:45:00
+Modified: 2020-05-16T12:08:09
+wp_id: 529
+-->
 
 ## Yifei's Notes
 

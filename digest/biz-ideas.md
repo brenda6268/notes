@@ -1,3 +1,13 @@
+# 无标题
+
+<!--
+ID: a36a5b10-f2cf-4a2a-a6d7-8ea50f3323df
+Status: draft
+Date: 2020-07-29T23:37:30
+Modified: 2020-07-29T23:37:30
+wp_id: 1751
+-->
+
 tappio 4 days ago | unvote [-]
 
 There is an interesting bias going on here. I'm wondering how many people upvoting this text has actually built a business, or just want to believe that what was written here is true?

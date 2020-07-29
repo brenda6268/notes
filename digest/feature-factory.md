@@ -1,3 +1,13 @@
+# 无标题
+
+<!--
+ID: d97aa1ae-5bfe-4927-99d9-9864e6ad53ef
+Status: draft
+Date: 2020-07-29T23:37:30
+Modified: 2020-07-29T23:37:30
+wp_id: 1753
+-->
+
 Don Norman says in The Invisible Computer still applies:
 
 "Don’t ask people what they want. Watch them and figure out their needs. If you ask, people usually focus on what they have and ask for it to be better: cheaper, faster, smaller. A good observer might discover that the task is unnecessary, that it is possible to restructure things or provide a new technology that eliminates the painstaking parts of their procedures. If you just follow what people ask for, you could end up making their lives even more complicated."

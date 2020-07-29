@@ -1,3 +1,13 @@
+# 无标题
+
+<!--
+ID: 91f01529-6d38-440f-8023-59cf126f8ac1
+Status: draft
+Date: 2020-07-29T23:37:30
+Modified: 2020-07-29T23:37:30
+wp_id: 1585
+-->
+
 在 Linux 中，通过使用 zendfile 实现零拷贝，从而提高 IO 性能。对比一下三种手段
 
 ## 使用 read/write 系统调用

@@ -1,11 +1,12 @@
 # Deep Learning 的一些思考
 
-
-wp_id: 474
+<!--
+ID: 3f060def-356b-4fa1-a732-6ee7c277ff5b
 Status: draft
-Date: 2017-08-06 23:33:00
-Modified: 2020-05-16 11:48:08
-
+Date: 2017-08-06T23:33:00
+Modified: 2020-05-16T11:48:08
+wp_id: 474
+-->
 
 一个很好的 slides
 

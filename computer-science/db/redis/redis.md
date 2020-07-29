@@ -1,3 +1,13 @@
+# 无标题
+
+<!--
+ID: 08c0ed3f-ed3c-4ae3-8437-4a7e5a166a6f
+Status: draft
+Date: 2020-07-29T23:37:30
+Modified: 2020-07-29T23:37:30
+wp_id: 1659
+-->
+
 ## 糟粕
 
 redlock sentinel cluster 都是垃圾。完全没有遵循分布式系统的基本概念。

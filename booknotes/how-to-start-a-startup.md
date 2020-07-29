@@ -1,6 +1,12 @@
 # YC 课程 How to start a startup 的笔记
 
-Date: 2019-04-03
+<!--
+ID: 4887c6f1-6f8a-4bc6-a3a4-d3fe58005308
+Status: draft
+Date: 2019-04-03T00:00:00
+Modified: 2020-07-29T23:37:30
+wp_id: 1537
+-->
 
 Great product
 Great idea

@@ -1,5 +1,13 @@
 # AI is still just curve fitting
 
+<!--
+ID: 1a140199-e0cf-4b5c-bcdb-7512cdd72219
+Status: draft
+Date: 2020-07-29T23:37:30
+Modified: 2020-07-29T23:37:30
+wp_id: 1749
+-->
+
 When will people wake up and realize that AI today is just capable of "curve fitting"?
 
 Yes, that is a bit of a simplification. But not far off.

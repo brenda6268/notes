@@ -1,11 +1,12 @@
 # Google 关于Machine Leaning 的笔记
 
-
-wp_id: 475
+<!--
+ID: b49462c6-17b7-459a-b115-c316036b44bb
 Status: publish
-Date: 2017-12-16 19:09:00
-Modified: 2020-05-16 11:28:17
-
+Date: 2017-12-16T19:09:00
+Modified: 2020-05-16T11:28:17
+wp_id: 475
+-->
 
 前几天看了 Google 的一个关于 Machine Learning 的[slides][1]，感觉不错，整理一下学习笔记
 

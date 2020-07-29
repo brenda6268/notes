@@ -1,11 +1,12 @@
 # 使用 Pelican 写作
 
-
-wp_id: 397
+<!--
+ID: c4fabefc-6353-4fa9-b66f-94d8592a0e58
 Status: draft
-Date: 2019-03-08 10:20:00
-Modified: 2020-05-16 11:04:05
-
+Date: 2019-03-08T10:20:00
+Modified: 2020-05-16T11:04:05
+wp_id: 397
+-->
 
 开始使用 Pelican 作为写作工具.
 

@@ -1,11 +1,12 @@
 # cross compiling on android
 
-
-wp_id: 536
+<!--
+ID: 8fab2f4b-3b07-48f9-b11a-45bb4ae414a8
 Status: publish
-Date: 2017-05-29 13:27:00
-Modified: 2017-05-29 13:27:00
-
+Date: 2017-05-29T13:27:00
+Modified: 2017-05-29T13:27:00
+wp_id: 536
+-->
 
 basic knowledge
 ------

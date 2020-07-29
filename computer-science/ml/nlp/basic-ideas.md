@@ -1,5 +1,13 @@
 # NLP 的基础概念
 
+<!--
+ID: 6bbfb802-09d0-4966-b51c-dcdb5c650159
+Status: draft
+Date: 2020-07-29T23:37:30
+Modified: 2020-07-29T23:37:30
+wp_id: 1575
+-->
+
 ## OneHot encoding
 
 ## embedding

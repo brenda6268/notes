@@ -1,11 +1,12 @@
 # Macbook tricks
 
-
-wp_id: 752
+<!--
+ID: eabf4c38-baac-4abc-9342-146cb15dff3b
 Status: publish
-Date: 2017-05-30 07:46:00
-Modified: 2017-05-30 07:46:00
-
+Date: 2017-05-30T07:46:00
+Modified: 2017-05-30T07:46:00
+wp_id: 752
+-->
 
 用起来的确爽，视网膜屏幕绝对打开新的世界
 

@@ -1,6 +1,12 @@
 # Code Reuse
 
-Date: 2019-10-31
+<!--
+ID: 8df679f3-4ed4-4369-a708-9d60198f7caf
+Status: draft
+Date: 2019-10-31T00:00:00
+Modified: 2020-07-29T23:37:30
+wp_id: 1631
+-->
 
 Code reuse sounds good in theory, because people don't want to reinvent the wheel. The modern line of thought is that it is always a Bad Thing to write a custom implementation of a component that is supposedly available as a ready-made product. However, writing your own implementation has big advantages over reusing a ready made third party module:
 

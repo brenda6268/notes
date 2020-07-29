@@ -1,3 +1,13 @@
+# 无标题
+
+<!--
+ID: 9841a9c2-36e6-44ee-8bd3-7941e753c356
+Status: draft
+Date: 2020-07-29T23:37:30
+Modified: 2020-07-29T23:37:30
+wp_id: 1755
+-->
+
 SO DON'T HAVE DEADLINES?
 Don't be silly! Have deadlines, but fuzzy. How fuzzy should be decided by your goals. If missing a deadline could potentially lose you a million dollars, the fuzziness factor for that should be zero. If it's a new feature, there's always more scope of fuzziness. Another idea is to experiment with more elaborate probabilistic ways of setting shipping estimates rather than gut based estimates. [3]
 

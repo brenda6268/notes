@@ -1,11 +1,12 @@
 # LeetCode Rust 刷题记录
 
-
-wp_id: 489
+<!--
+ID: ea3560d6-7b28-4f1d-881a-525916451101
 Status: draft
-Date: 2019-01-27 00:39:00
-Modified: 2020-05-16 11:05:42
-
+Date: 2019-01-27T00:39:00
+Modified: 2020-05-16T11:05:42
+wp_id: 489
+-->
 
 # two-sum
 

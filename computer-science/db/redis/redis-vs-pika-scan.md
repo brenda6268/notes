@@ -1,12 +1,12 @@
 # Redis 与 Pika scan 性能对比
 
-
-wp_id: 575
+<!--
+ID: b76bdda4-8384-4c1e-be4d-212468d847b1
 Status: publish
-Date: 2019-03-31 08:44:00
-Modified: 2020-05-16 11:02:35
-
-
+Date: 2019-03-31T08:44:00
+Modified: 2020-05-16T11:02:35
+wp_id: 575
+-->
 
 Redis 是后端常用的键值数据库。Pika 是 360 出品的一款与 Redis 协议几乎兼容的数据库。与 Redis 不同的是，Pika 基于硬盘，使用 RocksDB 作为引擎，从容量上来说，比基于内存的 Redis 大了不少，而且在性能上也能满足一般需求。
 

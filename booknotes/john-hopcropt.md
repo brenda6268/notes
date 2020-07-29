@@ -1,9 +1,12 @@
 # 图灵奖获得者 John Hopcropt 在头条的讲座
 
-wp_id: 350
+<!--
+ID: 831c3b8c-1189-4553-a582-38128fd9f545
 Status: publish
-Date: 2017-08-08 17:06:00
-Modified: 2020-05-16 11:48:31
+Date: 2017-08-08T17:06:00
+Modified: 2020-05-16T11:48:31
+wp_id: 350
+-->
 
 ## revolutions
 

@@ -1,11 +1,12 @@
 # C语言中的 vargs
 
-
-wp_id: 405
+<!--
+ID: f7ee56ab-a6b2-482f-a539-9f51bcb8a04b
 Status: publish
-Date: 2017-05-29 15:02:00
-Modified: 2020-05-16 12:09:21
-
+Date: 2017-05-29T15:02:00
+Modified: 2020-05-16T12:09:21
+wp_id: 405
+-->
 
 ```
 int max(int n, ...) {

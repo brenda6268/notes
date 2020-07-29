@@ -1,6 +1,12 @@
 # 面向对象设计
 
-Date: 2015-10-07
+<!--
+ID: 23f2ba9e-19db-43cb-a187-d9bbb7bcb33b
+Status: draft
+Date: 2015-10-07T00:00:00
+Modified: 2020-07-29T23:37:30
+wp_id: 1671
+-->
 
 三大基石：
 

@@ -1,11 +1,12 @@
 # 使用枚举还是数据库常量表？
 
-
-wp_id: 324
+<!--
+ID: 29cdb60e-932d-4084-86bd-6537bfed5cdf
 Status: draft
-Date: 2017-05-30 08:16:00
-Modified: 2020-05-16 12:00:48
-
+Date: 2017-05-30T08:16:00
+Modified: 2020-05-16T12:00:48
+wp_id: 324
+-->
 
 Yifei's Notes
 

@@ -1,11 +1,12 @@
 # 使用 gitbook 创建一本书
 
-
-wp_id: 750
+<!--
+ID: f8b4454c-bc31-4ac5-8569-b311fad7248e
 Status: publish
-Date: 2017-05-30 07:50:00
-Modified: 2019-10-12 11:19:04
-
+Date: 2017-05-30T07:50:00
+Modified: 2019-10-12T11:19:04
+wp_id: 750
+-->
 
 Summary.md 这个文件相对于是一本书的目录结构。比如SUMMARY.md :
 

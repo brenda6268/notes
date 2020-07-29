@@ -1,11 +1,12 @@
 # 蛋
 
-
-wp_id: 393
+<!--
+ID: bb428a95-fa82-4298-bf01-a6bfc279426e
 Status: publish
-Date: 2017-09-26 22:13:00
-Modified: 2020-05-16 11:51:18
-
+Date: 2017-09-26T22:13:00
+Modified: 2020-05-16T11:51:18
+wp_id: 393
+-->
 
 [The Egg](http://www.galactanet.com/oneoff/theegg_zh.html)
 

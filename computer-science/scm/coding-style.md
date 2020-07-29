@@ -1,6 +1,12 @@
 # My Coding Style
 
-Date: 2019-01-02
+<!--
+ID: c975bf71-311f-4d2d-98fa-6c2cc22dbce7
+Status: draft
+Date: 2019-01-02T00:00:00
+Modified: 2020-07-29T23:37:30
+wp_id: 1627
+-->
 
 Python docstring
 
