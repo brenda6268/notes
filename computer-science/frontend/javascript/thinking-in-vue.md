@@ -1,11 +1,12 @@
 # thinking in vue
 
-
-wp_id: 509
+<!--
+ID: 94f516a6-7fa2-4046-a787-ae47cc0f0765
 Status: publish
-Date: 2017-06-10 04:03:00
-Modified: 2017-06-10 04:03:00
-
+Date: 2017-06-10T04:03:00
+Modified: 2017-06-10T04:03:00
+wp_id: 509
+-->
 
 # basic usage
 

@@ -1,11 +1,12 @@
 # 浏览器：什么是可信输入事件(trusted event)
 
-
-wp_id: 288
+<!--
+ID: 572dc7f8-81f0-4134-82c6-8265b5a375d5
 Status: draft
-Date: 2019-07-24 14:33:15
-Modified: 2020-05-16 10:52:17
-
+Date: 2019-07-24T14:33:15
+Modified: 2020-05-16T10:52:17
+wp_id: 288
+-->
 
 浏览器中 "trusted" 和 "untrusted" 事件的区别是什么？
 

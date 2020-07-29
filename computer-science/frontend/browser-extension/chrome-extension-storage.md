@@ -1,11 +1,12 @@
 # Chrome Extension 存储
 
-
-wp_id: 723
+<!--
+ID: 4e6c70c9-850a-439a-8082-91e58be530ae
 Status: publish
-Date: 2017-06-12 13:30:00
-Modified: 2017-06-12 13:30:00
-
+Date: 2017-06-12T13:30:00
+Modified: 2017-06-12T13:30:00
+wp_id: 723
+-->
 
 ## Basic Concepts
 

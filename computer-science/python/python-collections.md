@@ -1,11 +1,12 @@
 # Python 标准库中的容器
 
-
-wp_id: 649
+<!--
+ID: e7cf9864-8975-40dd-9449-3d9d53b597ba
 Status: publish
-Date: 2017-05-30 04:09:00
-Modified: 2020-05-16 11:59:33
-
+Date: 2017-05-30T04:09:00
+Modified: 2020-05-16T11:59:33
+wp_id: 649
+-->
 
 ## namedtuple
 

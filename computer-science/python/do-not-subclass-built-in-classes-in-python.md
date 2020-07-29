@@ -1,11 +1,12 @@
 # do not subclass built-in classes in python
 
-
-wp_id: 660
+<!--
+ID: b6f2706a-866c-4284-95b2-5d3ec931f112
 Status: publish
-Date: 2017-05-30 13:17:00
-Modified: 2017-05-30 13:17:00
-
+Date: 2017-05-30T13:17:00
+Modified: 2017-05-30T13:17:00
+wp_id: 660
+-->
 
 In short, they will not behave what you think they will. you think dict.get in implemented in python, like:
 

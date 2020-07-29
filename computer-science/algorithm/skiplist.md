@@ -1,11 +1,12 @@
 # 跳表（skiplist）
 
-
-wp_id: 493
+<!--
+ID: eda4f3c5-1ec5-40c8-9c75-bfe102d4bad0
 Status: publish
-Date: 2018-04-04 06:36:00
-Modified: 2020-05-16 11:34:18
-
+Date: 2018-04-04T06:36:00
+Modified: 2020-05-16T11:34:18
+wp_id: 493
+-->
 
 平衡二叉树可以实现 O(logn) 的查找复杂度。跳表可以实现相当于平衡二叉树的复杂度查询数据，而代码实现比较简单。在 Redis 中，zset 就用到了 skiplist。
 

@@ -1,11 +1,12 @@
 # django forms
 
-
-wp_id: 696
+<!--
+ID: 44bd2df9-fda0-444d-8f4e-530f1e417a85
 Status: publish
-Date: 2018-05-01 04:52:00
-Modified: 2018-05-01 04:52:00
-
+Date: 2018-05-01T04:52:00
+Modified: 2018-05-01T04:52:00
+wp_id: 696
+-->
 
 django 中的 form 和 model 的用法很像，都是定义一个类，然后指定一些字段就可以了
 

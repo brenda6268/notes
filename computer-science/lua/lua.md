@@ -1,11 +1,12 @@
 # lua
 
-
-wp_id: 693
+<!--
+ID: 1f6c92eb-323e-40af-8d7e-7cd6bd148fbd
 Status: publish
-Date: 2017-05-30 13:45:00
-Modified: 2017-05-30 13:45:00
-
+Date: 2017-05-30T13:45:00
+Modified: 2017-05-30T13:45:00
+wp_id: 693
+-->
 
 lua_pcall 是使用 c 中的 setjmp 实现的, 对应在lua 中的函数就是 pcall
 

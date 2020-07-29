@@ -1,11 +1,12 @@
 # Python 和 JavaScript 语法对比
 
-
-wp_id: 33
+<!--
+ID: 29f5d064-f64a-4e6a-8de7-e9ad3afe782d
 Status: publish
-Date: 2019-06-15 14:17:45
-Modified: 2020-05-16 11:01:22
-
+Date: 2019-06-15T14:17:45
+Modified: 2020-05-16T11:01:22
+wp_id: 33
+-->
 
 # Python 和 JavaScript 语法对比
 

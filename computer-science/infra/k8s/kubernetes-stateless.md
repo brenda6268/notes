@@ -1,6 +1,5 @@
 # kubernetes 初探——部署无状态应用
 
-
 <!--
 ID: fa99ce59-7714-4363-bd0e-026dc7798fe2
 Status: publish
@@ -8,7 +7,6 @@ Date: 2018-10-04T17:45:00
 Modified: 2020-05-16T11:24:50
 wp_id: 556
 -->
-
 
 kubernetes 架构图
 

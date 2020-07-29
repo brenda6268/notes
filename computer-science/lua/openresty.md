@@ -1,11 +1,12 @@
 # openresty
 
-
-wp_id: 692
+<!--
+ID: 89e3196b-4716-459f-b5f9-787bb0466189
 Status: publish
-Date: 2017-05-30 13:44:00
-Modified: 2017-05-30 13:44:00
-
+Date: 2017-05-30T13:44:00
+Modified: 2017-05-30T13:44:00
+wp_id: 692
+-->
 
 1. The *by_lua modules that tweak the nginx behaviour (for ex the rewrite_by_lua that is the lua equivalent of nginx http rewrite) module are always run after the standard nginx modules.
 2. The choice of *by_lua module to use largely depends upon the problem that you are trying to solve. For example the init_by_lua module is used for initialization operations where as access_by_lua may be used to implement access policies for a location block. Personally among the various directives I find most use for content_by_lua. 

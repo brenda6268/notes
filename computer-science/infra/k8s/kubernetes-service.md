@@ -1,6 +1,5 @@
 # kubernetes 初探——服务治理
 
-
 <!--
 ID: 89b03ed5-b77f-4065-bb6d-60e6282fdea8
 Status: publish
@@ -8,7 +7,6 @@ Date: 2019-01-18T21:33:00
 Modified: 2020-05-16T11:06:01
 wp_id: 547
 -->
-
 
 服务治理有两种方式：
 

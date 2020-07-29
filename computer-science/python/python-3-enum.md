@@ -1,11 +1,12 @@
 # Python 3 中的 Enum
 
-
-wp_id: 654
+<!--
+ID: 28dce551-6c2d-4798-8d97-13c97582d408
 Status: publish
-Date: 2017-06-07 16:31:00
-Modified: 2020-05-16 12:05:36
-
+Date: 2017-06-07T16:31:00
+Modified: 2020-05-16T12:05:36
+wp_id: 654
+-->
 
 enum 模块是 Python 3 中新引入的一个用于定义枚举常量的模块。
 

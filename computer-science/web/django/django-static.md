@@ -1,9 +1,12 @@
 # django 静态文件
 
-wp_id: 713
+<!--
+ID: eced5e08-cc82-410b-8421-55fd24729b13
 Status: publish
-Date: 2018-06-17 12:48:00
-Modified: 2020-05-16 11:40:49
+Date: 2018-06-17T12:48:00
+Modified: 2020-05-16T11:40:49
+wp_id: 713
+-->
 
 ## settings.py 中的相关配置
 

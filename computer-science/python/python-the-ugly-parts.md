@@ -1,11 +1,12 @@
 # Python 中不爽的地方
 
-
-wp_id: 683
+<!--
+ID: d8b9bc5e-6f88-4e68-8f45-3ea9c14d0912
 Status: publish
-Date: 2017-11-11 11:16:00
-Modified: 2020-05-16 11:52:09
-
+Date: 2017-11-11T11:16:00
+Modified: 2020-05-16T11:52:09
+wp_id: 683
+-->
 
 # GIL
 

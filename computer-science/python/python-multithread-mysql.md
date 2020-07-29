@@ -1,11 +1,12 @@
 # Python 中如何多线程使用 MySQL
 
-
-wp_id: 185
+<!--
+ID: bf2e51fd-5a6c-4add-a793-30e5fd37d3cd
 Status: draft
-Date: 2019-06-16 17:53:39
-Modified: 2020-05-16 10:54:28
-
+Date: 2019-06-16T17:53:39
+Modified: 2020-05-16T10:54:28
+wp_id: 185
+-->
 
 - MySQL 中没有 cursor 的概念,但是 Python的数据库 API 中规定了 cursor 的概念, 所以Python
 

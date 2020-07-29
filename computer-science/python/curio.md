@@ -1,11 +1,12 @@
 # curio
 
-
-wp_id: 665
+<!--
+ID: 65575387-d742-4e2c-8d78-bf8355982c5a
 Status: publish
-Date: 2017-07-07 14:56:00
-Modified: 2017-07-07 14:56:00
-
+Date: 2017-07-07T14:56:00
+Modified: 2017-07-07T14:56:00
+wp_id: 665
+-->
 
 curio 是一个神奇的 Python 库，它完全面向 Python 3.5 增加的 async/await 语法，从低层就没有使用 callback 的语法，因此相比 asyncio 来说设计更简单，API 更优雅，性能却更好。
 

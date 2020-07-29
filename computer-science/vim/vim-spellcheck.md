@@ -1,6 +1,5 @@
 # basic usage
 
-
 <!--
 ID: 0d9696eb-83aa-47b6-b6c9-edcb3d389b66
 Status: publish
@@ -8,7 +7,6 @@ Date: 2017-06-14T04:20:00
 Modified: 2020-05-16T11:42:54
 wp_id: 735
 -->
-
 
 `:set spell` to open, `:set nospell` to disable, `:set spell!` to toggle.
 

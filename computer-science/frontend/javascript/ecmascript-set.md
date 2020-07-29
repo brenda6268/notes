@@ -1,11 +1,12 @@
 # EcmaScript Set
 
-
-wp_id: 499
+<!--
+ID: 5b73db51-6a24-4244-b6c5-e1721d25b77f
 Status: publish
-Date: 2017-06-12 00:14:00
-Modified: 2017-06-12 00:14:00
-
+Date: 2017-06-12T00:14:00
+Modified: 2017-06-12T00:14:00
+wp_id: 499
+-->
 
 # basic usage
 

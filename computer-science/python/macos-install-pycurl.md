@@ -1,11 +1,12 @@
 # macOS 中如何正确安装 pycurl
 
-
-wp_id: 742
+<!--
+ID: b3607308-1deb-4d58-950b-f2b993413987
 Status: publish
-Date: 2019-10-09 21:27:07
-Modified: 2020-05-16 10:50:25
-
+Date: 2019-10-09T21:27:07
+Modified: 2020-05-16T10:50:25
+wp_id: 742
+-->
 
 Reinstall the curl libraries
 

@@ -1,6 +1,5 @@
 # vim 中生成和使用 tags
 
-
 <!--
 ID: fe010a27-e4e4-44b7-93e4-d3d6ffd7e3e8
 Status: publish
@@ -8,7 +7,6 @@ Date: 2017-05-30T13:03:00
 Modified: 2020-05-16T12:02:21
 wp_id: 734
 -->
-
 
 To use go to definition and other advanced IDE feature, we need to generate tag files for vim to figure out where to find the functions or variables.
 

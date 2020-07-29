@@ -1,9 +1,12 @@
 # Maven 基础
 
-wp_id: 545
+<!--
+ID: 4a108572-35ef-4c58-b214-e6e75677c818
 Status: draft
-Date: 2018-04-04 05:57:00
-Modified: 2018-04-04 05:57:00
+Date: 2018-04-04T05:57:00
+Modified: 2018-04-04T05:57:00
+wp_id: 545
+-->
 
 From: http://tutorials.jenkov.com/maven/maven-tutorial.html
 

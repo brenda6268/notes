@@ -1,6 +1,12 @@
 # Podman
 
-
+<!--
+ID: 321d32ca-6cc6-4604-8d9b-0197adb18196
+Status: draft
+Date: 2020-07-29T19:24:41
+Modified: 2020-07-29T19:24:41
+wp_id: 1098
+-->
 
 podman 基本上和 docker 命令兼容
 

@@ -1,11 +1,12 @@
 # 美剧数据库 TheTVdb API 介绍
 
-
-wp_id: 621
+<!--
+ID: 0c9d9a78-cbd3-4a7d-b1d7-5cd8760a2fac
 Status: draft
-Date: 2018-08-05 15:50:00
-Modified: 2020-05-16 11:22:52
-
+Date: 2018-08-05T15:50:00
+Modified: 2020-05-16T11:22:52
+wp_id: 621
+-->
 
 首先上官方网址：https://api.thetvdb.com/swagger。所有的 API 的终点都是：https://api.thetvdb.com/，下文不再重复
 

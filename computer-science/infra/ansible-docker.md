@@ -1,6 +1,5 @@
 # 使用 Ansible Playbook 部署 Docker
 
-
 <!--
 ID: 08dc93ca-1236-41ec-8931-89c9fd8bdb92
 Status: draft
@@ -8,7 +7,6 @@ Date: 2018-07-27T05:03:00
 Modified: 2020-05-16T11:21:39
 wp_id: 597
 -->
-
 
 刚刚用 Google 搜 Ansible 部署 docker 竟然一篇教程都没有搜到，其实这个是一个非常简单的操作。对于早期的简单架构，直接在开发机上部署很方便。
 

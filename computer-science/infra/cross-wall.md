@@ -1,5 +1,12 @@
-# 全栈翻墙 
+# 全栈翻墙
 
+<!--
+ID: eb7cfcf9-cc29-4704-b849-06fb54fb4559
+Status: draft
+Date: 2020-07-29T20:01:54
+Modified: 2020-07-29T20:01:54
+wp_id: 1086
+-->
 
 这篇文章需要你付费购买一个 VPS 或者到 AWS/Linode/DigitalOcean 购买一个实例，以及购买一个阿里云或者国内的服务器，还需要购买 shadowrocket 应用，并且主要讨论`*nix`平台，所以舍不得花钱的或者 Windows 用户可以点击左上角返回了。
 

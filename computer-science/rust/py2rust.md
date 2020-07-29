@@ -1,11 +1,12 @@
 # rust-lang for pythonistas
 
-
-wp_id: 521
+<!--
+ID: 0a66082b-ff51-427c-bf4b-462af441c5a4
 Status: draft
-Date: 2017-11-18 03:38:00
-Modified: 2020-05-16 11:55:44
-
+Date: 2017-11-18T03:38:00
+Modified: 2020-05-16T11:55:44
+wp_id: 521
+-->
 
 上周终于对 Python 的 GIL 感到厌烦了，参见这篇：Python中不好的地方。本来打算看看 C++，但是正好在 Hacker News 上看到了 Mozilla 如何让 Firefox 变快的文章，感觉 rust 的 fairless with concureency 很吸引人，不如学习一下 rust-lang吧!
 

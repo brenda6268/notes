@@ -1,6 +1,5 @@
 # 一种使用 Docker 的开发流程
 
-
 <!--
 ID: b0942704-f21e-4fa6-a582-e45c6ea4abc9
 Status: draft
@@ -8,7 +7,6 @@ Date: 2018-06-16T18:15:00
 Modified: 2020-05-16T11:40:18
 wp_id: 518
 -->
-
 
 两个 Dockerfiles，一个用于开发，一个用于部署。
 

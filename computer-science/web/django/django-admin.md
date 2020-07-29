@@ -1,11 +1,12 @@
 # Django Admin 后台教程
 
-
-wp_id: 699
+<!--
+ID: b8dcc096-8b41-43c5-baa6-adf3b8fee76c
 Status: publish
-Date: 2017-06-07 08:07:00
-Modified: 2020-05-16 12:05:50
-
+Date: 2017-06-07T08:07:00
+Modified: 2020-05-16T12:05:50
+wp_id: 699
+-->
 
 ## 基础
 

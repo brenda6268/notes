@@ -1,11 +1,12 @@
 # [译] 用 Python 编写一个模板引擎
 
-
-wp_id: 268
+<!--
+ID: 5544292e-c9ab-4f7b-a772-137357afab19
 Status: publish
-Date: 2018-04-17 15:11:45
-Modified: 2020-05-16 11:36:17
-
+Date: 2018-04-17T15:11:45
+Modified: 2020-05-16T11:36:17
+wp_id: 268
+-->
 
 一直对模板引擎的实现很好奇，正好看到了[这篇](http://alexmic.net/building-a-template-engine/)文章，翻译一下，供大家学习、参考。
 

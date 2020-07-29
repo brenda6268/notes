@@ -1,11 +1,12 @@
 # jQuery and un-jQuery
 
-
-wp_id: 511
+<!--
+ID: 81551b66-fb8c-4f9a-bfeb-1391bbfb69f1
 Status: publish
-Date: 2017-05-30 13:41:00
-Modified: 2017-05-30 13:41:00
-
+Date: 2017-05-30T13:41:00
+Modified: 2017-05-30T13:41:00
+wp_id: 511
+-->
 
 # jQuery
 

@@ -1,11 +1,12 @@
 # MySQL “incorrect string value” error when save unicode string in Django
 
-
-wp_id: 709
+<!--
+ID: 763214f2-29c6-4616-9e82-07c0b8c81ca1
 Status: publish
-Date: 2017-06-07 08:47:00
-Modified: 2017-06-07 08:47:00
-
+Date: 2017-06-07T08:47:00
+Modified: 2017-06-07T08:47:00
+wp_id: 709
+-->
 
 ## Why this happens?
 

@@ -1,11 +1,12 @@
 # Python coroutine 以及和 Goroutine 的对比
 
-
-wp_id: 681
+<!--
+ID: b121a7c4-573c-4114-b977-90ad84b1c746
 Status: publish
-Date: 2018-04-29 05:44:00
-Modified: 2020-05-16 11:37:10
-
+Date: 2018-04-29T05:44:00
+Modified: 2020-05-16T11:37:10
+wp_id: 681
+-->
 
 # Python 中的 coroutine
 

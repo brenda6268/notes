@@ -1,5 +1,13 @@
 # Rust 面向对象编程
 
+<!--
+ID: 41a6c496-a389-4bfa-bfb3-3a196e650194
+Status: draft
+Date: 2020-07-21T18:17:30
+Modified: 2020-07-21T18:17:30
+wp_id: 1376
+-->
+
 严格来说，rust 是不支持面向对象编程的，因为 rust 中不支持继承。
 
 rust 中方法和数据结构的定义是分开的。数据结构使用 struct 定义，而方法使用 impl 关键字。rust 中使用 `pub` 关键字代表 public, 比较简练。

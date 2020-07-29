@@ -1,11 +1,12 @@
 # Python 的多线程和多进程
 
-
-wp_id: 685
+<!--
+ID: dc4229b6-e3b0-4c59-ba6a-666fade4de38
 Status: publish
-Date: 2017-11-08 19:30:00
-Modified: 2020-05-16 11:51:35
-
+Date: 2017-11-08T19:30:00
+Modified: 2020-05-16T11:51:35
+wp_id: 685
+-->
 
 # 高层次多线程
 

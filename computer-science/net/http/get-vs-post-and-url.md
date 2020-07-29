@@ -1,6 +1,5 @@
 # Get 和 Post 方法的选择和URL的设计
 
-
 <!--
 ID: ecdcaa6d-77ab-48c0-a42a-9b0d5a492332
 Status: publish
@@ -8,7 +7,6 @@ Date: 2018-07-10T08:59:00
 Modified: 2020-05-16T11:15:14
 wp_id: 585
 -->
-
 
 HTTP 中常用的方法有 GET/POST/PUT/DELETE 等，在设计API或者表单的时候我们需要选择合适的方法。一般有两种方案：
 

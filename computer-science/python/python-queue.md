@@ -1,11 +1,12 @@
 # Python 中的 queue 模块
 
-
-wp_id: 647
+<!--
+ID: 9f96455b-8040-4b1a-b083-57039158f962
 Status: publish
-Date: 2018-06-22 09:20:00
-Modified: 2020-05-16 11:13:11
-
+Date: 2018-06-22T09:20:00
+Modified: 2020-05-16T11:13:11
+wp_id: 647
+-->
 
 在Python中多进程或者多线程之间通信可以使用队列，标准库中实现了一个线程安全的库 queue.Queue，和进程安全的库 multiprocessing.Queue
 

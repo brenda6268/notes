@@ -1,6 +1,12 @@
-Date: 2019-11-25
-
 # Channel
+
+<!--
+ID: ca10b016-72a3-4341-a734-e6cc0a023ed8
+Status: draft
+Date: 2019-11-25T00:00:00
+Modified: 2020-05-28T14:09:32
+wp_id: 1137
+-->
 
 Python 中线程之间或者进程之间可以通过使用对应的 queue/multiprocessing.Queue 来通信。而在 Golang 中类似的机制叫做 channel。语法是：`make(chan T)`
 

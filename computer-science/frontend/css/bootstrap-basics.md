@@ -1,11 +1,12 @@
 # Bootstrap Basics
 
-
-wp_id: 762
+<!--
+ID: a4ea0b4e-6963-483f-9196-542c4398b0a2
 Status: publish
-Date: 2017-06-07 07:04:00
-Modified: 2017-06-07 07:04:00
-
+Date: 2017-06-07T07:04:00
+Modified: 2017-06-07T07:04:00
+wp_id: 762
+-->
 
 BootStrap适合做什么
 ======

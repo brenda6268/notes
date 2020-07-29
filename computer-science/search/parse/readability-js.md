@@ -1,11 +1,12 @@
 # readability.js 源码阅读
 
-
-wp_id: 466
+<!--
+ID: d641c927-f982-4a84-91a1-20dda00aaa13
 Status: draft
-Date: 2017-08-16 21:40:00
-Modified: 2020-05-16 11:50:06
-
+Date: 2017-08-16T21:40:00
+Modified: 2020-05-16T11:50:06
+wp_id: 466
+-->
 
 Readability is able to fetch paginated page and combine them into one page
  

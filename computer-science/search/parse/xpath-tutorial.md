@@ -1,11 +1,12 @@
 # XPath 教程
 
-
-wp_id: 467
+<!--
+ID: 02bd5dbc-b95c-4f5e-a9d2-f42d3033e5b1
 Status: draft
-Date: 2017-05-30 02:47:00
-Modified: 2020-05-16 11:57:47
-
+Date: 2017-05-30T02:47:00
+Modified: 2020-05-16T11:57:47
+wp_id: 467
+-->
 
 如何根据包含的文本查找元素：https://stackoverflow.com/questions/14631590/get-text-content-of-an-html-element-using-xpath
 # 基本语法

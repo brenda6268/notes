@@ -1,6 +1,5 @@
 # Kafka 实现细节
 
-
 <!--
 ID: 6d8946bf-ad37-4b26-8b8d-c3dd8f69b44e
 Status: draft
@@ -8,7 +7,6 @@ Date: 2020-06-07T22:39:19
 Modified: 2020-06-07T22:39:19
 wp_id: 1054
 -->
-
 
 ## 为什么速度快
 

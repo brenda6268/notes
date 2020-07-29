@@ -1,11 +1,12 @@
 # Python + Influxdb + Grafana 的监控系统
 
-
-wp_id: 739
+<!--
+ID: afaca547-39fc-47c8-b03b-c993bdb97139
 Status: publish
-Date: 2018-10-16 02:18:00
-Modified: 2020-05-16 11:25:51
-
+Date: 2018-10-16T02:18:00
+Modified: 2020-05-16T11:25:51
+wp_id: 739
+-->
 
 # influxdb 
 

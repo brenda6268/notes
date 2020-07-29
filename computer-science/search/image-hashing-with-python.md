@@ -1,11 +1,12 @@
 # Image Hashing with Python
 
-
-wp_id: 472
+<!--
+ID: a6081e18-fd46-4fdf-9f2d-e8162b4b124a
 Status: publish
-Date: 2017-05-29 14:44:00
-Modified: 2017-05-29 14:44:00
-
+Date: 2017-05-29T14:44:00
+Modified: 2017-05-29T14:44:00
+wp_id: 472
+-->
 
 ##dhash
 

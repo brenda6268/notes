@@ -1,11 +1,12 @@
 # Linux 命令行文件管理
 
-
-wp_id: 423
+<!--
+ID: a9e92bac-e10d-46bf-9c57-049fc2998715
 Status: publish
-Date: 2017-05-30 12:31:00
-Modified: 2020-05-16 12:01:20
-
+Date: 2017-05-30T12:31:00
+Modified: 2020-05-16T12:01:20
+wp_id: 423
+-->
 
 ## get current file path
 

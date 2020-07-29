@@ -1,11 +1,12 @@
 # 使用 Chardet 自动检测文本编码
 
-
-wp_id: 642
+<!--
+ID: 42d2fc8f-467c-4ebb-a50b-8345fb9238d2
 Status: publish
-Date: 2017-06-02 06:23:00
-Modified: 2020-05-16 12:03:56
-
+Date: 2017-06-02T06:23:00
+Modified: 2020-05-16T12:03:56
+wp_id: 642
+-->
 
 python 中的 chardet 库可以用来猜测文件的编码
 

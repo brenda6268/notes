@@ -1,6 +1,5 @@
 # nginx 使用基础
 
-
 <!--
 ID: 64dda4fe-f24a-4dcf-a980-65f0099742cd
 Status: draft
@@ -8,7 +7,6 @@ Date: 2018-01-14T00:20:00
 Modified: 2020-05-16T11:29:26
 wp_id: 611
 -->
-
 
 ## 最小配置文件
 

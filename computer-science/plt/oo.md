@@ -1,11 +1,12 @@
 # 面向对象的思考
 
-
-wp_id: 333
+<!--
+ID: 9079ff64-8a06-41ca-9dad-5a4f08589551
 Status: draft
-Date: 2017-05-30 03:39:00
-Modified: 2020-05-16 11:58:57
-
+Date: 2017-05-30T03:39:00
+Modified: 2020-05-16T11:58:57
+wp_id: 333
+-->
 
 ## inheritance vs composition vs aggregation
 

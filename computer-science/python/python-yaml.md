@@ -1,11 +1,12 @@
 # YAML 语言和 Python 中的使用
 
-
-wp_id: 630
+<!--
+ID: 08ad4f23-fdd5-4191-a971-e93b7f14c2be
 Status: publish
-Date: 2017-05-29 15:20:00
-Modified: 2020-05-16 12:09:48
-
+Date: 2017-05-29T15:20:00
+Modified: 2020-05-16T12:09:48
+wp_id: 630
+-->
 
 ## Install
 

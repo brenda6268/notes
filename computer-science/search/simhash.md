@@ -1,10 +1,12 @@
 # simhash
 
-wp_id: 487
+<!--
+ID: 74c134d8-2025-4f26-8137-ee41e6da5966
 Status: draft
-Date: 2017-07-05 09:09:00
-Modified: 2017-07-05 09:09:00
-
+Date: 2017-07-05T09:09:00
+Modified: 2017-07-05T09:09:00
+wp_id: 487
+-->
 
 ## shingling
 

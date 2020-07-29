@@ -1,11 +1,12 @@
 # fd - 更好的 find 命令（fd - A nicer find command）
 
-
-wp_id: 434
+<!--
+ID: 77830286-00ff-49ee-a90a-3cbf309f901f
 Status: publish
-Date: 2018-04-01 04:33:00
-Modified: 2020-05-16 11:31:18
-
+Date: 2018-04-01T04:33:00
+Modified: 2020-05-16T11:31:18
+wp_id: 434
+-->
 
 `fd`（https://github.com/sharkdp/fd ） 是 `find` 命令的一个更现代的替换。
 

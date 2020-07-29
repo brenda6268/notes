@@ -1,11 +1,12 @@
 # Python 操作 ssh
 
-
-wp_id: 644
+<!--
+ID: da188079-12ad-412f-b81b-ef4cafab7f04
 Status: publish
-Date: 2018-06-22 10:21:00
-Modified: 2020-05-16 11:13:52
-
+Date: 2018-06-22T10:21:00
+Modified: 2020-05-16T11:13:52
+wp_id: 644
+-->
 
 ```py
 import paramiko

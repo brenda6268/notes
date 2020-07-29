@@ -1,11 +1,12 @@
 # 学习 greasemonkey 教程
 
-
-wp_id: 722
+<!--
+ID: c5537cc3-9348-4d81-b11e-b5b19b4c53e3
 Status: publish
-Date: 2017-05-29 15:23:00
-Modified: 2020-05-16 12:09:56
-
+Date: 2017-05-29T15:23:00
+Modified: 2020-05-16T12:09:56
+wp_id: 722
+-->
 
 GreaseMonkey/TamperMonkey 学习
 

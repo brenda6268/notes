@@ -1,11 +1,12 @@
 # Chrome Extension runtime
 
-
-wp_id: 717
+<!--
+ID: 0b526fdc-d820-4fcd-bf09-a750f795d693
 Status: publish
-Date: 2017-06-12 15:00:00
-Modified: 2017-06-12 15:00:00
-
+Date: 2017-06-12T15:00:00
+Modified: 2017-06-12T15:00:00
+wp_id: 717
+-->
 
 ## basic usage
 

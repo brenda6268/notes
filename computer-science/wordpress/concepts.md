@@ -1,5 +1,12 @@
 # WordPress 核心概念
 
+<!--
+ID: 65dd30e7-04c1-4b07-beed-df2b6012b379
+Status: draft
+Date: 2020-05-28T15:42:25
+Modified: 2020-05-28T15:42:25
+wp_id: 1198
+-->
 
 ## 文章类型
 

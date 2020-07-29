@@ -1,6 +1,12 @@
 # WordPress 的 API
 
-Date: 2019-10-10
+<!--
+ID: 35f87c5a-377d-4745-82a1-5f312d2934d7
+Status: draft
+Date: 2019-10-10T00:00:00
+Modified: 2020-05-28T14:09:32
+wp_id: 1197
+-->
 
 ## 操作步骤
 

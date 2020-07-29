@@ -1,13 +1,12 @@
 # 用于替代ajax的 fetch API
 
-
+<!--
 ID: 758
 Status: publish
-Date: 2017-05-30 03:45:00
-Modified: 2020-05-16 11:59:20
-
-Date: 2019-12-08
-
+Date: 2019-12-08T00:00:00
+Modified: 2020-05-16T11:59:20
+wp_id: 1154
+-->
 
 fetch 对于 400 和 500 错误依然会正常返回而不会报错。只有在网络错误的时候才会抛出异常
 fetch 默认只会携带同一个域名下的 cookies，也就是 same-origin。

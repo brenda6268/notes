@@ -1,11 +1,12 @@
 # 读《The Anatomy of a large-scale hypertextual Web search engine》
 
-
-wp_id: 449
+<!--
+ID: 718ccc86-4118-4374-9810-144fd6efc7bf
 Status: publish
-Date: 2018-04-13 05:48:00
-Modified: 2020-05-16 11:35:40
-
+Date: 2018-04-13T05:48:00
+Modified: 2020-05-16T11:35:40
+wp_id: 449
+-->
 
 Google 在1997年的论文[1], 到现在(2017)的话, 已经有二十年的历史了, 然而对于编写一个小的搜索引擎, 依然有好多具有指导意义的地方.
 

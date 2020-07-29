@@ -1,6 +1,5 @@
 # 使用 Nomad 编排服务
 
-
 <!--
 ID: c3f24145-2424-4dda-96cc-88a17b631799
 Status: publish
@@ -8,7 +7,6 @@ Date: 2018-11-22T22:57:00
 Modified: 2020-05-16T11:06:38
 wp_id: 559
 -->
-
 
 2019-01-02 更新：相对于 Kubernetes 来说，Nomad 还是太简陋了，弃坑
 

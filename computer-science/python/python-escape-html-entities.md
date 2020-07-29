@@ -1,11 +1,12 @@
 # Python 转义 html 实体字符
 
-
-wp_id: 687
+<!--
+ID: c82d042c-d200-45f1-9552-db70ecc5651d
 Status: publish
-Date: 2018-06-22 10:21:00
-Modified: 2020-05-16 11:13:43
-
+Date: 2018-06-22T10:21:00
+Modified: 2020-05-16T11:13:43
+wp_id: 687
+-->
 
 在网页中经常出现 `<`, `&amp;`, `&0x0026;` 这些特殊字符，这是 html 实体字符转义，用于防止 XSS 攻击。Python3 标准库中包含了 html.entities 模块，可以用于转义和反转义这些字符。
 

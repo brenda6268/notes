@@ -1,5 +1,12 @@
-# K3s 
+# K3s
 
+<!--
+ID: fe8e3aec-dcff-4923-9ac2-1c7140457e97
+Status: draft
+Date: 2020-07-29T19:25:46
+Modified: 2020-07-29T19:25:46
+wp_id: 1108
+-->
 
 k3s 是 rancher 出品的一个 kubernetes 的衍生版，特点是单二进制文件，非常小巧，可以在树莓派上部署。虽然他对好多组件做了替换，比如把 etcd 替换成了 sqlite3，但是他依然是一个通过了官方认证的 Kubernetes 发行版。
 

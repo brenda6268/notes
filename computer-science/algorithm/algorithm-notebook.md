@@ -1,11 +1,12 @@
 # 算法题错题本
 
-
-wp_id: 484
+<!--
+ID: fab8c6fc-3d0d-4e2e-aa0c-dc811927e5ee
 Status: draft
-Date: 2017-11-13 21:53:00
-Modified: 2020-05-16 11:53:21
-
+Date: 2017-11-13T21:53:00
+Modified: 2020-05-16T11:53:21
+wp_id: 484
+-->
 
 # 指导思想
 

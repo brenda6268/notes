@@ -1,5 +1,12 @@
-Date: 2019-11-25
 # 定时机制
+
+<!--
+ID: fb6fc7e2-778f-4e40-8ad4-dedd418188f4
+Status: draft
+Date: 2019-11-25T00:00:00
+Modified: 2020-05-28T14:09:32
+wp_id: 1148
+-->
 
 这块在 Python 中好像没有直接的对应。非要对应的话应该是和标准库的 sched 或者是第三方的 apscheduler 比较类似。其实主要也就是实现了 unix 系统上传统的 at 和 cron 这两个守护进程的功能。Golang 的定时机制是基于 channel 的。
 

@@ -1,11 +1,12 @@
 # 使用Python标准库实现一个基本的 http 服务器
 
-
-wp_id: 626
+<!--
+ID: e60e8b08-96f2-445e-b43e-8473c440cbcc
 Status: draft
-Date: 2018-06-22 09:32:00
-Modified: 2020-05-16 11:13:32
-
+Date: 2018-06-22T09:32:00
+Modified: 2020-05-16T11:13:32
+wp_id: 626
+-->
 
 HTTPserver inherit the BaseServer Class, BaseServer Class has the following methods:
 

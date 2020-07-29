@@ -1,11 +1,12 @@
 # django dump to csv
 
-
-wp_id: 697
+<!--
+ID: f90ef2f4-7d50-4e34-93b7-c4a657aa0279
 Status: publish
-Date: 2018-04-30 09:59:00
-Modified: 2018-04-30 09:59:00
-
+Date: 2018-04-30T09:59:00
+Modified: 2018-04-30T09:59:00
+wp_id: 697
+-->
 
 ```py
 import csv

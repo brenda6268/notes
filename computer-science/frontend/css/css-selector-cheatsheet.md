@@ -1,11 +1,12 @@
 # [译] CSS 选择器备忘录（cheatsheet）
 
-
-wp_id: 760
+<!--
+ID: a44a879e-3475-4ea3-ba44-bafce4aee5dc
 Status: publish
-Date: 2018-04-11 09:51:00
-Modified: 2020-05-16 11:35:04
-
+Date: 2018-04-11T09:51:00
+Modified: 2020-05-16T11:35:04
+wp_id: 760
+-->
 
 这两天打算写写爬虫，准备用 css 选择器来抽取内容，翻译了[一篇文章](http://butlerccwebdev.net/support/css-selectors-cheatsheet.html)，正好复习一下，这篇文章遵守 CC-BY-NC-SA 协议。
 

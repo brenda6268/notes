@@ -1,11 +1,12 @@
 # Python 高性能请求库 aiohttp 的基本用法
 
-
-wp_id: 689
+<!--
+ID: d61553d4-b41b-4b2f-8d34-383df8373b58
 Status: publish
-Date: 2018-10-13 17:05:00
-Modified: 2020-05-16 11:25:10
-
+Date: 2018-10-13T17:05:00
+Modified: 2020-05-16T11:25:10
+wp_id: 689
+-->
 
 aiohttp 是 Python 异步编程最常用的一个 web 请求库了, 依托于 asyncio, 性能非常吓人. 下面列举几个常见的用法:
 

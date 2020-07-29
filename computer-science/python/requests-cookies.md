@@ -1,11 +1,12 @@
 # requests cookies 为空的一个坑
 
-
-wp_id: 676
+<!--
+ID: 04fb3cb2-f74c-4fbf-8745-0cb526964466
 Status: publish
-Date: 2018-09-27 19:10:00
-Modified: 2020-05-16 11:24:18
-
+Date: 2018-09-27T19:10:00
+Modified: 2020-05-16T11:24:18
+wp_id: 676
+-->
 
 有时候，requests 返回的 cookies 会为空，原因是链接发生了 301/302 跳转，而 cookies 是跟着第一个响应返回的，第二个响应没有返回 Set-Cookie header。所以直接读取 r.cookies 是空的，而在 session.cookies 中是有数据的。
 

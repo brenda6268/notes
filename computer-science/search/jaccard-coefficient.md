@@ -1,11 +1,12 @@
 # Jaccard coefficient(杰拉德距离)
 
-
-wp_id: 485
+<!--
+ID: c4144bb3-6e3c-4142-957d-143dc965c952
 Status: publish
-Date: 2017-05-30 09:45:00
-Modified: 2020-05-16 12:01:04
-
+Date: 2017-05-30T09:45:00
+Modified: 2020-05-16T12:01:04
+wp_id: 485
+-->
 
 the jaccard index is a simple measure of how similiar two sets are.
 it's simply the ratio of the size of the intersection of the sets and the size of the union of the sets.

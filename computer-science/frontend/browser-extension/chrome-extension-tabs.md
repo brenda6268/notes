@@ -1,11 +1,12 @@
 # Chrome Extension Tabs
 
-
-wp_id: 501
+<!--
+ID: 554278dc-8028-4b92-84ad-8e7efe31315e
 Status: publish
-Date: 2017-06-12 14:36:00
-Modified: 2017-06-12 14:36:00
-
+Date: 2017-06-12T14:36:00
+Modified: 2017-06-12T14:36:00
+wp_id: 501
+-->
 
 # permissions
 

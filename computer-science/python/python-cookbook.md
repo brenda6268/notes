@@ -1,11 +1,12 @@
 # 阅读《Python Cookbook》笔记
 
-
-wp_id: 648
+<!--
+ID: a251c91b-93a3-42fd-956e-17953ccc680a
 Status: draft
-Date: 2018-06-22 09:04:00
-Modified: 2020-05-16 11:12:50
-
+Date: 2018-06-22T09:04:00
+Modified: 2020-05-16T11:12:50
+wp_id: 648
+-->
 
 packing
 

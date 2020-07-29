@@ -1,11 +1,12 @@
 # sqlite3 和在 Python 中的使用教程
 
-
-wp_id: 672
+<!--
+ID: fa794597-6a81-4fae-81a1-74b0a0a22468
 Status: publish
-Date: 2018-04-04 05:17:00
-Modified: 2020-05-16 11:32:32
-
+Date: 2018-04-04T05:17:00
+Modified: 2020-05-16T11:32:32
+wp_id: 672
+-->
 
 Yifei's notes:
 

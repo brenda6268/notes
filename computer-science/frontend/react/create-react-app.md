@@ -1,5 +1,12 @@
-Date: 2019-12-05
 # 创建应用
+
+<!--
+ID: 42aca8c8-f885-4052-9a55-e13cf1523606
+Status: draft
+Date: 2019-12-05T00:00:00
+Modified: 2020-05-28T14:09:32
+wp_id: 1195
+-->
 
 ```bash
 yarn create react-app my-app --template typescript

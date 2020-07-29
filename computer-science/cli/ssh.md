@@ -1,11 +1,12 @@
 # ssh tutorial
 
-
-wp_id: 596
+<!--
+ID: 2b7a7b5e-4198-4cf8-9ddb-8f68b8a8e5f6
 Status: draft
-Date: 2017-05-30 01:21:00
-Modified: 2020-05-16 12:10:33
-
+Date: 2017-05-30T01:21:00
+Modified: 2020-05-16T12:10:33
+wp_id: 596
+-->
 
 ## 配置文件
 

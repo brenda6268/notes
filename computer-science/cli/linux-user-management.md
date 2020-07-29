@@ -1,11 +1,12 @@
 # Linux 命令行账户管理
 
-
-wp_id: 432
+<!--
+ID: dbe6fff1-1408-41a6-a1ae-0539e985c405
 Status: publish
-Date: 2017-05-29 12:40:00
-Modified: 2020-05-16 12:08:00
-
+Date: 2017-05-29T12:40:00
+Modified: 2020-05-16T12:08:00
+wp_id: 432
+-->
 
 执行 `sudo vi /etc/suduers`, 然后输入：
 

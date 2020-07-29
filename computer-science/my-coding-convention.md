@@ -1,6 +1,5 @@
 # 代码风格指引
 
-
 <!--
 ID: 2ef13a50-4bef-499c-b1f3-bf51b98347d5
 Status: publish
@@ -8,7 +7,6 @@ Date: 2017-08-05T03:29:00
 Modified: 2020-05-16T11:47:42
 wp_id: 329
 -->
-
 
 代码要做到[自文档化](http://jixianqianduan.com/article-translation/2016/06/22/ways-to-write-self-documenting-js.html)
 

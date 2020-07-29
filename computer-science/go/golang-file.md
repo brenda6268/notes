@@ -1,6 +1,5 @@
 # 字符串和 bytes 操作
 
-
 <!--
 ID: 24a37b62-8ea8-4033-aed7-03f07854fdaf
 Status: publish
@@ -8,7 +7,6 @@ Date: 2018-07-15T05:00:00
 Modified: 2020-05-16T11:19:14
 wp_id: 730
 -->
-
 
 Go 语言中的字符串并没有很多原生方法，需要使用 `strings` 和 `bytes` 模块来操作。strings 模块
 假定字符串是 utf-8 编码的。

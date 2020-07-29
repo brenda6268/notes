@@ -1,11 +1,12 @@
 # Python 中的序列化库
 
-
-wp_id: 641
+<!--
+ID: e02a0798-cd9b-4893-a6de-1b0bfbb923d0
 Status: publish
-Date: 2017-05-30 01:47:00
-Modified: 2020-05-16 12:06:34
-
+Date: 2017-05-30T01:47:00
+Modified: 2020-05-16T12:06:34
+wp_id: 641
+-->
 
 ## basic usage
 

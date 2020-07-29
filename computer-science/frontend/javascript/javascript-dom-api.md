@@ -1,11 +1,12 @@
 # JavaScript DOM API
 
-
-wp_id: 503
+<!--
+ID: 1e3e675c-0800-4917-93ec-891def0eac3a
 Status: publish
-Date: 2017-05-30 09:45:00
-Modified: 2017-05-30 09:45:00
-
+Date: 2017-05-30T09:45:00
+Modified: 2017-05-30T09:45:00
+wp_id: 503
+-->
 
 ## document object
 

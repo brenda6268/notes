@@ -1,11 +1,12 @@
 # Python 和 Go 异步对比
 
-
-wp_id: 777
+<!--
+ID: 24a89217-020c-4870-9adb-dd00b7d11b7e
 Status: draft
-Date: 2019-10-18 18:08:59
-Modified: 2020-05-16 10:49:36
-
+Date: 2019-10-18T18:08:59
+Modified: 2020-05-16T10:49:36
+wp_id: 777
+-->
 
 Python 3.6 中终于引入了 `async` 和 `await` 关键字，算是在语言层次上支持了 `coroutine`，
 `coroutine` 又被称为用户级线程，也就是可以再一个系统线程中模拟多个线程构成的并发操作，

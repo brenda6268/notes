@@ -1,11 +1,12 @@
 # screen 教程
 
-
-wp_id: 424
+<!--
+ID: 395f68be-051b-45db-85be-86390975cdfb
 Status: draft
-Date: 2017-05-30 03:34:00
-Modified: 2020-05-16 11:58:34
-
+Date: 2017-05-30T03:34:00
+Modified: 2020-05-16T11:58:34
+wp_id: 424
+-->
 
 tmux 比 screen 好用多了，放弃 screen 了
 

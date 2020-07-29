@@ -1,11 +1,12 @@
 # Linux 命令行中使用带颜色的输出
 
-
-wp_id: 616
+<!--
+ID: 76bf01be-8dc2-4c26-8f66-9364ffe197d1
 Status: publish
-Date: 2018-04-04 06:13:00
-Modified: 2020-05-16 11:33:56
-
+Date: 2018-04-04T06:13:00
+Modified: 2020-05-16T11:33:56
+wp_id: 616
+-->
 
 http://misc.flogisoft.com/bash/tip_colors_and_formatting
 

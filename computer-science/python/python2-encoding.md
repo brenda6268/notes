@@ -1,11 +1,12 @@
 # Python 2 中的编码问题
 
-
-wp_id: 633
+<!--
+ID: ec283269-b199-4d2e-aaf9-067004afa10c
 Status: draft
-Date: 2017-05-30 02:59:00
-Modified: 2020-05-16 11:57:56
-
+Date: 2017-05-30T02:59:00
+Modified: 2020-05-16T11:57:56
+wp_id: 633
+-->
 
 to represent a text, we use a array of characters. we use numbers to represent characters. unicode use the range of 0 - Inf, while ascii use 0-127
 

@@ -1,11 +1,12 @@
 # 吐槽一下 Python 混乱的 threading 和 multiprocessing
 
-
-wp_id: 645
+<!--
+ID: 05afd3c8-bb66-4703-8cad-93a68f171ba4
 Status: publish
-Date: 2018-10-15 03:21:00
-Modified: 2020-05-16 11:25:22
-
+Date: 2018-10-15T03:21:00
+Modified: 2020-05-16T11:25:22
+wp_id: 645
+-->
 
 最近要写一个库往 influxdb 中打点, 因为要被很多程序使用, 而又要创建新的进程, 为了避免引起使用方的异常, 简单深入了解了下 Python 的并发控制, 这才发现标准库真是坑. 之前没过多考虑过, 只是凭感觉在 CPU 密集的时候使用 multiprocessing, 而默认使用 threading, 其实两个还是有很多不一样的, 除了都是并发执行以外还有很大的不同. Python 中试图用 threading 和 multiprocessing 实现类似的接口来统一两方面, 结果导致更混乱了. 本文探讨几个坑.
 

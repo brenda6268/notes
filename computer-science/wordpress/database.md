@@ -1,5 +1,13 @@
 # WordPress 的数据库设计
 
+<!--
+ID: e3777e42-ddc1-4239-be72-643385add801
+Status: draft
+Date: 2020-05-28T14:09:32
+Modified: 2020-05-28T14:09:32
+wp_id: 1199
+-->
+
 WordPress 中共有11个表，设计可以说是非常经典了。
 
 ## wp_options

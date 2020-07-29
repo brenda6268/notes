@@ -1,6 +1,5 @@
 # Dockerfile 基础教程
 
-
 <!--
 ID: 9d154744-0ed0-47d6-8382-4b2d9f706f3a
 Status: publish
@@ -8,7 +7,6 @@ Date: 2017-06-27T15:24:19
 Modified: 2020-05-16T11:44:26
 wp_id: 188
 -->
-
 
 Dockerfile 列出了构建一个docker image 的**可复现**步骤。比起一步一步通过 docker commit 来制作一个镜像，dockerfile更适用于 CI 自动测试等系统。
 

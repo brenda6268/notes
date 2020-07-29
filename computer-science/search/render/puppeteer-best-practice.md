@@ -1,11 +1,12 @@
 # 无头浏览器和 Puppeteer 的一些最佳实践
 
-
-wp_id: 80
+<!--
+ID: 2349bbd9-942c-4004-bcd7-38ff8b1ffb31
 Status: publish
-Date: 2019-06-15 15:07:08
-Modified: 2020-05-16 10:58:53
-
+Date: 2019-06-15T15:07:08
+Modified: 2020-05-16T10:58:53
+wp_id: 80
+-->
 
 <!-- wp:paragraph -->
 <p>

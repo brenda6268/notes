@@ -1,11 +1,12 @@
 # 十五分钟了解 Monad
 
-
-wp_id: 339
+<!--
+ID: af7ebf4c-ba74-4b0c-9197-042f6c2cbd84
 Status: publish
-Date: 2019-05-29 14:07:00
-Modified: 2020-05-16 11:02:25
-
+Date: 2019-05-29T14:07:00
+Modified: 2020-05-16T11:02:25
+wp_id: 339
+-->
 
 # 15 分钟了解 Monad
 

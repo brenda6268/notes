@@ -1,11 +1,12 @@
 # Golang 网络相关库
 
-
-wp_id: 779
+<!--
+ID: 4092dab5-4f1c-4faf-8e5e-a737cb2d73c4
 Status: draft
-Date: 2019-10-19 12:42:51
-Modified: 2020-05-16 10:49:24
-
+Date: 2019-10-19T12:42:51
+Modified: 2020-05-16T10:49:24
+wp_id: 779
+-->
 
 # net/http
 

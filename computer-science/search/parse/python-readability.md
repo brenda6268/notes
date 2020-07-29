@@ -1,11 +1,12 @@
 # python-readability 源码阅读
 
-
-wp_id: 307
+<!--
+ID: 6c0740dd-7ffd-427f-b344-10272fcd003b
 Status: publish
-Date: 2017-07-09 11:26:06
-Modified: 2020-05-16 11:45:34
-
+Date: 2017-07-09T11:26:06
+Modified: 2020-05-16T11:45:34
+wp_id: 307
+-->
 
 readability 是一个可以从杂乱无章的网页中抽取出无特殊格式，适合再次排版阅读的文章的库，比如我们常见的手机浏览器的阅读模式很大程度上就是采用的这个库，还有 evernote 的 webclipper 之类的应用也都是利用了类似的库。readability 的各个版本都源自readability.js这个库，之前尝试阅读过js版本，无关的辅助函数太多了，而且 js 的 dom api 实在称不上优雅，读起来晦涩难通，星期天终于有时间拜读了一下python-readability的代码。
 

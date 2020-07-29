@@ -1,11 +1,12 @@
 # 在 Python 中打印日志
 
-
-wp_id: 643
+<!--
+ID: b644baf6-840e-4bcf-8f03-37a40caa0ac6
 Status: publish
-Date: 2017-05-30 03:54:00
-Modified: 2019-10-09 14:02:13
-
+Date: 2017-05-30T03:54:00
+Modified: 2019-10-09T14:02:13
+wp_id: 643
+-->
 
 ## 日志的作用
 

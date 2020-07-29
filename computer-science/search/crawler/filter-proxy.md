@@ -1,11 +1,12 @@
 # filter proxy
 
-
-wp_id: 471
+<!--
+ID: cf08a11d-4ece-4184-aae6-9b1c6a43d13d
 Status: draft
-Date: 2017-05-30 08:15:00
-Modified: 2020-05-16 12:00:42
-
+Date: 2017-05-30T08:15:00
+Modified: 2020-05-16T12:00:42
+wp_id: 471
+-->
 
 filter_rules.yml
 

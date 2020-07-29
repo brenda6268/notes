@@ -1,11 +1,12 @@
 # python signal
 
-
-wp_id: 632
+<!--
+ID: 07ad17b8-8cc7-4121-9cfe-f2bda425c14b
 Status: publish
-Date: 2017-07-24 19:15:00
-Modified: 2017-07-24 19:15:00
-
+Date: 2017-07-24T19:15:00
+Modified: 2017-07-24T19:15:00
+wp_id: 632
+-->
 
 Any thread can perform an alarm(), getsignal(), pause(), setitimer() or getitimer(); only the main thread can set a new signal handler, and the main thread will be the only one to receive signals
 

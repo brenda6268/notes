@@ -1,11 +1,12 @@
 # 函数式编程中的 Pattern Matching (模式匹配)
 
-
-wp_id: 326
+<!--
+ID: e9d014be-d990-44c2-b955-446f8bf198e0
 Status: publish
-Date: 2018-04-26 09:18:00
-Modified: 2020-05-16 11:36:42
-
+Date: 2018-04-26T09:18:00
+Modified: 2020-05-16T11:36:42
+wp_id: 326
+-->
 
 以 haskell 为例，简单来说，pattern 就像是数学中的分段函数。通过使用 pattern matching，就可以对不同的参数定义不同的函数体。当调用函数的时候，可以通过对比实参和形参的模式就可以选择正确的函数体。
 

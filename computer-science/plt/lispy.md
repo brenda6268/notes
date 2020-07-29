@@ -1,11 +1,12 @@
 # lispy 笔记
 
-
-wp_id: 513
+<!--
+ID: 9c088878-9b5c-439a-9ebd-8c770a743093
 Status: publish
-Date: 2017-12-10 05:44:00
-Modified: 2020-05-16 11:27:42
-
+Date: 2017-12-10T05:44:00
+Modified: 2020-05-16T11:27:42
+wp_id: 513
+-->
 
 阅读 norvig 文章[(How to Write a (Lisp) Interpreter (in Python))][1]的笔记。
 

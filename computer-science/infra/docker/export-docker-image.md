@@ -1,6 +1,5 @@
 # 如何导出 Docker 镜像
 
-
 <!--
 ID: bc9445e9-815c-4bc2-aad3-ae8869d67a7d
 Status: publish
@@ -8,7 +7,6 @@ Date: 2019-10-10T09:50:13
 Modified: 2020-05-16T10:50:16
 wp_id: 743
 -->
-
 
 可以使用 docker save 和 docker export 导出 docker 镜像。那么两者有什么区别呢？
 

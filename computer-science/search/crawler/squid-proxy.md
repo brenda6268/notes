@@ -1,11 +1,12 @@
 # squid proxy
 
-
-wp_id: 450
+<!--
+ID: b3662d8a-8a5b-444a-82ad-e53ba12e8d60
 Status: publish
-Date: 2017-06-20 15:22:00
-Modified: 2017-06-20 15:22:00
-
+Date: 2017-06-20T15:22:00
+Modified: 2017-06-20T15:22:00
+wp_id: 450
+-->
 
 # Install squid
 plain old `apt-get update && apt-get install squid3 apache2-utils -y`

@@ -1,11 +1,12 @@
 # Chrome extension cookies
 
-
-wp_id: 724
+<!--
+ID: b99f1748-c3cc-494b-8599-a8c4548ddfc6
 Status: publish
-Date: 2017-06-12 08:01:00
-Modified: 2017-06-12 08:01:00
-
+Date: 2017-06-12T08:01:00
+Modified: 2017-06-12T08:01:00
+wp_id: 724
+-->
 
 ## permissions
 

@@ -1,6 +1,5 @@
 # full stack web
 
-
 <!--
 ID: bc8bc2cd-872c-4ceb-80e1-66385483e8c4
 Status: draft
@@ -8,7 +7,6 @@ Date: 2017-05-30T13:37:00
 Modified: 2020-05-16T12:02:58
 wp_id: 323
 -->
-
 
 Server Side
 ------

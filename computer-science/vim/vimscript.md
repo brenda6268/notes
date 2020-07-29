@@ -1,6 +1,5 @@
 # vimscript 基础教程
 
-
 <!--
 ID: 159aecf0-3038-4120-a3a1-6c715c061b97
 Status: draft
@@ -8,7 +7,6 @@ Date: 2017-07-25T23:34:00
 Modified: 2020-05-16T11:46:16
 wp_id: 733
 -->
-
 
 * use `echom` to save printed messages, you can use `messages` later to retrive them
 

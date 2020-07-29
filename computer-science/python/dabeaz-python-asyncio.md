@@ -1,11 +1,12 @@
 # dabeaz：Python 中 asyncio 的另一种实现
 
-
-wp_id: 661
+<!--
+ID: 61a76a6a-b514-427a-9698-5bd6680c6df1
 Status: draft
-Date: 2018-06-23 02:28:00
-Modified: 2020-05-16 11:14:20
-
+Date: 2018-06-23T02:28:00
+Modified: 2020-05-16T11:14:20
+wp_id: 661
+-->
 
 Python 中异步编程的发展历史
 

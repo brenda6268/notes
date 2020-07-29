@@ -1,11 +1,12 @@
 # ncurses library
 
-
-wp_id: 619
+<!--
+ID: b3891bbe-1338-41c0-9373-5155bf360b10
 Status: publish
-Date: 2017-05-30 08:08:00
-Modified: 2017-05-30 08:08:00
-
+Date: 2017-05-30T08:08:00
+Modified: 2017-05-30T08:08:00
+wp_id: 619
+-->
 
 ncurses is a lib for building command line user interface(TUI)
 

@@ -1,11 +1,12 @@
 # curio asks 源码解析
 
-
-wp_id: 91
+<!--
+ID: 7d28f505-6ce4-4373-ae7d-979a0f518f92
 Status: publish
-Date: 2018-06-22 15:10:30
-Modified: 2020-05-16 11:14:07
-
+Date: 2018-06-22T15:10:30
+Modified: 2020-05-16T11:14:07
+wp_id: 91
+-->
 
 asks 是 Python 的异步框架 curio 中的 一个 http 库。它基于 h11 这个库来做 http 协议的解析，然后提供了在 curio 下的 IO 操作。下面按照功能逐个介绍其中的每个部分。
 

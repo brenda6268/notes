@@ -1,11 +1,12 @@
 # 一篇简单的 Python gRPC 教程
 
-
-wp_id: 590
+<!--
+ID: cdbf99bb-5cb6-4ea9-ab54-a3ddc0b8b3cf
 Status: publish
-Date: 2018-07-15 05:22:00
-Modified: 2020-05-16 11:19:21
-
+Date: 2018-07-15T05:22:00
+Modified: 2020-05-16T11:19:21
+wp_id: 590
+-->
 
 # 安装
 

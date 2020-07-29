@@ -1,5 +1,13 @@
 # kubectl
 
+<!--
+ID: 9fae323a-6a5f-4419-abd0-4c4561986ba8
+Status: draft
+Date: 2020-07-29T19:26:18
+Modified: 2020-07-29T19:26:18
+wp_id: 1105
+-->
+
 进入容器中
 
 kubectl exec -it PODNAME -- bash

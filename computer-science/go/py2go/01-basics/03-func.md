@@ -1,6 +1,12 @@
-Date: 2019-11-25
-
 # 函数
+
+<!--
+ID: 8025d926-5a94-43e2-bb38-853c62a75160
+Status: draft
+Date: 2019-11-25T00:00:00
+Modified: 2020-05-28T14:09:32
+wp_id: 1127
+-->
 
 ```go
 func add(a int, b int) int {

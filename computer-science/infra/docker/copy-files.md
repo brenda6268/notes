@@ -1,5 +1,13 @@
 # Docker 与 K8s 复制文件
 
+<!--
+ID: 4dc95fcb-d63c-47e5-9908-139395599616
+Status: draft
+Date: 2020-07-29T19:23:55
+Modified: 2020-07-29T19:23:55
+wp_id: 1097
+-->
+
 ## docker 复制文件
 
 ```

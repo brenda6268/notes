@@ -1,11 +1,12 @@
 # 动态规划（LeetCode 413. Arithmetic Slices）
 
-
-wp_id: 490
+<!--
+ID: f53cbdef-6725-4715-806a-ba2bae84d2f2
 Status: publish
-Date: 2018-07-23 01:12:00
-Modified: 2020-05-16 11:20:53
-
+Date: 2018-07-23T01:12:00
+Modified: 2020-05-16T11:20:53
+wp_id: 490
+-->
 
 # LeetCode 413. Arithmetic Slice
 

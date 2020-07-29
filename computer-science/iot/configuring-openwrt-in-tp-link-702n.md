@@ -1,11 +1,12 @@
 # Configuring OpenWrt in TP-Link 702n
 
-
-wp_id: 442
+<!--
+ID: df561f61-a483-4146-bd72-842e901756a1
 Status: publish
-Date: 2017-05-29 01:09:00
-Modified: 2019-10-18 18:53:12
-
+Date: 2017-05-29T01:09:00
+Modified: 2019-10-18T18:53:12
+wp_id: 442
+-->
 
 # 如何重置一个损坏的 OpenWrt
 

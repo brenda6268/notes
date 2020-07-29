@@ -1,11 +1,12 @@
 # EcmaScript 6
 
-
-wp_id: 507
+<!--
+ID: f3763397-97e3-4389-ae8d-3808eb9d9633
 Status: publish
-Date: 2017-05-30 13:54:00
-Modified: 2017-05-30 13:54:00
-
+Date: 2017-05-30T13:54:00
+Modified: 2017-05-30T13:54:00
+wp_id: 507
+-->
 
 ## using es6 with babel
 

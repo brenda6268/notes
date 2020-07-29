@@ -1,11 +1,12 @@
 # steal focus from chrome omnibox on new tab
 
-
-wp_id: 718
+<!--
+ID: 5b6fa1f4-7ed1-4e48-92d5-7d37e84fe1dd
 Status: publish
-Date: 2017-06-18 03:02:00
-Modified: 2017-06-18 03:02:00
-
+Date: 2017-06-18T03:02:00
+Modified: 2017-06-18T03:02:00
+wp_id: 718
+-->
 
 chrome set focus to the omni box when you create a new tab, although there is an api to replace the new tab page. you can't steal the focus from the omni box in the new tab page simply. there are two work-arounds.
 

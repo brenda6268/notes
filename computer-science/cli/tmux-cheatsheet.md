@@ -1,11 +1,12 @@
 # tmux cheatsheet
 
-
-wp_id: 755
+<!--
+ID: a10f15b8-d8ad-45e9-81ae-e2a65ebb2b3c
 Status: publish
-Date: 2018-06-18 00:54:00
-Modified: 2019-10-17 13:45:17
-
+Date: 2018-06-18T00:54:00
+Modified: 2019-10-17T13:45:17
+wp_id: 755
+-->
 
 if you use set mouse off, then you could use system mark and copy, or if you are  in Mac, you could use Option + Mouse Select
 

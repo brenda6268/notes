@@ -1,6 +1,5 @@
 # HTTP 认证介绍
 
-
 <!--
 ID: 17bb5f25-bca2-4639-a42f-4fde2df347bf
 Status: publish
@@ -8,7 +7,6 @@ Date: 2017-09-04T03:39:00
 Modified: 2020-05-16T11:51:04
 wp_id: 580
 -->
-
 
 周末给一个库添加http代理的支持，发现对http basic auth不甚了解，阅读了一下相关的文档，写篇备忘。
 

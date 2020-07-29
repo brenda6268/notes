@@ -1,11 +1,12 @@
 # sudo passwordless
 
-
-wp_id: 427
+<!--
+ID: bab4f695-79f7-457b-b102-6a860f4daa45
 Status: publish
-Date: 2017-06-30 13:51:00
-Modified: 2017-06-30 13:51:00
-
+Date: 2017-06-30T13:51:00
+Modified: 2017-06-30T13:51:00
+wp_id: 427
+-->
 
 ```sh
 $ EDITOR=vi visudo

@@ -1,11 +1,12 @@
 # React
 
-
-wp_id: 510
+<!--
+ID: 86347fe9-513d-4ee9-b57d-7360b4dbce77
 Status: draft
-Date: 2017-05-30 14:10:00
-Modified: 2017-05-30 14:10:00
-
+Date: 2017-05-30T14:10:00
+Modified: 2017-05-30T14:10:00
+wp_id: 510
+-->
 
 Most important ideas:
 

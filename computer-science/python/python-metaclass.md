@@ -1,11 +1,12 @@
 # Python metaclass 的原理和应用
 
-
-wp_id: 831
+<!--
+ID: ded65af9-700d-42a3-b3e5-6d2456d03fd1
 Status: publish
-Date: 2019-12-02 18:03:33
-Modified: 2020-05-16 10:46:52
-
+Date: 2019-12-02T18:03:33
+Modified: 2020-05-16T10:46:52
+wp_id: 831
+-->
 
 元编程(meta programming)是一项很神奇的能力，可以通过代码在**运行时**动态生成代码。元类(meta classes)是 Python 提供的一种元编程的能力。在 Python 中，类也是一种对象，那么类这种对象就是元类的实例，所以我们可以在运行时通过实例化元类动态生成类。
 

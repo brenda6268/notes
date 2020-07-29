@@ -1,11 +1,12 @@
 # django basics
 
-
-wp_id: 704
+<!--
+ID: e9f52fe5-6716-4e25-a4ba-f2316fc4625c
 Status: draft
-Date: 2018-04-29 13:19:00
-Modified: 2020-05-16 11:37:35
-
+Date: 2018-04-29T13:19:00
+Modified: 2020-05-16T11:37:35
+wp_id: 704
+-->
 
 ## Philosophy
 

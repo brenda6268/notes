@@ -1,11 +1,12 @@
 # Go 语言 Map 实战
 
-
-wp_id: 788
+<!--
+ID: 0fa10716-1e14-4c6e-9d31-cc7e361a34a3
 Status: publish
-Date: 2019-10-22 09:46:33
-Modified: 2020-05-16 10:48:14
-
+Date: 2019-10-22T09:46:33
+Modified: 2020-05-16T10:48:14
+wp_id: 788
+-->
 
 相比 Rust 中尚未实现 IndexMut 的 Hash 类型来说，Go 中的 Map 实现度可以说是非常高了。
 

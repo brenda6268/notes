@@ -1,11 +1,12 @@
 # JavaScript 学习笔记
 
-
-wp_id: 500
+<!--
+ID: c3f58e58-3ef5-4475-b558-92a9397b3b52
 Status: publish
-Date: 2017-05-30 07:53:00
-Modified: 2020-05-16 12:00:32
-
+Date: 2017-05-30T07:53:00
+Modified: 2020-05-16T12:00:32
+wp_id: 500
+-->
 
 ## Values
 

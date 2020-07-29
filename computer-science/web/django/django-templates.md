@@ -1,11 +1,12 @@
 # django templates
 
-
-wp_id: 702
+<!--
+ID: 27650cae-5e98-4040-8ffe-96457f5dd84a
 Status: publish
-Date: 2017-11-13 11:34:00
-Modified: 2017-11-13 11:34:00
-
+Date: 2017-11-13T11:34:00
+Modified: 2017-11-13T11:34:00
+wp_id: 702
+-->
 
 ## marco
  

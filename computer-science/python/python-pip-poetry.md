@@ -1,11 +1,12 @@
 # Python pip 和 poetry 极简教程
 
-
-wp_id: 638
+<!--
+ID: 95593750-f9a1-4692-8ad7-f103a11d1c7c
 Status: publish
-Date: 2017-05-30 03:04:00
-Modified: 2020-05-16 11:58:10
-
+Date: 2017-05-30T03:04:00
+Modified: 2020-05-16T11:58:10
+wp_id: 638
+-->
 
 # pip
 

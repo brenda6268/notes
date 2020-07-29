@@ -1,11 +1,12 @@
 # html Node vs Element
 
-
-wp_id: 504
+<!--
+ID: 08af3fc2-ae22-42f0-be4d-585232229c63
 Status: publish
-Date: 2017-07-27 02:41:00
-Modified: 2017-07-27 02:41:00
-
+Date: 2017-07-27T02:41:00
+Modified: 2017-07-27T02:41:00
+wp_id: 504
+-->
 
 * Node vs Element
 

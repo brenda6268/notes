@@ -1,11 +1,12 @@
 # Python functools 中有用的一些函数
 
-
-wp_id: 636
+<!--
+ID: 429e8274-84a7-48e2-9df9-36318e8a1bf2
 Status: publish
-Date: 2018-06-22 08:59:00
-Modified: 2020-05-16 11:12:23
-
+Date: 2018-06-22T08:59:00
+Modified: 2020-05-16T11:12:23
+wp_id: 636
+-->
 
 functools
 

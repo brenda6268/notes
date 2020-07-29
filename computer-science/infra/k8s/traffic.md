@@ -1,5 +1,12 @@
 # Kubernetes 如何向外提供服务
 
+<!--
+ID: 83d0fd04-051c-4825-84b5-0ae2ccc2e34f
+Status: draft
+Date: 2020-07-29T19:27:39
+Modified: 2020-07-29T19:27:39
+wp_id: 1102
+-->
 
 ## ClusterIP + Proxy
 

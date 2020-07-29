@@ -1,11 +1,12 @@
 # 浏览器用于替换 ajax/xhr 的 fetch api
 
-
-wp_id: 505
+<!--
+ID: 5fbf26e0-4b50-4de0-8ac6-f8ebd9456a9b
 Status: publish
-Date: 2017-06-14 01:37:00
-Modified: 2019-12-21 17:07:13
-
+Date: 2017-06-14T01:37:00
+Modified: 2019-12-21T17:07:13
+wp_id: 505
+-->
 
 fetch 是近年来浏览器实现的一个用于取代 xhr 的 API，相比于 xhr 来说更加简单易用安全且强大。主要区别有：
 

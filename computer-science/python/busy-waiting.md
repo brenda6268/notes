@@ -1,9 +1,12 @@
 # 忙等待
 
-wp_id: 684
+<!--
+ID: db46c938-e62c-46a4-970d-3c493a5d5917
 Status: draft
-Date: 2017-07-27 23:34:00
-Modified: 2020-05-16 11:46:49
+Date: 2017-07-27T23:34:00
+Modified: 2020-05-16T11:46:49
+wp_id: 684
+-->
 
 ```
 while True:

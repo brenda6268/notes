@@ -1,11 +1,12 @@
 # Django views 视图
 
-
-wp_id: 700
+<!--
+ID: 311ba8a9-e6a8-4281-9f21-7a59cdfe583a
 Status: publish
-Date: 2018-06-17 08:00:00
-Modified: 2020-05-16 11:40:42
-
+Date: 2018-06-17T08:00:00
+Modified: 2020-05-16T11:40:42
+wp_id: 700
+-->
 
 django 使用正则指定路径，然后使用一个函数来处理对应的请求。
 

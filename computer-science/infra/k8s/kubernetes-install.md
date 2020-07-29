@@ -1,6 +1,5 @@
 # kubernetes 初探——部署集群
 
-
 <!--
 ID: e3a829a1-07f5-4e33-ae07-a802736a17a5
 Status: publish
@@ -8,7 +7,6 @@ Date: 2018-09-30T04:58:00
 Modified: 2020-05-16T11:24:36
 wp_id: 566
 -->
-
 
 随着 docker cloud 的关闭，容器的编排工具之争似乎已经结束了，Docker Swarm 算是完了，Kubernetes 笑到了最后。然而 k8s 的组件众多，因此部署起来也很麻烦。为此，网上有不少的网上有不少的部署教程和脚本，包括但不限于：
 

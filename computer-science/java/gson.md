@@ -1,11 +1,12 @@
 # 使用 Gson 解析 json 文档
 
-
-wp_id: 532
+<!--
+ID: d0009b0a-acff-4219-ba8a-1fa6d2b252ac
 Status: publish
-Date: 2018-04-04 05:56:00
-Modified: 2020-05-16 11:33:16
-
+Date: 2018-04-04T05:56:00
+Modified: 2020-05-16T11:33:16
+wp_id: 532
+-->
 
 解析 json 有两种流派：
 

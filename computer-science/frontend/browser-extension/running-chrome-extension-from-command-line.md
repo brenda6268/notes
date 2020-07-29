@@ -1,11 +1,12 @@
 # 从命令行执行 Chrome 插件
 
-
-wp_id: 719
+<!--
+ID: 3dd22b89-36d7-4f04-87a7-25e0f83b6b30
 Status: publish
-Date: 2017-06-17 02:14:00
-Modified: 2017-06-17 02:14:00
-
+Date: 2017-06-17T02:14:00
+Modified: 2017-06-17T02:14:00
+wp_id: 719
+-->
 
 https://stackoverflow.com/questions/22193369/run-chrome-extensions-using-command-prompt
 

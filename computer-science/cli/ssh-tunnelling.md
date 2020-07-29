@@ -1,11 +1,12 @@
 # 使用 ssh 反向隧道登录没有 IP 的服务器
 
-
-wp_id: 775
+<!--
+ID: b1280b96-4fe8-4f5a-a010-103bffe5eaa2
 Status: publish
-Date: 2019-10-16 10:18:29
-Modified: 2020-05-16 10:49:47
-
+Date: 2019-10-16T10:18:29
+Modified: 2020-05-16T10:49:47
+wp_id: 775
+-->
 
 假设我们家里的服务器叫做 homeserver，没有公网 IP。然后我们有一台服务器叫做 relayserver，拥有公网 IP。
 

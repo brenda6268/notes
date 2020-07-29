@@ -1,6 +1,5 @@
 # Thrift RPC 框架
 
-
 <!--
 ID: 47eb5912-0a70-417f-976e-3434719e7da0
 Status: publish
@@ -8,7 +7,6 @@ Date: 2017-06-23T15:45:00
 Modified: 2020-05-16T11:44:07
 wp_id: 549
 -->
-
 
 Thrift 是一个全栈的 RPC 框架，它包含了接口定义语言（IDL）和 RPC 服务两部分，大概相当于 protobuf + gRPC 的功能。
 

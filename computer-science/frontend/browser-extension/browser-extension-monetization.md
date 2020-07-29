@@ -1,11 +1,12 @@
 # browser extension monetization
 
-
-wp_id: 720
+<!--
+ID: 1ced26a4-46e1-4a8c-a67c-2f1d14fdc554
 Status: draft
-Date: 2017-11-29 19:54:00
-Modified: 2020-05-16 11:56:44
-
+Date: 2017-11-29T19:54:00
+Modified: 2020-05-16T11:56:44
+wp_id: 720
+-->
 
 # a post from chromium forum
 

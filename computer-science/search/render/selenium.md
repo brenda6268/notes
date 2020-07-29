@@ -1,5 +1,13 @@
 # 安装
 
+<!--
+ID: a62c1e57-2604-423c-a777-206f3f2232d9
+Status: draft
+Date: 2020-05-28T14:15:53
+Modified: 2020-05-28T14:15:53
+wp_id: 1482
+-->
+
 首先需要安装 Google Chrome 和 Chrome Driver，以 Debian 为例：
 
 ```

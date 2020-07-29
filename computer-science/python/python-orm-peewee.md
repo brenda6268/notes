@@ -1,11 +1,12 @@
 # Python 微型ORM Peewee 教程
 
-
-wp_id: 303
+<!--
+ID: b1e138bc-005a-46ad-84a4-77a561f86b5a
 Status: publish
-Date: 2019-08-17 08:54:32
-Modified: 2020-05-16 10:51:32
-
+Date: 2019-08-17T08:54:32
+Modified: 2020-05-16T10:51:32
+wp_id: 303
+-->
 
 Python 中最著名的 ORM 自然是 sqlalchemy 了，但是 sqlalchemy 有些年头了，体积庞大，略显笨重。Peewee 还比较年轻，历史包袱比较少，也仅仅支持 Postgres、MySQL、Sqlite 这三种互联网公司最常见的数据库，所以整体上来说是比较轻量的。
 

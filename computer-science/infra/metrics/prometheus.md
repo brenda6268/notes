@@ -1,5 +1,12 @@
 # Prometheus
 
+<!--
+ID: 0b574398-0507-417d-8015-8b2e1e00f046
+Status: draft
+Date: 2020-07-29T19:46:41
+Modified: 2020-07-29T19:46:41
+wp_id: 1092
+-->
 
 Prometheus 是使用 Go 语言开发的一个监控工具和时序数据库，它的实现参考了 Borgmon。
 

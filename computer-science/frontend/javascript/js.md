@@ -1,5 +1,12 @@
-Date: 2019-09-07
 # 安装
+
+<!--
+ID: bc23d4ff-c8aa-4c0e-aa21-8b387d8a0d4d
+Status: draft
+Date: 2019-09-07T00:00:00
+Modified: 2020-05-28T15:13:05
+wp_id: 1189
+-->
 
 本文以 Node.js **12** 为准，所以首先要安装或者升级 Node：
 

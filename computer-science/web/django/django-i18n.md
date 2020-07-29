@@ -1,11 +1,12 @@
 # django 国际化
 
-
-wp_id: 707
+<!--
+ID: eeb59c62-98e2-4481-b0f0-c8ee8ec00f9d
 Status: publish
-Date: 2018-06-17 23:07:00
-Modified: 2020-05-16 11:41:11
-
+Date: 2018-06-17T23:07:00
+Modified: 2020-05-16T11:41:11
+wp_id: 707
+-->
 
 settings.py 中的设置：
 

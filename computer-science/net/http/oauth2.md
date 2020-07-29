@@ -1,6 +1,5 @@
 # OAuth2 协议详解
 
-
 <!--
 ID: 4e94e58e-bdaa-4f2a-9119-b3a3f441a81b
 Status: publish
@@ -8,7 +7,6 @@ Date: 2018-07-15T04:41:00
 Modified: 2020-05-16T11:17:53
 wp_id: 582
 -->
-
 
 今天有个项目需要用到 OAuth2 来处理一些东西，然而中文互联网有时候真是很难找到像样的文档，搜索 “OAuth 教程” 的到排名前两位的[教](https://aaronparecki.com/oauth-2-simplified/)[程](https://aaronparecki.com/oauth-2-simplified/)都是翻译自一个英文教程，翻译质量奇差无比就不说了，这个英文教程本身就是有问题的，无奈只好搜索 “OAuth tutorial” 才找到几个看得过去的英文教程，总结一下放在这里，算是为中文互联网引入一些正确的知识。
 

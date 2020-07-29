@@ -1,5 +1,13 @@
 # Celery
 
+<!--
+ID: ae6521fd-0667-4509-bd12-90e5bb52577a
+Status: draft
+Date: 2020-07-29T19:48:26
+Modified: 2020-07-29T19:48:26
+wp_id: 1114
+-->
+
 celery 中的队列
  
 清空一个队列 celery -A proj purge

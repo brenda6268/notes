@@ -1,11 +1,12 @@
 # 爬虫利器 Chrome Headless 和 Puppeteer 最佳实践
 
-
-wp_id: 444
+<!--
+ID: 5428a891-e3a3-4ca6-9d83-a68fdc7f52e2
 Status: publish
-Date: 2018-06-04 19:04:00
-Modified: 2020-05-16 11:39:55
-
+Date: 2018-06-04T19:04:00
+Modified: 2020-05-16T11:39:55
+wp_id: 444
+-->
 
 > 翻译自：https://docs.browserless.io/blog/2018/06/04/puppeteer-best-practices.html
 

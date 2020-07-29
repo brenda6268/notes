@@ -1,6 +1,5 @@
 # Docker Compose 教程
 
-
 <!--
 ID: a7a27846-0e5b-4ee0-9b89-dddaac17d71b
 Status: publish
@@ -8,7 +7,6 @@ Date: 2018-06-17T14:38:17
 Modified: 2020-05-16T11:40:55
 wp_id: 232
 -->
-
 
 使用 docker run 运行容器的时候经常需要加很多的参数，每次都输入这么多参数很容易出错。另外我们经常需要同时运行若干个容器来构成一个服务，此时还是涉及到网络的联通等操作。docker compose 可以把 docker 执行时的参数写成 yaml 文件，运行的时候只需要 `docker-compose up -d` 一下就可以了。
 

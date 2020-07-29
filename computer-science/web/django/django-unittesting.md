@@ -1,11 +1,12 @@
 # django 单元测试
 
-
-wp_id: 703
+<!--
+ID: 59cc9a87-2838-4e31-bf96-00808b3ed43b
 Status: publish
-Date: 2018-06-17 23:39:00
-Modified: 2020-05-16 11:41:19
-
+Date: 2018-06-17T23:39:00
+Modified: 2020-05-16T11:41:19
+wp_id: 703
+-->
 
 和普通的单元测试不同的是，django 单独提供了一个测试模块，所有的 TestCase 需要继承 `django.test.TestCase`。
 

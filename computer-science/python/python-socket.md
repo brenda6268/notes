@@ -1,11 +1,12 @@
 # Python 中的基础网络编程和SSL
 
-
-wp_id: 415
+<!--
+ID: bf142123-1fe5-4bff-8d27-42f4004f4d44
 Status: draft
-Date: 2018-06-22 09:30:00
-Modified: 2020-05-16 11:13:21
-
+Date: 2018-06-22T09:30:00
+Modified: 2020-05-16T11:13:21
+wp_id: 415
+-->
 
 socket 模块提供了 C 中 socket 相关函数的封装。
 

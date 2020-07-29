@@ -1,11 +1,12 @@
 # Python 中的静态类型（type hint）
 
-
-wp_id: 657
+<!--
+ID: d0210e20-fcc6-4696-ad99-4cb4f3cf4a9f
 Status: draft
-Date: 2018-06-03 18:33:00
-Modified: 2020-05-16 11:39:42
-
+Date: 2018-06-03T18:33:00
+Modified: 2020-05-16T11:39:42
+wp_id: 657
+-->
 
 Python 本身是一个动态类型的语言，也就是说类型不是在编译时（compile-time）来确定的，而是在运行时（run-time）才能够确定的。举个栗子（基于Python3.5+）：
 

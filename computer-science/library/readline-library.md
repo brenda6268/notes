@@ -1,11 +1,12 @@
 # readline library
 
-
-wp_id: 620
+<!--
+ID: 797adb16-3c90-487b-a633-802ce13e1c48
 Status: publish
-Date: 2017-05-30 12:51:00
-Modified: 2017-05-30 12:51:00
-
+Date: 2017-05-30T12:51:00
+Modified: 2017-05-30T12:51:00
+wp_id: 620
+-->
 
 readline is widely used input lib, all the key bindings are from emacs
 

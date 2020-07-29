@@ -1,11 +1,12 @@
 # 必须理解编译器才能解决的 8 个问题
 
-
-wp_id: 495
+<!--
+ID: 6ebaee23-46e1-484e-aca9-17f720d99ccc
 Status: draft
-Date: 2017-12-07 02:36:00
-Modified: 2020-05-16 11:27:38
-
+Date: 2017-12-07T02:36:00
+Modified: 2020-05-16T11:27:38
+wp_id: 495
+-->
 
 From：http://steve-yegge.blogspot.com/2007/06/rich-programmer-food.html
 

@@ -1,11 +1,12 @@
 # 如何发布 Python 代码到 PyPI 上（2018）
 
-
-wp_id: 637
+<!--
+ID: 5a761ea8-fe95-498e-83e8-e27b02afd549
 Status: publish
-Date: 2018-05-19 11:01:00
-Modified: 2020-05-16 18:39:15
-
+Date: 2018-05-19T11:01:00
+Modified: 2020-05-16T18:39:15
+wp_id: 637
+-->
 
 PyPI 是 Python 的集中仓库。通过把代码上传到 PyPI，其他人就可以使用使用 `pip install xxx` 安装代码了。
 

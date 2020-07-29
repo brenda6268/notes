@@ -1,11 +1,12 @@
 # django auth and user
 
-
-wp_id: 714
+<!--
+ID: d5b4180e-4297-4155-9b73-f933ec05202e
 Status: publish
-Date: 2018-01-17 22:53:00
-Modified: 2018-01-17 22:53:00
-
+Date: 2018-01-17T22:53:00
+Modified: 2018-01-17T22:53:00
+wp_id: 714
+-->
 
 # 激活
 

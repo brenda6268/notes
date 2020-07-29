@@ -1,11 +1,12 @@
 # Python 中的 iterator 和 generator
 
-
-wp_id: 628
+<!--
+ID: 5667cd4c-be41-42ee-8fd4-3747bc4f4543
 Status: publish
-Date: 2018-05-01 06:19:00
-Modified: 2020-05-16 11:38:12
-
+Date: 2018-05-01T06:19:00
+Modified: 2020-05-16T11:38:12
+wp_id: 628
+-->
 
 这篇文章里面有不少概念都是错的，需要改进
 

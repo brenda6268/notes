@@ -1,6 +1,5 @@
 # memcacheq
 
-
 <!--
 ID: 553eaafb-dc68-4afd-9ed6-27997f970342
 Status: publish
@@ -8,7 +7,6 @@ Date: 2017-05-30T08:10:00
 Modified: 2017-05-30T08:10:00
 wp_id: 625
 -->
-
 
  
 memcacheq is based on memcachedb which is based on memcached and Berkeley DB

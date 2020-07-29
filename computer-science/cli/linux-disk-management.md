@@ -1,9 +1,12 @@
 # Linux 磁盘管理命令
 
-wp_id: 610
+<!--
+ID: 58f0abc2-ba1d-4a14-a1e6-2ac0d5f5fbda
 Status: publish
-Date: 2018-04-04 04:29:00
-Modified: 2020-05-16 11:32:00
+Date: 2018-04-04T04:29:00
+Modified: 2020-05-16T11:32:00
+wp_id: 610
+-->
 
 ## 挂载磁盘
 

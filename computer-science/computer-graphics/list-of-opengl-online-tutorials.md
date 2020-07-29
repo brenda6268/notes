@@ -1,11 +1,12 @@
 # List of OpenGL online tutorials
 
-
-wp_id: 738
+<!--
+ID: 9e1e919b-d163-42e0-9295-2f7e756d493a
 Status: publish
-Date: 2017-05-30 03:44:00
-Modified: 2017-05-30 03:44:00
-
+Date: 2017-05-30T03:44:00
+Modified: 2017-05-30T03:44:00
+wp_id: 738
+-->
 
 So I started to learn OpenGL, but the red book and blue book is just too detailed. I googled around, and knew that modern OpenGL is preferred (version 3 and above), however, the old Nehe's tutorial which is about OpenGL 1.x is still everywhere. To help beginners from digging too much into the old and deprecated way, here is a list of tutorials targeting modern OpenGL:
 

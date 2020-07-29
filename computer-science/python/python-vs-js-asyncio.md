@@ -1,11 +1,12 @@
 # Python and JavaScript for asyncio
 
-
-wp_id: 663
+<!--
+ID: 02109919-fc18-4333-9eff-26f66411e982
 Status: draft
-Date: 2017-06-16 12:25:00
-Modified: 2020-05-16 11:43:19
-
+Date: 2017-06-16T12:25:00
+Modified: 2020-05-16T11:43:19
+wp_id: 663
+-->
 
 # Python asyncio
 ## how to run tasks parallelly

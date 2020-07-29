@@ -1,11 +1,12 @@
 # Python 类中的 magic method
 
-
-wp_id: 673
+<!--
+ID: 05496629-1245-462a-883d-23c1a8be4ceb
 Status: draft
-Date: 2018-06-22 08:55:00
-Modified: 2020-05-16 11:12:17
-
+Date: 2018-06-22T08:55:00
+Modified: 2020-05-16T11:12:17
+wp_id: 673
+-->
 
 ## string representation
 

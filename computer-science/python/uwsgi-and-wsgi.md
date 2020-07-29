@@ -1,11 +1,12 @@
 # uwsgi 和 wsgi 协议
 
-
-wp_id: 640
+<!--
+ID: 90e7486a-643f-4915-9620-8884e1cf7e37
 Status: publish
-Date: 2017-06-21 15:37:00
-Modified: 2020-05-16 11:43:56
-
+Date: 2017-06-21T15:37:00
+Modified: 2020-05-16T11:43:56
+wp_id: 640
+-->
 
 uWSGI is a web server than runs python web frameworks. uwsgi(lower case) is the protocol it communicates with front end web servers(nginx)
 

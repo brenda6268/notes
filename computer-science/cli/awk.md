@@ -1,4 +1,12 @@
-# awk 
+# awk
+
+<!--
+ID: a341ea81-1e2d-4885-a81f-64cfc078ad20
+Status: draft
+Date: 2020-06-02T12:20:35
+Modified: 2020-05-28T14:09:32
+wp_id: 1414
+-->
 
 awk 的程序构成是这样的：
 

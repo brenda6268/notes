@@ -1,11 +1,12 @@
 # JavaScript 中的装饰器(decorator)
 
-
-wp_id: 840
+<!--
+ID: 436edb6d-bfe6-48da-932e-21164631a106
 Status: draft
-Date: 2019-12-17 10:46:38
-Modified: 2020-05-16 10:46:07
-
+Date: 2019-12-17T10:46:38
+Modified: 2020-05-16T10:46:07
+wp_id: 840
+-->
 
 JavaScript 的语法在这两年补了不少课，终于变得让你写起来不那么咬牙切齿了。Decorator 是 TC39 最近从 Python 中偷师的一种语法，可以说几乎就是完全拷贝了 Python 的语法。
 

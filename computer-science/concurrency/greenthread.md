@@ -1,6 +1,12 @@
 # Greenthread 的问题
 
-Date: 2020-03-14
+<!--
+ID: 49a39397-e4f2-4374-83b5-999f42bd0416
+Status: draft
+Date: 2020-03-14T00:00:00
+Modified: 2020-07-08T12:11:58
+wp_id: 1499
+-->
 
 没法进行复杂的CPU运算，可能会导致其他请求超时。
 fork and load 相比 load and fork 来说更费内存。
