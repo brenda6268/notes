@@ -1,8 +1,8 @@
-# 栈和队列
+# 面试刷题总结（六）-栈和队列
 
 <!--
 ID: 4347c221-3f1b-4339-9d7e-0d96a0e109cb
-Status: draft
+Status: publish
 Date: 2020-07-29T23:37:30
 Modified: 2020-07-29T23:37:30
 wp_id: 1680

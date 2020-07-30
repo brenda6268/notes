@@ -1,8 +1,8 @@
-# 树和图
+# 面试刷题总结（七） - 树和图
 
 <!--
 ID: d37ebf16-dec5-4f4a-890a-49e3719df64b
-Status: draft
+Status: publish
 Date: 2019-10-23T00:00:00
 Modified: 2020-07-29T23:37:30
 wp_id: 1689
@@ -21,9 +21,9 @@ wp_id: 1689
 ```
 WhateverFirstSearch(s):
   把 s 放入 bag
-  while bag 非空:
+  while bag 非空：
     从 bag 取出 v
-    if v 未标记:
+    if v 未标记：
       标记 v
       for 每个边 vw:
         把 w 放入 bag 中
@@ -44,7 +44,7 @@ WFSALL(G):
   for 所有节点 v:
     取消标记 v
   for 所有节点 v:
-    if v 未标记:
+    if v 未标记：
       WhateverFirstSearch(v)
 ```
 
@@ -57,7 +57,7 @@ DFS(v):
   标记 v
   PreVisit(v)
   for 每个边 vw:
-    if w 未标记:
+    if w 未标记：
       parent(w) <- v
       DFS(w)
   PostVisit(v)
@@ -88,7 +88,6 @@ TopologicalSort(G):
 解树的问题就只有两种方法：
 
 1. 分治：*后序遍历*，并通过左右子树和根节点一起解决问题。
-
 
 ```
         1
@@ -171,7 +170,7 @@ Null 也算节点，从头到尾都是黑色节点，红色节点只能是内部
 
 ### B 树
 
-B 树用于基于硬盘的数据库的索引。为什么不直接用二叉树呢？B树本质上来说就是 2-3-4-n 树，因为硬盘读取相对于内存访问来说实在太慢了，所以减少树的层级有利于提升速度。
+B 树用于基于硬盘的数据库的索引。为什么不直接用二叉树呢？B 树本质上来说就是 2-3-4-n 树，因为硬盘读取相对于内存访问来说实在太慢了，所以减少树的层级有利于提升速度。
 
 ### 更多的树
 

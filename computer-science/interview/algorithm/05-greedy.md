@@ -1,8 +1,8 @@
-# 贪心算法
+# 面试刷题总结（五）- 贪心算法
 
 <!--
 ID: b1175383-aabe-4258-b91b-1f9c6dae4178
-Status: draft
+Status: publish
 Date: 2020-07-29T23:37:30
 Modified: 2020-07-29T23:37:30
 wp_id: 1685

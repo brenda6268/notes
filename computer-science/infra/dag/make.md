@@ -1,4 +1,4 @@
-# Make 教程
+# Make 和 DAG 的关系
 
 <!--
 ID: b497a1ea-41b6-44d0-a11c-7b535bd90cbd
@@ -53,6 +53,10 @@ $(prom): $(obj)
 clean: # 没有依赖的命令
     rm -rf $(obj) $(prom)
 ```
+
+## 如何执行多个命令
+
+在 Python 中,我们就需要进入到
 
 # Autotools
 
