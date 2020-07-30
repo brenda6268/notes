@@ -8,11 +8,4 @@ Modified: 2017-05-30T07:42:00
 wp_id: 477
 -->
 
-# Ngram
-
-
-wp_id: 477
-Status: draft
-Date: 2017-05-30 07:42:00
-Modified: 2017-05-30 07:42:00
-
+ngram 模型
