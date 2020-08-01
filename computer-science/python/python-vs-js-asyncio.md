@@ -26,19 +26,14 @@ aio.ensure_future and loop.create_task are almost the same, you should use aio.e
 aio.gather wait and gathers the results
 aio.wait wait for the coroutines to finish. 1. you have to mannually collect them, 2. you can specify the behavior, not wait for all
 
-
-
-
 # promise and future
 promise and future both represent a object that it's return value will be set in the future.
 
-```
-JavaScript
+```javaScript
 
 Promise.resolve
 ```
 
-```
-# Python
+```python
 Future.set_result
 ```

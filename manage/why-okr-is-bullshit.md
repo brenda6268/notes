@@ -36,10 +36,11 @@ Review，既然没有任何 KR 和 KPI 了，那么会不会跑偏了呢？这�
 
 OKR 会导致层层递进，目标越来越激进
 
+
 ## 参考
 
 1. [Netflix Culture](https://jobs.netflix.com/culture)
-2. [https://www.linkedin.com/pulse/netflixs-context-control-how-does-work-steve-urban/](https://www.linkedin.com/pulse/netflixs-context-control-how-does-work-steve-urban/)
+2. https://www.linkedin.com/pulse/netflixs-context-control-how-does-work-steve-urban/
 3. [一篇不错的文章](https://inventiv.io/provide-context-not-control/)
 4. [context is about trust](https://tommccallum.com/2018/01/07/trust-story-netflix-context-not-control/)
 5. [张一鸣谈 Context not Control](https://36kr.com/p/5072281)

@@ -8,7 +8,9 @@ Modified: 2020-07-30T21:38:33
 wp_id: 1839
 -->
 
-昨天又重新读了一下 Choose Boring Technology 和 Boring Company 两篇文章，得出对于创业公司技术选型的一些想法。
+## 感想
+
+昨天又重新读了一下 Boring Technology 和 Boring Company 两篇文章，得出对于创业公司技术选型的一些想法。
 
 1. 创业必须是老鸟，老鸟已经知道了足够的技术，有足够的技术可供选择，才能有全局思考选择最合适的少数几个技术。
 2. 什么是 Boring Technology？Boring 也不能无脑，Oracle 和 MySQL 都已经足够成熟且无聊了，但是 Oracle 显然不是未来的方向，所以我们肯定要选择 MySQL。
