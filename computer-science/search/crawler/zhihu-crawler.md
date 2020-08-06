@@ -10,7 +10,7 @@ wp_id: 468
 
 最近想注册一些知乎的机器人玩玩儿，比如给自己点赞之类的，通过抓包分析，获得了完整注册登录流程。
 
-# 抓包
+## 注册和登录抓包
 
 ```
 1 POST https://api.zhihu.com/auth/digits
@@ -42,17 +42,19 @@ wp_id: 468
 7. 填写用户信息，POST 参数是：`phone_no: +86155xxxxxxxx, gender: 0, fullname: XXX`,返回是：`{ "success": true }`
 8. 上一步注册了用户，这一步是向知乎请求新的 access token。
 
-    请求 POST 参数：
-    ```
-    digits:        865405
-    fullname:      Lucindai
-    phone_no:      +8615568995304
-    register_type: phone_digits
-    ```
+请求 POST 参数：
 
-    返回数据如下：
-    ```
-    {
+```
+digits:        865405
+fullname:      Lucindai
+phone_no:      +8615568995304
+register_type: phone_digits
+```
+
+返回数据如下：
+
+```json
+{
     "access_token": "...",
     "cookie": { },
     "expires_in": 2592000,
@@ -63,10 +65,10 @@ wp_id: 468
     "uid": "...",
     "unlock_ticket": "...",
     "user_id":...
-    }
-    ```
+}
+```
 
-    其中的 refresh token 和 access token 都是 OAuth2 中的参数，可以用于使用 OAuth2 访问知乎的 API。可以使用 zhihu_oauth 这个库来访问知乎。
+其中的 refresh token 和 access token 都是 OAuth2 中的参数，可以用于使用 OAuth2 访问知乎的 API。可以使用 zhihu_oauth 这个库来访问知乎。
 
 知乎的 API 还需要在 header 中设定一些特殊参数，可以参考 zhihu_oauth 中的参数
 
