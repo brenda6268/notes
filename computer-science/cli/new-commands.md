@@ -45,3 +45,9 @@ lorem ipsum 23
 
 用于替代 cut 和 awk（一部分）
 https://github.com/theryangeary/choose
+
+## procs
+
+用于替代 ps
+
+https://github.com/dalance/procs
