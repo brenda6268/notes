@@ -54,7 +54,19 @@ Histogram 在服务端计算，Summary 在客户端计算并且不能被重新�
 
 ### 输出指标到 Prometheus
 
-这里以 Python 为例：
+这里以 Python 为例.
+
+```
+pip install prometheus_client
+```
+
+```
+from prometheus_client import Counter
+
+c = Counter("http_request_failures_total", "Descriptions of the counter")
+c.inc()
+```
+
 
 ### 使用 PromQL 查询指标
 
@@ -204,3 +216,4 @@ Prometheus 使用 AlertManager 做告警.
 7. https://zhuanlan.zhihu.com/p/24811652
 8. https://mp.weixin.qq.com/s?__biz=MzI4NTA1MDEwNg==&mid=2650782456&idx=1&sn=654615ca4199514687ae8ec65444dec9
 9. https://medium.com/@valyala/promql-tutorial-for-beginners-9ab455142085
+10. https://github.com/prometheus/client_python
