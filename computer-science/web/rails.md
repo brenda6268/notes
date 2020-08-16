@@ -15,7 +15,9 @@ rails 会把 controller 中所有的类变量都传递到模板中，所以如�
 - app/ 目录是主要的代码目录。
   - app/controllers/ 存放 controllers
   - app/views/ 存放 views, 也就是 erb 或者 haml 的模板代码
+- `lib/tasks/*.rake` 中存放的是可以通过 rake 调用的任务。
 - 路由表位于 `config/routes.rb` 文件
+- `config/schedule.rb` 文件存放 whenever 管理的 cron 任务。
 
 ## 路由
 
@@ -136,3 +138,4 @@ end
 3. https://www.ruby-lang.org/en/documentation/quickstart/
 4. https://guides.rubyonrails.org/getting_started.html
 5. https://docs.ruby-lang.org/en/2.4.0/syntax/exceptions_rdoc.html
+6. https://www.rubyguides.com/2019/02/ruby-rake/
