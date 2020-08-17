@@ -20,6 +20,14 @@ Prometheus 是使用 Go 语言开发的一个监控工具和时序数据库，�
 - 告警也尽量简单，只发需要处理的告警
 - 简单的架构就是最好的架构，业务系统都挂了，监控也不能挂。
 
+不要想着把所有的数据都显示到监控上，太多了反倒是让人失去了重点。想象一下最容易出错的情况，以及在这种情况下你应该怎么用监控来排错。
+
+-  一个控制台不要有超过 5 个图。
+- 每个图上不要有超过五条线。当然堆栈图和饼形图除外。
+- 当使用提供的模板时，避免在右手边的表格里有多过 20-30 个条目。
+
+系统的每个部分都应该有一个监控，至少让你大概知道这个系统现在的情况如何。
+
 ## Prometheus 的数据类型
 
 Prometheus 常用的有四种类型：计数器 (counter), 刻度 (gauge), 直方图 (histogram), 摘要 (summary).
@@ -36,7 +44,7 @@ Histogram 类型数据最常用的函数是 histogram_quantile 了，可以用�
 
 Histogram 和 Summary 都是采样观测量，典型的比如请求的时间和相应的体积等等。他们记录观测的数量和观测的所有值，允许你计算平均值等。
 
-To calculate the average request duration during the last 5 minutes from a histogram or summary called http_request_duration_seconds, use the following expression:
+Histogram 会自动生成 `_sum` 和 `_count` 两个变量, 这两个值都类似于 counter. 如果有一个观测值叫做 `http_request_duration_seconds`, 那么要计算刚过去的5分钟内的平均时长可以这样算:
 
 ```prometheus
 rate(http_request_duration_seconds_sum[5m]) / rate(http_request_duration_seconds_count[5m])
@@ -44,33 +52,96 @@ rate(http_request_duration_seconds_sum[5m]) / rate(http_request_duration_seconds
 
 Histogram 在服务端计算，Summary 在客户端计算并且不能被重新计算。如果可能的话，最好使用 Histogram, 不要使用 summary. 
 
-- Have no more than 5 graphs on a console. 一个控制台不要有超过 5 个图。
-- Have no more than 5 plots (lines) on each graph. You can get away with more if it is a stacked/area graph.
-- 每个图上不要有超过五条线。当然堆栈图和饼形图除外。
-- When using the provided console template examples, avoid more than 20-30 entries in the right-hand-side table.
-- 当使用提供的模板时，
+## 输出指标到 Prometheus
 
-## 基本使用
-
-### 输出指标到 Prometheus
-
-这里以 Python 为例.
+这里以 Python 为例。
 
 ```
 pip install prometheus_client
 ```
 
-```
+### Counter
+
+```py
 from prometheus_client import Counter
 
-c = Counter("http_request_failures_total", "Descriptions of the counter")
-c.inc()
+# prometheus 会智能处理 _total 后缀, 在后台总是有 _total 后缀的
+c = Counter("http_request_failures_total", "http 请求出错计数")
+c.inc()  # 默认是 1
+c.inc(2)  # 也可以指定数字
 ```
 
+Counter 还有一个方便的属性, 叫做 count_exceptions, 可以用作装饰器或者 with 语句中.
 
-### 使用 PromQL 查询指标
+```py
+@c.count_exceptions()
+def f():
+    pass
 
-使用 `{}` 来过滤指标. 除了 `=` 之外, 还有 `!=` 和 `=~`(正则) 和 `!~`(不匹配)
+with c.count_exceptions():
+    pass
+
+with c.count_exceptions(ValueError):
+    pass
+```
+
+### Gauge
+
+```py
+from prometheus_client import Gauge
+
+g = Gauge("cpu_usage", "CPU 使用率")
+g.inc()
+g.dec(10)
+g.set(4.2)
+```
+
+Gauge 也有一些方便的辅助函数, 比如说 track_inprogress 用来记录正在执行的数量.
+
+```py
+ g.set_to_current_time()
+
+ # Increment when entered, decrement when exited.
+@g.track_inprogress()
+def f():
+  pass
+
+with g.track_inprogress():
+  pass
+```
+
+也可以给 gauge 设定一个回调函数来取值:
+
+```py
+d = Gauge('data_objects', 'Number of objects')
+my_dict = {}
+d.set_function(lambda: len(my_dict))
+```
+
+### Histogram 
+
+值得注意的是, histogram 默认定义的 buckets 大小是为了正常的网页请求设计的, 也就是围绕着一秒的一些数据.
+
+```py
+from prometheus_client import Histogram
+
+h = Histogram()
+h.observe(4.7)
+
+@h.time()
+def f():
+  pass
+
+with h.time():
+  pass
+```
+
+### 标签导出
+
+
+## 使用 PromQL 查询指标
+
+使用 `{}` 来过滤指标。除了 `=` 之外，还有 `!=` 和 `=~`（正则） 和 `!~`（不匹配）
 
 ```
 <metric name>{<label name>=<label value>, ...}
@@ -82,25 +153,55 @@ c.inc()
 api_http_requests_total{method="POST", handler="/messages"}
 ```
 
-如果要查询历史数据可以使用 `offset xx` 阿里查询. 比如下面这条表示比过去一个小时的 gc fraction 还要大 1.5 倍的数据.
+如果要查询历史数据可以使用 `offset xx` 阿里查询。比如下面这条表示比过去一个小时的 gc fraction 还要大 1.5 倍的数据。
 
 ```
 go_memstats_gc_cpu_fraction > 1.5 * (go_memstats_gc_cpu_fraction offset 1h)
 ```
 
-使用 rate(counter[5m]) 来查询速率, 这里的采样周期 `5m` 如果设置的大一些, 图像就会更平滑, 如果小一些就会更精确.
+使用 rate(counter[5m]) 来查询速率，这里的采样周期 `5m` 如果设置的大一些，图像就会更平滑，如果小一些就会更精确。
 
-使用 `by` 关键字可以聚合字段:
+使用 `by` 关键字可以聚合字段：
 
 ```
-# sum+rate 其实是求和的意思(求导再积分), 然后按照 instance 聚合
+# sum+rate 其实是求和的意思（求导再积分）, 然后按照 instance 聚合
 sum(rate(node_network_receive_bytes_total[5m])) by (instance)
 ```
 
+## 使用 Dashboard 展示指标
 
-### 使用 Dashboard 展示指标
+## 可视化界面
 
-## 选择监控指标
+Prometheus 自带了在 /graph 下有一个 expression browser, 可以绘制一些简单的图形，除此之外还是建议使用 grafana.
+
+## 数据采集配置
+
+```yaml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ["localhost:9090"]
+```
+
+对每一个 job 都会自动生成一些指标：
+
+`up{job="<job-name>", instance="<instance-id>"}`: 1 if the instance is healthy, i.e. reachable, or 0 if the scrape failed.
+`scrape_duration_seconds{job="<job-name>", instance="<instance-id>"}`: duration of the scrape.
+`scrape_samples_post_metric_relabeling{job="<job-name>", instance="<instance-id>"}`: the number of samples remaining after metric relabeling was applied.
+`scrape_samples_scraped{job="<job-name>", instance="<instance-id>"}`: the number of samples the target exposed.
+`scrape_series_added{job="<job-name>", instance="<instance-id>"}`: the approximate number of new series in this scrape.
+
+其中的 up 指标可以用来监控目标服务是否正常运行
+
+## 报警
+
+Prometheus 使用 AlertManager 做告警。
+可以使用 predict_linear 等函数基于预测的做一些报警。
+
+## 如何选择监控指标
 
 首先问自己一个问题：当我的程序出了问题的时候，我需要哪些数据来 debug 呢？
 
@@ -132,9 +233,9 @@ Google SRE Book 中提出了四个黄金原则：延迟、流量、错误数、�
 关键指标是上次成功操作的时间。
 This should generally be at least enough time for 2 full runs of the batch job. For a job that runs every 4 hours and takes an hour, 10 hours would be a reasonable threshold. If you cannot withstand a single run failing, run the job more frequently, as a single failure should not require human intervention.
 
-对于其他的子系统而言, 可以选择如下指标
+对于其他的子系统而言，可以选择如下指标
 
-### 库
+### 第三方库
 
 如果一个库会访问进程外的资源，比如网络硬盘等等，至少要记录下所有的访问次数，错误和延迟。
 
@@ -159,7 +260,9 @@ Failures should be handled similarly to logging. Every time there is a failure, 
 
 ## 合理使用标签
 
-比如说，不要创建 http_response_500_total 和 http_response_403_total 这种指标，创建一个 http_response_total 指标，然后使用不同的状态码作为标签。然后你就可以把整个 metric 作为一个规则和图标。
+比如说，不要创建 http_response_500_total 和 http_response_403_total 这种指标，创建一个 http_response_total 指标，然后使用不同的状态码作为标签。然后你就可以把整个 metric 作为一个规则和图表。
+
+但是也不要滥用标签, 前往不要用 IP 或者 email 这种信息来做标签, 因为他们可能是无限的. 这时候就不应该用监控系统了,可能需要一些 OLAP 的分析工具了.
 
 总的来说，把 metrics 的秩 (cardinality) 控制在 10 以下。整个系统要控制超过 10 的 metric 的数量。绝大多数的查询不应该有标签。
 
@@ -174,37 +277,6 @@ count by (__name__)({__name__=~".+"}) > 10000
 
 如果不确定的话，首先别用标签，有了真实的 use case 再添加。
 
-## 可视化界面
-
-Prometheus 自带了在 /graph 下有一个 expression browser, 可以绘制一些简单的图形, 除此之外还是建议使用 grafana.
-
-## 数据采集配置
-
-```yaml
-global:
-  scrape_interval: 15s
-
-scrape_configs:
-  - job_name: prometheus
-    static_configs:
-      - targets: ["localhost:9090"]
-```
-
-对每一个 job 都会自动生成一些指标：
-
-`up{job="<job-name>", instance="<instance-id>"}`: 1 if the instance is healthy, i.e. reachable, or 0 if the scrape failed.
-`scrape_duration_seconds{job="<job-name>", instance="<instance-id>"}`: duration of the scrape.
-`scrape_samples_post_metric_relabeling{job="<job-name>", instance="<instance-id>"}`: the number of samples remaining after metric relabeling was applied.
-`scrape_samples_scraped{job="<job-name>", instance="<instance-id>"}`: the number of samples the target exposed.
-`scrape_series_added{job="<job-name>", instance="<instance-id>"}`: the approximate number of new series in this scrape.
-
-其中的 up 指标可以用来监控目标服务是否正常运行
-
-## 报警
-
-Prometheus 使用 AlertManager 做告警.
-可以使用 predict_linear 等函数基于预测的做一些报警.
-
 ## 参考
 
 1. [Should I run prometheus in a Docker?](https://grafana.com/blog/2019/05/07/ask-us-anything-should-i-run-prometheus-in-a-container/)
@@ -217,3 +289,4 @@ Prometheus 使用 AlertManager 做告警.
 8. https://mp.weixin.qq.com/s?__biz=MzI4NTA1MDEwNg==&mid=2650782456&idx=1&sn=654615ca4199514687ae8ec65444dec9
 9. https://medium.com/@valyala/promql-tutorial-for-beginners-9ab455142085
 10. https://github.com/prometheus/client_python
+11. http://www.xuyasong.com/?p=1717
