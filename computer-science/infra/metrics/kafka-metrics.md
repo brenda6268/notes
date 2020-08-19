@@ -8,6 +8,4 @@ Modified: 2020-07-29T19:45:57
 wp_id: 1093
 -->
 
-JMXtrans + InfluxDB + Grafana实现Kafka性能指标监控 
-
-kafka监控实战(jmxtrans+InfluxDb+Grafana）https://www.jianshu.com/p/ac30f06d433f
+Kafka 的监控应该使用 Kafka Exporter 或者 jmxtrans

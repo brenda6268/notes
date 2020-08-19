@@ -8,7 +8,7 @@ Modified: 2020-05-16T11:26:12
 wp_id: 748
 -->
 
-# 相同点覆盖
+## 相同点覆盖
 
 > Duplicate points
 
@@ -22,13 +22,13 @@ wp_id: 748
 2. 增加一个tag来标识不同的点
 3. 预处理数据 ✔️
 
-# 每个点的 tag 数量
+## 每个点的 tag 数量
 
 opentsdb 限制为每个点 8 个 tag
 
 influxdb 限制不明确，最好也不要太多
 
-## 在设计数据库是需要考虑的是，同一类型的字段作为 tag key 还是 tag value？
+### 在设计数据库是需要考虑的是，同一类型的字段作为 tag key 还是 tag value？
 
 两种情况分别为：
 
@@ -56,7 +56,7 @@ time        key   value
 
 https://docs.influxdata.com/influxdb/v1.2/concepts/schema_and_data_layout/#don-t-have-too-many-series
 
-# max-values-per-tag 限制
+## max-values-per-tag 限制
 
 每个 tag 可选值也有限制，不能超过10万，tag用于标识点，而不是用于存储数据，如果需要存储数据，应该使用 fields。
 
@@ -66,7 +66,7 @@ https://docs.influxdata.com/influxdb/v1.2/concepts/schema_and_data_layout/#don-t
 - 邮箱：可选范围几乎无限大
 - UUID
 
-# max-series-per-database 限制
+## max-series-per-database 限制
 
 tagset 的定义：每一个点的 tag key 和 tag value 的组合
 series 的定义：使用同一个 measurement，retention policy，tagset 组合的点的集合
@@ -75,12 +75,12 @@ series 的定义：使用同一个 measurement，retention policy，tagset 组�
 
 以上连个限制的原因在于，influxdb 为每个 series 建立了索引并且常驻内存，如果过大
 
-# tag 只能存储字符串
+## tag 只能存储字符串
 
 
 一般来说，在 tag 中应该存储的是 enum 的值，而不是任意的字符串。
 
-# 推荐配置
+## 推荐配置
 
 https://docs.influxdata.com/influxdb/v1.6/concepts/schema_and_data_layout/
 
@@ -88,6 +88,6 @@ https://docs.influxdata.com/influxdb/v1.6/concepts/schema_and_data_layout/
 如果需要使用函数（mean，sum）， 只有 fields 才能
 如果需要使用数字，只有 fields 才能
 
-# 硬件配置
+## 硬件配置
 
 https://docs.influxdata.com/influxdb/v1.6/guides/hardware_sizing/
