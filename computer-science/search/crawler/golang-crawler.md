@@ -2,7 +2,7 @@
 
 <!--
 ID: e3b5baad-b841-4a2c-a6f7-7486ee92863d
-Status: publish
+Status: draft
 Date: 2018-04-09T08:10:00
 Modified: 2020-05-16T11:34:41
 wp_id: 461
@@ -36,7 +36,7 @@ func breadthFirst(visit func(item, string) []string, worklist []string) {
 
 - 边界限制，比如说限定下爬去的域名
 - 深度，比如说限定下爬取的深度
-- 并发，比如说开多少个goroutine？以及如何控制并发
+- 并发，比如说开多少个 goroutine？以及如何控制并发
 - 如何终止，终止条件是什么，限制抓取的深度还是什么？
 - 等待所有进程终止，当程序退出的时候，有没有 wait 子过程退出
 
@@ -64,7 +64,7 @@ func breadthFirst(visit func(item, string) []string, worklist []string) {
 
 当然 CSS 也有一些不方便的时候，比如 XPath 使用 `//nav/span[2]` 就能表达清楚的逻辑，CSS 需要使用 `nav>span:nth-child(2)`。略显长，但是还好不像 XPath 表达类（class）的时候那么 trick。
 
-另外，XPath 不光可以选择元素，还可以选择属性，比如 `//a/@href`，可以直接拿到`a` 的链接，而CSS则只能选择标签。
+另外，XPath 不光可以选择元素，还可以选择属性，比如 `//a/@href`，可以直接拿到`a` 的链接，而 CSS 则只能选择标签。
 
 
 ## goquery
@@ -81,7 +81,7 @@ type Document struct {
 }
 ```
 
-Document 内嵌了 Selection，因此可以直接使用Selection 的方法。
+Document 内嵌了 Selection，因此可以直接使用 Selection 的方法。
 
 ```
 type Selection struct {
@@ -98,7 +98,7 @@ type Selection struct {
     1. `NewDocumentFromNode(root *html.Node) *Document`: 传入 *html.Node 对象，也就是根节点。
     2. `NewDocument(url string) (*Document, error)`: 传入 URL，内部用 http.Get 获取网页。
     3. `NewDocumentFromReader(r io.Reader) (*Document, error)`: 传入 io.Reader，内部从 reader 中读取内容并解析。
-    4. `NewDocumentFromResponse(res *http.Response) (*Document, error)`: 传入 HTTP 响应，内部拿到 res.Body(实现了 io.Reader) 后的处理方式类似 NewDocumentFromReader.
+    4. `NewDocumentFromResponse(res *http.Response) (*Document, error)`: 传入 HTTP 响应，内部拿到 res.Body（实现了 io.Reader) 后的处理方式类似 NewDocumentFromReader.
 
 2. 查找节点
 
@@ -114,7 +114,7 @@ type Selection struct {
 
     1. `Attr()`: 获得某个属性的值
     2. `Html()`: 获得当前节点的 html
-    3. `Length()`: 
+    3. `Length()`:
     4. `Text()`:
 
 

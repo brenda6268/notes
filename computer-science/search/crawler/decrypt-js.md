@@ -8,7 +8,7 @@ Modified: 2020-05-16T11:17:26
 wp_id: 463
 -->
 
-由于网页和JavaScript都是明文的，导致很多API接口都直接暴露在爬虫的眼里，所以好多
+由于网页和 JavaScript 都是明文的，导致很多 API 接口都直接暴露在爬虫的眼里，所以好多
 网站选择使用混淆后的 JavaScript 来加密接口。其中有分为两大类：
 
 1. 通过 JavaScript 计算一个参数或者 Cookie 作为接口的签名验证
@@ -20,15 +20,18 @@ wp_id: 463
 2. 打断点找到相关代码，可以是 ajax 断点或者 js 断点。或者直接看网络请求的
    initiator
 3. 逐层分析，找到加密函数
-4. 使用 node 执行js代码获得数据
+4. 使用 node 执行 js 代码获得数据
 
 # 具体步骤
 
-有空了再写。。
+有空了再写。
 
 参考：
 
 1. [中国天气质量网返回结果加密的破解](https://cuiqingcai.com/5024.html)
-2. [破解 Google 翻译的token](https://zhuanlan.zhihu.com/p/32139007)
+2. [破解 Google 翻译的 token](https://zhuanlan.zhihu.com/p/32139007)
 3. [JavaScript 生成 Cookie](https://github.com/jhao104/spider/tree/master/PyV8%E7%A0%B4%E8%A7%A3JS%E5%8A%A0%E5%AF%86Cookie)
 4. [常见加密算法](http://liehu.tass.com.cn/archives/1016)
+5. [微博 Cookie 生成](https://blog.thinker.ink/passage/28/)
+6. [又一篇微博的](https://blog.csdn.net/qq_41057280/article/details/81201337)
+7. [威锋网 X-Request-ID](https://blog.csdn.net/qq_34067821/article/details/104359172)
