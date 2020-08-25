@@ -30,11 +30,11 @@ Prometheus 是使用 Go 语言开发的一个监控工具和时序数据库，�
 
 也不要想着把特别复杂的业务数据画到监控系统上，监控是监控，业务是业务，不能相互替代。
 
-## Prometheus 的数据类型
+## Prometheus 的指标类型
 
 Prometheus 常用的有四种类型：计数器 (counter), 刻度 (gauge), 直方图 (histogram), 摘要 (summary).
 
-计数器只增不减，用来记录一件事情发生了多少次，可以使用 `rate(some_counter[interval])` 来计算一件事情的速率。Counter 类型主要是为了 Rate 而存在的，即计算速率，单纯的 Counter 计数意义不大，因为 Counter 一旦重置，总计数就没有意义了。Rate 会自动处理 Counter 重置的问题，Counter 的任何减少也会被视为 Counter 重置。
+计数器只增不减，用来记录一件事情发生了多少次，可以使用 `rate(some_counter[interval])`（具体含义后面会说到）来计算一件事情的速率。Counter 类型主要是为了 `rate` 而存在的，即计算速率，单纯的 Counter 计数意义不大，因为 Counter 一旦重置，总计数就没有意义了。rate 会自动处理 Counter 重置的问题，Counter 的任何减少也会被视为 Counter 重置。
 
 Gauges 可以被设定，可以增高，可以减小。用来记录状态，比如正在进行的请求的数量，空闲内存数，温度等。对于 gauge 值，不要使用 `rate`. 可以使用 `max_over_time` 等来处理 gauge 数据。
 
@@ -45,11 +45,13 @@ Histogram 类型数据最常用的函数是 histogram_quantile 了，可以用�
 如果有一个观测值叫做 `http_request_duration_seconds`, 那么要计算刚过去的 5 分钟内的平均时长可以这样算：
 
 ```prometheus
-# 先不用理解, 后边会讲到
+# 先不用理解，后边会讲到
 rate(http_request_duration_seconds_sum[5m]) / rate(http_request_duration_seconds_count[5m])
 ```
 
 Histogram 在服务端计算，Summary 在客户端计算并且不能被重新计算。如果可能的话，最好使用 Histogram, 不要使用 summary. 
+
+另外，Prometheus 支持 labels, 也就是标签，这样就可以很好地查询过滤指标，而不需要创建很多的指标了。
 
 ## 输出指标到 Prometheus
 
@@ -64,7 +66,8 @@ pip install prometheus_client
 ```py
 from prometheus_client import Counter
 
-# prometheus 会智能处理 _total 后缀，在后台总是有 _total 后缀的
+# 按照 Prometheus 的最佳实践, counter 类型的数据后缀是 _total
+# prometheus 客户端会智能处理 _total 后缀，在后台总是有 _total 后缀的
 c = Counter("http_request_failures_total", "http 请求出错计数")
 c.inc()  # 默认是 1
 c.inc(2)  # 也可以指定数字
@@ -119,7 +122,9 @@ d.set_function(lambda: len(my_dict))
 
 ### Histogram 
 
-值得注意的是，histogram 默认定义的 buckets 大小是为了正常的网页请求设计的，也就是围绕着一秒的一些数据。
+值得注意的是，histogram 默认定义的 buckets 大小是为了正常的网页请求设计的，也就是围绕着一秒的一些数据。如果我们需要观测一些其他的值，那么需要重新定义 buckets 的大小。
+
+一般来说，buckets 是呈指数分布的，中间值为最常见的典型值，这样可以更好地拟合实际的分布(幂次分布)。因为 buckets 是以 label 的形式实现的，所以 buckets 最好也不要超过十个。
 
 ```py
 from prometheus_client import Histogram
@@ -133,16 +138,69 @@ def f():
 
 with h.time():
   pass
-```
 
-如果我们需要观测一些其他的值, 那么需要重新定义 buckets 的大小
+# 默认的 buckets[0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10]
+h = Histogram(buckets=[1, 10, 100])
+```
 
 ### 标签导出
 
-## 使用 PromQL 查询指标
-建议将 Rate 计算的范围向量的时间至少设为抓取间隔的四倍。这将确保即使抓取速度缓慢，且发生了一次抓取故障，您也始终可以使用两个样本。此类问题在实践中经常出现，因此保持这种弹性非常重要。例如，对于 1 分钟的抓取间隔，您可以使用 4 分钟的 Rate 计算，但是通常将其四舍五入为 5 分钟。
+如果要导出标签的话，需要使用 labels 方法
 
-使用 `{}` 来过滤指标。除了 `=` 之外，还有 `!=` 和 `=~`（正则） 和 `!~`（不匹配）
+```py
+from prometheus_client import Counter
+c = Counter('my_requests_total', 'HTTP Failures', ['method', 'endpoint'])
+c.labels(method='get', endpoint='/').inc()
+c.labels(method='post', endpoint='/submit').inc()
+```
+
+### HTTP 服务器
+
+前面我们提到 Prometheus 是采用的拉模型，那么从哪儿拉数据呢？需要我们的程序开启一个 http 的服务器，这样 Prometheus 才能来拉取数据。
+
+如果实在普通的脚本里面，可以这样：
+
+```py
+from prometheus_client import start_http_server
+
+start_http_server(8000)
+```
+
+如果本身就是个 web 服务器，那么直接 mount 导一个路径就好了。不过实际上这是不可用的，因为生产中的服务器都是多进程的，而 Prometheus 的 Python 客户端不支持多进程。
+
+```py
+from flask import Flask
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
+from prometheus_client import make_wsgi_app
+
+# Create my app
+app = Flask(__name__)
+
+# Add prometheus wsgi middleware to route /metrics requests
+app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
+    '/metrics': make_wsgi_app()
+})
+```
+
+很遗憾的是, Prometheus 的 Python 客户端对于多进程的支持不好.
+
+## 使用 PromQL 查询指标
+
+### 数据类型
+
+在 Prometheus 中有四种数据类型，分别是：数字，字符串，直接向量 (instant vector) 和区间向量 (range vector).
+
+数字和字符串就不用说了，重点说一下后两个向量。直接向量其实就是指标，比如说 `http_request_count`, 他就是一个一维的时间向量。而区间向量其实是二维的，在每一个时间点都是一个向量。
+
+那么怎么生成区间向量呢？使用 `[]` 操作符。比如说 `http_requests_total[5m]`, 表示在每个时间点，该时间点过去五分钟的时间序列，也就是二维的。那么区间向量有什么用呢？答案很简单：给 rate 函数使用。
+
+比如说，我们常见的计算网页 qps 的函数：`rate(http_requests_toal[5m])`, 意思就是，在每个时间点都取前五分钟的统计数据计算访问速率，实际上这不就是求导么，而 5m 就是其中 dx 的取值。但是和微分不一样的是，dx 肯定不是越小越好，因为 Prometheus 抓取数据有间隔，所以显然不能小于抓取间隔，一般取抓取间隔的 4 倍左右，5m 就是个很好的值。采样周期 `5m` 如果设置的大一些，图像就会更平滑，如果小一些就会更精确。
+
+官方建议将 Rate 计算的范围向量的时间至少设为抓取间隔的四倍。这将确保即使抓取速度缓慢，且发生了一次抓取故障，也始终可以使用两个样本。此类问题在实践中经常出现，因此保持这种弹性非常重要。例如，对于 1 分钟的抓取间隔，您可以使用 4 分钟的 Rate 计算，但是通常将其四舍五入为 5 分钟。
+
+### 查询语法
+
+使用 `{}` 来过滤指标, 大概相当于 SQL 中的 where 子句。除了 `=` 之外，还有 `!=` 和 `=~`（正则） 和 `!~`（不匹配）
 
 ```
 <metric name>{<label name>=<label value>, ...}
@@ -160,14 +218,14 @@ api_http_requests_total{method="POST", handler="/messages"}
 go_memstats_gc_cpu_fraction > 1.5 * (go_memstats_gc_cpu_fraction offset 1h)
 ```
 
-使用 rate(counter[5m]) 来查询速率，这里的采样周期 `5m` 如果设置的大一些，图像就会更平滑，如果小一些就会更精确。
-
 使用 `by` 关键字可以聚合字段：
 
 ```
 # sum+rate 其实是求和的意思（求导再积分）, 然后按照 instance 聚合
 sum(rate(node_network_receive_bytes_total[5m])) by (instance)
 ```
+
+### 常用函数
 
 ## 使用 Dashboard 展示指标
 
@@ -292,3 +350,4 @@ count by (__name__)({__name__=~".+"}) > 10000
 10. https://github.com/prometheus/client_python
 11. http://www.xuyasong.com/?p=1717
 12. https://www.section.io/blog/prometheus-querying/
+13. https://github.com/danielfm/prometheus-for-developers#monitoring-uptime
