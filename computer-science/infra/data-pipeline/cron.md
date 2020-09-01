@@ -10,7 +10,7 @@ wp_id: 1048
 
 在回答标题的问题之前，我们先来看下 Cron 的实现。
 
-Cron 是 *nix 系统中常见的有一个 daemon，用于定时执行任务。cron 的实现非常简单，以最常用的 vixie cron 为例，大概分为三步：
+Cron 是 `*nix` 系统中常见的有一个 daemon，用于定时执行任务。cron 的实现非常简单，以最常用的 vixie cron 为例，大概分为三步：
 
 1. 每分钟读取 crontab 配置
 2. 计算需要执行的任务

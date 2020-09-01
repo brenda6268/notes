@@ -42,7 +42,7 @@ services:  # 定义的服务，注意是一个字典
       - "dbdata:/var/lib/postgresql/data"  # 挂载的库，为了和 yaml 语法兼容，必须用引号
 
 volumes:  # 定义的卷
-  - dbdata
+  dbdata:
 ```
 
 1. version 指定了当前 docker-compose 文件的版本
@@ -51,14 +51,13 @@ volumes:  # 定义的卷
 3. build，docker build 命令的参数，用来指定需要构建的 dockerfile
 4. image，如果镜像不需要自己构建，而是使用 dockerhub 上的基础镜像，可以直接使用
    image 指令
-5. depends_on 指定当前的服务依赖的服务，从而确定启动顺序
+5. `depends_on` 指定当前的服务依赖的服务，从而确定启动顺序
 6. ports 开放的端口的数组，有三种形式：
     1. "3000" 容器中开放的端口
     2. "3000:3000" 开放容器中的端口到宿主机
     3. "127.0.0.1:3000:3000" 开放容器中的端口到宿主机并绑定 IP
 7. environment 环境变量
-8. volumes 挂载的卷，可以使用 named volume 或者是挂载目录，建议不要使用匿名卷。如
-   果使用 named volume，必须在 volumes 下声明
+8. volumes 挂载的卷，可以使用 named volume 或者是挂载目录，建议不要使用匿名卷。如果使用 named volume，必须在 volumes 下声明
 
 ## 运行服务
 docker-compose 有以下 3 个常用命令：

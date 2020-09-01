@@ -24,6 +24,8 @@ Dockerfile 列出了构建一个docker image 的**可复现**步骤。比起一�
 * ENV，设定环境变量
 * VOLUME，卷
 
+ENV key=value foo=bar
+
 ## 几个比较容易混淆的
 
 ### COPY vs ADD

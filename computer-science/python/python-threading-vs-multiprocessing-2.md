@@ -8,7 +8,7 @@ Modified: 2020-05-16T11:51:35
 wp_id: 685
 -->
 
-# 高层次多线程
+## 高层次多线程
 
 使用 threading 模块，threading.Thread
 
@@ -25,13 +25,15 @@ for i in range(5):
     threads.append(t)
     t.start()
 ```
-	
+
 by default, it does not start running
 
-    t.start  # start executing the thread
-    t.is_alive
-    t.join   # wait for a thread, daemon thread can't be joined
-	
+```py
+t.start  # start executing the thread
+t.is_alive
+t.join   # wait for a thread, daemon thread can't be joined
+```
+
 直接子类化 Thread 是不推荐的，因为这样会使代码和线程耦合在一起。
 
 Each Thread has its own stack, so when a child thread throws a exception, the main thread will not catch it
@@ -41,7 +43,7 @@ http://stackoverflow.com/questions/2829329/catch-a-threads-exception-in-the-call
 
 ## Daemon 线程
 
-默认情况下，主线程等待所有子线程的执行。设定为 Daemon 线程后，主线程继续执行，并不等待，但当主线程退出时会杀掉所有子线程。如果想要使用Ctrl-C, 必须设定为daemon
+默认情况下，主线程等待所有子线程的执行。设定为 Daemon 线程后，主线程继续执行，并不等待，但当主线程退出时会杀掉所有子线程。如果想要使用 Ctrl-C, 必须设定为 daemon
 
 使用 t.daemon = True 设定为 Daemon 线程
 
@@ -66,7 +68,7 @@ http://stackoverflow.com/questions/2829329/catch-a-threads-exception-in-the-call
 * `multiprocessing.Pool` 进程池，只能接受 marshalable 作为 worker
 * `multiprocessing.ThreadPool` 线程池，同样受到了 GIL 的影响。
 
-用法如下:
+用法如下：
 
 ```py
 multiporcessing.Pool.map(fn, iterable)
@@ -95,9 +97,37 @@ if __name__ == "__main__":
         print(n)
 ```
  
-使用pool的一个陷阱是不太好debug, 爆出的异常往往看不清问题, 需要使用单线程调试之后再去使用
+使用 pool 的一个陷阱是不太好 debug, 爆出的异常往往看不清问题，需要使用单线程调试之后再去使用
 
 ## `concurrent.futures`
+
+ThreadPoolExecutor 和 ProcessPoolExecutor 是 Python 3 中新添加的两个类，他们实现了和 Java 对应的类几
+乎一样的方法，也就是可以提交一个任务给线程池处理，然后得到一个 Future 对象，通过 future 对象可以获取
+执行的结果，或者监控执行的过程。
+
+```py
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+executor = ThreadPoolExecutor()
+
+def fib(precision):
+    pass
+
+futures = []
+for i in range(100):
+    # submit(fn, *args, **kwargs)
+    fut = executor.submit(fib, 100)
+    futures.append(fut)
+
+for fut in as_completed(futures, timeout=10):
+    try:
+        val = fut.result()  # 通过 result 获取值，如果执行中有异常，在这里抛出
+    except Exception:
+        pass
+```
+
+
+
 
 
 

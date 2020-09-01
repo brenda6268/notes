@@ -8,13 +8,17 @@ Modified: 2020-07-29T23:37:30
 wp_id: 1627
 -->
 
+日期与时间
+
+Always use timezone-aware time or timestamp, never use local time string.
+
 Python docstring
 
 使用 Google 的 docstring 规范
 
 django
 
-* 在admin后台自定义属性的时候，函数要加一个下划线后缀，以便和模型的属性区分
+* 在 admin 后台自定义属性的时候，函数要加一个下划线后缀，以便和模型的属性区分
 
 注释
 
@@ -28,7 +32,7 @@ django
 
 公司名：使用英文，不使用中文。例子：使用 tencent，不使用 tengxun
 
-数量一律使用 num_something 命名。布尔值使用 is_adj(形容词) 或者 done 表示
+数量一律使用 num_something 命名。布尔值使用 is_adj（形容词） 或者 done 表示
 
 * never use HN but prefix `is` for bool flags or methods e.g. `is_open`
 * declare local variable as late as possible
@@ -59,8 +63,8 @@ Headers
 ------
 
 * header file should use `*.hpp` NOT `*.h`
-* always use #define guards 
-* Reduce the number of #include files in header files. It will reduce build times. Instead, put include files in source code files and use forward declarations in header files. If a class in a header file does not need to know the size of a data member class or does not need to use the class's members then forward declare the class instead of including the file with #include. To avoid the need of a full class declaration, use references (or pointers) and forward declare the class. 
+* always use #define guards
+* Reduce the number of #include files in header files. It will reduce build times. Instead, put include files in source code files and use forward declarations in header files. If a class in a header file does not need to know the size of a data member class or does not need to use the class's members then forward declare the class instead of including the file with #include. To avoid the need of a full class declaration, use references (or pointers) and forward declare the class.
 
 Namespaces
 ------
