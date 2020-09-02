@@ -1,4 +1,4 @@
-# sche - 一种能够看懂的 cron 语法
+# sche - 一种人类能够看懂的 cron 语法
 
 <!--
 ID: 0652dcaa-4d96-45b5-aafd-3540981f5549
@@ -8,9 +8,10 @@ Modified: 2020-09-01T22:30:41
 wp_id: 1887
 -->
 
-在 Linux 系统上，我们一般使用 cron 来设置定时任务，然而 cron 的语法还是有些佶屈聱牙的，几乎每次要修改的时候都需要查一下文档才知道什么意思，以至于有 crontab.guru 这种网站专门来解释 cron 的语法。
 
-![](./sche_images/crontab.guru.png)
+在 Linux 系统上，我们一般使用 `cron` 来设置定时任务，然而 cron 的语法还是有些佶屈聱牙的，几乎每次要修改的时候都需要查一下文档才知道什么意思，以至于有 crontab.guru 这种网站专门来解释 cron 的语法。
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1gibjy5v5iuj30zk0kmq4t.jpg)
 
 想象一下，能不能有一种让人一眼就能看懂的语法来表达周期性的调度操作呢？比如说这样：
 
@@ -29,7 +30,7 @@ every 90 minutes         , echo 'time to stand up'
 
 ```
 */10 * * * *    curl apple.com
-0 * * * *       echo 'time to take some coffee
+0 * * * *       echo 'time to take some coffee'
 30 10 * * *     eat
 */7 * * * *     firefox http://news.ycombinator.com  # 实际上是不对的，因为 cron 没法随机
 0 0 * * MON     say 'Good week'
@@ -41,9 +42,9 @@ every 90 minutes         , echo 'time to stand up'
 
 可以很明显看出，cron 的语法可读性还是差一些的，关键是维护起来更是像读天书一样。幸运的是，我在周末刚刚做了一个小工具，虽然还比较粗糙，但是也已经可以解析上面这种可读性比较好的语法。下面简单介绍一下如何使用：
 
-## 介绍 sche
+## 介绍 `sche`
 
-sche 是一个 Python 程序，所以可以从使用 PyPI 直接安装：
+sche 是一个 Python 程序，所以可以使用 pip 直接安装：
 
 ```
 pip install sche
@@ -80,12 +81,10 @@ optional arguments:
 我们只需要把需要执行的命令放到 `/etc/schetab` 文件下就好了，这里显然是在致敬 `/etc/crontab`。比如说：
 
 ```
--> % cat > /etc/schetab << EOF
+-> % cat /etc/schetab
 timzone = +0800
 every 5 seconds, echo "wubba lubba dub dub"
-# line starts with # is comment
 every 10 seconds, date
-EOF
 
 -> % sche
 wubba lubba dub dub
@@ -99,7 +98,7 @@ Tue Sep  1 22:15:21 CST 2020
 wubba lubba dub dub
 ```
 
-如何让 sche 像 cron 一样作为一个守护进程呢？秉承 Unix 一个命令只做一件事的哲学，sche 本身显然是不提供这个功能的，可以使用 Systemd 实现，几行配置就搞定了。
+如何让 sche 像 cron 一样作为一个守护进程呢？秉承 Unix 一个命令只做一件事的哲学，sche 本身显然是不提供这个功能的，可以使用 `systemd` 实现，几行配置写个 unit 文件就搞定了。
 
 ## sche 的来源
 
