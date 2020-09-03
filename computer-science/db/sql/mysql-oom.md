@@ -8,9 +8,9 @@ Modified: 2020-05-16T11:52:54
 wp_id: 173
 -->
 
-有一台512M内存的小机器总是报数据库错误, 查看了下日志是OOM了
+有一台 512M 内存的小机器总是报数据库错误，查看了下日志是 OOM 了
 
-解决方案:
+解决方案：
 
 一 Add swap file to cloud instance
 
@@ -24,19 +24,19 @@ http://www.prowebdev.us/2012/05/amazon-ec2-linux-micro-swap-space.html
 Some useful command related to SWAP space:
 
 ```
-$ swapon -s   
+$ swapon -s
 $ free -k
 $ swapoff -a
 $ swapon  -a
 ```
-	
+
 二 limit mysql buffersize
 
 innodb_buffer_pool_size = 8M
-	
+
 三 limit apache memory cosumption，editing /etc/apache2/mods-enabled/mpm_prefork.conf
 
-```	
+```
 <IfModule mpm_prefork_module>
     StartServers        3
     MinSpareServers     3

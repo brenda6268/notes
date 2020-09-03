@@ -98,8 +98,8 @@ def test_mytest():
 
 setup 和 teardown 用来在测试开始前加载资源，并在测试结束后卸载资源。
 
-1. 可以在文件中定义 setup_module 和 teardown_module 中
-2. 可以在类中定义 setup_class 和 teardown_class 中定义加载和卸载方法。
+1. 可以在文件中定义 `setup_module` 和 `teardown_module` 中
+2. 可以在类中定义 `setup_class` 和 `teardown_class` 中定义加载和卸载方法。
 
 ### mock 和 patch
 
@@ -126,10 +126,10 @@ Unittest 中的 assert 方法：
 
 方法 | 含义
 ----|----
-assertEqual(a, b)|a == b	 
-assertNotEqual(a, b)|a != b	 
-assertTrue(x)|bool(x) is True	 
-assertFalse(x)|bool(x) is False	 
+assertEqual(a, b)|a == b
+assertNotEqual(a, b)|a != b
+assertTrue(x)|bool(x) is True
+assertFalse(x)|bool(x) is False
 assertIs(a, b)|a is b
 assertIsNot(a, b)|a is not b
 assertIsNone(x)|x is None

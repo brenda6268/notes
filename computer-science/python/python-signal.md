@@ -20,7 +20,7 @@ signal.SIG_IGN
 
 This is another standard signal handler, which will simply ignore the given signal.
 
-# assign handerls:
+# assign handlers:
 signal.signal(signalnum, handler)
 
 Set the handler for signal signalnum to the function handler. handler can be a callable Python object taking two arguments

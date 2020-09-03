@@ -8,7 +8,7 @@ Modified: 2020-05-16T11:52:24
 wp_id: 403
 -->
 
-# C++中的字典字面量
+# C++ 中的字典字面量
 
 You can actually do this:
 

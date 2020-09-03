@@ -22,7 +22,7 @@ mount -t TYPE OPTIONS DEVICE DIRECTORY
 常用的参数
 
 ```
--a 挂载/etc/fstab 中的所有文件
+-a 挂载 /etc/fstab 中的所有文件
 -f 模拟挂载
 -r 只读挂载
 -w 读写挂载（默认）
@@ -58,13 +58,13 @@ umount DIRECTORY/DEVICE 卸载设备
 
 fdisk DEVICE
 
-```	
+```
 p	print partition table
 n	new partition
 w	write back to table
 d	删除分区
 ```
-	
+
 创建文件系统
 
 ```

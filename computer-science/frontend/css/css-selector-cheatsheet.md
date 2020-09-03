@@ -1,4 +1,4 @@
-# [译] CSS 选择器备忘录（cheatsheet）
+# 『译』 CSS 选择器备忘录（cheatsheet）
 
 <!--
 ID: a44a879e-3475-4ea3-ba44-bafce4aee5dc
@@ -31,7 +31,7 @@ Class 和 id 选择器是你能够把某些属性应用到个别元素上而不�
 
 选择器  | 语法 |  描述
 -------|-----|---------
-Class    | `.warning` `p.warning` | 前者选择所有属于 warning 类的元素，后者选择所有属于 warning 类的p元素
+Class    | `.warning` `p.warning` | 前者选择所有属于 warning 类的元素，后者选择所有属于 warning 类的 p 元素
 id     | `#title` | 选择 id 为 title 的元素
 
 # 上下文选择器

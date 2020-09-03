@@ -28,15 +28,15 @@ wget 功能很有限，httpie 虽然比较人性化但是有很多 bug，还是 
 
 ```
 curl -L/--follow http://example.com	          follow redirect
-curl -I/--head http://example.com	          only headers 
+curl -I/--head http://example.com	          only headers
 curl -o/--output file http://example.com	  http -d
-curl -v/--verbose http://example.com	
-curl --data "key=value" http://example.com	
+curl -v/--verbose http://example.com
+curl --data "key=value" http://example.com
 curl --data-urlencode "key=
-curl -X/--request GET/POST http://example.com	
-curl -H/--header "Accept: utf-8"	
+curl -X/--request GET/POST http://example.com
+curl -H/--header "Accept: utf-8"
 curl --referer http://x.com http://example.com
-curl --user-agent 
+curl --user-agent
 ```
 curl --cookie
 
@@ -96,8 +96,8 @@ mtr
 
 bt download
 
-sudo add-apt-repository ppa:t-tujikawa/ppa 
-sudo apt-get update 
+sudo add-apt-repository ppa:t-tujikawa/ppa
+sudo apt-get update
 sudo apt-get install aria2
 
 ## 使用 rsync 同步

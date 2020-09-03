@@ -20,15 +20,15 @@ wp_id: 431
 
 查找命令 | 匹配类型 | 说明
 ------|------------|---------------
-sbtrkt|模糊匹配 | 匹配sbtrkt
-^music|前缀精确匹配 | 以music开头
-.mp3^|后缀精确匹配 | 以.mp3结尾
-'wild |精确匹配(quoted) | 精确包含wild
-!fire | inverse-exact-match | 不包含fire
-!.mp3$ | inverse-suffix-exact-match | 不以.mp3结尾
+sbtrkt|模糊匹配 | 匹配 sbtrkt
+^music|前缀精确匹配 | 以 music 开头
+.mp3^|后缀精确匹配 | 以.mp3 结尾
+'wild |精确匹配 (quoted) | 精确包含 wild
+!fire | inverse-exact-match | 不包含 fire
+!.mp3$ | inverse-suffix-exact-match | 不以.mp3 结尾
 
 
-`|`可以做or匹配， 比如 `^core go$|rb$|py$` 表示以core开头，以go或rb或py结尾的
+`|`可以做 or 匹配， 比如 `^core go$|rb$|py$` 表示以 core 开头，以 go 或 rb 或 py 结尾的
 
 
 ## 按键
@@ -48,13 +48,13 @@ Enter 选择
 
 ```
 Ctrl-T 快速选择当前目录文件，并把文件名打印出来
-Ctrl-R 使用fzf来过滤history命令
+Ctrl-R 使用 fzf 来过滤 history 命令
 ALT-C cd 进入选中的目录
 ```
 
 ## 自动补全
 
-fzf 支持不少命令的自动补全功能，通过 **<tab> 来触发。如果没有特殊支持某个命令的话，fzf会用文件来补全。
+fzf 支持不少命令的自动补全功能，通过 **<tab> 来触发。如果没有特殊支持某个命令的话，fzf 会用文件来补全。
 
 ```
 vim **<tab>
@@ -79,7 +79,7 @@ kill -s TERM <tab>
 --preview 指定预览命令
 ```
 
-默认情况下，在fzf中选中文件之后知识打印出这个文件名，可以使用bind来指定一些快捷键，来对文件的一些操作。
+默认情况下，在 fzf 中选中文件之后知识打印出这个文件名，可以使用 bind 来指定一些快捷键，来对文件的一些操作。
 
 比如：
 

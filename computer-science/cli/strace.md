@@ -19,7 +19,7 @@ Strace 的选项
 5. P /tmp – Track a process when interacting with a path
 6. T – Display syscall duration in the output
 
-Track by specific system call group 
+Track by specific system call group
 
 1. e trace=ipc – Track communication between processes (IPC)
 2. e trace=memory – Track memory syscalls
@@ -28,7 +28,7 @@ Track by specific system call group
 5. e trace=signal – Track process signal handling (like HUP, exit)
 6. e trace=file – Track file related syscalls
 
-Trace multiple syscalls 
+Trace multiple syscalls
 
 ```
 strace -e open,close

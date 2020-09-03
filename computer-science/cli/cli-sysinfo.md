@@ -32,8 +32,8 @@ Mem:          251G       241G       9.8G       5.9G       4.3G        76G
 Swap:           0B         0B         0B
 ```
 
-含义，第一行表示实际的内存占用情况，linux的机制是尽可能多的占用内存，所以free往往很小；但是占用的内存不一定都在被使用，也就是最后的buffers和cached内存是被系统预先占用的。
-在第二行把这两项抛出，就是你的实际内存占用161G，实际可使用内存90G
+含义，第一行表示实际的内存占用情况，linux 的机制是尽可能多的占用内存，所以 free 往往很小；但是占用的内存不一定都在被使用，也就是最后的 buffers 和 cached 内存是被系统预先占用的。
+在第二行把这两项抛出，就是你的实际内存占用 161G，实际可使用内存 90G
 
 # iostat 和 vmstat
 
@@ -46,8 +46,8 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 57  0      0 197155680 3614480 57558348    0    0     8    39    0    0  6  2 91  0  0
 ```
 
-查看内存使用情况，其中最重要的是free和si、so三列，其中free表示空闲内存，si表示swap in，so表示 swap out
+查看内存使用情况，其中最重要的是 free 和 si、so 三列，其中 free 表示空闲内存，si 表示 swap in，so 表示 swap out
 
-vmstat INTERVAL TIMES 执行vmstat每INTERVAL秒，并且执行TIMES次
+vmstat INTERVAL TIMES 执行 vmstat 每 INTERVAL 秒，并且执行 TIMES 次
 
 http://www.orczhou.com/index.php/2010/03/iostat-detail/

@@ -13,8 +13,8 @@ wp_id: 507
 ### debugging mode
 
 ```
-<script src="node_modules/babel-core/browser.js"></script> 
-<script type="text/babel"> 
+<script src="node_modules/babel-core/browser.js"></script>
+<script type="text/babel">
 // Your ES6 code
 </script>
 ```
@@ -35,32 +35,32 @@ there are 3 ways to loop a sequence in ES5, but there are problems
 ### ES5 Loops
 
 // not concise
-for (var index = 0; index < myArray.length; index++) { 
+for (var index = 0; index < myArray.length; index++) {
     console.log(myArray[index]);
 }
 
 // no break or return
 myArray.forEach(function (value) {
-    console.log(value); 
+    console.log(value);
 });
 
 // for objects, not arrays
-for (var index in myArray) { 
+for (var index in myArray) {
     // don't actually do this
-    console.log(myArray[index]); 
+    console.log(myArray[index]);
 }
 
 
 ### Introducing ES6 Loops
 
 // concise and correct
-for (let value of myArray) { 
-    console.log(value); 
+for (let value of myArray) {
+    console.log(value);
 }
 
 // also works on strings, sets and maps
-for (let chr of "") { 
-    alert(chr); 
+for (let chr of "") {
+    alert(chr);
 }
 
 // make a set from an array of words
@@ -69,13 +69,13 @@ for (let word of uniqueWords) {
   console.log(word);
 }
 
-for (var [key, value] of phoneBookMap) { 
-    console.log(key + "'s phone number is: " + value); 
+for (var [key, value] of phoneBookMap) {
+    console.log(key + "'s phone number is: " + value);
 }
 
 
 // you can even make it work with objects
-// dump an object's own enumerable properties to the console 
+// dump an object's own enumerable properties to the console
 for (var key of Object.keys(someObject)) { console.log(key + ": " + someObject[key]); }
 
 
@@ -243,7 +243,7 @@ use the export keyword
 // lib.js
 export function foo() {}
 export class bar {}
-// or 
+// or
 export {baz, foz};
 export {foo as fart};
 
@@ -255,7 +255,7 @@ import {* as lib} from "lib.js"; // import everything and put in a object
 ES6 import commonJS
 
 most packages are written in commonJS, for using as ES6 modules:
-import _ from "lodash" // which is 
+import _ from "lodash" // which is
 import {default as _} from "lodash" // which is
 let _ = require("lodash");
 

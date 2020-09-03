@@ -13,13 +13,13 @@ wp_id: 503
 attributes of document object
 
 ```
-document.title               //设置文档标题等价于HTML的<title>标签
-document.URL                 //设置URL属性从而在同一窗口打开另一网页
-document.fileCreatedDate     //文件建立日期，只读属性
-document.fileModifiedDate    //文件修改日期，只读属性
-document.fileSize            //文件大小，只读属性
-document.cookie              //设置和读出cookie
-document.charset             //设置字符集 简体中文:gb2312
+document.title               // 设置文档标题等价于 HTML 的<title>标签
+document.URL                 // 设置 URL 属性从而在同一窗口打开另一网页
+document.fileCreatedDate     // 文件建立日期，只读属性
+document.fileModifiedDate    // 文件修改日期，只读属性
+document.fileSize            // 文件大小，只读属性
+document.cookie              // 设置和读出 cookie
+document.charset             // 设置字符集 简体中文：gb2312
 document.body         // body 元素
 document.location.hash/host/href/port          // location
 ```
@@ -28,10 +28,10 @@ methods of document object
 
 ```
 getElementById() // 返回一个 Element
-getElementsByName() // 根据 name 属性获得元素, 返回一个 NodeList
+getElementsByName() // 根据 name 属性获得元素，返回一个 NodeList
 getElementsByTagName() // 返回一个 HTMLCollection/NodeList(Webkit)
 getElementsByClassName() // 返回一个 HTMLCollection
-querySelector() // 返回一个符合的元素, 性能很差
+querySelector() // 返回一个符合的元素，性能很差
 querySelectorAll() // 返回所有符合的元素组成的 NodeList, 性能很差
 document.write()
 document.createElement()
@@ -51,14 +51,14 @@ NOTE: javascript is asynchonous, even if you set 0 timeout, the function is just
 
 ```
 location	setting location will cause the page to redirect to new page
-location.href	
-location.protocol	
-location.host	
-location.hostname	
-location.port	
-location.pathname	
-location.search	
-location.hash	
+location.href
+location.protocol
+location.host
+location.hostname
+location.port
+location.pathname
+location.search
+location.hash
 location.assign()	 go to a new address
 location.replace()	 go to a new address and do not disturb the history
 location.reload()	reload the page
@@ -67,9 +67,9 @@ location.reload()	reload the page
 ### window.history
 
 ```
-history.back()	
-history.forward()	
-history.go(number)	
+history.back()
+history.forward()
+history.go(number)
 ```
 
 ### window.screen
@@ -81,7 +81,7 @@ window.screen.height	screen height
 
 alert	show a message
 confirm	return a bool by user action
-prompt	
+prompt
 
 ## Same Origin Policy
 

@@ -20,7 +20,7 @@ $newEl.insertAfter(queryString)
 
 ## DOM 操作
 
-选择器可以使用 querySelector 和 querySelectorAll, 但是这两个的性能太差了, 最好使用 getElementById, getElementsByTagName, getElementsByClassName
+选择器可以使用 querySelector 和 querySelectorAll, 但是这两个的性能太差了，最好使用 getElementById, getElementsByTagName, getElementsByClassName
 
 $el.val() 对应 el.value
 
@@ -61,7 +61,7 @@ el.style.dispaly = ''
 $el.addClass(className) // remove, has, toggle
 el.classList.add(className) // remove, contains, toggle
 
-设置text
+设置 text
 Get text
 // jQuery
 $el.text();
@@ -75,7 +75,7 @@ $el.text(string);
 // Native
 el.textContent = string;
 
-## 设置html
+## 设置 html
 Get HTML
 // jQuery
 $el.html();
@@ -112,7 +112,7 @@ position is the position relative to the element you are inserting adjacent to:
 
 事件
 
-绑定事件 
+绑定事件
 $el.on(eventName, eventHandler);  // jQuery
 el.addEventListener(eventName, eventHandler);  // Native
 

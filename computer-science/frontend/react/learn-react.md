@@ -20,7 +20,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-Jsx 中可以使用大括号插值。对于html中不能自闭合的标签，都可以闭合
+Jsx 中可以使用大括号插值。对于 html 中不能自闭合的标签，都可以闭合
 
 const element = (
   <h1 className="greeting">
@@ -309,4 +309,4 @@ Thinking in React
 
 1. https://medium.com/@Zwenza/functional-vs-class-components-in-react-231e3fbd7108
 2. https://segmentfault.com/a/1190000011474522
-	
+

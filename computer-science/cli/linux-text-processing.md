@@ -8,10 +8,10 @@ Modified: 2020-05-16T12:01:30
 wp_id: 593
 -->
 
-# sort 
+# sort
 
 ```
--d 按照字典排序(默认)
+-d 按照字典排序（默认）
 -n 按照数字大小排序
 -f 忽略大小写
 -g 按照浮点数排序
@@ -51,7 +51,7 @@ tr -s "source" squeeze extra characters, useful for piping to cut
 
 cut 选取某一列 sort <mode> <which>
 有三种模式 -b 按字节 -c 按字符 -f 按域 -d 指定分隔符
-选取的列可以使用:
+选取的列可以使用：
 
 * i 第 i 行
 * a,b  i 行和 j 行
@@ -72,7 +72,7 @@ cut 选取某一列 sort <mode> <which>
 
 按列合并文本
 
-# xargs 
+# xargs
 
 xargs reformat the data it received and give it to next command. xargs squish all parameters into one line
 
@@ -87,8 +87,8 @@ xargs reformat the data it received and give it to next command. xargs squish al
 
 |Commands|BRE|ERE|PCRE|
 |--------|---|---|----|
-|sed |*|-E/-r||	
-|awk||*||	
+|sed |*|-E/-r||
+|awk||*||
 |grep|*|-E|-P|
 |find||*| |
 
@@ -106,18 +106,18 @@ s for substitution
 
 sed s/day/night/OPTION OLDFILE > NEWFILE
 
-默认只替换第一处出现, /g 替换所有
+默认只替换第一处出现，/g 替换所有
 
 
-/只是默认的分隔符, 可以任意使用, 推荐使用:
+/ 只是默认的分隔符，可以任意使用，推荐使用：
 
-使用 & 作为匹配到的字符, 使用 \1 \2 来表示匹配到的分组, 这种表达方式倒是和 pcre有些类似
+使用 & 作为匹配到的字符，使用 \1 \2 来表示匹配到的分组，这种表达方式倒是和 pcre 有些类似
 
-使用 -r(linux) 或者 -E(mac) 才能够使用扩展的posix正则, 一定要带上这两个
+使用 -r(linux) 或者 -E(mac) 才能够使用扩展的 posix 正则，一定要带上这两个
 
 OPTION
 
-处理命令行输入输出的时候可能经常需要trim, 尤其是字符串带了\n的情况
+处理命令行输入输出的时候可能经常需要 trim, 尤其是字符串带了、n 的情况
 
 sed -n 's/PATTERN/&/p' file
 
@@ -168,7 +168,7 @@ grep pattern *
 grep pattern -r <dir>
 ```
 
-force grep to show file name: 
+force grep to show file name:
     grep pattern file /dev/null
 
 ## options
@@ -181,7 +181,7 @@ force grep to show file name:
 -n	with line numbers
 -i 	ignore case
 -l	list matched files
--f 	pattern from 
+-f 	pattern from
 --include	include files for grep
 -Z	use \0 as delemeter
 -q	no output only return value

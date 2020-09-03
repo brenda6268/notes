@@ -1,4 +1,4 @@
-# mysql 基础知识(5) - 聚合语句(group by)
+# mysql 基础知识 (5) - 聚合语句 (group by)
 
 <!--
 ID: d5b18ee7-ec5a-4620-952c-21341afac88a
@@ -19,9 +19,9 @@ wp_id: 178
 select
   continent
   , count(*)
-from 
+from
   countries
-group by 
+group by
   continent
 ```
 
@@ -35,9 +35,9 @@ group by
 select
  continent
   , max(area)
-from 
+from
   countries
-group by 
+group by
   1
 having
   max(area) >= 1e7
@@ -52,9 +52,9 @@ having
 select
   max(area) as largest_country
   , avg(area) as avg_country_area
-from 
+from
   countries
-where 
+where
   continent = "Europe"
 ```
 
@@ -63,13 +63,13 @@ where
 如果在查询中有没有聚合的列，那么 MySQL 就会随机选取一个列，比如下面就会随机选取一个州。
 
 ```
-select 
+select
   country
   , state
   , count(*)
 from
   countries
-group by 
+group by
   country
 ```
 

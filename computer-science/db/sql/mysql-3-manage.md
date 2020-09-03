@@ -1,4 +1,4 @@
-# mysql 基础知识(3) - 创建修改表和权限
+# mysql 基础知识 (3) - 创建修改表和权限
 
 <!--
 ID: d2ee2d7e-f6b3-4a51-b812-d9ce034d21c1
@@ -20,7 +20,7 @@ ALTER DATABASE db_name
     [[DEFAULT] COLLATE collation_name]
 ```
 
-## 创建表?
+## 创建表？
 
 ```
 CREATE TABLE table_name (
@@ -51,23 +51,23 @@ ALTER TABLE SET AUTO_INCREMENT=xxx;
 
 ### 字符串
 
-字符串分两种，定长和变长，MySQL处理定长数据比变长数据快得多。CHAR属于定长类型，VARCHAR和TEXT属于变长类型。
+字符串分两种，定长和变长，MySQL 处理定长数据比变长数据快得多。CHAR 属于定长类型，VARCHAR 和 TEXT 属于变长类型。
 
-* CHAR的长度为1-255，默认为1，使用CHAR(n)指定长度
-* VARCHAR为0-255，使用VARCHAR(n)指定长度
-* TEXT为65536，MEDIUMTEXT为16k，LONGTEXT为4GB
+* CHAR 的长度为 1-255，默认为 1，使用 CHAR(n) 指定长度
+* VARCHAR 为 0-255，使用 VARCHAR(n) 指定长度
+* TEXT 为 65536，MEDIUMTEXT 为 16k，LONGTEXT 为 4GB
 
 ![](http://tva1.sinaimg.cn/large/006tNc79ly1ft17mebw0kj31900n6wkx.jpg)
 
 ### 数字
 
-注意数字后面跟的数字，例如INT(5)，并不是限制数字的存储长度，而是限制数字的展示长度（显示时填充0）！可以使用UNSIGNED指定为非负值，默认为signed
+注意数字后面跟的数字，例如 INT(5)，并不是限制数字的存储长度，而是限制数字的展示长度（显示时填充 0）！可以使用 UNSIGNED 指定为非负值，默认为 signed
 
 ![](http://tva1.sinaimg.cn/large/006tNc79ly1ft17lhmrv7j30wk0fswh3.jpg)
 
 ### 日期
 
-使用DATETIME，不要使用TIMESTAMP，防止2038年溢出
+使用 DATETIME，不要使用 TIMESTAMP，防止 2038 年溢出
 
 ![](http://ws4.sinaimg.cn/large/006tNc79ly1ft17luawbtj312w09kabw.jpg)
 
@@ -79,7 +79,7 @@ ALTER TABLE SET AUTO_INCREMENT=xxx;
 &#x60;modify_time&#x60; timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ```
 
-#### 设计表要注意每个字段的正交性，不要出现一个字段表示“xx且xx”的状态。
+#### 设计表要注意每个字段的正交性，不要出现一个字段表示“xx 且 xx”的状态。
 
  
 ## 更新表
@@ -134,12 +134,12 @@ ALTER TABLE table_name ADD PRIMARY KEY index_name (column_list)
 alter table TABLENAME drop index xxxx
 ```
 
-------------------之前笔记的分割线------------------------
+------------------ 之前笔记的分割线 ------------------------
  
  
 ## 组合索引
  
-如果有一个组合索引(col_a,col_b,col_c)
+如果有一个组合索引 (col_a,col_b,col_c)
  
 下面的情况都会用到这个索引：
 
@@ -150,7 +150,7 @@ col_a = "some value" and col_b = "some value" and col_c = "some value";
 col_b = "some value" and col_a = "some value" and col_c = "some value";
 ```
 
-对于最后一条语句，mysql会自动优化成第三条的样子
+对于最后一条语句，mysql 会自动优化成第三条的样子
  
 下面的情况就不会用到索引：
 

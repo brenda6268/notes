@@ -13,7 +13,7 @@ basic knowledge
 
 first, we need a cross compiler, which you can download from the source or somewhere.
 
-second, when we use gcc to build stuff, actually we are implicitly linking to the stdlib of c, if we are cross compiling programs for another platform, then we need another platform's filesystem to be accessible to us. However, we only need the target's /usr directory, because that's where the header files lives in. 
+second, when we use gcc to build stuff, actually we are implicitly linking to the stdlib of c, if we are cross compiling programs for another platform, then we need another platform's filesystem to be accessible to us. However, we only need the target's /usr directory, because that's where the header files lives in.
 
 we place target's header files in a directory called *sysroot*, and gcc supports the argument `--sysroot`
 
@@ -63,7 +63,7 @@ if your dependency needs system libs, then you need `--sysroot` as below
 compile python on android
 ------
 
-在安卓上编译python
+在安卓上编译 python
 
 compiling 2.7.2
 
@@ -83,6 +83,6 @@ Reference
 
 http://www.fabriziodini.eu/posts/cross_compile_tutorial/
 https://landley.net/writing/docs/cross-compiling.html
-http://stackoverflow.com/questions/5139403/whats-the-difference-of-configure-option-build-host-and-target  
+http://stackoverflow.com/questions/5139403/whats-the-difference-of-configure-option-build-host-and-target
 
 very confusing, the second answer is better

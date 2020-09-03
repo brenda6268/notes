@@ -8,14 +8,14 @@ Modified: 2020-05-16T11:51:49
 wp_id: 574
 -->
 
-## RocksDB 会抛出异常吗?
+## RocksDB 会抛出异常吗？
 
-不会, RocksDB会返回一个Status表示成功或者失败, 但是RocksDB并没有捕获STL中的异常, 比如bad_alloc这种
+不会，RocksDB 会返回一个 Status 表示成功或者失败，但是 RocksDB 并没有捕获 STL 中的异常，比如 bad_alloc 这种
 
-## 基础操作是线程安全的吗?
+## 基础操作是线程安全的吗？
 
 是的
 
-## 可以使用多个进程(process)同时读写 RocksDB 吗?
+## 可以使用多个进程 (process) 同时读写 RocksDB 吗？
 
-不可以, 当然只读模式随意
+不可以，当然只读模式随意

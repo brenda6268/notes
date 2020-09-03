@@ -78,7 +78,7 @@ class Button extends Component {
 
 ## normalize
 
-建议在 index.css 
+建议在 index.css
 
 ## 使用 bootstrap
 
@@ -127,7 +127,7 @@ export default Header;
      "include": ["src"]
 }
 
-// 代码中, 比如 app.tsx 
+// 代码中，比如 app.tsx
 import Button from 'components/Button';
 ```
 

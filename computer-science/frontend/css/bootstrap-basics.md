@@ -8,15 +8,15 @@ Modified: 2017-06-07T07:04:00
 wp_id: 762
 -->
 
-BootStrap适合做什么
+BootStrap 适合做什么
 ======
 
-Bootstrap适合做没有界面设计，只有功能或者草图，直接通过代码快速的生成一个可用的界面
+Bootstrap 适合做没有界面设计，只有功能或者草图，直接通过代码快速的生成一个可用的界面
 
-Bootstrap不适合
+Bootstrap 不适合
 
 1. 已经有了良好的界面设计，包含了各种细节
-2. 在已有的非Bootstrap的界面上进行改动的时候
+2. 在已有的非 Bootstrap 的界面上进行改动的时候
 
 
 # headers

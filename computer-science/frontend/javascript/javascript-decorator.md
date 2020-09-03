@@ -1,4 +1,4 @@
-# JavaScript 中的装饰器(decorator)
+# JavaScript 中的装饰器 (decorator)
 
 <!--
 ID: 436edb6d-bfe6-48da-932e-21164631a106
@@ -12,7 +12,7 @@ JavaScript 的语法在这两年补了不少课，终于变得让你写起来不
 
 本文假设你已经熟练掌握了装饰器模式和 Python 中的装饰器语法糖。
 
-Decorator 其实很简单，就是一个高阶函数，给指定的函数添加了额外的功能，做了一层封装。也就是:
+Decorator 其实很简单，就是一个高阶函数，给指定的函数添加了额外的功能，做了一层封装。也就是：
 
 ```javascript
 fn = deco(fn);

@@ -10,7 +10,7 @@ wp_id: 535
 
 Go to Settings > Security > Install from storage.
 
-install programatically can be achived by from command line, by moving certs to 
+install programatically can be achived by from command line, by moving certs to
 
 
 replacing bks file solely is useless, it has to be combined with the password

@@ -20,7 +20,7 @@ apt -y install mysql-server
 cat /etc/mysql/debian.cnf
 ```
 
-需要把 ubuntu 绑定地址改为 0.0.0.0。在/etc/mysql/mysql.conf.d/mysqld.cnf中注释掉 bind-address=127.0.0.1 行
+需要把 ubuntu 绑定地址改为 0.0.0.0。在 /etc/mysql/mysql.conf.d/mysqld.cnf 中注释掉 bind-address=127.0.0.1 行
 
 开启 root 的远程登录：
 

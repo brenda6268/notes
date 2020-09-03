@@ -10,7 +10,7 @@ wp_id: 642
 
 python 中的 chardet 库可以用来猜测文件的编码
 
-# usage
+## usage
 
 ```
 pip install cchardet

@@ -8,9 +8,9 @@ Modified: 2020-05-16T11:20:28
 wp_id: 486
 -->
 
-问题：假设我们有一组比较长的文本，每一个文本都有几十k左右，还有一些敏感关键词需要删除，大概有几千，然后需要在这些文本中把关键词找出来。
+问题：假设我们有一组比较长的文本，每一个文本都有几十 k 左右，还有一些敏感关键词需要删除，大概有几千，然后需要在这些文本中把关键词找出来。
 
-# 方法1：暴力搜索
+# 方法 1：暴力搜索
 
 ```
 import re
@@ -23,7 +23,7 @@ for sentence in sentences:
 
 ```
 
-# 改进1：把正则组合起来
+# 改进 1：把正则组合起来
 
 ```
 pattern = "\b(word1|word2|word3)\b"
@@ -32,7 +32,7 @@ for sentence in sentences:
   print(re.sub(pattern, "***", sentence))
 ```
 
-# 改进2：使用 Trie 优化正则
+# 改进 2：使用 Trie 优化正则
 
 对于数组：['foobar', 'foobah', 'fooxar', 'foozap', 'fooza']，使用上面的方法，我们可能会写出正则：
 
@@ -48,7 +48,7 @@ r"\bfoo(?:ba[hr]|xar|zap?)\b"
 
 具体的方法可以看这里：https://stackoverflow.com/a/42789508/1061155
 
-# 改进3：基于集合的搜索
+# 改进 3：基于集合的搜索
 
 ```
 import re

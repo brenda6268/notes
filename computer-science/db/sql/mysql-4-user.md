@@ -1,4 +1,4 @@
-# mysql 基础知识(4) - 用户和权限
+# mysql 基础知识 (4) - 用户和权限
 
 <!--
 ID: 44d77455-57ac-4476-8e4b-f285361f6c45
@@ -20,7 +20,7 @@ CREATE USER "newuser"@"%" IDENTIFIED BY "password";
 GRANT ALL PRIVILEGES ON *.* TO "newuser"@"%";
 ```
 
-其中的 `%` 代表这个用户可以在任意主机登录.
+其中的 `%` 代表这个用户可以在任意主机登录。
 
 ```
 SHOW GRANTS FOR newuser

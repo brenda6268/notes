@@ -8,13 +8,13 @@ Modified: 2020-05-16T11:53:28
 wp_id: 759
 -->
 
-# 如何自定义favicon
+# 如何自定义 favicon
 
 ``` 
 <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 ```
 
-# html中的空格
+# html 中的空格
 
 multiple spaces in html is displayed as one, to show multiple space
 

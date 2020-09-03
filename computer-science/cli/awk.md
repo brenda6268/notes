@@ -98,7 +98,7 @@ function add1(val) {
 如下的命令可以统计出 TCP 处于每个状态的链接都有多少。
 
 ```
-netstat -ant | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'  
+netstat -ant | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
 
 TIME_WAIT 856
 CLOSE_WAIT 1
@@ -110,7 +110,7 @@ LAST_ACK 1
 
 解释：
 
-1. 首先netstat -ant 的输出如下
+1. 首先 netstat -ant 的输出如下
     ```
     -> % netstat -ant | head
     Active Internet connections (including servers)

@@ -199,7 +199,7 @@ NaN
 
 Math.E; // 自然对数的底
 Math.PI; // 圆周率
-Math.SQRT2; // 根号2
+Math.SQRT2; // 根号 2
 
 Math.log; // 自然对数
 Math.log10;
@@ -237,7 +237,7 @@ Math.random();
 
 其中 utf-8 的编码非常精妙，建议大家有空研究下。因为 utf-8 实现得如此优雅又有很哈的兼容性，所以已经是现在的事实标准了。
 
-一般语言中都会有两种类型，unicode 和 bytes。第一个可以理解为 code point 的只读数组，后一个可以理解为utf-8字节的只读数组。然后具体 str 类型是哪种就看不同语言的取舍了。举两个例子：
+一般语言中都会有两种类型，unicode 和 bytes。第一个可以理解为 code point 的只读数组，后一个可以理解为 utf-8 字节的只读数组。然后具体 str 类型是哪种就看不同语言的取舍了。举两个例子：
 
 1. Python 中 str 类型是 unicode code point 的数组，所以 len(s) 返回的永远是有多少个字符；
 2. Golang 中 str 类型是 bytes，所以 len(s) 返回的是 s 中字节的长度。
@@ -276,7 +276,7 @@ String(123.45) === "123.45";
 
 // 当然，奇葩的来了
 String({}) == '[object Object]';
-String([1,2]) == '1,2';  // 这个还可以。。
+String([1,2]) == '1,2';  // 这个还可以。
 
 // 素质三连
 > String([true])
@@ -334,7 +334,7 @@ console.log(`hello, ${a}`)
 
 ## 数组
 
-JavaScript 中也有数组, 和 Python 的语法可以说基本完全一样。在 JS 中，还有 typed array，也就是指定了类型的数组，限于篇幅，这里不展开了。另外，在 JavaScript 中，也没有额外的 tuple、slice 等类型。
+JavaScript 中也有数组，和 Python 的语法可以说基本完全一样。在 JS 中，还有 typed array，也就是指定了类型的数组，限于篇幅，这里不展开了。另外，在 JavaScript 中，也没有额外的 tuple、slice 等类型。
 
 ```javascript
 let a = [1, 2, 3];
@@ -353,15 +353,15 @@ a.shift(); // 从前面删除
 a.length = 1; // 通过赋值删除元素
 [1, 2, 3].keys(); // 返回索引，也就是 0, 1, 2
 [1, 2, 3].values();
-[1, 2, 3].entries(); // 返回索引和值对应的二元组[[0, 1], [1, 2], [2, 3]]
+[1, 2, 3].entries(); // 返回索引和值对应的二元组 [[0, 1], [1, 2], [2, 3]]
 
 Array.isArray([1, 2, 3]); // 判断是否是数组，为什么不用 a instanceof Array 呢？因为有时候会出错，原因比较复杂，这里不展开了。
 
 ['c', 'b', 'a'].sort();  // 正常排序
-[1, 13, 123].sort(); // 排序结果竟然是 [1, 123, 13]。WTF，原来 JS 默认是按照字典序排序的。。如何修正在讲完函数后再说。
+[1, 13, 123].sort(); // 排序结果竟然是 [1, 123, 13]。WTF，原来 JS 默认是按照字典序排序的。如何修正在讲完函数后再说。
 
 // 创建数组的其他方法
-let a = new Array(3); // 这两行是等价的。。又是个坑
+let a = new Array(3); // 这两行是等价的。又是个坑
 let a = Array(3);  // 虽然一般情况下我们都使用 []，这种方式方便创建空数组
 a.fill(0); // 把所有值初始化为 0
 Array.of(1, 2, 3);
@@ -402,7 +402,7 @@ console.log(b); // 2
 // 这几行代码需要在浏览器中执行
 let elements = document.getElementsByTagName("a");
 let a = Array.from(elements);
-// or 
+// or
 let a = [...elements]
 ```
 
@@ -424,7 +424,7 @@ console.log(typeof {}); // -> 'object'
 console.log(typeof []); // -> 'object'  WTF!
 ```
 
-这里有两个设计错误，typeof null 不应该是 'object'，typeof function(){} 也是 object，但是又有自己独立的类型，但是 array 又没有。。
+这里有两个设计错误，typeof null 不应该是 'object'，typeof function(){} 也是 object，但是又有自己独立的类型，但是 array 又没有。
 
 instanceof 的设计是没有问题的，可以判断是否是某个类的对象。
 

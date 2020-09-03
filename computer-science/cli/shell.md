@@ -15,21 +15,21 @@ variables are referenced by $var or ${var}. Global variables are visible to all 
 Global variables can be viewed as `env`, and can be created by `export`.
 
     TEST=testing; export $TEST # or
-    export TEST=testing # NOTE: no $ 
+    export TEST=testing # NOTE: no $
 
 ## Useful variables
 
 ```
 HOME	Same to ~
-IFS	
+IFS
 PATH	Search path
 EUID	User id
 GROUPS	Groups for current user
 HOSTNAME	Hostname
-LANG	
-LC_ALL	
-OLDPWD	
-PWD	
+LANG
+LC_ALL
+OLDPWD
+PWD
 ```
 
 ## 定义和使用变量
@@ -81,8 +81,8 @@ $HOME     家目录，比如 /home/kongyifei
 $IFS      默认的分隔符，和 for 循环紧密相关
 $PATH     搜索路径，当你执行 ls 的时候，shell 会在这个变量中查找 ls 命令
 $EUID     当前有效用户 ID
-$LANG     
-$LC_ALL   
+$LANG
+$LC_ALL
 $OLDPWD   上一个工作目录
 $PWD      当前工作目录
 
@@ -113,7 +113,7 @@ a1  a2  a3  a4  b1  b2  b3  b4  c1  c2  c3  c4  d1  d2  d3  d4
 % mv test/{a,c}.conf  # 这个命令的意思是：mv test/a.conf test/c.conf
 ```
 
-切片: `${string:start:length}`
+切片：`${string:start:length}`
 
 默认值 `${var:-default}`
 
@@ -123,8 +123,8 @@ a1  a2  a3  a4  b1  b2  b3  b4  c1  c2  c3  c4  d1  d2  d3  d4
 
 ### 字符串 Expansion and slice
 
-[zorro@zorrozou-pc0 bash]$ mkdir -p test/zorro/{a,b,c,d}{1,2,3,4} 
-[zorro@zorrozou-pc0 bash]$ ls test/zorro/ 
+[zorro@zorrozou-pc0 bash]$ mkdir -p test/zorro/{a,b,c,d}{1,2,3,4}
+[zorro@zorrozou-pc0 bash]$ ls test/zorro/
 a1  a2  a3  a4  b1  b2  b3  b4  c1  c2  c3  c4  d1  d2  d3  d4
 
 [zorro@zorrozou-pc0 bash]$ mv test/{a,c}.conf
@@ -143,9 +143,9 @@ ${#var} get variable length
 input: <, output >, append >>
 
 cat > file << EOF
-this 
+this
 line
-will 
+will
 be redirected to
 file
 EOF
@@ -189,7 +189,7 @@ fi
 
 `[[`支持的条件有
 
-1 数值比较, 仅限整数，注意不能使用 `>` `<` 等符号。
+1 数值比较，仅限整数，注意不能使用 `>` `<` 等符号。
 
 ```
 n1 -eq n2	equal
@@ -199,9 +199,9 @@ n1 -le n2       less or equal
 n1 -lt n2	less
 n1 -ne n2	not equal
 ```
-	
+
 2 字符串比较
-	
+
 Note: Variables may contain space, so the best way to comparison is to add quotes: `"$var1" = "$var2"`
 
 ```
@@ -212,7 +212,7 @@ str1 > str2	greater
 -z str	zero
 -n str	not zero length
 ```
-	
+
 3 file comparison
 
 	-d	is directory?
@@ -226,10 +226,10 @@ str1 > str2	greater
 	-G	exist and in same group
 	file -nt file2	newer than
 	file1 -ot file2 	older than
-	
+
 ## case
 
-case var in 
+case var in
 parttern | pattern2) commands;;
 pattern3) commands2;
 *) default commnads;;
@@ -245,7 +245,7 @@ done
 
 其中 list 可以是一个数组，也可以是一个被 $IFS 分割的字符串。默认情况下，$IFS 是 " \n\t"。其中包含了空格。
 
-如果要覆盖 IFS，一般这样使用:
+如果要覆盖 IFS，一般这样使用：
 
 OLDIFS=$IFS
 IFS="\n" # new seperator
@@ -312,7 +312,7 @@ we can use read to read file or stdin
 2>	redirect STDERR
 m>&n	redirect fd m to fd n's associated file
 
-Note: you have to use command >> command.log 2>&1 (put 2>&1 at the end), since this means redirect 2 to 1's 
+Note: you have to use command >> command.log 2>&1 (put 2>&1 at the end), since this means redirect 2 to 1's
 in a scirpt
 exec 2> filename # reopen stdout to filename
 

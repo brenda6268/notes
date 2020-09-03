@@ -53,7 +53,7 @@ duration for finding user is 80.145
 duration for full scan is 180.936
 ```
 
-和我们的预期基本是相符的, 也就是说 Redis 是首先遍历然后再做过滤的。
+和我们的预期基本是相符的，也就是说 Redis 是首先遍历然后再做过滤的。
 
 接下来我们对 Pika 做相同的实验，Pika 默认使用 9221 端口，我们只需要把端口换一下就好了：
 

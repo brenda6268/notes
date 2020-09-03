@@ -8,7 +8,7 @@ Modified: 2020-05-16T12:03:33
 wp_id: 577
 -->
 
-## redis是做什么的
+## redis 是做什么的
 
 一个数据结构存储器，数据驻留在内存里，可以在程序的两次之间保存数据
 
@@ -20,9 +20,9 @@ redis 的 string 是 binary-safe 的，可以存储任意的二进制数据（by
 
 1. 用作缓存
 
-  1. 最基础的，最经典的应用场合，当查询数据库或者ES等存储代价比较高的时候，直接用查询的语句做 key，查询结果用作缓存
+  1. 最基础的，最经典的应用场合，当查询数据库或者 ES 等存储代价比较高的时候，直接用查询的语句做 key，查询结果用作缓存
 
-2. 用做队列. Redis 5.0 之后最好用 Redis Stream，不要用 list。
+2. 用做队列。Redis 5.0 之后最好用 Redis Stream，不要用 list。
 
 3. 用做集合，也就是存储一批数据的池子。用作有序集合
 
@@ -44,12 +44,12 @@ imporve performance by combining multi command into one and reduce TCP times
 >>> r.get("hello")
 "redis"
 
-or 
+or
 
 >>> p.set("hello","redis").sadd("faz","baz").incr("num").execute()
 ```
 
-默认的情况下，管道里执行的命令可以保证执行的原子性，执行pipe = r.pipeline(transaction=False)可以禁用这一特性。
+默认的情况下，管道里执行的命令可以保证执行的原子性，执行 pipe = r.pipeline(transaction=False) 可以禁用这一特性。
 
 
 # key 的命名

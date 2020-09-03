@@ -52,11 +52,11 @@ https://github.com/chartjs/Chart.js。支持的数量也比较少，主要是 li
 
 ## uvcharts.js
 
-开发很不活跃，才200个星星
+开发很不活跃，才 200 个星星
 
 ## victory
 
-没看出有什么特别吸引人的。。
+没看出有什么特别吸引人的。
 
 ## apexchart
 
@@ -84,7 +84,7 @@ https://github.com/apache/incubator-echarts 百度出品，国内用的比较多
 
 ## c3.js
 
-https://c3js.org/examples.html。基于 D3,貌似图比较少。
+https://c3js.org/examples.html。基于 D3, 貌似图比较少。
 
 # toast
 

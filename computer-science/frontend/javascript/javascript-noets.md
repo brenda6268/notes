@@ -12,28 +12,28 @@ wp_id: 500
 
 类型转换
 
-Object to bool，全部转换为True，包括 [] {}和new Boolean(false)
+Object to bool，全部转换为 True，包括 [] {}和 new Boolean(false)
 
-to string 首先调用toString()，如果没有然后调用valueOf()
+to string 首先调用 toString()，如果没有然后调用 valueOf()
 
-to number 首先调用valueOf(),如果没有然后调用toString()
+to number 首先调用 valueOf(), 如果没有然后调用 toString()
 
 ## Array
 
 ```
-Array.join()	
-Array.reverse()	
+Array.join()
+Array.reverse()
 Array.sort([func])  // function cmp(a, b) {return a - b;}, implace
 Array.concat(val or array)  // combination of python append and extend, will not recursively smash array, return new
 Array.slice(a, b)  // allow negative
 Array.splice(a, b, replacements...)  // both a and b are inclusive
-push/pop	
-unshift/shift	
+push/pop
+unshift/shift
 indexOf/lastIndexOf  // return the first find index or -1 if not found
 forEach	 // no way to good stop the iteration
 map	 // return a new array
 filter	 //return the selected elements
-every/some	// return true or false, return immediately after the result is dicided 
+every/some	// return true or false, return immediately after the result is dicided
 reduce	//reduce(function(a, b) {}, initial_value), when not supplied, the first element is used as initial value on empty array, no initial value will throw error
 ```
 
@@ -161,7 +161,7 @@ regexp.exec(String)
 equals to String.match(regexp)
 regexp.test(String)
 true or false
-regexp.exec(String) can be called multitimes for a string when regexp is not global mode. Each returns the 
+regexp.exec(String) can be called multitimes for a string when regexp is not global mode. Each returns the
  
 # Date
  

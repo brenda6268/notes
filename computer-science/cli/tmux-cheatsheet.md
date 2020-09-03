@@ -23,7 +23,7 @@ C-z         暂停（suspend） tmux 客户端
 !           把当前分区独立出来作为单独的窗口
 "           横向分隔，变成上线两个分区
 %           纵向分隔，变成左右两个分区
-&amp;           关闭当前窗口（window），也就是所有的分区                    
+&amp;           关闭当前窗口（window），也就是所有的分区
 .           Prompt for an index to move the current window.
 c           创建一个新窗口
 x           关闭当前分区（pane）
@@ -64,7 +64,7 @@ $           Rename the current session.
 
 ## 选择窗口
 
-```         
+```
 "           Prompt for a window index to select.
 (           Switch the attached client to the previous session.
 )           Switch the attached client to the next session.
@@ -84,7 +84,7 @@ w           Choose the current window interactively.
 :           Enter the tmux command prompt.
 ?           List all key bindings.
 D           Choose a client to detach.
-L           Switch the attached client back to the last session.        
+L           Switch the attached client back to the last session.
 d           Detach the current client.
 f           Prompt to search for text in open windows.
 i           Display some information about the current window.
@@ -95,7 +95,7 @@ M           Clear the marked pane.
 t           Show the time
 z           Toggle zoom state of the current pane.
            ~           Show previous messages from tmux, if any.
-           
+
            Up, Down
            Left, Right
                        Change to the pane above, below, to the left, or to the right of the current pane.

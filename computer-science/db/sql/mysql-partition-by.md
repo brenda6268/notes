@@ -22,7 +22,7 @@ CREATE TABLE contacts (
     email VARCHAR(255) NOT NULL
 );
 
-INSERT INTO contacts (first_name,last_name,email) 
+INSERT INTO contacts (first_name,last_name,email)
 VALUES ("Carine ","Schmitt","carine.schmitt@verizon.net"),
        ("Jean","King","jean.king@me.com"),
        ("Peter","Ferguson","peter.ferguson@google.com"),
@@ -68,10 +68,10 @@ HAVING COUNT(email) > 1;
 
 需要注意的是，partition by 只有在 MySQL 8.0 之后才支持，而现在常用的是 5.6 和 5.7 版本。
 
-Partition 语句又叫做窗口聚合语句，也就是说他会把同一个值的行聚合成一个窗口，但是和 Group by 语句不同的是，窗口内的每一个行并没有被压缩成一行，具体说Partition by 的语法是：
+Partition 语句又叫做窗口聚合语句，也就是说他会把同一个值的行聚合成一个窗口，但是和 Group by 语句不同的是，窗口内的每一个行并没有被压缩成一行，具体说 Partition by 的语法是：
 
 ```sql
-window_function_name(expression) 
+window_function_name(expression)
     OVER (
         [partition_defintion]
         [order_definition]
@@ -89,4 +89,4 @@ window_function_name(expression)
 ## References
 
 1. https://www.mysqltutorial.org/mysql-window-functions/
-2. 
+2.

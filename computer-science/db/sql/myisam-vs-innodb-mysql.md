@@ -9,8 +9,8 @@ wp_id: 172
 -->
 
 * InnoDB 有行级别的锁，而 MyISAM 只能锁定到表级别。
-* InnoDB 有更好的故障恢复机制.
-* InnoDB 实现了事务、外键和关系限制, MyISAM 没有.
+* InnoDB 有更好的故障恢复机制。
+* InnoDB 实现了事务、外键和关系限制，MyISAM 没有.
 
 总的来说，引用完整性和事物才是数据库的本质，所以说：“MyISAM is a file system that understands SQL. There’s no comparison. If you want a database engine with MySQL, use InnoDB.”
 

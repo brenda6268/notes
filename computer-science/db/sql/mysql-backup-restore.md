@@ -38,12 +38,12 @@ mysqldump -u root -pPassword --all-databases | ssh user@new_host.host.com "cat -
 
 # 问题
 
-如果直接备份所有数据库并恢复会更改 root 密码, 并且导致内部数据库不一致, 可以使用如下命令修复:
+如果直接备份所有数据库并恢复会更改 root 密码，并且导致内部数据库不一致，可以使用如下命令修复：
 
 ```
 mysql_upgrade --force -uroot -p
 ```
 
-参考:
+参考：
 
 1. https://stackoverflow.com/questions/43846950/column-count-of-mysql-user-is-wrong-expected-42-found-44-the-table-is-probabl

@@ -8,7 +8,7 @@ Modified: 2017-06-16T03:23:00
 wp_id: 498
 -->
 
-Write it in javascript, 
+Write it in javascript,
 
 start script starts chrome and opens the extension by opening extension's page
 

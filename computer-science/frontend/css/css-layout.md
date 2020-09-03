@@ -13,12 +13,12 @@ wp_id: 761
 网页的布局是面向文档流的，也就是每个元素默认都是从左到右，从上到下依次排列的。当然就像文章一样，有些元素比如标题默认就会另起一行，并且单独占据这一行。
 
 所有的元素都分为三类：inline、inline-block、和 block。
- 
+
 其中 block 元素占据了一行的位置，即使他们的宽度不够一行，并且他们有自己的宽度和高度，比如 h1 元素。
 
 inline-block 结合了 inline 和 block 元素的特性，首先他布局是 inline 的，也就是不会另起一行，但是又可以设定单独的高度和宽度。
 
-`display: none` 将会完全不渲染该元素, `visibility: hidden` 会渲染这个元素，只是在该显式的地方留下空白
+`display: none` 将会完全不渲染该元素，`visibility: hidden` 会渲染这个元素，只是在该显式的地方留下空白
 
 ## 使用 inline-box 的布局
 
@@ -51,9 +51,9 @@ floating elements will also not stretching the element containing it, to fix tha
 
 ## 讨厌的 content-box 模型
 
-width set width of the content, and 
+width set width of the content, and
 
-* padding will push out the border... 
+* padding will push out the border...
 * background-color only set for content area
 * entire width is for border
 

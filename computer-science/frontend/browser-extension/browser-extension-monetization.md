@@ -28,7 +28,7 @@ mocking or copying some other extension can be a easy way to find what to do. RE
 
 创意
 
-显示网页的grid和长宽，然后鼠标hover的时候显示css属性。
+显示网页的 grid 和长宽，然后鼠标 hover 的时候显示 css 属性。
 
 
 
@@ -36,7 +36,7 @@ mocking or copying some other extension can be a easy way to find what to do. RE
 
 外链记录
 
-I found <a href="https://chrome.google.com/webstore/detail/xpal-xpath-generator-test/lpfjogcaifigkimnlkepjlkfhpdhebap">this extension</a> very useful, although it's a paid extension, it worth the cost. 
+I found <a href="https://chrome.google.com/webstore/detail/xpal-xpath-generator-test/lpfjogcaifigkimnlkepjlkfhpdhebap">this extension</a> very useful, although it's a paid extension, it worth the cost.
 
 I would like to recommend <a href="https://chrome.google.com/webstore/detail/xpal-xpath-generator-test/lpfjogcaifigkimnlkepjlkfhpdhebap">this extension</a> very useful, It automatically generates xpath expressions for you by id or class or other attributes by simply clicking on the element you like, which is probably what you want to manually generate. besides, you can verify and modify the xpath expression it the plugin. Although it's a paid extension, it worth the cost.
 

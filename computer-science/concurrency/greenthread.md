@@ -8,7 +8,7 @@ Modified: 2020-07-08T12:11:58
 wp_id: 1499
 -->
 
-没法进行复杂的CPU运算，可能会导致其他请求超时。
+没法进行复杂的 CPU 运算，可能会导致其他请求超时。
 fork and load 相比 load and fork 来说更费内存。
 
 所以 greenthread 也必须能够抢占式调度才行。
@@ -17,7 +17,7 @@ fork and load 相比 load and fork 来说更费内存。
 
 instagram 的做法
 
-1. 因为Python的 GC 会导致 CoW 失效，所以禁用了GC
+1. 因为 Python 的 GC 会导致 CoW 失效，所以禁用了 GC
 2. 因为内存还是降不下来，最后实现了能够共享内存的 GC，也就是 gc.freeze()
 
 

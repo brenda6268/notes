@@ -40,13 +40,13 @@ examples/01_hello_world.go
 
 比如说查找符合 `\d{2}_ti` 模式的文件。`find` 使用的正则表达式非常古老，比如说在这里我们不能使用 `\d`，也不能使用 `{x}`  这种语法。因此我们需要对我们的正则表达式做一些改写。关于`find`支持的正则表达式这里就不展开了。
 
-`fd` 默认就是使用的正则表达式作为模式，并且默认匹配的是文件名；而 `find` 默认匹配的是完整路径。另外 
+`fd` 默认就是使用的正则表达式作为模式，并且默认匹配的是文件名；而 `find` 默认匹配的是完整路径。另外
 
 For example, let's find a file whose name matches `\d{2}_ti`. `find` uses a very ancient form of regular expression. Neither can we use `\d`, nor can we use `{x}`. So we have to adjust our expression to these kind of limitations.
 
 `fd`, by default, uses regular expression as patter, and matches filenames; on the other hand, `find` uses the `-regex` option to specify a regular expression, and it matches the whole path.
 
-OLD 
+OLD
 
 ```
 -> % find . -regex ".*[0-9][0-9]_ti.*"

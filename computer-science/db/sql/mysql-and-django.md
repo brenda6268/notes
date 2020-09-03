@@ -12,7 +12,7 @@ wp_id: 184
 
 ```
 while (1) {
-    //每次只做1000条
+    // 每次只做 1000 条
     mysql_query("DELETE FROM logs WHERE log_date <= "2009-11-01" LIMIT 1000");
     if (mysql_affected_rows() == 0) {
         // 没得可删了，退出！
@@ -57,11 +57,11 @@ books = Book.objects.filter(author="Jim").only("book_name")
 
 # 5. 当只要一行数据时使用 LIMIT 1
 
-当你查询表的有些时候，你已经知道结果只会有一条结果，但因为你可能需要去fetch游标，或是你也许会去检查返回的记录数。
+当你查询表的有些时候，你已经知道结果只会有一条结果，但因为你可能需要去 fetch 游标，或是你也许会去检查返回的记录数。
 
-在这种情况下，加上 LIMIT 1 可以增加性能。这样一样，MySQL数据库引擎会在找到一条数据后停止搜索，而不是继续往后查少下一条符合记录的数据。
+在这种情况下，加上 LIMIT 1 可以增加性能。这样一样，MySQL 数据库引擎会在找到一条数据后停止搜索，而不是继续往后查少下一条符合记录的数据。
 
-下面的示例，只是为了找一下是否有“中国”的用户，很明显，后面的会比前面的更有效率。（请注意，第一条中是Select *，第二条是Select 1）
+下面的示例，只是为了找一下是否有“中国”的用户，很明显，后面的会比前面的更有效率。（请注意，第一条中是 Select *，第二条是 Select 1）
 
 ```
 SELECT * FROM user WHERE country = "China"
@@ -72,7 +72,7 @@ SELECT 1 FROM user WHERE country = "China" LIMIT 1
 
 # 6. EXPLAIN 你的 SELECT 查询
 
-使用 EXPLAIN 关键字可以让你知道MySQL是如何处理你的SQL语句的。这可以帮你分析你的查询语句或是表结构的性能瓶颈。
+使用 EXPLAIN 关键字可以让你知道 MySQL 是如何处理你的 SQL 语句的。这可以帮你分析你的查询语句或是表结构的性能瓶颈。
 
 # 7. 尽量让查询能 fit 进内存中
 

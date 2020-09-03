@@ -10,9 +10,9 @@ wp_id: 596
 
 ## 配置文件
 
-路径: `~/.ssh/config`
+路径：`~/.ssh/config`
 
-权限必须设置成: `.ssh/` 700，`.ssh/authorized_keys` 600, `.ssh/config` 600
+权限必须设置成：`.ssh/` 700，`.ssh/authorized_keys` 600, `.ssh/config` 600
 
 ### 添加一个 host 到配置中
 
@@ -21,7 +21,7 @@ Host HOSTNAME or *
     HostName  
     Port           
     User          
-    IdentityFile    
+    IdentityFile   
     ServerAliveInterval    240
 ```
 

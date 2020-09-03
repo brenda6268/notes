@@ -22,7 +22,7 @@ lsm 是 bigtable、leveldb、rocksdb 等数据库采用的算法。
 
 1. 插入
 
-  写入 WAL，然后操作 memtable。WAL 是顺序读写，而memtable 是跳表，操作都很迅速
+  写入 WAL，然后操作 memtable。WAL 是顺序读写，而 memtable 是跳表，操作都很迅速
 
 2. 更新
 
@@ -34,11 +34,11 @@ lsm 是 bigtable、leveldb、rocksdb 等数据库采用的算法。
 
 4. compaction（压缩）
 
-  当 memtable 达到设定的阈值的时候，会写入到 immutable memtable，然后写入到硬盘上的 sstable。当 sstable 的数量达到某个阈值的时候，就合并到下一级的 memtable。需要注意的是只有第一级的memtable可能有重复的键值，其他层都不会有重复的，所以可以多线程 compact。
+  当 memtable 达到设定的阈值的时候，会写入到 immutable memtable，然后写入到硬盘上的 sstable。当 sstable 的数量达到某个阈值的时候，就合并到下一级的 memtable。需要注意的是只有第一级的 memtable 可能有重复的键值，其他层都不会有重复的，所以可以多线程 compact。
 
 5. 读取
 
-  最原始的算法：首先从memtable读，然后从sstable中往高层读取。
+  最原始的算法：首先从 memtable 读，然后从 sstable 中往高层读取。
 
   可以采取的优化方法：
 

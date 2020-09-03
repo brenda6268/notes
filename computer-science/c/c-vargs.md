@@ -1,4 +1,4 @@
-# C语言中的 vargs
+# C 语言中的 vargs
 
 <!--
 ID: f7ee56ab-a6b2-482f-a539-9f51bcb8a04b
@@ -12,7 +12,7 @@ wp_id: 405
 int max(int n, ...) {
     va_list arg_pointer;
     int result = INT_MIN;
-    
+
     va_start(arg_pointer, n);
     for (int i = 0; i < n; i++) {
         int arg = va_arg(arg_pointer, int);
@@ -22,7 +22,7 @@ int max(int n, ...) {
     va_end(arg_pointer);
 
     return result;
-}     
+}
 ```
 
 Reference

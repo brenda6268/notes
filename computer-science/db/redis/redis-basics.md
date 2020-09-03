@@ -10,19 +10,18 @@ wp_id: 571
 
 basically, redis is a data structure server
 
-string list set sorted set hash
 
 ## key related
 
 ```
 keys <pattern>	list all keys share the pattern
-exists key	
-del key	
-expire key expiration	
-expireat key timestamp	
-ttl key	
-rename key	
-type key	
+exists key
+del key
+expire key expiration
+expireat key timestamp
+ttl key
+rename key
+type key
 ```
 
 ## string related
@@ -33,7 +32,7 @@ setex key timeout value	set key with expiration
 setnx key value	set only not exist
 get key -> value	get mystr
 getset key new -> old	get old and set new
-setrange key offset value	
+setrange key offset value
 getrange key start end	returns the value, inclusive
 mget key...	returns a list of values
 ```
@@ -43,19 +42,24 @@ incr key	mynum
 decr key	mynum
 incrby key value	mynum
 decrby key value	mynum
-getset	
+getset
 ```
+
+## Scan
+
+scan 的 cursor 从 0 开始，如果 cursor 再次为 0, 表示迭代结束
+可以安全地删除已经 scan 出来的值，不会影响接下来的 scan
 
 # hash
 
 ```
 hmset key f v ...	store kv pair in hash
-hgetall key	
-hdel key f	
-hexists key f	
-hkeys key	
-hlen key	
-hvals key	
+hgetall key
+hdel key f
+hexists key f
+hkeys key
+hlen key
+hvals key
 ```
 
 # lists
@@ -65,17 +69,17 @@ list is implemented as a double-linked list
 ```
 lpush key value1 value2 value3	 lpushx only pushes if not exist
 rpush
-lpop key	
+lpop key
 rpop
 rpoplpush src dst
 blpop key... timeout	block until one value is avaliable
 lindex key index
 llen key
 lrange key start end	inclusive
-linsert key 
-lrem key count value	
-lset key index value	
-ltrim key start end	
+linsert key
+lrem key count value
+lset key index value
+ltrim key start end
 ```
 
 # tricks
@@ -90,10 +94,10 @@ AOF
 # Transaction
 
 ```
-MULTI用来组装一个事务；
-EXEC用来执行一个事务；
-DISCARD用来取消一个事务；
-WATCH用来监视一些key，一旦这些key在事务执行之前被改变，则取消事务的执行。
+MULTI 用来组装一个事务；
+EXEC 用来执行一个事务；
+DISCARD 用来取消一个事务；
+WATCH 用来监视一些 key，一旦这些 key 在事务执行之前被改变，则取消事务的执行。
 ```
 
 # zset

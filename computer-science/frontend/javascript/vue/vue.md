@@ -8,10 +8,10 @@ Modified: 2020-05-16T11:51:11
 wp_id: 497
 -->
 
-之前在网页里小范围的用了vue, 感觉用起来非常爽, 现在打算做自己的笔记应用. 这次打算做成SPA的形式, 前端全部用vue来写. 需要node的一些东西, 记录下学习过程. 迈向全栈，哈哈 ^_^
+之前在网页里小范围的用了 vue, 感觉用起来非常爽，现在打算做自己的笔记应用。这次打算做成 SPA 的形式，前端全部用 vue 来写。需要 node 的一些东西，记录下学习过程。迈向全栈，哈哈 `^_^`
 
 # 安装
-首先, 全局安装vue: 
+首先，全局安装 vue:
 
 ```bash
 npm install --global @vue/cli
@@ -38,7 +38,7 @@ computed 属性也可以设置 setter，所以实际上，computed 属性相当�
 
 # v-bind 和 v-model
 
-- v-bind 用于单项绑定：在 HTML 属性中使用 v-bind 绑定, 标签中使用 `{{ }}`。只能使用表达式，而不能使用语句。
+- v-bind 用于单项绑定：在 HTML 属性中使用 v-bind 绑定，标签中使用 `{{ }}`。只能使用表达式，而不能使用语句。
 - v-model 用于双向绑定：在 input 这类用户可以输入的组件中，需要双向绑定，使用 v-model.
 
 v-bind 类似的指令还有 v-once 和 v-html
@@ -126,17 +126,17 @@ new Vue({
 // => "a is: 1"
 ```
 
-# 创建vue应用
+# 创建 vue 应用
 
-因为我们会直接通过`*.vue`文件来编写vue的组件, 因此需要使用webpack打包编译. 另外我们需要使用官方的vue-router来
+因为我们会直接通过`*.vue`文件来编写 vue 的组件，因此需要使用 webpack 打包编译。另外我们需要使用官方的 vue-router 来
 
 ```bash
 vue init webpack notelet
 ```
 
-这条命令基于 webpack 这个模板创建了notelet这个应用, 也就是我们的笔记应用.
+这条命令基于 webpack 这个模板创建了 notelet 这个应用，也就是我们的笔记应用。
 
-打开 `src/router/index.js` 可以看到 vue 创建的router的代码, 其中`@`是`src`目录的缩写.
+打开 `src/router/index.js` 可以看到 vue 创建的 router 的代码，其中`@`是`src`目录的缩写。
 
 ```html
 import Vue from "vue"
@@ -176,9 +176,9 @@ new Vue({
 })
 ```
 
-执行 `npm run dev`, 然后打开 http://localhost:8080/ 就可以看到我们的vue应用了. 注意, 在写这篇文章的时候 node 8.x 下似乎有bug, 导致 app.js 加载不出来, 安装 6.x 就好了. 该死的node.
+执行 `npm run dev`, 然后打开 http://localhost:8080/ 就可以看到我们的 vue 应用了。注意，在写这篇文章的时候 node 8.x 下似乎有 bug, 导致 app.js 加载不出来，安装 6.x 就好了。该死的 node.
 
-打开 `App.vue`, 也就是我们的根组件, 可以看到下面的内容
+打开 `App.vue`, 也就是我们的根组件，可以看到下面的内容
 
 ```html
 <template>
@@ -205,10 +205,10 @@ export default {
 </style>
 ```
 
-注意其中的 router-view 便签, 意思就是路由的内容都在 router-view 中显示.
+注意其中的 router-view 便签，意思就是路由的内容都在 router-view 中显示。
 
 # 添加一个新的组件和路由
-接下来我们添加一个"关于"页面. 打开`src/router/index.js`, 改成下面这样:
+接下来我们添加一个"关于"页面。打开`src/router/index.js`, 改成下面这样：
 
 ```js
 export default new Router({
@@ -261,7 +261,7 @@ export default {
 </template>
 ```
 
-注意, 我们使用about指向了 About 这个组件, 而使用 hello 指向了 Hello 这个组件, 注意其中还动态传递了参数.
+注意，我们使用 about 指向了 About 这个组件，而使用 hello 指向了 Hello 这个组件，注意其中还动态传递了参数。
 
 
 

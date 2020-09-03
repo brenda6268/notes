@@ -1,4 +1,4 @@
-# mysql 基础知识(7) - JSON 字段
+# mysql 基础知识 (7) - JSON 字段
 
 <!--
 ID: 59d027f7-fe5f-4c25-9840-1aace2f85741
@@ -23,7 +23,7 @@ CREATE TABLE &#x60;book&#x60; (
 ) ENGINE=InnoDB;
 ```
 
-直接使用 json 类型就可以了。注意 json 字段不可以作为主键，不可以作为外键，不过既然是 json 字段了，谁会这么做呢。。
+直接使用 json 类型就可以了。注意 json 字段不可以作为主键，不可以作为外键，不过既然是 json 字段了，谁会这么做呢。
 
 插入：
 
@@ -35,7 +35,7 @@ VALUES (
 );
 ```
 
-使用一个 json 字符串作为值插入即可。或者你也可以使用 json 相关的函数来表示json。
+使用一个 json 字符串作为值插入即可。或者你也可以使用 json 相关的函数来表示 json。
 
 # json 相关函数
 
@@ -44,14 +44,14 @@ VALUES (
 ```
 -- returns "SitePoint":
 SELECT JSON_EXTRACT(
-  "{"id": 1, "website": "SitePoint"}", 
+  "{"id": 1, "website": "SitePoint"}",
   "$.website"
 );
 ```
 
-json path 的语法，用 $ 开头，然后跟着下面的选择器:
+json path 的语法，用 $ 开头，然后跟着下面的选择器：
 
-* `.` 点后面跟着跟着一个字典里的名字, 比如 $.website
+* `.` 点后面跟着跟着一个字典里的名字，比如 $.website
 * `[N]` 表示数组里的第 N 个元素
 * `.[*]` 表示选择字典里的所有元素
 * `[*]` 表示选择数组里的所有元素
@@ -130,7 +130,7 @@ json_contains 用于选取数组中包含某个元素的行
 
 ```
 -- all books with the "JavaScript" tag:
-SELECT * FROM &#x60;book&#x60; 
+SELECT * FROM &#x60;book&#x60;
 WHERE JSON_CONTAINS(tags, "["JavaScript"]");
 ```
 
@@ -138,7 +138,7 @@ json_search 用于选取字典中包含某个值的行
 
 ```
 -- all books with tags starting "Java":
-SELECT * FROM &#x60;book&#x60; 
+SELECT * FROM &#x60;book&#x60;
 WHERE JSON_SEARCH(tags, "one", "Java%") IS NOT NULL;
 ```
 
@@ -148,7 +148,7 @@ WHERE JSON_SEARCH(tags, "one", "Java%") IS NOT NULL;
 
 ## select 语句
 
-要想在select语句中使用 json path 抽取元素可以使用下面的语法，也就是 `column->path`
+要想在 select 语句中使用 json path 抽取元素可以使用下面的语法，也就是 `column->path`
 
 ```
 SELECT

@@ -29,4 +29,4 @@ InnoDB 使用聚簇索引，聚簇索引按照主键的顺序在磁盘上。MyIS
 ## 参考文献
 
 1. https://learnku.com/articles/13849/understanding-four-isolation-levels-in-mysql#2000d4
-2. 
+2.

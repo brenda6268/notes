@@ -8,9 +8,9 @@ Modified: 2020-05-16T12:06:02
 wp_id: 438
 -->
 
-# 最佳实践
+## 最佳实践
 
-每次提交前都使用 `git status` 查看已经更改的文件，然后使用 `git add` 逐条添加文件,然后再看 `git status` 提交的文件是不是都对的. 认真编写 `.gitignore` 文件，最好能够做到每次可以使用 `git add .` 是安全的。
+每次提交前都使用 `git status` 查看已经更改的文件，然后使用 `git add` 逐条添加文件，然后再看 `git status` 提交的文件是不是都对的。认真编写 `.gitignore` 文件，最好能够做到每次可以使用 `git add .` 是安全的。
 
 https://stackoverflow.com/questions/9339429/what-does-cherry-picking-a-commit-with-git-mean 从其他分支读取单个文件
 
@@ -46,7 +46,7 @@ git reset HEAD~1
 git update-ref -d HEAD
 ```
 
-## 重置到origin库中的 HEAD
+## 重置到 origin 库中的 HEAD
 
 首先，保存到一个分支
 
@@ -55,7 +55,7 @@ git commit -a -m "Saving my work, just in case"
 git branch my-saved-work
 ```
 
-然后，把master分支重置到 origin/master
+然后，把 master 分支重置到 origin/master
 ```
 git fetch origin
 git reset --hard origin/master
@@ -77,9 +77,9 @@ git fetch origin && git reset --hard origin/master
 
 `git push --tags` 推送 tag 到远端仓库
 
-`git tag tagname commit_id` 给某个commit打上标签
+`git tag tagname commit_id` 给某个 commit 打上标签
 
-`git checkout tagname` 切换到某个tag
+`git checkout tagname` 切换到某个 tag
 
 
 # 使用 git bisect 二分查找问题
@@ -118,7 +118,7 @@ git merge --abort  # 放弃合并
 
 当第一次推送某个分支的时候，需要使用 `--set-upstream/-u` 来制定要同步的分支。
 
-为了使commit记录清晰易懂，不产生无谓的commit，应该尽量避免和远程分支合并。每次提交尽量使用pull --rebase，而不是pull and merge。
+为了使 commit 记录清晰易懂，不产生无谓的 commit，应该尽量避免和远程分支合并。每次提交尽量使用 pull --rebase，而不是 pull and merge。
 
 ```
 git pull --rebase  # 如果有冲突的话，先运行 git stash
@@ -149,14 +149,14 @@ git rebase origin/master
 
 2. apply by name
 
-```	
+```
 [alias]
 sshow = "!f() { git stash show stash^{/$*} -p; }; f"
 sapply = "!f() { git stash apply stash^{/$*}; }; f"
 ```
-	
+
 use these lines to show and apply stash by name
-	
+
 3. git stash -p  // stashes which files you select
 
 git diff 可以跟时间，来查看一段时间内的改动
@@ -166,3 +166,18 @@ git diff 可以跟时间，来查看一段时间内的改动
 ```
 git blame file | sort -b -k 3 # sort by date
 ```
+
+## Git Hooks
+
+最好还是把 git hooks 放到 git 管理的文件中，这样项目中的其他人才方便使用同一个标准。
+
+```
+git config --local core.hooksPath .githooks/
+```
+
+使用这条命令更改默认的 `.git/hooks` 目录
+
+
+## 参考
+
+1. https://stackoverflow.com/questions/3462955/putting-git-hooks-into-repository

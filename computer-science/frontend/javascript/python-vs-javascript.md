@@ -12,7 +12,7 @@ wp_id: 33
 
 ## 命名
 
-1. 注意使用驼峰变量名, 不要使用下划线变量名
+1. 注意使用驼峰变量名，不要使用下划线变量名
 
 ## 字符串
 
@@ -57,7 +57,7 @@ with open(filename, w) as f:
       f.write(data)
 
   os.path.exists(filename)  # 文件是否存在
-  
+
 ```
 
 ## 数组
