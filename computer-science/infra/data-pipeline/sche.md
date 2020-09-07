@@ -8,7 +8,6 @@ Modified: 2020-09-01T22:30:41
 wp_id: 1887
 -->
 
-
 在 Linux 系统上，我们一般使用 `cron` 来设置定时任务，然而 cron 的语法还是有些佶屈聱牙的，几乎每次要修改的时候都需要查一下文档才知道什么意思，以至于有 crontab.guru 这种网站专门来解释 cron 的语法。
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1gibjy5v5iuj30zk0kmq4t.jpg)
