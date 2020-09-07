@@ -1,7 +1,12 @@
 # Loki
 
-
-
+<!--
+ID: e5b2e849-9626-4dd1-aa6b-abd4e8aed297
+Status: draft
+Date: 2020-09-06T21:33:33
+Modified: 2020-09-06T21:33:33
+wp_id: 2010
+-->
 
 Elastic Search 本身是一个适合读多写少的架构，而日志恰恰是一个写多读少的场景
 
