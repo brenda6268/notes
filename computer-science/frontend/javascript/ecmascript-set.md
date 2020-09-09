@@ -8,7 +8,7 @@ Modified: 2017-06-12T00:14:00
 wp_id: 499
 -->
 
-# basic usage
+## basic usage
 
 ```
 let set = new Set();

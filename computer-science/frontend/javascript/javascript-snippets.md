@@ -8,8 +8,9 @@ Modified: 2017-06-12T12:31:00
 wp_id: 508
 -->
 
-# get parameter from url
-```
+## get parameter from url
+
+```js
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");

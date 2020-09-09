@@ -1,4 +1,4 @@
-# 无标题
+# 学习 React
 
 <!--
 ID: 2540d668-5922-41e0-a69f-ce82a68582de
@@ -8,11 +8,11 @@ Modified: 2020-05-28T14:09:32
 wp_id: 1196
 -->
 
-当我第一次接触前端的时候，那时候流行的是后端 MVC 模式。而在前端流行的是 HTML、JS 和 CSS 要分离开。
+当我第一次接触前端的时候，那时候流行的是后端 MVC 模式。过去写界面的方法是，把所有的结构 (html)，动作 (js)，样式 (css) 分开，好处是非侵入，离了谁都能工作，缺点是无法模块化，在 js 无足轻重，甚至有 noscript 这种插件的过去显然是最佳实践，但是到了 js 大行其道的今天显然模块化又被提出来了。
 
-react 中也没有模板中的  {% block xxx %} 这个概念，直接使用 props
+react 中也没有模板中的  {% block xxx %} 这个概念，直接使用 props。 
 
-# Hello World
+## Hello World
 
 ```jsx
 ReactDOM.render(
@@ -33,7 +33,6 @@ const element = React.createElement(
   'Hello, world!'
 );
 ```
-
 
 一个函数就可以是一个组件。
 
@@ -68,6 +67,7 @@ setState 是异步的，因此不能使用 += 类似的操作符，而要传递�
 
 
 ## 事件
+
 react 的事件和 HTML 的不同。首先属性是 camelCase 的；不能通过 return false 来组织事件，必须调用 e.preventDefault。
 
 ```html
@@ -83,7 +83,6 @@ react 的事件和 HTML 的不同。首先属性是 camelCase 的；不能通过
 一般情况下，在 React 中是不需要调用 addEventListener。
 
 需要注意的是，如果把类的方法直接绑定给事件的话，会导致 this 错乱。因为 js 的事件会替换掉 this。所以最好还是用一个箭头函数。
-
 
 
 ## 条件渲染
@@ -180,7 +179,7 @@ render() {
 }
 ```
 
-# 数据单向流动
+## 数据单向流动
 
 在 react 中，组件之间是不能互相通信的，数据只能自上而下流动。所以必须把状态放在最高层的组件中。
 
@@ -233,7 +232,7 @@ store.dispatch({ type: 'DECREMENT' })
 ```
 
 
-# 组合
+## 组合
 
 在 React 中不要使用继承来组织组件，而要使用组合，这也是近几年来面向对象领域的趋势。
 
@@ -305,7 +304,7 @@ Thinking in React
 		- ProductRow
 
 
-参考资料
+## 参考资料
 
 1. https://medium.com/@Zwenza/functional-vs-class-components-in-react-231e3fbd7108
 2. https://segmentfault.com/a/1190000011474522

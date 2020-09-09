@@ -21,13 +21,13 @@ wp_id: 33
 JavaScript:
 
 ```
-&#x60;hello ${name}&#x60;
+`hello ${name}`
 ```
 
 Python:
 
 ```
-fhello {name}
+f"hello {name}"
 ```
 
 ## 文件
@@ -39,15 +39,15 @@ JavaScript：
 ```
 const fs = require(fs).promises;  // 使用 async/await 版本的 fs 模块
 
-  await fs.writeFile(filename, data);  // 写入文件
+await fs.writeFile(filename, data);  // 写入文件
 
-  // 文件是否存在
-  try {
-      await fs.stat(filename)
-      exitst = true
-  } catch (e) {
-      exists = false
-  }
+// 文件是否存在
+try {
+  await fs.stat(filename)
+  exitst = true
+} catch (e) {
+  exists = false
+}
 ```
 
 Python:

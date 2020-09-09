@@ -1,4 +1,4 @@
-# 创建应用
+# Create react app
 
 <!--
 ID: 42aca8c8-f885-4052-9a55-e13cf1523606
@@ -8,18 +8,20 @@ Modified: 2020-05-28T14:09:32
 wp_id: 1195
 -->
 
+## 创建应用
+
 ```bash
 yarn create react-app my-app --template typescript
 ```
 
-## commands
+### commands
 
 yarn start 打开浏览器
 yarn test
 yarn build
 
 
-## 目录结构
+### 目录结构
 
 ```
 my-app/
@@ -40,10 +42,9 @@ my-app/
 
 其中 public/index.html 是页面的入口，index.js 是 react app 的入口。所有的源文件需要放到 src 中，所有的静态资源文件需要放在 public 中。
 
+## 样式
 
-# 样式
-
-## 导入 CSS
+### 导入 CSS
 
 ```javascript
 import './Button.css';
@@ -56,7 +57,7 @@ class Button extends Component {
 }
 ```
 
-## 使用 CSS module
+### 使用 CSS module
 
 ```javascript
 // Button.module.css
@@ -76,11 +77,11 @@ class Button extends Component {
 }
 ```
 
-## normalize
+### normalize
 
 建议在 index.css
 
-## 使用 bootstrap
+### 使用 bootstrap
 
 安装 react-bootstrap
 
@@ -94,9 +95,9 @@ yarn add bootstrap react-bootstrap
 import 'bootstrap/dist/css/bootstrap.css';  // 在最上面导入
 ```
 
-# 静态资源
+## 静态资源
 
-## 使用 webpack 加载图片等静态资源
+### 使用 webpack 加载图片等静态资源
 
 如果图片小于 10 KB 的话，会被直接转换成 data uri.
 
@@ -111,12 +112,9 @@ function Header() {
 export default Header;
 ```
 
-## 使用 public 目录
+### 使用 public 目录
 
-
-
-# 配置绝对路径导入
-
+## 配置绝对路径导入
 
 ```javascript
 // jsconfig.json 或者 tsconfig.json 文件
@@ -131,7 +129,7 @@ export default Header;
 import Button from 'components/Button';
 ```
 
-# 测试
+## 测试
 
 react 默认使用 jest 进行测试，所有以 `.test.js` 结尾的文件，或者所有在 `__tests__` 目录内部的 js 文件都会被当做测试文件。
 
@@ -157,7 +155,7 @@ it('renders without crashing', () => {
 });
 ```
 
-代理后端服务
+## 代理后端服务
 
 前端的服务还是需要调后端的接口的
 

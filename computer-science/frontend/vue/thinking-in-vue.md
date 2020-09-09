@@ -10,33 +10,33 @@ wp_id: 509
 
 # basic usage
 
-The created vue instance will proxy its data member 
+The created vue instance will proxy its data member
 
 ```html
 <div id="app">
   <ol>
     <li v-for="company in companies">
       <a v-bind:href="company.link">{{ company.text }}</a>  // bind 更新参数
-			<button v-on:click="reverseText">逆转消息</button>
+            <button v-on:click="reverseText">逆转消息</button>
     </li>
   </ol>
 </div>
 
 let vm = new Vue({
     el: '#app',
-		data: {
-		    companies: [
-				    {text: 'Google', link: 'http://google.com'},
-						{text: 'fackbook', link: 'http://facebook.com'},
-						{text: 'apple', link: 'http://apple.com'}
-				]
-		},
-		methods: {
-		    reverseText: function() {
-            // 注意 this 绑定到了触发这个事件的元素内部
-				    this.company.text = this.company.text.split('').reverse.join('');
-				}
-		}   
+    data: {
+        companies: [
+                {text: 'Google', link: 'http://google.com'},
+                    {text: 'fackbook', link: 'http://facebook.com'},
+                    {text: 'apple', link: 'http://apple.com'}
+            ]
+    },
+    methods: {
+        reverseText: function() {
+        // 注意 this 绑定到了触发这个事件的元素内部
+                this.company.text = this.company.text.split('').reverse.join('');
+            }
+    }
 });
 
 vm.companies.push({text: 'Amazon', link: 'http://amazon.com'});
@@ -44,7 +44,7 @@ vm.companies.push({text: 'Amazon', link: 'http://amazon.com'});
 
 
 ```
-// computed 属性可以绑定一个虚拟的属性到几个不同的属性上, 有点类似python的@property
+// computed 属性可以绑定一个虚拟的属性到几个不同的属性上，有点类似 python 的 @property
 // ...
 computed: {
   fullName: {
@@ -114,9 +114,9 @@ var watchExampleVM = new Vue({
 
 ### v-if
 
-v-else 元素必须紧跟在 v-if 或者 v-else-if 元素的后面——否则它将不会被识别。v-else-if 也是.
+v-else 元素必须紧跟在 v-if 或者 v-else-if 元素的后面——否则它将不会被识别。v-else-if 也是。
 
-可以使用template来包装多个元素:
+可以使用 template 来包装多个元素：
 
 
 ```
@@ -132,15 +132,15 @@ v-else 元素必须紧跟在 v-if 或者 v-else-if 元素的后面——否则�
 
 ### v-for
 
-v-for的基本语法如前所述, 另外还可以采用可选参数 key. `<li v-for="(item, index) in items">`.
+v-for 的基本语法如前所述，另外还可以采用可选参数 key. `<li v-for="(item, index) in items">`.
 
-v-for还可以遍历对象, `<li v-for="value in obj">`
+v-for 还可以遍历对象，`<li v-for="value in obj">`
 
-v-for还可以直接遍历range, `<li v-for="n in 10">`
+v-for 还可以直接遍历 range, `<li v-for="n in 10">`
 
 ## 事件
 
-在vue中, 绑定的事件如果需要参数, 可以使用
+在 vue 中，绑定的事件如果需要参数，可以使用
 
 ```
 <button v-on:click="warn('Form cannot be submitted yet.', $event)">
@@ -148,15 +148,15 @@ v-for还可以直接遍历range, `<li v-for="n in 10">`
 </button>
 ```
 
-的形式, 其中 $event 指的是原声事件.
+的形式，其中 $event 指的是原声事件。
 
 ### 修饰符
 
-vue中的事件绑定函数可以使用一些修饰符来指定一些附加的效果. 常用的有 `.prevent`, `.stop`, `.self`, `.once` 等.
+vue 中的事件绑定函数可以使用一些修饰符来指定一些附加的效果。常用的有 `.prevent`, `.stop`, `.self`, `.once` 等。
 
-像这样: `<a v-on:click.stop="doThis"></a>`
+像这样：`<a v-on:click.stop="doThis"></a>`
 
-对于键盘时间, 还可以使用修饰符来指定键值: `<input v-on:keyup.enter="submit">`
+对于键盘时间，还可以使用修饰符来指定键值：`<input v-on:keyup.enter="submit">`
 
 
 ## mustache vs `v-bind`
@@ -199,12 +199,12 @@ var app6 = new Vue({
 })
 ```
 
-值得注意的是, v-model 本质上只是一个语法糖. 
+值得注意的是，v-model 本质上只是一个语法糖。
 `<input v-model="something">` is just a syntax sugar to `<input v-bind:value="something" v-on:input="something = $event.target.value">`
 
 ### text area
 
-需要注意的是, textarea 时间上相当于一个input组件, 不能在testarea内部使用 {{value}} 的语法, 而应该使用 `v-model`
+需要注意的是，textarea 时间上相当于一个 input 组件，不能在 testarea 内部使用 {{value}} 的语法，而应该使用 `v-model`
 
 ```
 <span>Multiline message is:</span>
@@ -215,24 +215,24 @@ var app6 = new Vue({
 
 ### 修饰符
 
-就像事件一样, 也可以指定一些修饰符给 v-model, 常用的有 `.trim`
+就像事件一样，也可以指定一些修饰符给 v-model, 常用的有 `.trim`
 
 # vue-component
 <img src="https://cn.vuejs.org/images/components.png" width=360 />
 
-vue 的component中三个重要的概念: props, events, slots.
+vue 的 component 中三个重要的概念：props, events, slots.
 
-其中props向下传递, 用于parent组件向child组件传递值. child组件对于props的访问只能是只读的. 在child组件中使用`v-bind:var="var"`来访问定义的props. 注意在组件中不能更改props, 如果需要更改他, 请把他赋值给其他变量, 或者使用 computed 属性.
+其中 props 向下传递，用于 parent 组件向 child 组件传递值。child 组件对于 props 的访问只能是只读的。在 child 组件中使用`v-bind:var="var"`来访问定义的 props. 注意在组件中不能更改 props, 如果需要更改他，请把他赋值给其他变量，或者使用 computed 属性。
 
-如果把模板直接放到dom中会有一些标签渲染不出来, 建议放到 <script type="text/x-template"></script> 中
+如果把模板直接放到 dom 中会有一些标签渲染不出来，建议放到 <script type="text/x-template"></script> 中
 
 
 
 ```
-// 在vue中注册一个组件, 大多数传递给vue实例的参数都可以使用, 除了 data 必须是一个函数
+// 在 vue 中注册一个组件，大多数传递给 vue 实例的参数都可以使用，除了 data 必须是一个函数
 
 Vue.component('todo-item', {
-  // todo-item 组件现在接受一个"prop"，类似于一个自定义属性. 这个属性名为 todo。
+  // todo-item 组件现在接受一个"prop"，类似于一个自定义属性。这个属性名为 todo。
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>',
   data: function() {},
@@ -240,7 +240,7 @@ Vue.component('todo-item', {
 
 <div id="app-7">
   <ol>
-    <!-- 现在我们为每个todo-item提供待办项对象    -->
+    <!-- 现在我们为每个 todo-item 提供待办项对象    -->
     <!-- 待办项对象是变量，即其内容可以是动态的 -->
     <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
   </ol>
@@ -264,9 +264,9 @@ var app7 = new Vue({
 
 ### 事件
 
-parent组件可以监听子组件的事件, 从而实现通信:
+parent 组件可以监听子组件的事件，从而实现通信：
 
-这个例子中, 子组件通过$emit()函数发送increment事件. parent组件通过监听子组件的increment事件, 从而获得子组件的消息.
+这个例子中，子组件通过 $emit() 函数发送 increment 事件。parent 组件通过监听子组件的 increment 事件，从而获得子组件的消息。
 ```
 <div id="counter-event-example">
   <p>{{ total }}</p>
@@ -302,14 +302,14 @@ new Vue({
 
 ### slots
 
-slots vs props: slots 用于显示一大片的包含html代码的替换块, 而props 用于显示值, 有点类似 v-bind 和 {{}} 的区别.
+slots vs props: slots 用于显示一大片的包含 html 代码的替换块，而 props 用于显示值，有点类似 v-bind 和 {{}} 的区别。
 
 Props 允许外部环境传递数据给组件
 Events 允许从外部环境在组件内触发副作用
 Slots 允许外部环境将额外的内容组合在组件中。
 
 # vue router
-basic: 将组件(components)映射到路由(routes)，然后告诉 vue-router 在哪里渲染它们。
+basic: 将组件 (components) 映射到路由 (routes)，然后告诉 vue-router 在哪里渲染它们。
 
 ```
 <div id="app">
@@ -326,7 +326,7 @@ const User = {
 }
 
 const router = new VueRouter({
-  mode: 'history',  // 这样才能使用 html5 的history api
+  mode: 'history',  // 这样才能使用 html5 的 history api
   routes: [
     { path: '/user/:id', component: User }
   ]
@@ -344,7 +344,7 @@ const app = new Vue({ router }).$mount('#app')
 
 chrome does not allow `eval` and `new Function()` in extensions, vue relies on it. you need to use CSP version of vue or relax the restriction by chrome.
 
-See also: 
+See also:
 
 * https://developer.chrome.com/extensions/contentSecurityPolicy#relaxing-eval
 * https://stackoverflow.com/questions/34615503/vue-js-in-chrome-extension

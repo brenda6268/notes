@@ -25,8 +25,8 @@ wp_id: 507
 
 
 ## Yifei's Notes
-the main impovements of ES6 are loops and generators, let/const, arrow functions, class syntax
-small pieces are function arguments, destructuring
+
+the main impovements of ES6 are loops and generators, let/const, arrow functions, class syntax small pieces are function arguments, destructuring
 
 ## Looping
 
@@ -34,6 +34,7 @@ there are 3 ways to loop a sequence in ES5, but there are problems
 
 ### ES5 Loops
 
+```js
 // not concise
 for (var index = 0; index < myArray.length; index++) {
     console.log(myArray[index]);
@@ -49,10 +50,13 @@ for (var index in myArray) {
     // don't actually do this
     console.log(myArray[index]);
 }
+```
 
 
 ### Introducing ES6 Loops
 
+
+```js
 // concise and correct
 for (let value of myArray) {
     console.log(value);
@@ -77,6 +81,7 @@ for (var [key, value] of phoneBookMap) {
 // you can even make it work with objects
 // dump an object's own enumerable properties to the console
 for (var key of Object.keys(someObject)) { console.log(key + ": " + someObject[key]); }
+```
 
 
 ## Generator
@@ -87,6 +92,7 @@ Generator functions are basically the pause-and-continue-able function. when you
 
 In technical terms, each time a generator yields, its stack frame—the local variables, arguments, temporary values, and the current position of execution within the generator body—is removed from the stack. However, the Generator object keeps a reference to (or copy of) this stack frame, so that a later .next() call can reactivate it and continue execution.
 
+```js
 function* fibs() {
   var a = 0;
   var b = 1;
@@ -103,6 +109,7 @@ function* range(start, stop) { for (var i = start; i < stop; i++) yield i; }
 for (var value of range(0, 3)) {
   alert("Ding! at floor #" + value);
 }
+```
 
 This is possible because generators are iterators. All generators have a built-in implementation of .next() and [Symbol.iterator]().
 
@@ -114,7 +121,7 @@ This is possible because generators are iterators. All generators have a built
 
 ES5 version
 
-```
+```js
 function containsAll(haystack) {
   for (var i = 1; i < arguments.length; i++) {
     var needle = arguments[i];
@@ -127,7 +134,8 @@ return true;
 ```
 
 ES6 version
-```
+
+```js
 function containsAll(haystack, ...needles) {
   for (var needle of needles) {
     if (haystack.indexOf(needle) === -1) {
@@ -143,9 +151,9 @@ ES6 supports default parameters, The default argument gets evaluated at call tim
 
 ## Class
 
-ES6 support static method, supuer, getter/setter
-you can even subclass builtin types
+ES6 support static method, supuer, getter/setter, you can even subclass builtin types
 
+```js
 class Circle {
     constructor(radius) {
         this.radius = radius;
@@ -176,9 +184,12 @@ class Circle {
         this._radius = radius;
     };
 }
+```
+
+## Array
 
 
-
+```js
 var [,,third] = ["foo", "bar", "baz"];
 var [head, ...tail] = [1, 2, 3, 4];
 console.log(tail);
@@ -224,22 +235,28 @@ function removeBreakpoint({ url, line, column }) {
 // super works as expected, calling super constructor and access base properties
 
 // you can even subclass builtin types
+```
 
 
-CommonJS
+## CommonJS
 
 There is a special object called module.exports, when `require`ing, the value of module.exports is returned.
 
 something like that...
+
+```js
 var require = function(path) {
     // ...
     return module.exports;
 };
+```
 
-ES6 export
+## ES6 export
 
 use the export keyword
 
+
+```js
 // lib.js
 export function foo() {}
 export class bar {}
@@ -261,3 +278,4 @@ let _ = require("lodash");
 
 you can also do module.exports in ES6
 export default value;
+```

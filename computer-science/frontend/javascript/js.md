@@ -1,4 +1,4 @@
-# 安装
+# 不耐心程序员的 JavaScript 教程
 
 <!--
 ID: bc23d4ff-c8aa-4c0e-aa21-8b387d8a0d4d
@@ -7,6 +7,8 @@ Date: 2019-09-07T00:00:00
 Modified: 2020-05-28T15:13:05
 wp_id: 1189
 -->
+
+## 安装
 
 本文以 Node.js **12** 为准，所以首先要安装或者升级 Node：
 
@@ -18,9 +20,9 @@ v12.12.0
 
 当然，在浏览器的 F12 控制台中也可以运行大多数的例子，但是关于模块方面就不能测试了。
 
-# 语法
+## 语法
 
-## Hello World
+### Hello World
 
 `console.log` 是最常用的打印语句。如果想要输出到 stderr 可以使用 `console.error`。
 
@@ -37,7 +39,7 @@ console.log("hello, %s", "world"); // -> hello, world
 
 和 Python 等其他语言相比，除了 `%s` 和 `%d` 等之外，字符串格式化多了 `%o` 和 `%j` 参数，分别用于格式化输出对象和 JSON。
 
-## 变量
+### 变量
 
 和大多数语言一样， JavaScript 的变量是需要声明的，声明和复制可以是两个分开的步骤，不像 Python 中赋值就是声明。JavaScript 是弱类型的动态语言。
 
@@ -48,7 +50,7 @@ console.log("hello, %s", "world"); // -> hello, world
 
 之所以说 JS 是弱类型的语言，是因为 `1 == '1'` 或者 `'3'*'7'` 这种神奇的语法，不过实际项目中**绝对不要使用 `==`，而应该使用 `===`**。三个等号会比较类型，而不会自动转换类型。
 
-注释和 C++ 和 Java 类似，采用 // 或者 /**/。
+注释和 C++ 和 Java 类似，采用 // 或者 `/**/`。
 
 ```javascript
 // 声明并赋值一个变量
@@ -64,7 +66,7 @@ const foo = "bar";
 
 在 JavaScript 中，`$` 也是一个合法的变量名。尤其是浏览器中经常使用 `$` 作为变量名，不要把它理解为一个神奇的语法。
 
-## 坑爹的 null 和 undefined
+### 坑爹的 null 和 undefined
 
 正常的语言一般都只有一个值表示没有值，不管是 None，还是 nil，还是 null。但是，在 JavaScript 中，有两个值来表示没有值，分别是 null 和 undefined。语义上来说，null 表示主动设定的不存在，undefined 表示被动不存在，尚未初始化。两个的具体区别后面还会说到。
 
@@ -147,6 +149,9 @@ JavaScript 中只有一个数字—— IEEE754 浮点数，**没有整数**。�
 
 尽量使用内置的 Number(x) 来装换成数字，传统方法是使用 +x 或者 parseInt/parseFloat。注意 Number(undefined) 是 NaN，但是 Number(null) 是 0。对于对象来说，是取 valueOf 成员函数的值，这个后面再讲。
 
+- to string 首先调用 toString()，如果没有然后调用 valueOf()
+- to number 首先调用 valueOf(), 如果没有然后调用 toString()
+
 ```javascript
 Number(123) === 123;  // -> true
 Number("123") === 123;  // -> true
@@ -155,7 +160,7 @@ Number(null) === 0; // -> True
 Number("aaa"); // -> NaN
 ```
 
-数字也是有方法的： Number.toString()。 但是 7.toString() 在语法上是不合法的，你可以写成 (7).toString()。
+数字也是有方法的：Number.toString()。 但是 7.toString() 在语法上是不合法的，你可以写成 (7).toString()。
 
 ### 数学运算
 
@@ -165,6 +170,9 @@ JavaScript 内置了 Number 和 Math 对象。在这两个对象中提供了一�
 Number.EPSILON;  // epsilon，一个极小值
 Number.MAX_VALUE;  // 最大值
 Number.MIN_VALUE;  // 最小的正数，注意这个是个正数
+Number.NaN
+Number.NEGATIVE_INFINITY
+Number.POSITIVE_INFINITY
 
 > Number.isFinite(Infinity)
 false
@@ -218,7 +226,7 @@ Math.cos
 Math.abs
 Math.max(1, 2, 3) === 3;
 Math.min(1, 2, 3) === 1;
-Math.random();
+Math.random();  // 0-1 之间的一个随机数
 ```
 
 <small>
@@ -286,6 +294,16 @@ String([1,2]) == '1,2';  // 这个还可以。
 > String(true)
 'true'
 
+String.charAt()
+String.charCodeAt()
+String.concat()
+String.indexOf/lastIndexOf()
+String.slice()
+String.substr(start, length)
+String.substring(from, to)
+String.toLowerCase()/toUpperCase()
+String.trim()
+
 str.startsWith();
 str.endsWith();
 str.includes();
@@ -305,6 +323,10 @@ str.trim();
 str.trimStart();
 str.trimEnd();
 ```
+
+### using strings as arrays
+
+Array.method.call(str, parameters)
 
 ### 字符串插值
 
@@ -341,6 +363,14 @@ let a = [1, 2, 3];
 let b = [1, "", 0.7];
 ```
 
+## ES5 functional array methods
+
+they are both defined as Array.prototype.method and Array.method in firefox
+
+### common pattern
+
+array.method(function(value, index, array) {}, this) // second parameter is treated as this in the function
+
 数组的方法：
 
 ```javascript
@@ -376,9 +406,26 @@ a.includes(e); //
 
 强大的函数式方法 map, every, filter 等在后面讲完函数后再提到。
 
+```
+Array.join()
+Array.reverse()
+Array.sort([func])  // function cmp(a, b) {return a - b;}, implace
+Array.concat(val or array)  // combination of python append and extend, will not recursively smash array, return new
+Array.slice(a, b)  // allow negative
+Array.splice(a, b, replacements...)  // both a and b are inclusive
+push/pop
+unshift/shift
+indexOf/lastIndexOf  // return the first find index or -1 if not found
+forEach	 // no way to good stop the iteration
+map	 // return a new array
+filter	 //return the selected elements
+every/some	// return true or false, return immediately after the result is dicided
+reduce	//reduce(function(a, b) {}, initial_value), when not supplied, the first element is used as initial value on empty array, no initial value will throw error
+```
+
 ### 展开操作符和解构
 
-和 Python 中的 *args 语法类似，JavaScript 中也有展开操作符 `...`。
+和 Python 中的 `args` 语法类似，JavaScript 中也有展开操作符 `...`。
 
 ```javascript
 
@@ -469,6 +516,16 @@ window.encodeURIComponent(str); // no
 encodeURIComponent(str); // yes
 ```
 
+### 其他一些 Globals
+ 
+encodeURI() // encode URI to %xx syntax
+encodeURIComponent // encode every character including /?=+,#
+decodeURI
+decodeURIComponent
+ 
+ 
+Infinity
+
 <small>
 在上古 JS 中，普通函数的 this 确实是指向 window 对象的，所以 globalThis 这个变量名是有历史传承的
 </small>
@@ -489,7 +546,7 @@ console.log(globalThis.a);  // 'foo'
 ```
 </small>
 
-注释和 C++ 和 Java 类似，采用 // 或者 /**/。
+注释和 C++ 和 Java 类似，采用 // 或者 `/**/`。
 
 ## 条件语句
 
@@ -560,7 +617,7 @@ const add2 = (a, b) => { return a + b };
 const add3 = (a, b) => a + b;
 ```
 
-# 字符串
+## 字符串
 
 JS 源码本身是用 UTF-16 表示的，因为在当时觉得 UTF-16 就够了。字符串的长度是 bytes 数组的长度。但是用 for-of 循环是用 Unicode code point 循环的。
 
@@ -593,6 +650,44 @@ const add2 = (a, b) => { return a + b };
 const add3 = (a, b) => a + b;
 ```
 
+## this
+
+### normal function
+
+in ES3 and ES5, this is window by default.
+in ES5 strict mode, this is undefined.
+in ES6 arrow function, this is inherited from outer function
+
+### call and apply
+
+`func.call(obj, params...)` is equal to obj.func(params...)
+`func.apply(obj, [params...])`
+`func.bind(obj)` will return a function with `this` bound as obj to the function
+
+
+call any method against null or undefined will result in TypeError
+ 
+by default `this` for a function in strict mode is undefined
+ 
++ prefer both operands to be numbers, comparison prefers both operands to be strings
+ 
+if a property is not found in a object, it's looked up in the prototype, if not, it's looked up object created by new 's prototype is the constructor's prototype object created by
+
+#### tricky closure
+
+```js
+function constfuncs() {
+    var funcs = [];
+    for (var i = 0; i < 10; i++) {
+        funcs[i] = function() {return i;} // they refers to only one i in the closure, which is 10 in the end
+    }
+    return funcs;
+}
+
+var funcs = constfuncs();
+funcs[5]() // returns 10,
+```
+
 
 # 包
 
@@ -601,6 +696,57 @@ const add3 = (a, b) => a + b;
 不要使用 default import。
 
 # object
+
+## 日期对象
+
+## Constructs
+ 
+new Data();
+new Date(milliseconds);
+new Data(datestring);
+new Data(y, m, d, h, m, s, ms);
+ 
+## methods
+ 
+date.toString() return  a time string
+date.valueOf() returns timestamp
+Date.now() returns current timestamp
+Date.parse() returns a timestamp
+Date.UTC(y, m, d, h, m, s, ms) returns utc timestamp
+ 
+ 
+# Regular Expression
+ 
+syntax: /regexp/modifier
+ 
+Modifiers:
+ 
+i
+ignore case
+g
+global, if not sepcified, return only one match
+m
+multiline
+ 
+String expression methods:
+ 
+String.search(pattern)
+return first matched index or -1
+String.replace(pattern, replacement)
+back reference is used as $n, replacement can be a function
+String.match(pattern)
+return an array of matched groups, [0] is the whole match, [n] being each group
+String.split(pattern)
+return a splited elements
+ 
+Regexp methods:
+ 
+regexp.exec(String)
+equals to String.match(regexp)
+regexp.test(String)
+true or false
+regexp.exec(String) can be called multitimes for a string when regexp is not global mode. Each returns the
+ 
 
 # Reference
 
