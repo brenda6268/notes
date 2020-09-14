@@ -18,10 +18,12 @@ react 中也没有模板中的  {% block xxx %} 这个概念，直接使用 prop
 ReactDOM.render(
   <h1>Hello, world!</h1>,
   document.getElementById('root')
-);
+)     ;
+```
 
 Jsx 中可以使用大括号插值。对于 html 中不能自闭合的标签，都可以闭合
 
+```jsx
 const element = (
   <h1 className="greeting">
     Hello, world!
@@ -57,13 +59,7 @@ ReactDOM.render(
 
 props 只有向下传递一种方式。所有的函数都必须是纯函数。使用函数作为组件的一个不好就是没有办法保存状态。另一个缺点就是不方便使用生命周期函数。
 
-使用 setState 更新状态。
-
-componentDidMount
-
-componentWillUnmount
-
-setState 是异步的，因此不能使用 += 类似的操作符，而要传递回调函数。
+使用 setState 更新状态。setState 是异步的，因此不能使用 += 类似的操作符，而要传递回调函数。
 
 
 ## 事件
@@ -304,8 +300,22 @@ Thinking in React
 		- ProductRow
 
 
+## JSX
+
+使用循环:
+
+```jsx
+<tbody>
+  {[...Array(10)].map((x, i) =>
+    <ObjectRow key={i} />
+  )}
+</tbody>
+```
+
+
 ## 参考资料
 
 1. https://medium.com/@Zwenza/functional-vs-class-components-in-react-231e3fbd7108
 2. https://segmentfault.com/a/1190000011474522
+3. https://stackoverflow.com/questions/22876978/loop-inside-react-jsx
 

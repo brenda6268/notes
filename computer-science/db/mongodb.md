@@ -1,4 +1,4 @@
-# Mongodb
+# Mongodb 笔记
 
 <!--
 ID: 0e102910-a985-435f-8296-aaf38f66d30f
@@ -65,7 +65,7 @@ r.inserted_ids
 
 查询数据
 
-```
+```py
 doc = col.find_one()  # 返回一个数据
 
 for doc in col.find():  # 返回所有数据
@@ -98,7 +98,9 @@ col.drop()
 col.create_index([('user_id', pymongo.ASENDING)], unique=True)
 ```
 
-如果插入重复的就会抛出 DuplicateKeyError
+如果插入重复的就会抛出 DuplicateKeyError, 包括 insert_many 等方法，连不重复的数据都不能插入。
+
+在使用 insert_many 的时候为了保证让不重复的数据能够插入，可以指定 `ordered=False` 来并行插入。但是依然还是会抛出错误。
 
 ## 高级使用
 

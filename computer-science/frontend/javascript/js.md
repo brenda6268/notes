@@ -688,14 +688,42 @@ var funcs = constfuncs();
 funcs[5]() // returns 10,
 ```
 
+## 模块和包
 
-# 包
+和其他所有语言不一样的是，JS 中多了一个选项叫做 default import, 不要使用 default import, 因为这是一个非常迷惑的 feature。
 
-和其他所有语言不一样的是，JS 中多了一个选项叫做 default import
+在 JS 中，必须显示 export 出的对象才能够被别的包引入，普通的 import 必须指定名字。
 
-不要使用 default import。
+```js
+export function f() {}
+export const one = 1;
+export {foo, b as bar};
 
-# object
+// other files
+import {foo, bar as b} from "./some-module.js";
+import * as mod from "./some-module.js";
+```
+
+### default import
+
+直接使用，不需要使用大括号命名
+
+```js
+export default function () {}
+
+import obj from "./some-module.js";
+```
+
+非常迷惑的是，竟然还可以混用普通 import 和 default import
+
+```js
+export function f() {}
+export default function () {}
+
+import someVar * as someModule from "./some-lib.js";
+```
+
+其中的模块路径相对于当前文件而言。
 
 ## 日期对象
 
