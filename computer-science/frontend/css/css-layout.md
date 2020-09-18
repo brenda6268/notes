@@ -8,7 +8,7 @@ Modified: 2020-05-16T11:37:42
 wp_id: 761
 -->
 
-# 布局
+### 布局
 
 网页的布局是面向文档流的，也就是每个元素默认都是从左到右，从上到下依次排列的。当然就像文章一样，有些元素比如标题默认就会另起一行，并且单独占据这一行。
 
@@ -24,17 +24,17 @@ inline-block 结合了 inline 和 block 元素的特性，首先他布局是 inl
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1fquqqp791hj30kr0i1gpe.jpg)
 
-# 定位
+## 定位
 
 CSS 中元素的定位有如下几种，可以使用 position 指定
 
-方法 | 说明
-----|----
-static|默认的定位方法，指的是在文档中的位置是静态的
-relative|relative to its static positions, if set(top, left, bottom, right)
-fixed|fixed to the viewport, if set(top, left, bottom, right)
-absolute|behaves like fixed, but relative to nearest non-static ancestor
-float|floated element will become a block element, but it will not occupy one row
+| 方法     | 说明                                                                        |
+|----------|-----------------------------------------------------------------------------|
+| absolute | behaves like fixed, but relative to nearest non-static ancestor             |
+| fixed    | fixed to the viewport, if set(top, left, bottom, right)                     |
+| float    | floated element will become a block element, but it will not occupy one row |
+| relative | relative to its static positions, if set(top, left, bottom, right)          |
+| static   | 默认的定位方法，指的是在文档中的位置是静态的                                |
 
 使用 float 的布局
 
@@ -103,7 +103,6 @@ column-gap: xpx;
 ## 通过 js 获得最终 CSS 属性
 
 https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle
-
 
 # reference
 

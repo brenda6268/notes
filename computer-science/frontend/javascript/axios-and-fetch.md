@@ -17,7 +17,15 @@ fetch 是近年来浏览器实现的一个用于取代 xhr 的 API，相比于 x
 
 ## 基本用法
 
+如果要在 node 中使用的话, 需要安装 isomophic-unfetch:
+
+```
+yarn add isomorphic-unfetch
+```
+
 ```javascript
+import fetch from 'isomorphic-unfetch'
+
 const response = await fetch("http://example.com/movies.json");
 const myJson = await response.json(); // text() 返回纯文本
 console.log(JSON.stringify(myJson));

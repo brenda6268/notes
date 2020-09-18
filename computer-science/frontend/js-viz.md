@@ -47,7 +47,7 @@ wp_id: 1152
 
 ## 图（Graph）
 
-这里的图指的是计算机上的图，也就是由节点和边构成的结构。
+这里的图指的是计算机科学上的图，也就是由节点和边构成的结构。
 
 1. sigma 用于绘制 graph 的 http://sigmajs.org/
 2. cytoscape https://js.cytoscape.org/

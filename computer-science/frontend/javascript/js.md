@@ -522,13 +522,9 @@ encodeURI() // encode URI to %xx syntax
 encodeURIComponent // encode every character including /?=+,#
 decodeURI
 decodeURIComponent
- 
- 
 Infinity
 
-<small>
-在上古 JS 中，普通函数的 this 确实是指向 window 对象的，所以 globalThis 这个变量名是有历史传承的
-</small>
+<small> 在上古 JS 中，普通函数的 this 确实是指向 window 对象的，所以 globalThis 这个变量名是有历史传承的 </small>
 
 需要注意的是，使用 let/const 自定义的全局变量并不是 globalThis 的属性。
 
@@ -628,11 +624,6 @@ JS 源码本身是用 UTF-16 表示的，因为在当时觉得 UTF-16 就够了�
 symbol 纯属多余，在 Python 中，字符串默认就会 internize，也就是说 symbol 是隐式的。
 
 不过在 js 中，TC39 认为使用 magic method 是不好的，所以他们的 magic method 都是用 symbol 定义的。
-
-# 控制循环
-
-for (const el of list) {
-}
 
 array.entries 相当于 enumerate
 
