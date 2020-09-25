@@ -61,6 +61,21 @@ try {
 }
 ```
 
+## 添加 URL 参数
+
+```js
+var url = new URL('https://sl.se')
+
+var params = {lat:35.696233, long:139.570431} // or:
+var params = [['lat', '35.696233'], ['long', '139.570431']]
+
+url.search = new URLSearchParams(params).toString();
+
+fetch(url)
+```
+
+在 Node 中可能需要: `import {URL, URLSearchParams} from 'url'`
+
 ## 携带 cookies
 
 fetch 的 credentials 有三个选项：

@@ -99,6 +99,7 @@ export default function Button() {
     color: red;
   }
 `}</style>
+```
 
 
 ## 静态文件
@@ -118,6 +119,14 @@ nextjs 中的链接是这样的：
 ```
 
 ## 外部接口
+
+
+
+
+
+## 错误页面
+
+next.js 可以自定义 404 和 500 错误页面
 
 
 
