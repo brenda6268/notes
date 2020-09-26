@@ -20,7 +20,6 @@ yarn start 打开浏览器
 yarn test
 yarn build
 
-
 ### 目录结构
 
 ```
@@ -49,11 +48,9 @@ my-app/
 ```javascript
 import './Button.css';
 
-class Button extends Component {
-  render() {
-    // You can use them as regular CSS styles
-    return <div className="Button" />;
-  }
+function Button {
+  // You can use them as regular CSS styles
+  return <div className="Button" />;
 }
 ```
 
@@ -69,11 +66,10 @@ class Button extends Component {
 import React, { Component } from 'react';
 import styles from './Button.module.css'; // Import css modules stylesheet as styles
 import './another-stylesheet.css'; // Import regular stylesheet
-class Button extends Component {
-  render() {
-    // reference as a js object
-    return <button className={styles.error}>Error Button</button>;
-  }
+
+function Button(props) {
+  // reference as a js object
+  return <button className={styles.error}>Error Button</button>;
 }
 ```
 

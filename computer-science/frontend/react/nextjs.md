@@ -44,6 +44,19 @@ export default HomePage
 
 next.js 中，完全按照文件的物理路径来确定路由，比如如果你需要 `post/1` 这种路径，直接定义 `pages/post/[id].js`, 也是够直接了。
 
+## 读取 URL 参数
+
+需要使用 router 来手动读取
+
+```js
+import {useRouter} from 'next/router'
+
+function MyPage() {
+  const router = useRouter();
+  const {keyword} = router.query;
+}
+```
+
 ## 获取数据
 
 在 nextjs 中，鼓励的方式是在服务端编译或者渲染的时候获取数据，而不是由客户端渲染数据。这里我们先不看 SSG 了，看现在最需要的 SSR.

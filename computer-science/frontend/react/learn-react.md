@@ -36,7 +36,7 @@ const element = React.createElement(
 );
 ```
 
-一个函数就可以是一个组件。
+一个函数就可以是一个组件。在 React 16 是时代，就不要再用 class 了，统一用函数式组件就好了。
 
 ```jsx
 function Welcome(props) {
@@ -118,7 +118,6 @@ render() {
 <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
 ```
 
-
 key 是一个很关键的概念，有点像是 html 中的 ID， 用来唯一标示一个元素，因为 react 会尽可能复用元素。但是 key 不需要是全局唯一的，只需要在兄弟元素之间唯一即可。
 
 ```jsx
@@ -139,8 +138,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-
-
 
 React 设计哲学：https://zh-hans.reactjs.org/docs/thinking-in-react.html
 
