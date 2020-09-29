@@ -10,14 +10,14 @@ wp_id: 755
 
 if you use set mouse off, then you could use system mark and copy, or if you are  in Mac, you could use Option + Mouse Select
 
-# 按键绑定
+## 按键绑定
 
 ```
 C-b         发送 Ctrl-b 按键
 C-z         暂停（suspend） tmux 客户端
 ```
 
-## 窗口创建与管理
+### 窗口创建与管理
 
 ```
 !           把当前分区独立出来作为单独的窗口
@@ -44,7 +44,7 @@ M-p         Move to the previous window with a bell or activity marker.
 ```
 
 
-## copy and paste
+### copy and paste
 
 ```
 #           List all paste buffers.
@@ -55,14 +55,14 @@ M-p         Move to the previous window with a bell or activity marker.
 Page Up     Enter copy mode and scroll one page up.
 ```
 
-## rename
+### rename
 
 ```
 $           Rename the current session.
 ,           Rename the current window.
 ```
 
-## 选择窗口
+### 选择窗口
 
 ```
 "           Prompt for a window index to select.
@@ -78,7 +78,7 @@ w           Choose the current window interactively.
 ;           Move to the previously active pane.
 ```
 
-## 其他
+### 其他
 
 ```
 :           Enter the tmux command prompt.
@@ -102,7 +102,7 @@ z           Toggle zoom state of the current pane.
 ```
 
 
-# dtach
+## dtach
 
 还有一个类似 tmux 的命令 dtach，不过后来没怎么用了，笔记还是留在这里。
 

@@ -38,3 +38,4 @@ export default MyApp;
 
 1. https://levelup.gitconnected.com/improve-ux-of-your-next-js-app-in-3-minutes-with-page-loading-indicator-3a422113304d
 2. https://github.com/vercel/next.js/discussions/14057
+3. https://nextjs.org/docs/api-reference/next.config.js/rewrites

@@ -47,3 +47,11 @@ use `ssh-keygen` and `ssh-copy-id`, do not manually copy id_rsa.pub to remote ho
 ## Gotchas
 
 `error: key_read: uudecode` may be caused by disk full.
+
+## 无法连接
+
+```
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+```
+
