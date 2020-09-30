@@ -66,9 +66,7 @@ barrel中存放按照docID排序存放document
 
 Google指出爬虫的一个瓶颈在于每个请求都需要去请求DNS. 所以他们在每一个Crawler上都设置了DNS 缓存.
 
-
 YN: 对于HTTP 1.1来说, 默认连接都是keep-alive的, 对于URLServer分发连接应该应该同一个域名尽量分发到同一个crawler上, 这样可以尽量避免建立连接的开销.
-
 
 indexer会把下载到的网页分解成hit记录,每一个hit记录了单词, 在文档中的位置, 和大概的字体大小和是否是大写等因素. indexer还会把所有的链接都抽取出来, 并存到一个anchor文件中. 这个文件保存了链接的指向和锚文本等元素.
 

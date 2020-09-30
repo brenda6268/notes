@@ -17,7 +17,7 @@ fetch 是近年来浏览器实现的一个用于取代 xhr 的 API，相比于 x
 
 ## 基本用法
 
-如果要在 node 中使用的话, 需要安装 isomophic-unfetch:
+如果要在 node 中使用的话，需要安装 isomophic-unfetch:
 
 ```
 yarn add isomorphic-unfetch
@@ -38,6 +38,8 @@ console.log(JSON.stringify(myJson));
 - await response.json() 返回解析的 json
 
 ## 增加选项
+
+特别注意的是，在 Flask 等后端框架中，如果不添加 `application/json` 的 header, 默认不会解析 json, 太坑了
 
 ```javascript
 try {
@@ -74,7 +76,7 @@ url.search = new URLSearchParams(params).toString();
 fetch(url)
 ```
 
-在 Node 中可能需要: `import {URL, URLSearchParams} from 'url'`
+在 Node 中可能需要：`import {URL, URLSearchParams} from 'url'`
 
 ## 携带 cookies
 

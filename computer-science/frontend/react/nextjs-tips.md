@@ -32,7 +32,20 @@ export default MyApp;
 
 ## 代理后端 API 服务器
 
+在 next.config.js 中配置重定向：
 
+```js
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/api/proxy/:path*',
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`,
+      },
+    ]
+  },
+}
+```
 
 ## 参考
 

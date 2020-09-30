@@ -60,8 +60,42 @@ volumes:  # 定义的卷
 8. volumes 挂载的卷，可以使用 named volume 或者是挂载目录，建议不要使用匿名卷。如果使用 named volume，必须在 volumes 下声明
 
 ## 运行服务
+
 docker-compose 有以下 3 个常用命令：
 
 1. `docker-compose up [-d] [SERVICE]` 启动服务，-d 表示以 daemon 形式后台运行，并且会在重启后自动启动。
 2. `docker-compose run`
 3. `docker-compose stop`
+
+## 几个神坑
+
+### 目录重命名之后
+
+docker-compose 中默认的 project name 就是目录的名字，而 volume 的名字会添加上 project 的前缀，也就是 `<project>_<volume>`. 这就带来了一个问题，当我们把 docker-compose.yml 移动路径的时候，原来的 volume name 就和新的对应不上了，简直神坑。
+
+```bash
+docker volume create --name <new_volume>
+docker run --rm -it -v <old_volume>:/from -v <new_volume>:/to alpine ash -c "cd /from ; cp -av . /to"
+docker volume rm <old_volume>
+```
+
+### 挂载当前目录的文件
+
+如果要挂载目录或者文件到 docker 中的话，默认是以 docker-compose.yml 文件的路径为依据的，简直奇葩。
+
+```
+volumes:
+  - ./deploy/prom.yml:/etc/prometheus/prometheus.yml
+```
+
+要改成 $PWD 才以运行命令的目录为根目录查找文件：
+
+```
+volumes:
+  - $PWD/deploy/prom.yml:/etc/prometheus/prometheus.yml
+```
+
+## 参考
+
+1. https://github.com/moby/moby/issues/31154
+2. https://stackoverflow.com/questions/50630932/rename-docker-compose-project-without-deleting-volumes

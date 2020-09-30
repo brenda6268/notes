@@ -43,7 +43,7 @@ vm.companies.push({text: 'Amazon', link: 'http://amazon.com'});
 ```
 
 
-```
+```js
 // computed 属性可以绑定一个虚拟的属性到几个不同的属性上，有点类似 python 的 @property
 // ...
 computed: {
@@ -63,8 +63,7 @@ computed: {
 // ...
 ```
 
-```
-
+```js
 # 适合用来做自动保存文档等工作
 <script>
 var watchExampleVM = new Vue({

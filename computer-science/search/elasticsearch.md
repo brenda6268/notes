@@ -2,15 +2,15 @@
 
 <!--
 ID: 95b84e2c-aa67-4ba9-9918-24d000de6631
-Status: draft
+Status: publish
 Date: 2018-06-22T08:00:00
 Modified: 2020-05-16T11:11:41
 wp_id: 766
 -->
 
-ES 家的几个产品版本不太统一，有的在 2.x，有的在 4.x，为了打包在一起卖，ES 家把 ES、kibana、beats 的版本统一成了 5.0 版本。现在的版本是 7.x
+ES 家的几个产品版本不太统一，有的在 2.x，有的在 4.x，为了打包在一起卖，ES 家把 ES、Kibana、Logstas  h 的版本统一成了 5.0 版本。现在的版本是 7.x
 
-![](https://tva1.sinaimg.cn/large/006tNc79gy1fsk0l4proij313a0lwdmh.jpg)
+![版本](https://tva1.sinaimg.cn/large/006tNc79gy1fsk0l4proij313a0lwdmh.jpg)
 
 - 关系型数据库：Databases -> Tables -> Rows -> Columns
 - ElasticSearch：Indices -> Types  -> Documents -> Fields
@@ -36,12 +36,129 @@ _version	用于控制冲突，可以由外部指定，采用乐观锁
 
 ## 安装
 
-因为 AWS 这些云厂商一直在吸开源血, 所以 ES 默认产品现在需要使用自己的 brew tap 安装:
+因为 AWS 这些云厂商一直在吸开源血，所以 ES 默认产品现在需要使用自己的 brew tap 安装：
 
 ```
 brew tap elastic/tap
 brew install elastic/tap/elasticsearch-full
 ```
+
+## 创建索引和插入数据
+
+Mapping 用来定义 ES 中文档的字段类型，如果使用 dynamic mapping, ES 就会在第一次见到某个字段的时候推断出字段的类型。这时候就会有问题了，比如说时间戳可能被推断成了 long 类型。
+
+所以，一般我们会在创建索引的时候指定 mapping 的类型。
+
+```json
+PUT http://localhost:9200/company
+{
+"settings": {
+  "index": {
+    "number_of_shards": 1,
+    "number_of_replicas": 1
+  },
+  // 指定文本分词
+  "analysis": {
+    "analyzer": {
+      "analyzer-name": {
+        "type": "custom",
+        "tokenizer": "keyword",
+        "filter": "lowercase"
+      }
+    }
+  },
+  // 指定字段的类型
+  "mappings": {
+    "properties": {
+      "age": {
+        "type": "long"
+      },
+      "experienceInYears": {
+        "type": "long"      
+      },
+      "name": {
+        "type": "string",
+        "analyzer": "analyzer-name"
+      }
+    }
+  }
+ }  
+}
+```
+
+插入文档
+
+```json
+http://localhost:9200/company/employee/?_create
+POST
+{
+"name": "Andrew",
+"age" : 45,
+"experienceInYears" : 10
+}
+```
+
+## Text Analyzer
+
+众所周知，倒排索引的第一步就是要对文本进行一些预处理，尤其是分词。英文还好说，天然就是分好的，而中文则需要一些特殊的处理。虽然英文分词比较简单，但是因为会有词形的变化，所以还需要归一化。在 ES 中负责这些工作的部分叫做 Text Analyzer.
+
+Text Analyzer 一般分为三个部分：
+
+1. Char Filter, 也就是处理一些字符
+2. Tokenizer, 也就是分词器
+3. Token Filter, 也就是处理一些词。添加同义词，抽取词干也会在这里进行
+
+当文件被添加到索引和查询索引的时候都会调用 text analyzer.
+
+为某个字段指定 text analyzer:
+
+```json
+PUT my-index-000001
+{
+  "mappings": {
+    "properties": {
+      "title": {
+        "type": "text",
+        "analyzer": "whitespace"
+      }
+    }
+  }
+}
+```
+
+为某个索引指定 text analyzer:
+
+```json
+PUT my-index-000001
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "default": {
+          "type": "simple"
+        }
+      }
+    }
+  }
+}
+```
+
+### 使用 IK 分词
+
+最常用的中文分词工具就是 IK 分词了，在 GitHub 上已经有一万个 Star 了，应该还是值得信任的。
+
+```
+elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.8.1/elasticsearch-analysis-ik-7.8.1.zip
+```
+
+其中的版本号需要替换成对应的 ES 的版本号。
+
+IK 为 Elasticsearch 增加了两个分词器：`ik_smart`, `ik_max_word`. 其中 `ik_smart` 会分出较少的词，而 `ik_max_word` 会穷尽每一种方法分出尽量多的词。
+
+比如说：`今天天气真好`.
+
+- `ik_smart` 会分成：`今天天气`, `真好`.
+- `ik_max_word` 会分成：`今天天气`, `今天`, `天天`, `真好`.
 
 ## 搜索
 
@@ -103,11 +220,11 @@ GET /bank/_search
 1. `track_total_hits`. 默认情况下只有小于 10000 的时候结果才是精确的，因为统计有多少结果是一个 O(n) 的操作。
 2. `filter`. 按照某些条件过滤结果。比如电商中，搜索衣服时候的尺码颜色等
 3. `highlighter`. 在搜索结果中节选出包含关键词的部分
-4. `_source`. 通过一个数组指定返回的字段. 默认情况下是返回所有字段的.
+4. `_source`. 通过一个数组指定返回的字段。默认情况下是返回所有字段的。
 
 ### 查询字段
 
-最简单的查询: 
+最简单的查询：
 
 ```json
 GET /_search
@@ -120,7 +237,7 @@ GET /_search
 }
 ```
 
-默认情况下, 查询的字段是使用 `OR` 关系的,显然这不是我们想要的, 可以指定为 `and`
+默认情况下，查询的字段是使用 `OR` 关系的，显然这不是我们想要的，可以指定为 `and`
 
 ```json
 GET /_search
@@ -136,7 +253,7 @@ GET /_search
 }
 ```
 
-match_all 用来读取所有文档:
+match_all 用来读取所有文档：
 
 ```json
 GET /_search
@@ -174,7 +291,7 @@ GET my-index-000001/_search
 
 ### 搜索结果排序
 
-默认情况下, 搜索结果会按照计算出来的 `_score` 也就是和搜索 query 的相关度来排序, 我们也可以通过自定义 `sort` 字段来指定排序规则.
+默认情况下，搜索结果会按照计算出来的 `_score` 也就是和搜索 query 的相关度来排序，我们也可以通过自定义 `sort` 字段来指定排序规则。
 
 ```json
 GET /my-index-000001/_search
@@ -193,68 +310,7 @@ GET /my-index-000001/_search
 }
 ```
 
-## Text Analyzer
-
-众所周知，倒排索引的第一步就是要对文本进行一些预处理，尤其是分词。英文还好说，天然就是分好的，而中文则需要一些特殊的处理。虽然英文分词比较简单，但是因为会有词形的变化，所以还需要归一化。在 ES 中负责这些工作的部分叫做 Text Analyzer.
-
-Text Analyzer 一般分为三个部分：
-
-1. Char Filter, 也就是处理一些字符
-2. Tokenizer, 也就是分词器
-3. Token Filter, 也就是处理一些词。添加同义词，抽取词干也会在这里进行
-
-当文件被添加到索引和查询索引的时候都会调用 text analyzer.
-
-为某个字段指定 text analyzer:
-
-```json
-PUT my-index-000001
-{
-  "mappings": {
-    "properties": {
-      "title": {
-        "type": "text",
-        "analyzer": "whitespace"
-      }
-    }
-  }
-}
-```
-
-为某个索引指定 text analyzer:
-
-```json
-PUT my-index-000001
-{
-  "settings": {
-    "analysis": {
-      "analyzer": {
-        "default": {
-          "type": "simple"
-        }
-      }
-    }
-  }
-}
-```
-
-### 使用 IK 分词
-
-最常用的中文分词工具就是 IK 分词了，在 GitHub 上已经有一万个 Star 了，应该还是值得信任的。
-
-```
-elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.8.1/elasticsearch-analysis-ik-7.8.1.zip
-```
-
-其中的版本号需要替换成对应的 ES 的版本号。
-
-## 创建索引和插入数据
-
-Mapping 用来定义 ES 中文档的字段类型，如果使用 dynamic mapping, ES 就会在第一次见到某个字段的时候推断出字段的类型。这时候就会有问题了，比如说时间戳可能被推断成了 long 类型。
-
-所以，一般我们会在创建索引的时候指定 mapping 的类型。
-
-## 查询 DSL
+### 查询 DSL
 
 ES 用 JSON 实现了自己的一套查询语句，基本上就是个 AST, 直接写就行了。子句分成两个：
 
@@ -263,17 +319,17 @@ ES 用 JSON 实现了自己的一套查询语句，基本上就是个 AST, 直�
 
 ## 设置密码
 
-首先确保你安装的是 ES 的完全版,而不是 OSS 版本, 不然是没有 xpack 的. 然后在 elasticsearch.yml 中增加:
+首先确保你安装的是 ES 的完全版，而不是 OSS 版本，不然是没有 xpack 的。然后在 elasticsearch.yml 中增加：
 
 ```
 xpack.security.enabled: true
 ```
 
-如果是在 Mac 上, 可以通过 `brew info elasticsearch-full` 来查看配置文件的路径.
+如果是在 Mac 上，可以通过 `brew info elasticsearch-full` 来查看配置文件的路径。
 
-然后执行 `elasticsearch-setup-passwords interactive`
+然后执行 `bin/elasticsearch-keystore add "bootstrap.password"` 和 `elasticsearch-setup-passwords interactive`
 
-这时候只有再使用密码才能够接着访问:
+这时候只有再使用密码才能够接着访问：
 
 ```
 curl --user elastic:123456 localhost:9200
@@ -281,18 +337,16 @@ curl --user elastic:123456 localhost:9200
 
 ## Python 客户端
 
-### 
-
-ingore
+### ingore
 
 An API call is considered successful (and will return a response) if elasticsearch returns a 2XX response. otheriwse an TransportError is raised. use ignore to ignore errors
 
-```
+```py
 es.indices.create(index='test-index', ignore=400)
 es.indices.delete(index='test-index', ignore=[400, 404])
 ```
 
-response filtering 
+### response filtering 
 
 filter_path parameter to filter response, typically es returns `response['hits']['hits']`, which is quite cumbersome.
 
@@ -301,16 +355,13 @@ es.search(index='test-index', filter_path=['hits.hits._id', 'hits.hits._type']) 
 es.search(index='test-index', fitler_path=['hits.hits._*']) # returns all fileds in hits
 ```
 
-bulk and helpers
-
-for bulk request
-
-Methods
+### Methods
 
 common pattern
 
 es.method(index='', doc_type='', id='', zbody='', _source=True/False...)
 
+```
 count		query must be ecasulterd in query
 create	add document to es	
 delete	delete document by id	
@@ -322,6 +373,7 @@ mget	by body
 search	by body	
 update		
 helpers.bulk		
+```
 
 ### Exceptions
 
@@ -337,3 +389,5 @@ BadRequest	400
 3. https://www.elastic.co/blog/found-elasticsearch-mapping-introduction
 4. https://medium.com/@ashish_fagna/getting-started-with-elasticsearch-creating-indices-inserting-values-and-retrieving-data-e3122e9b12c6
 5. https://elasticsearch-py.readthedocs.io/en/master/api.html
+6. https://www.elastic.co/blog/phrase-Queries-a-world-without-stopwords
+7. https://www.elastic.co/guide/en/elasticsearch/reference/current/built-in-users.html#set-built-in-user-passwords

@@ -8,8 +8,6 @@ Modified: 2020-05-16T11:01:22
 wp_id: 33
 -->
 
-# Python 和 JavaScript 语法对比
-
 ## 命名
 
 1. 注意使用驼峰变量名，不要使用下划线变量名
@@ -20,13 +18,13 @@ wp_id: 33
 
 JavaScript:
 
-```
+```js
 `hello ${name}`
 ```
 
 Python:
 
-```
+```py
 f"hello {name}"
 ```
 
@@ -36,7 +34,7 @@ f"hello {name}"
 
 JavaScript：
 
-```
+```js
 const fs = require(fs).promises;  // 使用 async/await 版本的 fs 模块
 
 await fs.writeFile(filename, data);  // 写入文件
@@ -52,12 +50,11 @@ try {
 
 Python:
 
-```
+```py
 with open(filename, w) as f:
-      f.write(data)
+    f.write(data)
 
-  os.path.exists(filename)  # 文件是否存在
-
+os.path.exists(filename)  # 文件是否存在
 ```
 
 ## 数组
@@ -66,12 +63,12 @@ with open(filename, w) as f:
 
 JavaScript:
 
-```
+```js
 const arr1 = arr2.slice(3, 5);
 ```
 
 Python:
 
-```
+```py
 arr1 = arr2[3:5]
 ```

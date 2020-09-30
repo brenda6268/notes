@@ -1,4 +1,4 @@
-# flask 全家桶学习笔记(未完待续)
+# flask 全家桶学习笔记（未完待续）
 
 <!--
 ID: 8e6863c0-2b2e-4ee9-b45b-1e059c76749d
@@ -10,7 +10,7 @@ wp_id: 298
 
 看到标题有的同学可能就问了，flask 是一个微框架，哪儿来的全家桶啊。其实作为一个框架来说，除非你提供的只有静态页面，那么肯定要和数据库打交道的，肯定是要有后台登录管理以及提供 API 等等一大堆常规工作要做的，这时候就需要各种全家桶组件了，那么这篇文章里介绍的就是 flask + peewee + login + admin + uwsgi 等等一系列的工具。
 
-# hello world
+## hello world
 
 ```python
 from flask import Flask
@@ -82,7 +82,6 @@ class User(db.Model):
 
 # 使用 blueprint
 
-
 # 搭建 flask 的后台系统
 
 # cookie & session & login
@@ -130,7 +129,6 @@ def login():
 def logout():
     logout_user()
 ```
-
 
 #### 加载用户
 
@@ -231,8 +229,3 @@ https://github.com/coleifer/peewee/blob/master/examples/twitter/app.py
 5. https://www.cnblogs.com/whitewolf/p/4686154.html
 6. [为什么要使用 APP Factory Pattern](https://tobywf.com/2016/06/flask-always-use-application-factories/)
 7. https://flask-login.readthedocs.io/en/latest/
-
-
-
-
-
