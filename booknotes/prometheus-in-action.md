@@ -2,7 +2,7 @@
 
 <!--
 ID: d2994159-e622-4b62-a766-c203ad7fea40
-Status: draft
+Status: publish
 Date: 2020-09-03T07:19:11
 Modified: 2020-09-03T07:19:11
 wp_id: 2008
@@ -76,7 +76,6 @@ Weaveworks 的 RED 指标
 ### 可视化
 
 可视化系统最终要的在于：突出重点而不仅是提升视觉效果。
-
 
 ## 第二章
 

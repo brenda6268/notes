@@ -66,7 +66,7 @@ pip install prometheus_client
 ```py
 from prometheus_client import Counter
 
-# 按照 Prometheus 的最佳实践, counter 类型的数据后缀是 _total
+# 按照 Prometheus 的最佳实践，counter 类型的数据后缀是 _total
 # prometheus 客户端会智能处理 _total 后缀，在后台总是有 _total 后缀的
 c = Counter("http_request_failures_total", "http 请求出错计数")
 c.inc()  # 默认是 1
@@ -124,7 +124,7 @@ d.set_function(lambda: len(my_dict))
 
 值得注意的是，histogram 默认定义的 buckets 大小是为了正常的网页请求设计的，也就是围绕着一秒的一些数据。如果我们需要观测一些其他的值，那么需要重新定义 buckets 的大小。
 
-一般来说，buckets 是呈指数分布的，中间值为最常见的典型值，这样可以更好地拟合实际的分布(幂次分布)。因为 buckets 是以 label 的形式实现的，所以 buckets 最好也不要超过十个。
+一般来说，buckets 是呈指数分布的，中间值为最常见的典型值，这样可以更好地拟合实际的分布（幂次分布）。因为 buckets 是以 label 的形式实现的，所以 buckets 最好也不要超过十个。
 
 ```py
 from prometheus_client import Histogram
@@ -149,7 +149,7 @@ h = Histogram(buckets=[1, 10, 100])
 
 ```py
 from prometheus_client import Counter
-c = Counter('my_requests_total', 'HTTP Failures', ['method', 'endpoint'])
+c = Counter('my_requests_total', 'HTTP Failures', labelnames=['method', 'endpoint'])
 c.labels(method='get', endpoint='/').inc()
 c.labels(method='post', endpoint='/submit').inc()
 ```
@@ -182,7 +182,7 @@ app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
 })
 ```
 
-很遗憾的是, Prometheus 的 Python 客户端对于多进程的支持不好.
+很遗憾的是，Prometheus 的 Python 客户端对于多进程的支持不好。
 
 ## 使用 PromQL 查询指标
 
@@ -200,7 +200,7 @@ app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
 
 ### 查询语法
 
-使用 `{}` 来过滤指标, 大概相当于 SQL 中的 where 子句。除了 `=` 之外，还有 `!=` 和 `=~`（正则） 和 `!~`（不匹配）
+使用 `{}` 来过滤指标，大概相当于 SQL 中的 where 子句。除了 `=` 之外，还有 `!=` 和 `=~`（正则） 和 `!~`（不匹配）
 
 ```
 <metric name>{<label name>=<label value>, ...}
@@ -290,6 +290,7 @@ Google SRE Book 中提出了四个黄金原则：延迟、流量、错误数、�
 ### 批操作
 
 关键指标是上次成功操作的时间。
+
 This should generally be at least enough time for 2 full runs of the batch job. For a job that runs every 4 hours and takes an hour, 10 hours would be a reasonable threshold. If you cannot withstand a single run failing, run the job more frequently, as a single failure should not require human intervention.
 
 对于其他的子系统而言，可以选择如下指标
@@ -350,4 +351,5 @@ count by (__name__)({__name__=~".+"}) > 10000
 10. https://github.com/prometheus/client_python
 11. http://www.xuyasong.com/?p=1717
 12. https://www.section.io/blog/prometheus-querying/
-13. https://github.com/danielfm/prometheus-for-developers#monitoring-uptime
+13. https://github.com/danielfm/prometheus-for-developers
+14. https://blog.viktoradam.net/2020/05/11/prometheus-flask-exporter/
