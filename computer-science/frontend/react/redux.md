@@ -8,7 +8,9 @@ Modified: 2020-05-28T14:09:32
 wp_id: 1193
 -->
 
-```javascript
+redux 本质上来说就是一个 event bus.
+
+```js
 import { createStore } from "redux";
 
 // state 必须提供默认参数
@@ -40,3 +42,7 @@ const store = createStore(rootReducer);
     - payload - 用于更新状态的数据。
 3. 我们创建一个 Redux 存储区，它只能使用 reducer 作为参数来构造。存储在 Redux 存储区中的数据可以被直接访问，但只能通过提供的 reducer 进行更新。
 
+
+## 参考
+
+1. [Redux 的本质, Event bus](https://www.zhihu.com/question/63726609/answer/934233429)
