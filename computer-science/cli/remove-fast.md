@@ -12,6 +12,6 @@ wp_id: 59
 
 rsync -a –delete empty/ your_folder/
 
-参考
+## 参考
 
-https://unix.stackexchange.com/questions/37329/efficiently-delete-large-directory-containing-thousands-of-files
+1. https://unix.stackexchange.com/questions/37329/efficiently-delete-large-directory-containing-thousands-of-files
