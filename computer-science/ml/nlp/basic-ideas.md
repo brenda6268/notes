@@ -23,3 +23,4 @@ wp_id: 1575
 1. https://stackoverflow.com/questions/37292872/how-can-i-one-hot-encode-in-python
 2. https://blog.csdn.net/Gamer_gyt/article/details/51232210
 3. https://zhuanlan.zhihu.com/p/26306795
+4. ✨[nlp 中的词向量对比：word2vec/glove/fastText/elmo/GPT/bert](https://zhuanlan.zhihu.com/p/56382372)

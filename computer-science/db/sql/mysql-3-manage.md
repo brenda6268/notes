@@ -10,7 +10,7 @@ wp_id: 176
 
 ## 创建数据库
 
-```
+```sql
 CREATE DATABASE db_name
     [[DEFAULT] CHARACTER SET charset_name]
     [[DEFAULT] COLLATE collation_name]
@@ -20,15 +20,23 @@ ALTER DATABASE db_name
     [[DEFAULT] COLLATE collation_name]
 ```
 
-## 创建表？
+推荐使用 unicode 对应的编码模式：
 
+```sql
+create database blog DEFAULT CHARSET = utf8mb4 DEFAULT COLLATE = utf8mb4_unicode_ci;
 ```
+
+## 创建表
+
+请注意，一定要是用 utf8mb4 对应的编码模式：
+
+```sql
 CREATE TABLE table_name (
     field_name type is_null default options,
     ...
     PRIMAR KEY (id),
     INDEX/KEY index_name (field_name),
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
  
 // 注意：KEY is normally a synonym for INDEX
 ```
@@ -76,7 +84,7 @@ ALTER TABLE SET AUTO_INCREMENT=xxx;
 #### 创建 modify_time/update_time 字段时使用自动更新时间
 
 ```
-&#x60;modify_time&#x60; timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+modify_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ```
 
 #### 设计表要注意每个字段的正交性，不要出现一个字段表示“xx 且 xx”的状态。
@@ -111,7 +119,7 @@ Alter TABLE &#x60;tbl_users&#x60; MODIFY COLUMN &#x60;dup&#x60; VARCHAR(120);
 需要注意的是数据类型也需要带上
 
 ```
-alter table &#x60;user&#x60; change &#x60;name&#x60; &#x60;first_name&#x60; varchar(128) default null;
+alter table user change name first_name varchar(128) default null;
 ```
 
 添加不同类型的索引
@@ -135,7 +143,6 @@ alter table TABLENAME drop index xxxx
 ```
 
 ------------------ 之前笔记的分割线 ------------------------
- 
  
 ## 组合索引
  

@@ -8,6 +8,8 @@ Modified: 2020-05-16T11:48:41
 wp_id: 686
 -->
 
+打印所有历史到文件：`%history -g -f filename`
+
 * use `?` to get quick help, and use `??` provides additional detail).
 
 * Searching through modules and namespaces with * wildcards, both when using the ? system and via the %psearch command.

@@ -8,33 +8,37 @@ Modified: 2020-05-16T11:53:03
 wp_id: 177
 -->
 
-## 创建用户
+创建用户
 
-```
+```sql
 CREATE USER "newuser"@"%" IDENTIFIED BY "password";
 ```
 
-## 授权
+授权所有权限
 
-```
+```sql
 GRANT ALL PRIVILEGES ON *.* TO "newuser"@"%";
 ```
 
 其中的 `%` 代表这个用户可以在任意主机登录。
 
-```
+如果只需要在本机登录，使用 `localhost`
+
+显示一个用户的当前授权：
+
+```sql
 SHOW GRANTS FOR newuser
 ```
-用来显示一个用户的当前授权
 
+更改用户密码：
+
+```sql
+ALTER USER 'userName'@'localhost' IDENTIFIED BY 'New-Password-Here';
 ```
-set password for USERNAME = password("xxx")
-```
-更改用户密码
 
 ## 重置密码
 
-```
+```sql
 sudo mysqld_safe --skip-grant-tables --skip-networking &amp;
  
 use mysql;
