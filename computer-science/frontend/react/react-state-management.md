@@ -8,7 +8,7 @@ Modified: 2020-05-28T14:09:32
 wp_id: 1190
 -->
 
-看过 redux 和 mob 的文档, 感觉还是 unstated 比较好使一点, 毕竟 hooks 真的很好用了.
+Removed, just use redux.
 
 ## 参考
 

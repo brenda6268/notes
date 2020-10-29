@@ -34,6 +34,10 @@ SHOW GRANTS FOR newuser
 
 ```sql
 ALTER USER 'userName'@'localhost' IDENTIFIED BY 'New-Password-Here';
+
+-- or 
+
+set password for "user"@"localhost" = password("new password");
 ```
 
 ## 重置密码

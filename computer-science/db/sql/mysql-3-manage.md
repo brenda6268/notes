@@ -26,6 +26,18 @@ ALTER DATABASE db_name
 create database blog DEFAULT CHARSET = utf8mb4 DEFAULT COLLATE = utf8mb4_unicode_ci;
 ```
 
+## 查询当前 MySQL 中的表以及字段的信息
+
+可以使用 information_schema 库中的表来查询。
+
+```sql
+SELECT column_name, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'xxx';
+```
+
+```sql
+select table_name from information_schema.tables where table_schema = "xxx";
+```
+
 ## 创建表
 
 请注意，一定要是用 utf8mb4 对应的编码模式：
@@ -165,3 +177,7 @@ col_b = "some value" and col_a = "some value" and col_c = "some value";
 col_b = "aaaaaa";
 col_b = "aaaa" and col_c = "cccccc";
 ```
+
+## 参考
+
+1. https://www.mysqltutorial.org/mysql-views/mysql-show-view/

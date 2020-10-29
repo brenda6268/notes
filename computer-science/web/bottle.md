@@ -22,7 +22,7 @@ API design
 
 In this section, we run bottle in default app mode, which means we do not make a Bottle instance explicitly
 
-```
+```py
 from bottle import *
 
 @method("/path/<param:filter:config>/<more>")
@@ -37,12 +37,11 @@ filter
 
 param can be restrcited to specific filter, available filters are int float path re
 
-
 error
 
 error page is described by @error(code) decorator
 
-```
+```py
 @error(404)
 def not_found(error): # error is an instance of HTTPError
     return ...

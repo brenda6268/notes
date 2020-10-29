@@ -8,6 +8,10 @@ Modified: 2020-09-25T17:42:21
 wp_id: 2042
 -->
 
+## nextjs 的 Link 无法自定义 escape
+
+nextjs 中的 Link 的 href 对象如果传的是字典，直接调用的是 nodejs 的 URL 库，不能自定义 escape, 比如说空格会被强制格式化成加好，而不是 %20. 而且好像它使用的这个 API 在 11.0 已经 deprecated 了，所以需要啥 url 的话，还是自己格式化吧~
+
 ## 不支持 loading spinner
 
 Nextjs 不支持在页面跳转的时候触发 Loading Spinner, 也就是转动的小圆圈，所以需要自己实现一下，可以用 nprogress

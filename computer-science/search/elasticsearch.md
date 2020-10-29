@@ -8,16 +8,16 @@ Modified: 2020-05-16T11:11:41
 wp_id: 766
 -->
 
-ES 家的几个产品版本不太统一，有的在 2.x，有的在 4.x，为了打包在一起卖，ES 家把 ES、Kibana、Logstas  h 的版本统一成了 5.0 版本。现在的版本是 7.x
+ES 家的几个产品版本不太统一，有的在 2.x，有的在 4.x，为了打包在一起卖，ES 家把 ES、Kibana、Logstash 的版本统一成了 5.0 版本。现在的版本是 7.x
 
 ![版本](https://tva1.sinaimg.cn/large/006tNc79gy1fsk0l4proij313a0lwdmh.jpg)
 
 - 关系型数据库：Databases -> Tables -> Rows -> Columns
-- ElasticSearch：Indices -> Types  -> Documents -> Fields
+- ElasticSearch：Indices -> Types -> Documents -> Fields
 
 ElasticSearch 集群可以包含多个索引 (indices)，每一个索引可以包含多个类型 (types)，每一个类型包含多个文档 (documents)，然后每个文档包含多个字段 (Fields)。
 
-但是需要特别注意的是：在 SQL 中，不同表中的列都是毫不相关的，而在 ES 中，同一个索引内，不同 type 的同名字段是就是同一个字段。
+但是需要**特别注意**的是：在 SQL 中，不同表中的列都是毫不相关的，而在 ES 中，同一个索引内，不同 type 的**同名字段就是同一个字段**。
 
 - 索引（名词）如上文所述，一个索引 (index) 就像是传统关系数据库中的数据库，它是相关文档存储的地方，index 的复数是 indices 或 indexes。
 - 索引（动词）「索引一个文档」表示把一个文档存储到索引（名词）里，以便它可以被检索或者查询。这很像 SQL 中的 INSERT 关键字，差别是，如果文档已经存在，新的文档将覆盖旧的文档。
@@ -51,21 +51,21 @@ Mapping 用来定义 ES 中文档的字段类型，如果使用 dynamic mapping,
 
 ```json
 PUT http://localhost:9200/company
+
 {
-"settings": {
-  "index": {
+  "settings": {
     "number_of_shards": 1,
-    "number_of_replicas": 1
-  },
-  // 指定文本分词
-  "analysis": {
-    "analyzer": {
-      "analyzer-name": {
-        "type": "custom",
-        "tokenizer": "keyword",
-        "filter": "lowercase"
+    "number_of_replicas": 1,
+    // 指定文本分词
+    "analysis": {
+      "analyzer": {
+        "analyzer-name": {
+          "type": "custom",
+          "tokenizer": "keyword",
+          "filter": "lowercase"
+        }
       }
-    }
+    },
   },
   // 指定字段的类型
   "mappings": {
@@ -77,24 +77,29 @@ PUT http://localhost:9200/company
         "type": "long"      
       },
       "name": {
-        "type": "string",
-        "analyzer": "analyzer-name"
+        "type": "text",
+        "analyzer": "analyzer-name"  // 或者直接指定 ik_smart
       }
     }
   }
- }  
 }
 ```
+
+ES 中的类型有：boolean, binary, long, double, text, date 等。
+
+- 如果需要存储 enum 类型的话，直接在 text 类型中指定 {"index": False} 就好了
+- date 类型可以自动识别一些日期格式，比如时间戳，YYYY-mm-dd 等，也可以使用 `format` 指定，`epoch_millis`, `epoch_second ` 用来指时间戳。
+- 使用 analyzer 指定分词器
 
 插入文档
 
 ```json
-http://localhost:9200/company/employee/?_create
-POST
+POST http://localhost:9200/company/employee/?_create
+
 {
-"name": "Andrew",
-"age" : 45,
-"experienceInYears" : 10
+  "name": "Andrew",
+  "age" : 45,
+  "experienceInYears" : 10
 }
 ```
 
@@ -337,50 +342,138 @@ curl --user elastic:123456 localhost:9200
 
 ## Python 客户端
 
-### ingore
+### 基础使用
 
-An API call is considered successful (and will return a response) if elasticsearch returns a 2XX response. otheriwse an TransportError is raised. use ignore to ignore errors
+```
+pip install elasticsearch
+```
+
+需要注意的是大版本要和使用的 elasticsearch 服务器对应。
+
+```py
+from elasticsearch import Elasticsearch
+
+hosts = ['https://user:secret@localhost:443']
+es = Elasticsearch(hosts, sniff_on_start, sniff_on_failure, sniffer_timeout=60)
+```
+
+es 的实例是线程安全的，可以在多个线程之间共享。另外需要注意的是，对于长时间运行的脚本，最好开启 sniff, 这样可以适应集群的变化。
+
+### 全局配置
+
+#### 忽略错误
+
+可以通过 ignore 参数指定忽略一些错误，不过最好不要这么搞，还是显式地使用 try 比较清晰明了。
 
 ```py
 es.indices.create(index='test-index', ignore=400)
 es.indices.delete(index='test-index', ignore=[400, 404])
 ```
 
-### response filtering 
+#### 过滤结果
 
-filter_path parameter to filter response, typically es returns `response['hits']['hits']`, which is quite cumbersome.
+通过使用 filter_path 参数可以过滤结果。ES 返回的结果本来就很冗余，这个参数还是很有用的。`*` 表示通配符
 
 ```py
 es.search(index='test-index', filter_path=['hits.hits._id', 'hits.hits._type']) # returns the _id and _type
 es.search(index='test-index', fitler_path=['hits.hits._*']) # returns all fileds in hits
 ```
 
-### Methods
-
-common pattern
+### 常用查询方法
 
 es.method(index='', doc_type='', id='', zbody='', _source=True/False...)
 
-```
-count		query must be ecasulterd in query
-create	add document to es	
-delete	delete document by id	
-delete_by_query		
-exists	exists by id	
-get	get by id	
-index		
-mget	by body	
-search	by body	
-update		
-helpers.bulk		
+#### es.count(body=None, index=None, ...)
+
+返回匹配一个 query 的文档的数量
+
+#### es.create(index, id, body, doc_type=None, ...)
+
+插入一个新的文档，参数名字也都挺明确的。
+
+#### es.update(index, id, body, doc_type=None)
+
+根据一个 id 更新文档
+
+#### es.index(index, id, body, doc_type=None, ...)
+
+相当于 create or update
+
+#### es.delete(index, id, doc_type=None)
+
+根据 id 删除一个文档
+
+#### es.exists(index, id, ...)
+
+根据 id 判断一个文档是否存在。
+
+#### es.get(index, id, _source=True, ...)
+
+根据 id 返回一个文档。
+
+#### es.search(body=None, index=None, _source=True, from_=x, size=10,)
+
+最核心的方法了，搜索文档
+
+### 索引管理方法
+
+通常通过 es.indices 属性来访问索引相关的方法
+
+#### es.indices.analyze(body=None, index=None,...)
+
+使用索引指定的分词器对文本进行分析。
+
+#### es.indices.create(index, body=None,...)
+
+创建一个索引的 mapping
+
+#### es.indices.delete(index...)
+
+删除一个索引
+
+#### es.indices.get_mapping(index)
+
+返回一个索引的 mapping
+
+#### es.indices.put_mapping(index, body, ...)
+
+更新一个索引的 mapping
+
+### 批量操作 
+
+在 es 的 helpers 中提供了一个 bulk, 也就是批量的 API 用于批量操作。语法是：
+
+```py
+from elasticsearch.helpers import bulk, parallel_bulk 
+
+bulk(es, actions)
 ```
 
-### Exceptions
+其中 es 是一个 es 的客户端，而 actions 是一个数组，或者 iterable, 其中的每个元素是：
 
-TransportError	4XX
-NotFound	404
-Conflict	409
-BadRequest	400
+```json
+{
+  "_op_type": "delete", // index/create/delete/update, 默认是 index
+  "_index": "index-name",  // 索引名字
+  "_id": 42,
+  "doc": {...}
+}
+```
+
+### 异常
+
+一般情况下，直接 catch 住基类错误就行了
+
+- ImproperlyConfigured 
+- ElasticsearchException
+  - SerializationError, json 序列化错误
+  - TransportError
+    - ConnectionError 
+    - NotFoundError, 文档不存在，对应 404
+    - ConflictError, 文档和缩影冲突，对应 409
+    - RequestError, 对应 400
+    - AuthenticationError, 对应 401
+    - AuthorizationError, 对应 403
 
 ## 参考
 
@@ -391,3 +484,5 @@ BadRequest	400
 5. https://elasticsearch-py.readthedocs.io/en/master/api.html
 6. https://www.elastic.co/blog/phrase-Queries-a-world-without-stopwords
 7. https://www.elastic.co/guide/en/elasticsearch/reference/current/built-in-users.html#set-built-in-user-passwords
+8. https://stackoverflow.com/questions/16712642/elasticsearch-enum-field
+9. [smartcn vs ik](https://gist.github.com/qiulang/621ccd3e69e68536d9c5236c4b31aed8)

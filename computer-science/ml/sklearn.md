@@ -8,9 +8,9 @@ Modified: 2020-05-16T11:56:16
 wp_id: 481
 -->
 
-前一阵看了一个叫做 [莫烦Python][1] 的教程，还有 [sklearn的官方教程][2] 初步了解了一下 sklearn 的基本概念，不过教程毕竟有些啰嗦，还是自己记录一下关键要点备忘。
+前一阵看了一个叫做 [莫烦 Python][1] 的教程，还有 [sklearn 的官方教程][2] 初步了解了一下 sklearn 的基本概念，不过教程毕竟有些啰嗦，还是自己记录一下关键要点备忘。
 
-# 机器学习要解决的问题
+## 机器学习要解决的问题
 
 ## 什么是机器学习？
 
@@ -20,9 +20,9 @@ sklearn 给了一个定义
 
 翻译过来：
 
-总的来说，“学习问题”通过研究一组 n 个样本的数据来预测未知数据的属性。比如说，如果每个样本都不止包含一个数字，而是多维的向量，那么就称它为有多个feature属性。
+总的来说，“学习问题”通过研究一组 n 个样本的数据来预测未知数据的属性。比如说，如果每个样本都不止包含一个数字，而是多维的向量，那么就称它为有多个 feature 属性。
 
-## 问题
+### 要解决的问题
 
 机器学习的方法不外乎这几类，现在自己用到的应该是分类比较多。
 
@@ -40,13 +40,11 @@ sklearn 给了一个定义
 
 ![sklearn-leanr cheatsheet](http://scikit-learn.org/stable/_static/ml_map.png)
 
-# sklearn 的数据库
+## sklearn 的数据库
 
 sklearn 为了方便学习自带了一些数据库，可以说是非常方便了。包括了 iris 花瓣数据库，手写数字数据库等。这些例子可以说相当于编程语言的 hello world 或者是图形学届的 utah teapot 了。
 
 除了真实的数据集，还可以使用`datasets.make_*`系列函数来直接生成一些数据集用来测试。
-
-代码：
 
 ```py
 >>> from sklearn import datasets
@@ -64,17 +62,17 @@ sklearn 为了方便学习自带了一些数据库，可以说是非常方便了
 array([0, 1, 2, ..., 8, 9, 8])
 ```
 
-其中data属性是一个二维数组，格式是`(n_samples, n_features)`.
+其中 data 属性是一个二维数组，格式是`(n_samples, n_features)`.
 
 关于如何载入外部数据库，可以看这里，实际上我也还没看，科科
 
-# 学习与预测
+## 学习与预测
 
 以识别手写数字为例，我们要做的是根据图像识别出数字是什么来。我们需要 *fit* （训练）出来一个 estimator，然后用来 *predict* （预测）未知数据的类型。在 sklearn 中，一个 `estimator` 就是一个实现了 `fit` 和 `predict` 方法的 object。estimator 常用的属性还有 `get_params`, `score` 等。
 
 比如我们使用支持向量机模型：
 
-```
+```py
 >>> from sklearn import svm
 >>> classifier = svm.SVC(gamma=0.001, C=100.)
 
@@ -96,19 +94,18 @@ array([8])  # 得出的结果是 8
 
 刚刚的例子是使用前面的数据做训练，然后识别了最后一个数字，其实我们还可以使用 sklearn 自带的 `train_test_split` 函数来分割数据
 
-```
+```py
 from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(
     iris_X, iris_y, test_size=0.3)
 
-# 注意其中训练数据被sklearn打乱了. 在机器学习中, 数据比较乱是比较好的, 算法其实也一样, 数组是乱的最好.
+# 注意其中训练数据被 sklearn 打乱了。在机器学习中，数据比较乱是比较好的，算法其实也一样，数组是乱的最好。
 ```
-
 
 完整的例子在这里：http://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html
 
-## 保存模型
+### 保存模型
 
 训练模型还是很花费时间的，我们不可能每次都去训练一个模型，所以一般都是离线训练好了之后，保存下模型来，然后在线调用。保存模型可是直接使用 Python 内置的 pickle 模块，但是一般模型数据都比较大，pickle 对大文件支持不好，最好采用 sklearn 自带的 joblib.
 
@@ -121,28 +118,29 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 很简单吧
 
-# 其他的一些技巧
+## 其他的一些技巧
 
-## 一些约定
+### 一些约定
 
 上面说到 sklearn 约定了 fit 和 predict 方法，还有一些其他的约定
 
 1. 所有的输入都会被转化为 float64 类型
-2. 一半习惯用 `X` 表示样本数据, `y` 表示预测结果
+2. 一半习惯用 `X` 表示样本数据，`y` 表示预测结果
 
-## 可视化
+### 可视化
 
-```
+```py
 >>> X, y = datasets.make_regression(n_samples=100, n_features=1, n_targets=1, noise=10)
 >>> plt.scatter(X, y)
 >>> plt.show()
 ```
 
-会有下面的图
+会有下面的图 
 
 ![](https://morvanzhou.github.io/static/results/sklearn/2_3_3.png)
 
-[1]: https://morvanzhou.github.io/tutorials/machine-learning/sklearn/1-1-why/
-[2]: http://scikit-learn.org/stable/tutorial/basic/tutorial.html
+## 参考
 
 1. https://sklearn.apachecn.org/docs/0.21.3/2.html
+2. https://morvanzhou.github.io/tutorials/machine-learning/sklearn/1-1-why/
+3. http://scikit-learn.org/stable/tutorial/basic/tutorial.html
