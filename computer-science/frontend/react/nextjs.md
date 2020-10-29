@@ -2,7 +2,7 @@
 
 <!--
 ID: 9b518166-0ded-4107-aca6-7174e2749ae0
-Status: draft
+Status: publish
 Date: 2020-09-14T15:46:27
 Modified: 2020-09-14T15:46:27
 wp_id: 2028
@@ -18,7 +18,7 @@ yarn add next
 
 把 package.json 中的 scripts 替换掉
 
-```
+```json
 "scripts": {
   "dev": "next dev",
   "build": "next build",
@@ -104,7 +104,7 @@ export default function Button() {
 }
 ```
 
-另一种方式是使用 styled-jsx, 也就是把 CSS-in-JS 的方式, 我个人还是喜欢这种方式一些. 但是这种不好在 VSCode 中直接显示调色板.
+另一种方式是使用 styled-jsx, 也就是把 CSS-in-JS 的方式，我个人还是喜欢这种方式一些。但是这种不好在 VSCode 中直接显示调色板。
 
 ```jsx
 <style jsx>{`
@@ -113,7 +113,6 @@ export default function Button() {
   }
 `}</style>
 ```
-
 
 ## 静态文件
 
@@ -133,15 +132,9 @@ nextjs 中的链接是这样的：
 
 ## 外部接口
 
-
-
-
-
 ## 错误页面
 
 next.js 可以自定义 404 和 500 错误页面
-
-
 
 ## 参考
 

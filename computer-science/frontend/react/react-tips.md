@@ -12,8 +12,9 @@ wp_id: 2070
 
 把当前目录添加到搜索路径中：
 
+.env 文件
+
 ```
-# .env 文件
 NODE_PATH=src/
 ```
 
@@ -29,15 +30,17 @@ useEffect(fucntion() {
 }, [])
 ```
 
-## 何时获取数据
+## JSX
 
-对于页面组件，直接在组件中使用 useEffect(fn, []) 加载数据就好了，对于需要动态增删的数据，使用 Redux 比较合适。
+使用循环：
 
-### 问题
-
-- 在 useEffect 中获取数据之后触发 action, 还是通过触发一个 action 来获取数据。
-- 页面跳转/组件卸载时，是否要删除上一个页面的数据
-- 
+```jsx
+<tbody>
+  {[...Array(10)].map((x, i) =>
+    <ObjectRow key={i} />
+  )}
+</tbody>
+```
 
 ## 参考
 

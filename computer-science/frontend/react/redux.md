@@ -1,24 +1,26 @@
-# redux notes
+# 从消息队列的角度来理解 Redux
 
 <!--
 ID: b0b68aad-e324-4463-b947-b08cec465488
-Status: draft
+Status: publish
 Date: 2020-05-28T14:09:32
 Modified: 2020-05-28T14:09:32
 wp_id: 1193
 -->
 
-redux 的文档是非常差的。它只写了 What 和 How, 而没有写 Why. 这就让初学者感到非常地迷惑，实际上它只要提到一下 "Event Bus" 这个词就非常容易理解了，非要上来就讲什么 Action/Store/Reducer/SingleSourceOfTruth 之类的。根据最高指示：代码是用来读的，不是用来装逼的，俗称 "码读不装", 那么我们这里先来补上 redux 的 Why.
+在 React 中，组件之间是不能互相通信的，数据只能自上而下流动。所以必须把状态放在最高层的组件中。复杂一点的页面肯定会导致状态越提越高，所以最终还是需要一个单独的状态存储——redux。
+
+Redux 的文档是非常差的。它只写了 What 和 How, 而没有写 Why. 他只说了自己是个状态存储，却不说为什么需要其他的东西，这就让初学者感到非常地迷惑，实际上它只要提到一下 "Event Bus" 这个词就非常容易理解了，非要上来就讲什么 Action/Store/Reducer/SingleSourceOfTruth 之类的。根据最高指示：**代码是用来读的，不是用来装逼的，俗称 "码读不装"**, 那么我们这里先来补上 redux 的 Why.
 
 ## Why Redux?
 
-redux 本质上来说就是一个 Event Bus, 或者 Message Queue. [这两篇](https://www.zhihu.com/question/63726609/answer/212357616)[文章](https://www.zhihu.com/question/63726609/answer/934233429) 写得非常好了。
+Redux 本质上来说就是一个 Event Bus, 或者 Message Queue. React 组件之间需要通信，如果让他们之间互相访问，那么就是一个 `O(N^2)` 的复杂度，而如果让他们通过一个中间组件，也就是 Redux 通信，那么复杂度就大大降低了，更重要的是，代码更清晰了。当然，Redux 不只是负责他们之间的通信，而且是把状态存储了下来。[这两篇](https://www.zhihu.com/question/63726609/answer/212357616) [文章](https://www.zhihu.com/question/63726609/answer/934233429) 写得非常好了。
 
-## What
+## What is Redux?
 
 Redux 里的概念特别多，不过知道了 EventBus, 就都非常好理解了，这里先列出来：
 
-- store, 存放状态的唯一容器
+- store, 存放状态的唯一容器，类似于消息队列的 broker.
 - reducer, 就是用来处理消息的函数，其实一般叫做 handler, 起个 reducer 的名字好像就函数式了，瞬间高大上加逼格高了起来。这个函数签名是 function(state, action) -> new_state.
 - action 和 dispatch, Action 其实就是消息总线里面的消息或者说事件，分发 Action, 其实不就是生产者么？
 - actionCreator, actionCreator 就是用来创建 Action 的。Action 不过就是一个 {type, value} 的字典罢了。function xxxCreator() -> action 就叫做一个 actionCreator
@@ -68,9 +70,9 @@ let store = createStore(reducers)
 
 这里需要注意的是，都 2020 年了，我们自然要用 hooks 了，所以网上好多还在讲 connect 的教程可以不用看了。几个常用的钩子：
 
-- useSelector, 顾名思义，用来从 store 中选取需要的状态，相当于 consume
-- useDispatch, 用来 dispatch action, 相当于 produce
-- useStore, 这个明确说了不推荐用
+- useSelector, 顾名思义，用来从 store 中选取需要的状态，相当于消费者 consume
+- useDispatch, 用来 dispatch action, 相当于生产者 produce
+- useStore, 这个文档里明确说了不推荐用
 
 ```js
 // yarn add react-redux
@@ -99,11 +101,18 @@ const dispatch = useDispatch()
 
 ## 何时发送数据请求？
 
+如果是一个组件的内部数据，那么没必要在 redux 中保存状态，也就是使用 useState 就好了。获取数据直接在 useEffect 中 fetch 数据，然后 setState 就可以了。
+
+对于页面组件，直接在组件中使用 useEffect(fn, []) 加载数据就好了，对于需要动态增删的数据，使用 Redux 比较合适。
+
+### 问题
+
+- 在 useEffect 中获取数据之后触发 action, 还是通过触发一个 action 来获取数据。
+- 页面跳转/组件卸载时，是否要删除上一个页面的数据
+
 对于需要获取数据的操作，一般需要三个 Action, 分别是 `FETCH_XXX_BEGIN/SUCCESS/FAILURE`.
 
 在 class-based React 中，一般是在 ComponentDidMount 周期中调用加载数据的逻辑，我们现在自然是使用 useEffect 的这个钩子来实现。
-
-在老的 app 中，需要使用 connect 和 mapStateToProps/mapDispathToProps 函数，本质上和 useSelector/useDispatch 是一样的。
 
 ## 设计 redux state tree
 
@@ -127,6 +136,39 @@ const dispatch = useDispatch()
 
 只要分着放 actions 和 reducers 两个目录就可以了，其实没多大要求。
 
+## 以前的笔记
+
+如果有一个层级很深的 react app 的话，管理 state 简直疯了。redux 就是一个用来管理全局状态的库，或者说，我更愿意称之为一种模式。
+
+```jsx
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+```
+
 ## 参考
 
 1. [Redux 的本质，Event bus](https://www.zhihu.com/question/63726609/answer/934233429)
@@ -144,4 +186,12 @@ const dispatch = useDispatch()
 
 1. https://stackoverflow.com/questions/51113369/how-to-dispatch-fetched-data-from-api
 2. https://stackoverflow.com/questions/39419237/what-is-mapdispatchtoprops
-3. 
+3. [You have to include dispatch in useEffect because of lint rules](https://stackoverflow.com/questions/56795607/what-are-the-cases-where-redux-dispatch-could-change)
+
+### 其他的状态管理
+
+1. https://github.com/jamiebuilds/unstated-next
+2. https://imweb.io/topic/5a453691a192c3b460fce36e
+3. https://news.ycombinator.com/item?id=12371248
+4. https://github.com/mobxjs/mobx/issues/199#issuecomment-221000954
+5. https://blog.rocketinsights.com/redux-vs-mobx/

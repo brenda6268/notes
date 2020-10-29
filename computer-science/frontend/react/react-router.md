@@ -1,4 +1,4 @@
-# react router
+# 使用 react router 实现前端路由
 
 <!--
 ID: 42353524-3502-4946-8ccf-e7efab874310
@@ -7,6 +7,8 @@ Date: 2020-10-29T17:08:08
 Modified: 2020-10-29T17:08:08
 wp_id: 2126
 -->
+
+首先安装
 
 ```
 yarn add react-router-dom

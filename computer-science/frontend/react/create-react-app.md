@@ -125,6 +125,8 @@ export default Header;
 import Button from 'components/Button';
 ```
 
+或者使用 NODE_PATH=src/
+
 ## 测试
 
 react 默认使用 jest 进行测试，所有以 `.test.js` 结尾的文件，或者所有在 `__tests__` 目录内部的 js 文件都会被当做测试文件。
@@ -159,6 +161,5 @@ it('renders without crashing', () => {
 // package.json 中
 proxy: "http://locahost:4000"
 ```
-
 
 ## 参考
